@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/* Reset */
+
+body{
+    font-family: sans-serif;
+}
+
+#nav-bar{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Navbar background and layout */
+.navbar{
+    background-image: linear-gradient(to right, #a517ba, #5f1782);
+    padding: 0 !important;
+}
+
+.navbar-brand img{
+    height: 80px;
+    padding-left: 20px;
+    color: white;
+    margin-top: 20px;
+
+}
+
+.navbar-nav{
+        padding-right: 10px;
+}
+.navbar-nav a{
+    color: #c6c6c6!important;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.navbar-toggler{
+    outline: none !important;
+    border: 0px !important;
+    
+}
+
+.fa-bars{
+    color: #c6c6c6;
+    font-size: 40px !important;
+}
+
+/* --------------------- banner section ------------------- */
+
+#banner{
+background-image: linear-gradient(to right, #a517ba, #5f1782);
+color: #c6c6c6;
+padding-top: 0%;
+}
+
+#banner a{
+color: white;
+text-decoration: none !important;
+}
+
+.project-title{
+    font-size: 40px;
+    font-weight: 600;
+    padding: 0px;
+    margin-top: 100px;
+}
+.discription{
+    font-size: 15px;
+}
+
+.play-btn{
+    width: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-right:  0px;
+}
+
+.cooworking{
+    width: 120%;
+    padding-right: 20px;
+    padding-left: 0px;
+
+}
+
+.wave-img{
+    
+    width: 100%;
+}
+
+/* --------------------- Sevrices ------------------- */
+
+#services{
+    padding: 80px 0;
+}
+
+.service-img{
+    width: 150px;
+    margin-top: 20px;
+}
+
+.services{
+    padding: 20px;
+
+}
+
+.services h4{
+    padding: 5px;
+    margin-top: 25px;
+    text-transform: uppercase;
+
+}
+
+.title::before{
+    content: '';
+    background: #7b1798;
+    height: 5px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(63px);
+
+}
+
+
+
+
+
+
+
+
+
+
