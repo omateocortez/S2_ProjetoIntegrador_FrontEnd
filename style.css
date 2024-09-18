@@ -17,7 +17,8 @@ body{
 /* Navbar background and layout */
 .navbar{
     background-image: linear-gradient(to right, #a517ba, #5f1782);
-    padding: 0 !important;
+    padding-top: 0 !important;
+    margin-top: 0px;
 }
 
 .navbar-brand img{
@@ -63,13 +64,14 @@ text-decoration: none !important;
 }
 
 .project-title{
-    font-size: 40px;
+    font-size: 60px;
     font-weight: 600;
     padding: 0px;
     margin-top: 100px;
 }
 .discription{
     font-size: 15px;
+    padding: 3px;
 }
 
 .play-btn{
@@ -77,12 +79,13 @@ text-decoration: none !important;
     margin-bottom: 20px;
     margin-top: 20px;
     margin-right:  0px;
+    margin-left: -8px;
 }
 
 .cooworking{
     width: 120%;
     padding-right: 20px;
-    padding-left: 0px;
+    margin-top: 90px;
 
 }
 
@@ -123,8 +126,48 @@ text-decoration: none !important;
     margin-right: auto;
     display: block;
     transform: translateY(63px);
-
 }
+
+.title::after{
+    content: '';
+    background: #7b1798;
+    height: 10px;
+    width: 65px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(8px);
+}
+
+#services .btn-primary{
+    font-size: 23px;
+    height: 50px;
+    width: 250px;
+    box-shadow: none;
+    padding: 8px 25px;
+    margin-top: 18px;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #a517ba, #5f1782);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
