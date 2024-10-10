@@ -3,13 +3,64 @@
     padding: 0;
 }
 /* Reset */
-
-body{
-    font-family: sans-serif;
-}
+body {
+    margin-top: 40px; /* This margin just makes the text easier to read. You can remove it if you want since it can mess with your other styles. */
+  }
+  
+  body::before {
+    content: "XS";
+    color: red;
+    font-size: 2rem;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+  }
+  
+  /* This box class is purely used for explaining how the bootstrap grid system works. */
+  .box {
+    background-color: lightblue;
+    border: 1px solid blue;
+    min-height: 50px;
+    font-size: 2rem;
+    position: sticky;
+    padding: 10px;
+  }
+  
+  @media (min-width: 576px) {
+    body::before {
+      content: "SM";
+    }
+  }
+  
+  @media (min-width: 768px) {
+    body::before {
+      content: "MD";
+    }
+  }
+  
+  @media (min-width: 992px) {
+    body::before {
+      content: "LG";
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    body::before {
+      content: "XL";
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    body::before {
+      content: "XXL";
+    }
+  }
 
 #nav-bar{
-    position: sticky;
+    position: top;
+    padding-top: 65px;
     top: 0;
     z-index: 10;
 }
@@ -33,7 +84,7 @@ body{
         padding-right: 10px;
 }
 .navbar-nav a{
-    color: #c6c6c6!important;
+    color: #e0e0e0!important;
     font-weight: 600;
     text-align: right;
     padding-right: 20px;
@@ -46,7 +97,7 @@ body{
 }
 
 .fa-bars{
-    color: #c6c6c6;
+    color: #e0e0e0;
     font-size: 40px !important;
 }
 
@@ -54,7 +105,7 @@ body{
 
 #banner{
 background-image: linear-gradient(to right, #a517ba, #5f1782);
-color: #c6c6c6;
+color: #e0e0e0;
 padding-top: 0%;
 }
 
