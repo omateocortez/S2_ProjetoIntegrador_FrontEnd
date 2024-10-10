@@ -1,0 +1,172 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+/* Reset */
+body {
+    margin-top: 40px; /* This margin just makes the text easier to read. You can remove it if you want since it can mess with your other styles. */
+  }
+  
+  body::before {
+    content: "XS";
+    color: red;
+    font-size: 2rem;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+  }
+  
+  @media (min-width: 576px) {
+    body::before {
+      content: "SM";
+    }
+  }
+  
+  @media (min-width: 768px) {
+    body::before {
+      content: "MD";
+    }
+  }
+  
+  @media (min-width: 992px) {
+    body::before {
+      content: "LG";
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    body::before {
+      content: "XL";
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    body::before {
+      content: "XXL";
+    }
+  }
+
+#nav-bar{
+    position: top;
+    padding-top: 65px;
+    top: 0;
+    z-index: 10;
+}
+
+/* Navbar background and layout */
+.navbar{
+    background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
+    padding-top: 0 !important;
+    margin-top: 0px;
+}
+
+.navbar-brand img{
+    height: 110px;
+    padding-left: 20px;
+    color: white;
+    margin-top: 10px;
+
+}
+
+
+.navbar-nav a{
+  color: white !important;
+  font-weight: 700;
+  text-align: center;
+  margin-left: 20px;
+  font-size: 80%;
+}
+
+a.mini-donate{
+  background-color: #D6ED4B;
+  border-radius: 12px !important;
+  color: #253847 !important;
+  margin-right: 15px;
+}
+
+.navbar-toggler{
+    outline: none !important;
+    border: 0px !important;
+    font-weight: 300;
+    margin-right: 0px;
+
+}
+
+.navbar-toggler .toggler{
+  font-size: 50px;
+  color: white;
+}
+
+
+/* --------------------- banner section ------------------- */
+
+#banner{
+background-image: linear-gradient(to right, #2B2F33, #29374C, #234B79);
+color: #fff;
+padding-top: 0%;
+}
+
+
+.project-title{
+    font-size: 60px;
+    font-weight: 600;
+    padding: 0px;
+    margin-top: 50px;
+}
+
+.bricks{
+    width: 100%;
+    padding-right: 20px;
+    margin-top: 90px;
+
+}
+
+.wave-img{
+  width: 100%;
+  margin-top: 40px;
+}
+
+
+#donate .big-donate{
+    font-size: 23px;
+    font-weight: 600;
+    color: #253847;
+    height: 50px;
+    width: 210px;
+    box-shadow: none;
+    padding: 8px 25px;
+    margin-top: 18px;
+    border: none;
+    border-radius: 18px;
+    background-color: #D6ED4B;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
