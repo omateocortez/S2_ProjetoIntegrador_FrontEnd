@@ -1,0 +1,169 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: poppins;
+}
+
+body::before {
+  content: "XS";
+  color: red;
+  font-size: 2rem;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+@media (min-width: 576px) {
+  body::before {
+    content: "SM";
+  }
+}
+
+@media (min-width: 768px) {
+  body::before {
+    content: "MD";
+  }
+}
+
+@media (min-width: 992px) {
+  body::before {
+    content: "LG";
+  }
+}
+
+@media (min-width: 1200px) {
+  body::before {
+    content: "XL";
+  }
+}
+
+@media (min-width: 1400px) {
+  body::before {
+    content: "XXL";
+  }
+}
+
+.box {
+  background-color: lightblue;
+  border: 1px solid blue;
+  min-height: 50px;
+  font-size: 2rem;
+  position: sticky;
+  padding: 10px;
+}
+
+
+#nav-bar{
+  position: sticky;
+  padding-top: 70px;
+  top: 0;
+  z-index: 10;
+}
+
+/* Navbar background and layout */
+.navbar{
+  background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
+}
+
+.navbar-brand img{
+  height: 80px;
+  padding-left: 15px;
+  padding-top: 0px;
+  color: white;
+}
+
+.navbar-nav a{
+color: white;
+font-weight: 600;
+text-align: right;
+font-size: 95%;
+padding-right: 18px;
+margin-top: 7px;
+}
+
+a.contato{
+margin-right: 0px !important;
+}
+
+a.mini-donate{
+background-color: #D6ED4B;
+border-radius: 18px;
+border: 3px solid;
+color: #253847 !important;
+margin-top: 3px !important;
+}
+
+a.mini-donate:hover{
+background-color: #253847 !important;
+color: #D6ED4B !important;
+border: 3px solid #D6ED4B;
+}
+
+
+.navbar-toggler{
+  outline: none !important;
+  border: 0px !important;
+  font-weight: 300;
+  margin-right: 0px;
+}
+
+.navbar-toggler .toggler{
+font-size: 50px;
+color: white;
+align-items: center;
+}
+
+
+/* --------------------Form----------------- */
+/* Configura o container com altura mínima de 100vh para garantir que ocupe a tela toda */
+#login {
+  background-image: url(imgs/pedreiros.png);
+  background-size: cover;
+  background-position: center;
+  min-height: 80vh; /* Garante que o container ocupe a altura total da janela */
+  display: flex;
+  align-items: center; /* Centraliza verticalmente a caixa de vidro */
+  justify-content: center; /* Centraliza horizontalmente a caixa de vidro */
+}
+
+/* Espaço entre a navbar e a caixa de vidro */
+.glass {
+  background-color: transparent; /* Fundo semi-transparente */
+  border-radius: 30px; /* Bordas arredondadas */
+  backdrop-filter: blur(5px);
+  padding: 30px; /* Espaçamento interno */
+  border: 3px solid #2f3e4f67;
+  color: white; /* Texto branco para contraste */
+  font-size: larger;
+  margin-top: 50px; /* Espaço entre a caixa de vidro e a navbar */
+  margin-bottom: 50px; /* Espaço entre a caixa de vidro e o rodapé */
+}
+
+
+.row .botoes{
+  margin-top: 10px;
+}
+
+.cadastrar{
+  font-size: larger;
+  font-weight: 300;
+  color: black;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+.entrar{
+  font-size: larger;  
+  color: #253847;
+  font-weight: 400;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #D6ED4B;
+  border-radius: 10px;
+}

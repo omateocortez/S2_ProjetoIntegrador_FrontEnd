@@ -1,110 +1,117 @@
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  font-family: poppins;
 }
-/* Reset */
-body {
-    margin-top: 40px; /* This margin just makes the text easier to read. You can remove it if you want since it can mess with your other styles. */
-  }
-  
+
+body::before {
+  content: "XS";
+  color: red;
+  font-size: 2rem;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+@media (min-width: 576px) {
   body::before {
-    content: "XS";
-    color: red;
-    font-size: 2rem;
-    font-weight: bold;
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 10px;
+    content: "SM";
   }
-  
-  @media (min-width: 576px) {
-    body::before {
-      content: "SM";
-    }
+}
+
+@media (min-width: 768px) {
+  body::before {
+    content: "MD";
   }
-  
-  @media (min-width: 768px) {
-    body::before {
-      content: "MD";
-    }
+}
+
+@media (min-width: 992px) {
+  body::before {
+    content: "LG";
   }
-  
-  @media (min-width: 992px) {
-    body::before {
-      content: "LG";
-    }
+}
+
+@media (min-width: 1200px) {
+  body::before {
+    content: "XL";
   }
-  
-  @media (min-width: 1200px) {
-    body::before {
-      content: "XL";
-    }
+}
+
+@media (min-width: 1400px) {
+  body::before {
+    content: "XXL";
   }
-  
-  @media (min-width: 1400px) {
-    body::before {
-      content: "XXL";
-    }
-  }
+}
 
 #nav-bar{
-    position: top;
-    padding-top: 65px;
-    top: 0;
-    z-index: 10;
+  position: top;
+  padding-top: 70px;
+  top: 0;
+  z-index: 10;
 }
 
 /* Navbar background and layout */
 .navbar{
-    background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
-    padding-top: 0 !important;
-    margin-top: 0px;
+  background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
 }
 
 .navbar-brand img{
-    height: 110px;
-    padding-left: 20px;
-    color: white;
-    margin-top: 10px;
-
-}
-
-
-.navbar-nav a{
-  color: white !important;
-  font-weight: 700;
-  text-align: center;
-  margin-left: 20px;
-  font-size: 80%;
-}
-
-a.mini-donate{
-  background-color: #D6ED4B;
-  border-radius: 12px !important;
-  color: #253847 !important;
-  margin-right: 15px;
-}
-
-.navbar-toggler{
-    outline: none !important;
-    border: 0px !important;
-    font-weight: 300;
-    margin-right: 0px;
-
-}
-
-.navbar-toggler .toggler{
-  font-size: 50px;
+  height: 85px;
+  padding-left: 15px;
+  padding-top: 0px;
   color: white;
 }
 
+.navbar-nav a{
+color: white;
+font-weight: 600;
+text-align: right;
+font-size: 95%;
+padding-right: 20px;
+margin-top: 7px;
+}
+
+a.contato{
+margin-right: 0px !important;
+}
+
+a.mini-donate{
+background-color: #D6ED4B;
+border-radius: 18px;
+border: 3px solid;
+color: #253847 !important;
+margin-top: 3px !important;
+}
+
+a.mini-donate:hover{
+background-color: #253847 !important;
+color: #D6ED4B !important;
+border: 3px solid #D6ED4B;
+}
+
+
+.navbar-toggler{
+  outline: none !important;
+  border: 0px !important;
+  font-weight: 300;
+  margin-right: 0px;
+}
+
+.navbar-toggler .toggler{
+font-size: 50px;
+color: white;
+align-items: center;
+}
 
 /* --------------------- banner section ------------------- */
 
 #banner{
-background-image: linear-gradient(to right, #2B2F33, #29374C, #234B79);
+background-image: url(imgs/cimentao.jpeg);
+background-size: cover;
+background-position: 50% 25%;
 color: #fff;
 padding-top: 0%;
 }
@@ -126,7 +133,7 @@ padding-top: 0%;
 
 .wave-img{
   width: 100%;
-  margin-top: 40px;
+  margin-top: 280px;
 }
 
 
@@ -135,19 +142,21 @@ padding-top: 0%;
     font-weight: 600;
     color: #253847;
     height: 50px;
-    width: 210px;
-    box-shadow: none;
-    padding: 8px 25px;
+    width: 250px;
     margin-top: 18px;
-    border: none;
+    border: 3px solid;
+    border-color: #234B79;
     border-radius: 18px;
     background-color: #D6ED4B;
+    cursor: pointer;
 }
 
 
-
-
-
+#donate .big-donate:hover{
+background-color: #253847;
+color: #D6ED4B;
+border: 3px solid #D6ED4B;
+}
 
 
 
