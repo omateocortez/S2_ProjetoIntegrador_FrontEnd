@@ -166,15 +166,53 @@ border: 3px solid #D6ED4B;
 
 
 
+/* -------------- Footer -------------- */
+#footer{
+  background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
+  color: #fff;
+
+}
+
+.footer-wave{
+  width: 100%;
+}
+
+.footer-title{
+  font-weight: 300;
+  margin-top: 40px;
+}
+
+.email-label{
+  font-size: 30px;
+}
+
+.icones{
+height: 90px;
+}
 
 
+#login input::placeholder{
+color: rgb(188, 188, 188);
+font-weight: 100;
+}
 
+.inscreverse{
+background-color: #D6ED4B;
+border-radius: 10px;
+border: 3px solid;
+color: #253847 !important;
+padding: 8px;
+font-size: larger;
+transition: all 0.2s ease;
+}
 
+.inscreverse:hover{
+background-color: #253847 !important;
+color: #D6ED4B !important;
+border: 3px solid #D6ED4B;
+}
 
-
-
-
-
-
-
-
+.space-footer{
+height: 80px;
+background-color: transparent;
+}

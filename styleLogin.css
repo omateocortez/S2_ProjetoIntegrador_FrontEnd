@@ -46,18 +46,8 @@ body::before {
   }
 }
 
-.box {
-  background-color: lightblue;
-  border: 1px solid blue;
-  min-height: 50px;
-  font-size: 2rem;
-  position: sticky;
-  padding: 10px;
-}
-
-
 #nav-bar{
-  position: sticky;
+  position: top;
   padding-top: 70px;
   top: 0;
   z-index: 10;
@@ -69,7 +59,7 @@ body::before {
 }
 
 .navbar-brand img{
-  height: 80px;
+  height: 85px;
   padding-left: 15px;
   padding-top: 0px;
   color: white;
@@ -80,7 +70,7 @@ color: white;
 font-weight: 600;
 text-align: right;
 font-size: 95%;
-padding-right: 18px;
+padding-right: 20px;
 margin-top: 7px;
 }
 
