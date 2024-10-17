@@ -1,4 +1,5 @@
 
+
 * {
     margin: 0;
     padding: 0;
@@ -53,7 +54,7 @@
     z-index: 10;
   }
   
-  /* ----------------------- Navbar ---------------------- */
+  /* Navbar background and layout */
   .navbar{
     background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
   }
@@ -105,94 +106,30 @@
   color: white;
   align-items: center;
   }
-  
-  /* ------------------ Body ------------------- */
-  .NossaHistoria{
-    font-size: 50px;
-    font-weight: 600;
-    padding: 0px;
-    margin-top: 50px;
+
+
+
+  /* -------------------- Corpo --------------------- */
+  .image-container {
+    width: 100%; /* Largura total do contêiner */
+    height: 200px; /* Altura fixa */
+    overflow: hidden; /* Oculta qualquer parte da imagem que ultrapasse o contêiner */
+    display: flex; /* Flexbox para centralizar a imagem */
+    flex-direction: column; /* Coloca o título acima da imagem */
+    align-items: center; /* Alinha horizontalmente ao centro */
+    justify-content: center; /* Alinha verticalmente ao centro */
+    background-color: #f8f9fa; /* Cor de fundo (opcional) */
+    border: 3px solid #234B79; /* Borda (opcional) */
+    border-radius: 25px; /* Borda arredondada */
 }
 
-.criancas{
-    width: 100%;
-    margin-bottom: 40px;
-    margin-top: 20px;
+.image-container h3 {
+    padding-top: 50px;
 }
 
-.subtitle{
-    
-  font-size: 30px;
-  font-weight: 500;
-  color: #234B79;
-}
-
-.texto{
-  text-align: justify;
-  font-size: 15px;
-  font-weight: 400;
-}
-.points{
-  padding-top: 5px;
-  text-align: justify;
-  font-size: 15px;  
-  font-weight: 400;
-}
-
-/* -------------- Footer -------------- */
-#footer{
-  background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
-  color: #fff;
-
-}
-
-.footer-wave{
-  width: 100%;
-}
-
-.footer-title{
-  font-weight: 300;
-  margin-top: 40px;
-}
-
-.email-label{
-  font-size: 30px;
-}
-
-.icones{
-height: 90px;
-}
-
-#login input::placeholder{
-color: rgb(188, 188, 188);
-font-weight: 100;
-font-size: 120%;
-}
-
-.inscreverse{
-background-color: #D6ED4B;
-border-radius: 10px;
-border: 3px solid;
-color: #253847 !important;
-padding: 8px;
-font-size: larger;
-transition: all 0.2s ease;
-height: 55px;
-width: 100%;
-}
-
-.larger-input {
-  height: 50px; /* Ajuste conforme a altura desejada */
-  font-size: 1.2rem; /* Opcional: aumenta o tamanho da fonte proporcionalmente */
-}
-
-.inscreverse:hover{
-background-color: #253847 !important;
-color: #D6ED4B !important;
-border: 3px solid #D6ED4B;
-}
-
-.space-footer{
-height: 80px;
-background-color: transparent;
+.image-container img {
+    max-height: 100%; /* Limita a altura máxima da imagem ao contêiner */
+    max-width: 100%; /* Limita a largura máxima da imagem ao contêiner */
+    object-fit: contain; /* Garante que a imagem se encaixe no contêiner */
+    padding-bottom: 50px;
 }
