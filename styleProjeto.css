@@ -186,17 +186,15 @@
   font-size: large;
 }
 
-.caixa-branca{
+.caixa{
   border-radius: 45px;
   padding: 20px;
   margin-bottom: 5px;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
 }
-.caixa-branca:hover{
-  background-color: ;
-}
-.caixa-cinza{
-  background-color: rgb(224, 224, 224);
-  border-radius: 45px;
-  padding: 20px;
-  margin-bottom: 10px;
+.caixa:hover{
+  background-color: #e6e6e6;
+  transition: all 0.3s ease;
+  border: 3px dashed #234B79;
 }
