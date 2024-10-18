@@ -14,7 +14,7 @@
 <body>
    <!------------------------------------------- NAVBAR  ----------------------------------->
    <!-- Navbar para telas grandes -->
-<nav class="navbar navbar-expand-sm sticky-top d-none d-lg-flex">
+<nav class="navbar navbar-expand-sm sticky-top d-none d-xl-flex">
     <div class="container-fluid">
         <a class="navbar-brand titulo" href="Home.html">
             <img src="imgs/MnaMBranco.png" class="brand">
@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="NossaHistoria.html">Quem Somos</a>
+                    <a class="nav-link ms-1" aria-current="page" href="NossaHistoria.html">Quem Somos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">Projetos</a>
@@ -54,7 +54,7 @@
 </nav>
 
 <!-- Navbar para telas pequenas -->
-<nav class="navbar sticky-top d-lg-none">
+<nav class="navbar sticky-top d-xl-none">
     <div class="container-fluid">
         <a class="navbar-brand titulo" href="Home.html">
             <img src="imgs/MnaMBranco.png" class="brand">
@@ -117,7 +117,7 @@
     <section id="banner">
         <div class="container">
             <div class="row">
-                <div class="col-9 text-left">
+                <div class="col-10 text-left">
                     <h1 class="project-title">Mãos Na Massa</h1>
                     <p class="fs-5 descricao">Realizando sonhos, tijolo por tijolo!</p>
                 </div>
@@ -137,9 +137,9 @@
     
     <section>
         <div id="corpo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-11 justify-content-center">
                         <h1 class="text-center subtitle">Nossa Missão</h1>
                         <p class="text-center texto">Promover a dignidade e a inclusão social por meio da 
                             construção e adaptação de moradias e espaços comunitários para pessoas 
@@ -168,52 +168,66 @@
                             <li>Resiliência: Enfrentamos desafios com determinação e otimismo, sempre buscando soluções inovadoras que promovam o bem-estar e a inclusão social de nossos beneficiários.</li>
                         </ul>
                     
+                        <!---------------------- Carrosel ---------------------->
 
                         <h1 class="text-center subtitle">Nossos Projetos</h1>
-                        <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="imgs/tiazinhaPNG.jpeg" class="d-block w-100" alt="...">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="imgs/tiazinhaPNG.jpeg" class="d-block w-100" alt="...">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="imgs/tiazinhas" class="d-block w-100" alt="...">
-                              </div>
+                        <div id="carouselExampleCaptions" class="carousel slide mb-5" data-bs-ride="true" data-bs-touch="true">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="imgs/tiozinho.png" class="d-block w-100" alt="...">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h3 class="cid-luciane-title">Cid e Luciane</h3>
+                                        <h5>Conheça a história de Sid e Luciane, cuja vida foi transformada graças ao nosso trabalho.</h5>
+                                    </div>
+                                </div>
+                                <div class="carousel-item active">
+                                    <img src="imgs/tiozinho.png" class="d-block w-100" alt="...">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h3 class="cid-luciane-title">Cid e Luciane</h3>
+                                        <h5>Conheça a história de Sid e Luciane, cuja vida foi transformada graças ao nosso trabalho.</h5>
+                                    </div>
+                                </div>
+                                <div class="carousel-item active">
+                                    <img src="imgs/tiozinho.png" class="d-block w-100" alt="...">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h3 class="cid-luciane-title">Cid e Luciane</h3>
+                                        <h5>Conheça a história de Sid e Luciane, cuja vida foi transformada graças ao nosso trabalho.</h5>
+                                    </div>
+                                </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                            </div>
+                        </div>
+                        <!---------------------- End Carrosel ---------------------->   
+                        
+                        
+                        <div class="container">   
+                            <div class="row">    
+                                <div class="col py-5">
+                                    <h1 class="text-center">Aqui vai os patrocinadores</h1>
+                                </div>
+                            </div>
+                        </div>
 
-                    
-                    
-                    
+
+
+
                     </div>
-                </div>
+                </div>        
             </div>
         </div>
-
-
-
-
-
-
     </section>
-
-
-
-
-
-
-
-
 
 
 

@@ -99,16 +99,16 @@
 
 /* Estilo da Navbar para telas grandes */
 .navbar-expand-sm .nav-link {
-  font-size: 19px; 
+  font-size: 25px; 
   font-weight: 500;
   color: white;
-  margin-top: 7px;
+  margin-top: 5px;
   transition: all 0.3s ease;
 
 }
 .navbar-expand-sm .nav-link:hover{
   color: #D6ED4B;
-  padding-top: 2px;
+  padding-top: 1px;
   transition: all 0.3s ease;
 }
 /* Estilo apenas para o link "AJUDE AGORA" */
@@ -118,7 +118,7 @@
   border: 4px solid #253847 !important;
   border-radius: 25px !important;
   transition: all 0.s ease !important;
-  margin-top: 2px !important;
+  margin-top: 1px !important;
 }
 .navbar-nav .nav-item .doe-gg:hover{
   background-color: #253847 !important;
@@ -132,16 +132,17 @@
 
 
 /* Estilo da Navbar para telas pequenas */
-.d-lg-none .nav-link {
+.d-xl-none .nav-link {
   font-size: 25px;
   font-weight: 600;
   color: white; 
   transition: all 0.3s ease;
   padding-left: 10px;
 }
-.d-lg-none .nav-link:hover{
+.d-xl-none .nav-link:hover{
   color: #D6ED4B;
   padding-left: 25px;
+  font-size: 27px;
 }
 
 .voltar {
@@ -153,7 +154,7 @@
   color: #253847 !important;
   border: 4px solid #253847 !important;
   border-radius: 25px !important;
-  transition: all 0.s ease !important;
+  transition: all 0.3s ease !important;
   margin-top: 2px !important;
   text-align: center;
 }
@@ -196,7 +197,7 @@
 .points{
   padding-top: 5px;
   text-align: justify;
-  font-size: 15px;  
+  font-size: 30px;  
   font-weight: 400;
 }
 
