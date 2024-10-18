@@ -53,58 +53,114 @@
     z-index: 10;
   }
   
-  /* ----------------------- Navbar ---------------------- */
-  .navbar{
-    background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
-  }
-  
-  .navbar-brand img{
-    height: 85px;
-    padding-left: 15px;
-    padding-top: 0px;
-    color: white;
-  }
-  
-  .navbar-nav a{
+/* ---------------------------- NAVBAR ------------------------------- */
+.navbar{
+  margin-top: 50px;
+  background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
+}
+
+.titulo{
+  color: white !important;
+}
+
+.brand{
+  height: 80px;
+  width: 100%;
+}
+
+.offcanvas-header{
+  background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
+}
+.offcanvas-title{
   color: white;
-  font-weight: 600;
-  text-align: right;
-  font-size: 95%;
-  padding-right: 20px;
-  margin-top: 7px;
-  }
-  
-  a.contato{
-  margin-right: 0px !important;
-  }
-  
-  a.mini-donate{
-  background-color: #D6ED4B;
-  border-radius: 18px;
-  border: 3px solid;
-  color: #253847 !important;
-  margin-top: 3px !important;
-  }
-  
-  a.mini-donate:hover{
-  background-color: #253847 !important;
-  color: #D6ED4B !important;
-  border: 3px solid #D6ED4B;
-  }
-  
-  
-  .navbar-toggler{
-    outline: none !important;
-    border: 0px !important;
-    font-weight: 300;
-    margin-right: 0px;
-  }
-  
-  .navbar-toggler .toggler{
+  font-size: 70px;
+  font-weight: 800;
+}
+.offcanvas-body{
+  background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
+}
+
+.navbar-toggler{
+  padding: 0px !important;
+  margin-right: 10px;
+  outline: none !important;
+  border: 0px transparent !important;
+  font-weight: 300;
+}
+.navbar-toggler .toggler{
+  padding: 0px !important;
+  margin: 0px !important;
   font-size: 50px;
   color: white;
   align-items: center;
-  }
+}
+
+
+
+/* Estilo da Navbar para telas grandes */
+.navbar-expand-sm .nav-link {
+  font-size: 19px; 
+  font-weight: 500;
+  color: white;
+  margin-top: 7px;
+  transition: all 0.3s ease;
+
+}
+.navbar-expand-sm .nav-link:hover{
+  color: #D6ED4B;
+  padding-top: 2px;
+  transition: all 0.3s ease;
+}
+/* Estilo apenas para o link "AJUDE AGORA" */
+.navbar-nav .nav-item .doe-gg {
+  background-color: #D6ED4B !important;
+  color: #253847 !important;
+  border: 4px solid #253847 !important;
+  border-radius: 25px !important;
+  transition: all 0.s ease !important;
+  margin-top: 2px !important;
+}
+.navbar-nav .nav-item .doe-gg:hover{
+  background-color: #253847 !important;
+  color: #D6ED4B !important;
+  border: 4px solid #D6ED4B !important;
+  border-radius: 25px !important;
+  padding-top: 7px !important;
+  
+}
+
+
+
+/* Estilo da Navbar para telas pequenas */
+.d-lg-none .nav-link {
+  font-size: 25px;
+  font-weight: 600;
+  color: white; 
+  transition: all 0.3s ease;
+  padding-left: 10px;
+}
+.d-lg-none .nav-link:hover{
+  color: #D6ED4B;
+  padding-left: 25px;
+}
+.doe-pp {
+  background-color: #D6ED4B !important;
+  color: #253847 !important;
+  border: 4px solid #253847 !important;
+  border-radius: 25px !important;
+  transition: all 0.s ease !important;
+  margin-top: 2px !important;
+  text-align: center;
+}
+.doe-pp:hover{
+  transition: all 0.3s ease;
+  background-color: #253847 !important;
+  color: #D6ED4B !important;
+  border: 4px solid #D6ED4B !important;
+  border-radius: 25px !important;
+  padding-left: 10px !important;
+}
+/* ------------------------------- NAVBAR ------------------------- */
   
   /* ------------------ Body ------------------- */
   .NossaHistoria{
