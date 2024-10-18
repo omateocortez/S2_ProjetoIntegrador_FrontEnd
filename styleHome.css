@@ -137,6 +137,11 @@ body::before {
   color: #D6ED4B;
   padding-left: 25px;
 }
+
+.voltar {
+  font-size: 30px !important;
+  font-weight: 100 !important;
+}
 .doe-pp {
   background-color: #D6ED4B !important;
   color: #253847 !important;
