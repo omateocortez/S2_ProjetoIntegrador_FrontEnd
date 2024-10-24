@@ -95,7 +95,7 @@
   font-size: 22.5px; 
   font-weight: 500;
   color: white;
-  margin-top: 8;
+  margin-top: 10PX;
   transition: all 0.3s ease;
 }
 .navbar-expand-sm .nav-link:hover{
@@ -135,7 +135,7 @@
   border: 4px solid #253847 !important;
   border-radius: 25px !important;
   transition: all 0.s ease !important;
-  margin-top: 4px !important;
+  margin-top: 3px !important;
 }
 .navbar-nav .nav-item .doe-gg:hover{
   background-color: #253847 !important;
