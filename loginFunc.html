@@ -49,8 +49,8 @@
                     <img src="imgs/avatar.png" class="avatar">
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end menu">
-                    <li><a class="dropdown-item text-end menu-item" href="#">Portal do Doador</a></li>
-                    <li><a class="dropdown-item text-end menu-item" href="#">Portal do Colaborador</a></li>
+                    <li><a class="dropdown-item text-end menu-item" href="login.html">Portal do Doador</a></li>
+                    <li><a class="dropdown-item text-end menu-item" href="login.html">Portal do Colaborador</a></li>
                   </ul>
                 </li>
               </ul>
@@ -94,9 +94,22 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">FAQ</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Login
+                        </a>
+                        <ul class="dropdown-menu sidebar">
+                            <li><a class="dropdown-item item-sidebar" href="loginMem.html">Login de Voluntário</a></li>
+                            <li><a class="dropdown-item item-sidebar" href="loginMem.html">Login de Funcionário</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link doe-pp" aria-current="page" href="pick.html">COMO CONTRIBUIR</a>
                     </li>
+
+                    
+
+
                 </ul>
             </div>
         </div>
@@ -107,34 +120,99 @@
 
 
     <section id="login">
-        <div class="container text-center">
+        <div class="container mx-auto my-5">
             <div class="row">
                 <div class="col-11 col-md-10 col-lg-8 mx-auto glass">
+                    <h1 class="text-center mb-4 login-admin">Login Funcionário</h1>
                     <form>
-                        <div class="mb-2">
+                        <div class="mx-5 mb-2">
                             <label for="email" class="form-label">Endereço de E-mail</label>
-                            <input type="email" id="email" class="form-control text-center mx-auto w-75" placeholder="Digite seu e-mail">
+                            <input type="email" id="email" class="form-control" placeholder="Digite seu e-mail">
                         </div>
-                        <div class="mb-3">
+                        <div class="mx-5 mb-3">
                             <label for="Senha" class="form-label">Senha</label>
-                            <input type="password" id="Senha" class="form-control text-center mx-auto w-75" placeholder="Digite sua senha">
+                            <input type="password" id="Senha" class="form-control" placeholder="Digite sua senha">
                         </div>
-                        
-                        
-                        <div class="row">
-                            <div class="botoes col mx-5 px-4">
-                                <div class="row">
-                                    <div class="col"><div type="button" class="text-center cadastrar">Cadastrar</div></div>
-                                    <div class="col"><div type="button" class="text-center entrar">Entrar</div></div>
-                                </div>
+                    </form>
+    
+                    <div class="row justify-content-center">
+                        <div class="justify-content-center botoes">
+                            <div class="col justify-content-center">
+                                <div type="button" class="mx-5 text-center entrar">Confirmar</div>
                             </div>
                         </div>
-
-
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
+    
 
+<!--------------- Footer ----------------->
+<section>
+    <div id="footer">
+        <img src="imgs/wave2.png" class="footer-wave">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center m-3">
+                    <h3 class="footer-title">ACOMPANHE O PROJETO PELAS REDES SOCIAIS</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row text-center p-3">
+                <div class="d-flex justify-content-center icones">
+                    <img src="imgs/tiktok.png" class="m-3" type=button href="#">
+                    <img src="imgs/instagram.png" class="m-3" type=button href="#">
+                    <img src="imgs/mail.png" class="m-3" type=button href="#">
+                    <img src="imgs/youtube.png" class="m-3" type=button href="#">
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col text-center p-3">
+                    <h3>INSCREVA-SE PARA RECEBER NOTÍCIAS VIA EMAIL:</h3>
+                </div>
+            </div>
+
+
+            <div id="login">
+                <div class="container">
+                    <form class="d-flex w-100">
+                        <div class="flex-fill me-2 ps-1">
+                            <label for="nome1" class="form-label">Nome</label>
+                            <input type="text" id="nome1" placeholder="Ex.: João" class="form-control my-1 larger-input">
+                        </div>
+                        <div class="flex-fill pe-1">
+                            <label for="nome2" class="form-label">Sobrenome</label>
+                            <input type="text" id="nome2" placeholder="Ex.: Silva" class="form-control my-1 larger-input">
+                        </div>
+                    </form>
+                    
+                    <form class="col">
+                        <div class="flex-fill px-1">
+                            <label for="email" class="form-label mt-3">Endereço de e-mail</label>
+                            <input type="text" id="email" placeholder="Ex.: joaosilva@gmail.com" class="form-control larger-input">
+                        </div>
+                    </form>
+                
+                    <div class="row">
+                        <div class="col d-flex justify-content-center mt-3">
+                            <button class="inscreverse">Inscrever-se</button>
+                        </div>
+                    </div>
+
+                    <div class="space-footer"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

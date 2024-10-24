@@ -162,6 +162,36 @@
   font-size: 27px;
 }
 
+
+
+.sidebar{
+  background-color: transparent !important;
+  outline: none !important;
+  border: none transparent !important;
+}
+.item-sidebar{
+  color: white !important;
+  transition: all 0.3s ease;
+}
+.item-sidebar.active{
+  color: #D6ED4B !important;
+}
+.item-sidebar.focus{
+  color: #D6ED4B !important;
+}
+
+.item-sidebar:hover{
+  color: #D6ED4B !important;
+  padding-left: 25px;
+  font-size: 27px;
+  background-color: transparent !important;
+  transition: all 0.3s ease;
+}
+
+
+
+
+
 .voltar {
   font-size: 30px !important;
   font-weight: 100 !important;
