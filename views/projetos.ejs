@@ -12,111 +12,9 @@
     <title>Projetos - Mãos Na Massa</title>
 </head>
 <body>
-<!------------------------------------------- NAVBAR  ----------------------------------->
-   <!-- Navbar para telas grandes -->
-   <nav class="navbar navbar-expand-sm sticky-top d-none d-xl-flex">
-    <div class="container-fluid">
-        <a class="navbar-brand titulo" href="Home.html">
-            <img src="imgs/MnaMBranco.png" class="brand">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link ms-1" aria-current="page" href="NossaHistoria.html">Quem Somos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="projetos.html">Projetos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="ImpacTransp.html">Impacto e Transparência</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Notícias</a>
-                </li>
-                <li class="nav-item">
-                    <a class="pe-5 nav-link" aria-current="page" href="#">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link me-3 doe-gg" aria-current="page" href="pick.html">Como Contribuir</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                  <a class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="-10,-20">
-                    <img src="imgs/avatar.png" class="avatar">
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-end menu">
-                    <li><a class="dropdown-item text-end menu-item" href="loginMem.html">Login de Voluntário</a></li>
-                    <li><a class="dropdown-item text-end menu-item" href="loginFunc.html">Login de Funcionário</a></li>
-                  </ul>
-                </li>
-              </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Navbar para telas pequenas -->
-<nav class="navbar sticky-top d-xl-none">
-    <div class="container-fluid">
-        <a class="navbar-brand titulo" href="Home.html">
-            <img src="imgs/MnaMBranco.png" class="brand">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="material-symbols-rounded toggler">
-                menu
-            </span>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title ps-2 pb-0 pt-1">Menu</h5>
-                <button type="button" class="btn-close btn-close-white" style="border: none !important; outline: none !important;" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link voltar" aria-current="page" href="Home.html">Página Principal</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link pt-0" aria-current="page" href="NossaHistoria.html">QUEM SOMOS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="projetos.html">PROJETOS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="ImpacTransp.html">IMPACTO E TRANSPARÊNCIA</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">NOTÍCIAS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">FAQ</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Login
-                        </a>
-                        <ul class="dropdown-menu sidebar">
-                            <li><a class="dropdown-item item-sidebar" href="loginMem.html">Login de Voluntário</a></li>
-                            <li><a class="dropdown-item item-sidebar" href="loginFunc.html">Login de Funcionário</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link doe-pp" aria-current="page" href="pick.html">COMO CONTRIBUIR</a>
-                    </li>
-
-                    
-
-
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-
-    <!------------------------------------------- NAVBAR  ----------------------------------->
+    <!------------------------ Header ------------------------->
+    <%- include('partials/Header') %>    
+    <!------------------------ Header ------------------------->
 
     <div id="corpo">
         <div class="container">
@@ -205,78 +103,10 @@
             
         </div>
     </div>
-
-
-
-
-
-
-
     
-    <!--------------- Footer ----------------->
-    <section>
-        <div id="footer">
-            <img src="imgs/wave2.png" class="footer-wave">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center m-3">
-                       <h3 class="footer-title">ACOMPANHE O PROJETO PELAS REDES SOCIAIS</h3>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="container">
-                <div class="row text-center p-3">
-                    <div class="d-flex justify-content-center icones">
-                        <img src="imgs/tiktok.png" class="m-3" type=button href="#">
-                        <img src="imgs/instagram.png" class="m-3" type=button href="#">
-                        <img src="imgs/mail.png" class="m-3" type=button href="#">
-                        <img src="imgs/youtube.png" class="m-3" type=button href="#">
-                    </div>
-                </div>
-            </div>
-            
-    
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center p-3">
-                        <h3>INSCREVA-SE PARA RECEBER NOTÍCIAS VIA EMAIL:</h3>
-                    </div>
-                </div>
-    
-    
-                <div id="login">
-                    <div class="container">
-                        <form class="d-flex w-100">
-                            <div class="flex-fill me-2 ps-1">
-                                <label for="nome1" class="form-label">Nome</label>
-                                <input type="text" id="nome1" placeholder="Ex.: João" class="form-control my-1 larger-input">
-                            </div>
-                            <div class="flex-fill pe-1">
-                                <label for="nome2" class="form-label">Sobrenome</label>
-                                <input type="text" id="nome2" placeholder="Ex.: Silva" class="form-control my-1 larger-input">
-                            </div>
-                        </form>
-                        
-                        <form class="col">
-                            <div class="flex-fill px-1">
-                                <label for="email" class="form-label mt-3">Endereço de e-mail</label>
-                                <input type="text" id="email" placeholder="Ex.: joaosilva@gmail.com" class="form-control larger-input">
-                            </div>
-                        </form>
-                    
-                        <div class="row">
-                            <div class="col d-flex justify-content-center mt-3">
-                                <button class="inscreverse">Inscrever-se</button>
-                            </div>
-                        </div>
-    
-                       <div class="space-footer"></div>
-    
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!------------------------ Footer ------------------------->
+    <%- include('partials/Footer') %>    
+    <!------------------------ Footer ------------------------->
+
 </body>
 </html>
