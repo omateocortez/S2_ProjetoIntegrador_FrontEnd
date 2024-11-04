@@ -2,7 +2,7 @@
 
 ## Configurando:
 Começe instalando o Node.js:
-[nodejs.org](https://nodejs.org/)
+https://nodejs.org/
 
 Depois, baixe/clone o repositório no seu computador.
 
