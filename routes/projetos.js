@@ -23,6 +23,7 @@ router.post('/upload', upload, async (req, res)=>{
     const projeto = new Proj({title: titulo, desc: descr, imgsrc: src})
 
     await projeto.save()
+    res.redirect((req.get('referer')))
 })
 
 module.exports = router
