@@ -10,6 +10,11 @@ const ProjSchema = new Schema({
         type: String,
         required: true
     },
+    imgsrc:{
+        type: String,
+        default:"imgs/uploads/no_img.png",
+        required: true
+    },
     date:{
         type: Date,
         default:Date.now

@@ -19,6 +19,18 @@
     <div id="corpo">
         <div class="container">
             <h1 class="text-center pb-3 pt-5 trabalhos">Nossos Trabalhos</h1>
+
+            <!--TEMPORÁRIO-->
+            <form action="/projetos/upload" method="POST" enctype="multipart/form-data">
+                <label for="title">Titulo:</label><br>
+                <input type="text" id="title" name="title" required><br>
+                <label for="desc">Descrição:</label><br>
+                <input type="text" size="75" id="desc" name="desc" required><br>
+                <label for="file">Imagem:</label><br>
+                <input type="file" id="file" name="file" required><br>
+                <input class="mt-2" type="submit" value="Publicar">
+            </form>
+            <!--TEMPORÁRIO-->
             
             <ul style="list-style-type: none;">
 
@@ -26,6 +38,9 @@
                     <li>
                         <div class="col justify-content-center caixa" type="button" href="#">
                             <div class="row">
+                                <div class="text-center">
+                                    <img src="<%= proj.imgsrc %>" class="rounded img-fluid w-75">
+                                </div>
                                 <h1 class="col-9 titulo-projeto"><%= proj.title %></h1>
                                 <p class="col-3 pt-3 text-end data-projeto"><%= proj.date.toDateString() %></p>
                             </div>
