@@ -33,4 +33,5 @@ router.get('/FAQ', (req, res) => {
     res.render('FAQ');
 })
 
+
 module.exports = router
