@@ -14,45 +14,82 @@
 <body>
     <!------------------------ Header ------------------------->
     <%- include('partials/Header') %>    
-    <!------------------------ Header ------------------------->
+    <!-- Conteúdo da página principal -->
+    <div class="container">
+        <h1 class="text-center pb-3 pt-5 trabalhos">Nossos Trabalhos</h1>
+        <!------------------------ Header ------------------------->
+        
+        <section>
+            <!------------------------ Modal Form -------------------------->
+            <div class="container">
+                <div class="row justify-content-end">
+                    <button type="button" class="btn w-auto btn-open-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        + Adicionar Projeto
+                    </button>
+                </div>
 
-    <div id="corpo">
-        <div class="container">
-            <h1 class="text-center pb-3 pt-5 trabalhos">Nossos Trabalhos</h1>
-
-            <!--TEMPORÁRIO-->
-            <form action="/projetos/upload" method="POST" enctype="multipart/form-data">
-                <label for="title">Titulo:</label><br>
-                <input type="text" id="title" name="title" required><br>
-                <label for="desc">Descrição:</label><br>
-                <input type="text" size="75" id="desc" name="desc" required><br>
-                <label for="file">Imagem:</label><br>
-                <input type="file" id="file" name="file" required><br>
-                <input class="mt-2" type="submit" value="Publicar">
-            </form>
-            <!--TEMPORÁRIO-->
+            </div>
             
-            <ul style="list-style-type: none;">
-
-                <% data.forEach(proj => { %>
-                    <li>
-                        <div class="col justify-content-center caixa" type="button" href="#">
-                            <div class="row">
-                                <div class="text-center">
-                                    <img src="<%= proj.imgsrc %>" class="rounded img-fluid w-75" onerror="this.onerror=null; this.src='imgs/uploads/no_img.png';">
+            <!-- Modal com o formulário -->
+            <div class="modal fade custom-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg custom-modal-dialog modal-dialog-centered"> <!-- Modal maior -->
+                    <div class="modal-content bg-dark text-light"> <!-- Modal com fundo escuro e texto claro -->
+                        <div class="modal-header custom-modal-header">
+                            <h1 class="modal-title fs-5 modal-title-custom" id="exampleModalLabel">Novo <strong>Projeto</strong></h1>
+                            <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body custom-modal-body">
+                            <!-- Formulário temporário dentro do modal -->
+                            <form action="/projetos/upload" method="POST" enctype="multipart/form-data" id="form-id" class="modal-form">
+                                <div class="mb-3 form-group-title">
+                                    <label for="title" class="form-label label-title text-light">Título:</label> <!-- Cor da label ajustada -->
+                                    <input type="text" id="title" name="title" class="form-control w-100 input-title bg-dark text-light" required> <!-- Inputs com fundo escuro -->
                                 </div>
-                                <h1 class="col-9 titulo-projeto"><%= proj.title %></h1>
-                                <p class="col-3 pt-3 text-end data-projeto"><%= proj.date.toDateString() %></p>
+                                <div class="mb-3 form-group-desc">
+                                    <label for="desc" class="form-label label-desc text-light">Descrição:</label> <!-- Cor da label ajustada -->
+                                    <textarea id="desc" name="desc" class="form-control w-100 textarea-desc bg-dark text-light" rows="7" required></textarea> <!-- Área de texto escura -->
+                                </div>
+                                <div class="mb-3 form-group-file">
+                                    <label for="file" class="form-label label-file text-light">Imagem:</label> <!-- Cor da label ajustada -->
+                                    <input type="file" id="file" name="file" class="form-control w-100 input-file bg-dark text-light" required> <!-- Input de arquivo escuro -->
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer custom-modal-footer">
+                            <button type="button" class="btn btn-close-footer" data-bs-dismiss="modal">Fechar</button>
+                            <button type="submit" form="form-id" value="Publicar" class="btn btn-submit-footer">Publicar</button>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <!------------------------ Modal Form -------------------------->
+            
+            <ul style="list-style-type: none;" class="row g-3">
+                <% data.forEach(proj => { %>
+                    <li class="col-12 col-md-6 col-lg-4">
+                        <div class="col d-flex justify-content-center caixa">
+                            <div class="row h-100 w-100 d-flex flex-column">
+                                <div class="text-center">
+                                    <img src="<%= proj.imgsrc %>" class="img-fluid imagem_projeto">
+                                </div>
+                                <h1 class="titulo-projeto"><%= proj.title %></h1>
+                                <div class="row me-0 pe-0 justify-content-end text-end">
+                                    <p class="data-projeto"><%= proj.date.toDateString() %></p>
+                                </div>
+                                <p class="descricao-projeto"><%= proj.desc %></p>
                             </div>
-                            <p class="descricao-projeto"><%= proj.desc %></p>
                         </div>
                     </li>
                 <% }) %>
-                            
             </ul>
-        </div>
+            
+            
+                       
+        </section>
     </div>
-    
+            
+            
+            
     <!------------------------ Footer ------------------------->
     <%- include('partials/Footer') %>    
     <!------------------------ Footer ------------------------->
