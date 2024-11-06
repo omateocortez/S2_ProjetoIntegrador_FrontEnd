@@ -87,7 +87,7 @@
   
   .caixa:hover {
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Aumenta a sombra e a torna mais visível */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10); /* Aumenta a sombra e a torna mais visível */
   }
   
   .imagem_projeto {
