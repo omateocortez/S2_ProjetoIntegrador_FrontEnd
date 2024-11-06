@@ -19,15 +19,15 @@
     <!------------------------Banner Section------------------------->
     
     <section id="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-10 text-left">
+        <div class="container action_banner">
+            <div class="row justify-content-start text-left">
+                <div class="col-10 justify-content-start text-left">
                     <h1 class="project-title">Mãos Na Massa</h1>
                     <p class="descricao">Realizando sonhos, tijolo por tijolo!</p>
                 </div>
             </div>
             <div class="col-5 text-center d-none d-xl-flex">
-                <button href="pick" type="button" class="col-2 big-donate">AJUDE AGORA!</button>
+                <button href="pick" type="button" class="col-2 big-donate">CONFIRA NOSSO ÚLTIMO PROJETO!</button>
             </div>
         </div>
         <img src="imgs/wave1.png" class="wave-img">
@@ -37,7 +37,7 @@
     
     <section id="donate">
         <div class="container text-center d-xl-none">
-            <a href="pick" type="button" class="btn big-donate">AJUDE AGORA!</a>
+            <a href="test" type="button" class="btn big-donate">AJUDE AGORA!</a>
         </div>
     </section>
     
@@ -75,62 +75,59 @@
                         </div>
     
                     
-                        <!---------------------- Carrosel ---------------------->
+                        <!---------------------- Carrossel ---------------------->
 
-                        <h1 class="text-center subtitle">Nossos Projetos</h1>
-                        <div id="carouselExampleCaptions" class="carousel slide mb-5" data-bs-ride="true" data-bs-touch="true">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="imgs/tiozinho.png" class="d-block w-100" alt="...">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h3 class="cid-luciane-title">Cid e Luciane</h3>
-                                        <h5>Conheça a história de Sid e Luciane, cuja vida foi transformada graças ao nosso trabalho.</h5>
-                                    </div>
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="imgs/tiozinho.png" class="d-block w-100" alt="...">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h3 class="cid-luciane-title">Cid e Luciane</h3>
-                                        <h5>Conheça a história de Sid e Luciane, cuja vida foi transformada graças ao nosso trabalho.</h5>
-                                    </div>
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="imgs/tiozinho.png" class="d-block w-100" alt="...">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h3 class="cid-luciane-title">Cid e Luciane</h3>
-                                        <h5>Conheça a história de Sid e Luciane, cuja vida foi transformada graças ao nosso trabalho.</h5>
-                                    </div>
-                                </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
-                            </div>
-                        </div>
-                        <!---------------------- End Carrosel ---------------------->   
-                        
-                        
-                        <div class="container">   
-                            <div class="row">    
-                                <div class="col py-5">
-                                    <h1 class="text-center">Aqui vai os patrocinadores</h1>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="container my-5">
+    <!-- Título -->
+    <h1 class="text-center subtitle">Nossos Projetos</h1>
 
+    <!-- Carrossel centralizado e ajustado -->
+    <div class="row text-center justify-content-center">
+        <div id="fotoCarousel" class="carousel slide mb-5 col-10 rounded" data-bs-ride="carousel" data-bs-touch="true">
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#fotoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#fotoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#fotoCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
 
-
-
+            <!-- Imagens do Carrossel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="imagem1.jpg" class="d-block w-100 rounded" alt="Imagem 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Projeto 1</h3>
+                        <h5>Descrição do primeiro projeto e seu impacto.</h5>
                     </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagem2.jpg" class="d-block w-100 rounded" alt="Imagem 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Projeto 2</h3>
+                        <h5>Descrição do segundo projeto e seu impacto.</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagem3.jpg" class="d-block w-100 rounded" alt="Imagem 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Projeto 3</h3>
+                        <h5>Descrição do terceiro projeto e sua transformação.</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#fotoCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#fotoCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+    </div>
+</div>
                 </div>        
             </div>
         </div>
