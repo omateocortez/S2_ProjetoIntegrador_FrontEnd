@@ -1,14 +1,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styleProjeto.css">
+    <link rel="stylesheet" href="/styleProjeto.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="imgs/MnaMBranco.png">
+    <link rel="icon" type="image/x-icon" href="/imgs/MnaMBranco.png">
     <title>Projetos - Mãos Na Massa</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="row justify-content-end">
                     <button type="button" class="btn w-auto btn-open-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        + Adicionar Projeto
+                        <%= proj_edit ? '! Continuar editando Projeto' : '+ Adicionar Projeto' %>
                     </button>
                 </div>
 
@@ -35,64 +35,78 @@
                 <div class="modal-dialog modal-lg custom-modal-dialog modal-dialog-centered"> <!-- Modal maior -->
                     <div class="modal-content bg-dark text-light"> <!-- Modal com fundo escuro e texto claro -->
                         <div class="modal-header custom-modal-header">
-                            <h1 class="modal-title fs-5 modal-title-custom" id="exampleModalLabel">Novo <strong>Projeto</strong></h1>
-                            <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h1 class="modal-title fs-5 modal-title-custom" id="exampleModalLabel"><%= proj_edit ? 'Edição de' : 'Novo' %> <strong>Projeto</strong></h1>
+                            <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>    
                         </div>
                         <div class="modal-body custom-modal-body">
                             <!-- Formulário temporário dentro do modal -->
-                            <form action="/projetos/upload" method="POST" enctype="multipart/form-data" id="form-id" class="modal-form">
+                            <form action="<%= proj_edit ? '/projetos/update/' + (proj_edit ? proj_edit._id : '') : '/projetos/upload/' %>" method="POST" enctype="multipart/form-data" id="form-id" class="modal-form">
                                 <div class="mb-3 form-group-title">
                                     <label for="title" class="form-label label-title text-light">Título:</label> <!-- Cor da label ajustada -->
-                                    <input type="text" id="title" name="title" class="form-control w-100 input-title bg-dark text-light" required> <!-- Inputs com fundo escuro -->
+                                    <input type="text" id="title" value="<%= proj_edit ? proj_edit.title : ' ' %>" name="title" class="form-control w-100 input-title bg-dark text-light" required> <!-- Inputs com fundo escuro -->
                                 </div>
                                 <div class="mb-3 form-group-desc">
                                     <label for="desc" class="form-label label-desc text-light">Descrição:</label> <!-- Cor da label ajustada -->
-                                    <textarea id="desc" name="desc" class="form-control w-100 textarea-desc bg-dark text-light" rows="7" required></textarea> <!-- Área de texto escura -->
+                                    <textarea id="desc" name="desc" class="form-control w-100 textarea-desc bg-dark text-light" rows="7" required><%= proj_edit ? proj_edit.desc : ' ' %></textarea> <!-- Área de texto escura -->
                                 </div>
                                 <div class="mb-3 form-group-file">
                                     <label for="file" class="form-label label-file text-light">Imagem:</label> <!-- Cor da label ajustada -->
-                                    <input type="file" id="file" name="file" class="form-control w-100 input-file bg-dark text-light" required> <!-- Input de arquivo escuro -->
+                                    <input type="file" id="file" name="file" class="form-control w-100 input-file bg-dark text-light" <%= proj_edit ? '' : 'required'%>> <!-- Input de arquivo escuro -->
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer custom-modal-footer">
-                            <button type="button" class="btn btn-close-footer" data-bs-dismiss="modal">Fechar</button>
-                            <button type="submit" form="form-id" value="Publicar" class="btn btn-submit-footer">Publicar</button>
+                            <a href="<%= proj_edit ? '/projetos/' : '#' %>">
+                                <button type="button" class="btn btn-close-footer" data-bs-dismiss="modal"><%= proj_edit ? 'Cancelar Edição' : 'Fechar' %></button>
+                            </a>
+                            <button type="submit" form="form-id" value="Publicar" class="btn btn-submit-footer"><%= proj_edit ? 'Salvar' : 'Publicar' %></button>
                         </div>                        
                     </div>
                 </div>
             </div>
             <!------------------------ Modal Form -------------------------->
-            
+
+            <script>
+                window.onload = function() { 
+                    if(new URLSearchParams(window.location.search).has('proj_edit')){
+                        new bootstrap.Modal(document.getElementById("exampleModal")).show(); 
+                    }
+                }
+              </script>
+
             <ul style="list-style-type: none;" class="row g-3">
                 <% data.forEach(proj => { %>
                     <li class="col-12 col-md-6 col-lg-4">
                         <div class="col d-flex justify-content-center caixa">
                             <div class="row h-100 w-100 d-flex flex-column">
                                 <div class="text-center">
-                                    <img src="<%= proj.imgsrc %>" class="img-fluid imagem_projeto">
+                                    <img src="/<%= proj.imgsrc %>" class="img-fluid imagem_projeto">
                                 </div>
                                 <h1 class="titulo-projeto"><%= proj.title %></h1>
                                 <div class="row me-0 pe-0 justify-content-end text-end">
                                     <p class="data-projeto"><%= proj.date.toDateString() %></p>
                                 </div>
                                 <p class="descricao-projeto"><%= proj.desc %></p>
+                                <form action="/projetos/edit/<%= proj._id %>" method="get">
+                                    <button type="submit" class="p-2">Editar</button>
+                                </form>
+                                <form action="/projetos/delete/<%= proj._id %>" method="POST" class="mt-1">
+                                    <button type="submit" class="p-2">Excluir</button>
+                                </form>
                             </div>
                         </div>
                     </li>
                 <% }) %>
             </ul>
-            
-            
-                       
+                  
         </section>
-    </div>
-            
-            
+    </div>       
             
     <!------------------------ Footer ------------------------->
     <%- include('partials/Footer') %>    
     <!------------------------ Footer ------------------------->
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
