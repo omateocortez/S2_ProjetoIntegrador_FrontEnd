@@ -29,4 +29,8 @@ router.get('/ImpacTransp', (req, res) => {
     res.render('ImpacTransp');
 })
 
+router.get('/FAQ', (req, res) => {
+    res.render('FAQ');
+})
+
 module.exports = router
