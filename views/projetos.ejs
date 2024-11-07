@@ -87,7 +87,7 @@
                                     <p class="data-projeto"><%= proj.date.toDateString() %></p>
                                 </div>
                                 <p class="descricao-projeto"><%= proj.desc %></p>
-                                <form action="/projetos/edit/<%= proj._id %>" method="get">
+                                <form action="/projetos/edit/<%= proj._id %>" method="GET">
                                     <button type="submit" class="p-2">Editar</button>
                                 </form>
                                 <form action="/projetos/delete/<%= proj._id %>" method="POST" class="mt-1">
