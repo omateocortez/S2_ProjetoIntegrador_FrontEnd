@@ -88,7 +88,7 @@
                             <div class="carousel-inner">
                                 <% data.forEach(proj => { %>
                                     <div class="carousel-item active">
-                                        <img src="/<%= proj.imgsrc %>" class="d-block w-100" alt="Imagem do projeto '<%= proj.title %>'">
+                                        <img src="/<%= proj.imgsrc %>" class="d-block w-100" alt="Imagem do projeto '<%= proj.title %>'" onError="this.onerror=null; this.src='/imgs/uploads/no_img.png';">
                                         <div class="carousel-caption d-none d-md-block">
                                             <h3 class="carousel-title"><%= proj.title %></h3>
                                         </div>

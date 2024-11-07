@@ -7,7 +7,7 @@ https://nodejs.org/
 Depois, baixe/clone o repositório no seu computador.
 
 Após baixar/clonar o repositório, abra o terminal<sub>(no diretório do projeto)</sub> e digite:<br/>
-`npm i nodemon mongoose express dotenv multer`<br/>
+`npm i nodemon mongoose express dotenv multer cors`<br/>
 Isso serve para instalar as dependências do projeto.<br/>
 
 Também devemos criar um arquivo ***.env***<sub>(sem nome apenas com a extensão)</sub> e nele devemos colar o seguinte código:<br/>
