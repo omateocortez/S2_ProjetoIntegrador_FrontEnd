@@ -17,6 +17,13 @@ router.get('/', async (req, res) => {
     }
 })
 
+// BAND-AID OOOPSSSSSS...
+router.get('/Home', (req, res) => {
+    console.log('ops')
+    res.redirect('Home')
+})
+
+
 router.get('/edit/:id', async(req, res) => {
     let slug = req.params.id
     res.redirect(`/projetos/?proj_edit=${slug}`)
