@@ -77,17 +77,23 @@
   
   .caixa {
     border-radius: 45px; /* Mantém o arredondamento das bordas */
-    background-color: rgba(128, 128, 128, 0.13);
+    background-color: rgba(108, 108, 108, 0.13);
     padding: 20px;
     transition: all 0.3s ease;
     border: none; /* Remove a borda visível */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.251); /* Aumenta a sombra e a torna mais visível */
     height: 100%;
-  }
-  
+    position: relative;
+    height: 100%; /* Certifica que a caixa ocupe toda a altura */
+    padding-bottom: 40px; /* Espaço para os botões */
+    border: transparent 2px solid;
+
+}
+
   .caixa:hover {
     transition: all 0.3s ease;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10); /* Aumenta a sombra e a torna mais visível */
+    border: #234b797d 2px solid;
   }
   
   .imagem_projeto {
@@ -167,4 +173,64 @@
 
 
 
+.edit_button, .delete_button {
+    position: absolute;
+    bottom: 15px;
+    padding: 10px; /* Padronize padding e margens */
+}
 
+.edit_button {
+    left: 15px;
+    background-color: transparent;
+    color: #234B79;
+    border: none;
+    border-radius: 78px;
+    transition: all 0.5s ease;
+}
+.edit_button:hover{
+  transition: all 0.5s ease;
+  color: white;
+  background-color: #234B79;
+}
+
+.delete_button {
+    right: 15px;
+    background-color: transparent ;
+    color: #DC4C64;
+    border: none;
+    border-radius: 78px;
+    margin-top: 5px !important;
+    transition: all 0.5s ease;
+    width: min-content !important;
+    padding: 10px !important;
+}
+.delete_button:hover{
+  transition: all 0.5s ease;
+  color: white;
+  background-color: #DC4C64;
+}
+
+.caixa_modal{
+  border-radius: 30px !important;
+}
+
+
+
+
+.modal_title{
+  font-size: 25px;
+  font-weight: 300;
+}
+.delete_absolute{
+  font-size: 30px;
+  background-color: #DC4C64;
+  color: white;
+  border: none;
+  border-radius: 30px;
+
+
+}
+
+.icone{
+  font-size: 25px !important;
+}

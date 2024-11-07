@@ -31,7 +31,7 @@ router.post('/delete/:id', async (req, res)=>{
     res.redirect('/projetos')   
 })
 
-router.put('/update/:id', upload, async (req, res)=>{
+router.post('/update/:id', upload, async (req, res)=>{
 
     const projectId = req.params.id;
     const titulo = req.body.title
