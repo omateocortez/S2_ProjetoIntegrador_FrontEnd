@@ -18,9 +18,8 @@ router.get('/', async (req, res) => {
 })
 
 // BAND-AID OOOPSSSSSS...
-router.get('/Home', (req, res) => {
-    console.log('ops')
-    res.redirect('Home')
+router.get('/Home', async (req, res) => {
+    res.redirect(`${req.protocol}://${req.get('host')}/`)
 })
 
 
@@ -35,7 +34,7 @@ router.post('/delete/:id', async (req, res)=>{
 
     await Proj.findByIdAndDelete(projectId)
     
-    res.redirect('/projetos')   
+    res.redirect(req.baseUrl)
 })
 
 router.post('/update/:id', upload, async (req, res)=>{
@@ -54,7 +53,7 @@ router.post('/update/:id', upload, async (req, res)=>{
         runValidators: true
     }) 
 
-    res.redirect('/projetos')
+    res.redirect(req.baseUrl)
 })
 
 router.post('/upload', upload, async (req, res)=>{
@@ -66,7 +65,7 @@ router.post('/upload', upload, async (req, res)=>{
     const projeto = new Proj({title: titulo, desc: descr, imgsrc: src}) 
 
     await projeto.save()
-    res.redirect((req.get('referer')))
+    res.redirect(req.baseUrl)
 })
 
 module.exports = router
