@@ -43,6 +43,14 @@ router.post('/update/:id', upload, async (req, res)=>{
     const titulo = req.body.title
     const descr = req.body.desc
 
+    let proj_date
+
+    if(req.body.date){
+        proj_date = req.body.date
+    }else{
+        proj_date = Proj.findById(projectId).date
+    }
+
     let imgs = []
 
     if(req.files && req.files.length > 0){
@@ -51,7 +59,7 @@ router.post('/update/:id', upload, async (req, res)=>{
         imgs = Proj.findById(projectId).images
     }
 
-    await Proj.findByIdAndUpdate(projectId, {title: titulo, desc: descr, images: imgs}, {
+    await Proj.findByIdAndUpdate(projectId, {title: titulo, desc: descr, images: imgs, date: proj_date}, {
         new: true,
         runValidators: true
     }) 
@@ -65,7 +73,13 @@ router.post('/upload', upload, async (req, res)=>{
     const descr = req.body.desc
     const imgs = req.files.map(file => `imgs/uploads/${file.filename}`)
 
-    const projeto = new Proj({title: titulo, desc: descr, images: imgs}) 
+    let proj_date = Date.now()
+
+    if(req.body.date){
+        proj_date = req.body.date
+    }
+
+    const projeto = new Proj({title: titulo, desc: descr, images: imgs, date: proj_date}) 
 
     await projeto.save()
     res.redirect(req.baseUrl)

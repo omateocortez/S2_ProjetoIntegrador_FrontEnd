@@ -54,6 +54,10 @@
                                     <label for="file" class="form-label label-file text-light">Imagens:</label> <!-- Cor da label ajustada -->
                                     <input type="file" id="file" name="files[]" class="form-control w-100 input-file bg-dark text-light" <%= proj_edit ? '' : 'required'%> multiple> <!-- Input de arquivo escuro -->
                                 </div>
+                                <div class="mb-3 form-group-date">
+                                    <label for="date" class="form-label label-date text-light">Data:</label><br>
+                                    <input type="date" id="date" name="date" value="<%= proj_edit ? proj_edit.date.toISOString().split('T')[0] : '' %>">
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer custom-modal-footer">
@@ -85,7 +89,10 @@
                                 </div>
                                 <h1 class="titulo-projeto"><%= proj.title %></h1>
                                 <div class="row me-0 pe-0 justify-content-end text-end">
-                                <p class="data-projeto"><%= proj.date.toDateString() %></p>
+                                <p class="data-projeto"><%= 
+                                    // Formatando a string de data, o mês precisa do +1 pq começa no 0 (por algum motivo)
+                                    `${proj.date.getDate()}/${proj.date.getMonth() + 1}/${proj.date.getFullYear()}` 
+                                    %></p>
                                 </div>
                                 <p class="descricao-projeto"><%= proj.desc %></p>
 
@@ -100,43 +107,48 @@
                                         </form>
                                     </div>
                                 </div>           
-                                    
-                        <!-- Button trigger modal -->
+                                
+                                <!-- Button trigger modal -->
                         <div class="row justify-content-end text-end align-items-center">
-                            <button type="button" class="justify-content-end text-end delete_button" data-bs-toggle="modal" data-bs-target="#EditProject">
+                            <button type="button" class="justify-content-end text-end delete_button" data-bs-toggle="modal" data-bs-target="#DeleteProject" data-bs-proj-id="<%= proj._id %>">
                                 <span class="material-symbols-rounded icone">
                                     delete_forever
                                 </span>
                             </button>
                         </div>
-
-                        <!------------------------------------ Modal ------------------------------------>
-                        <div class="modal fade" id="EditProject" tabindex="-1" aria-labelledby="EditProjectLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-xl h-100 modal-dialog-centered">
-                                <div class="modal-content bg-dark text-light p-2 caixa_modal">
-                                    <div class="modal-header custom-modal-header">
-                                        <h1 class="modal-title ms-3 modal_title" id="EditProjectLabel">Tem certeza que deseja excluir o projeto?</h1>
-                                        <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <div class="row justify-content-center text-center align-items-center">
-                                        <form action="/projetos/delete/<%= proj._id %>" method="POST" class="mt-1">
-                                            <button type="submit" class="p-4 m-5 delete_absolute">
-                                                Excluir Projeto <strong class="d-block">permanentemente</strong>
-                                            </button>                                            
-                                        </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!------------------------------------ Modal ------------------------------------>
-
-
+                        
                     </li>
                 <% }) %>
-            </ul>    
+            </ul>   
+          
+            <!------------------------------------ Modal ------------------------------------>
+            <div class="modal fade" id="DeleteProject" tabindex="-1" aria-labelledby="DeleteProjectLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl h-100 modal-dialog-centered">
+                    <div class="modal-content bg-dark text-light p-2 caixa_modal">
+                        <div class="modal-header custom-modal-header">
+                            <h1 class="modal-title ms-3 modal_title" id="DeleteProjectLabel">Tem certeza que deseja excluir o projeto?</h1>
+                            <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="row justify-content-center text-center align-items-center">
+                            <form action="/projetos/delete/" method="POST" class="mt-1">
+                                <button type="submit" class="p-4 m-5 delete_absolute">
+                                    Excluir Projeto <strong class="d-block">permanentemente</strong>
+                                </button>                                            
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.getElementById('DeleteProject').addEventListener('show.bs.modal', function(event) {
+                    const projId = event.relatedTarget.getAttribute('data-bs-proj-id')
+                    this.querySelector('form').action = '/projetos/delete/' + projId
+                })
+            </script>
+            <!------------------------------------ Modal ------------------------------------> 
         </section>
     </div>       
     
