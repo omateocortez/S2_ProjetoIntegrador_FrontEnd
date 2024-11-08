@@ -51,8 +51,8 @@
                                     <textarea id="desc" name="desc" class="form-control w-100 textarea-desc bg-dark text-light" rows="7" required><%= proj_edit ? proj_edit.desc : ' ' %></textarea> <!-- Área de texto escura -->
                                 </div>
                                 <div class="mb-3 form-group-file">
-                                    <label for="file" class="form-label label-file text-light">Imagem:</label> <!-- Cor da label ajustada -->
-                                    <input type="file" id="file" name="file" class="form-control w-100 input-file bg-dark text-light" <%= proj_edit ? '' : 'required'%>> <!-- Input de arquivo escuro -->
+                                    <label for="file" class="form-label label-file text-light">Imagens:</label> <!-- Cor da label ajustada -->
+                                    <input type="file" id="file" name="files[]" class="form-control w-100 input-file bg-dark text-light" <%= proj_edit ? '' : 'required'%> multiple> <!-- Input de arquivo escuro -->
                                 </div>
                             </form>
                         </div>
@@ -81,7 +81,7 @@
                         <div class="col d-flex justify-content-center caixa">
                             <div class="row d-flex flex-column">
                                 <div class="text-center">
-                                    <img src="/<%= proj.imgsrc %>" class="img-fluid imagem_projeto">
+                                    <img src="/<%= proj.images[post.imgs.length - 1] %>" class="img-fluid imagem_projeto">
                                 </div>
                                 <h1 class="titulo-projeto"><%= proj.title %></h1>
                                 <div class="row me-0 pe-0 justify-content-end text-end">

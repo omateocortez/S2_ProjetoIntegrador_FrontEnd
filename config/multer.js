@@ -6,10 +6,20 @@ const storage = multer.diskStorage({
         cb(null, "public/imgs/uploads/")
     },
     filename: function(req, file, cb){
-        cb(null, Date.now() + path.extname(file.originalname))
+
+        if (typeof req.fileIndex === 'undefined') {
+            req.fileIndex = 0
+        }
+
+        let projname = req.body.title.replace(/\s+/g, '-').toLowerCase()
+        const name = `${projname}-${req.fileIndex}-${Date.now()}${path.extname(file.originalname)}`
+
+        req.fileIndex++
+        
+        cb(null, name)
     }
 })
 
-const upload = multer({storage}).single("file")
+const upload = multer({storage}).array('files[]')
 
 module.exports = upload
