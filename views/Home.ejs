@@ -76,37 +76,38 @@
     
                     
                         <!---------------------- Carrossel ---------------------->
-                    <div class="row justify-content-center text-center">
-                        <h1 class="text-center subtitle">Nossos Projetos</h1>
-                        <div id="carouselExampleCaptions" class="carousel slide col-9 mb-5 " data-bs-ride="true" data-bs-touch="true">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
+                        <div class="row justify-content-center text-center">
+                            <h1 class="text-center subtitle">Projetos Recentes</h1>
 
-                            <div class="carousel-inner">
-                                <% data.forEach((proj, index) => { %>
-                                    <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
-                                        <img src="/<%= proj.imgsrc %>" class="d-block w-100" alt="Imagem do projeto '<%= proj.title %>'" onError="this.onerror=null; this.src='/imgs/uploads/no_img.png';">
-                                        <div class="carousel-caption d-none d-md-block">
-                                            <h3 class="carousel-title"><%= proj.title %></h3>
+                            <div id="carouselExampleCaptions" class="carousel slide col-9 mb-5 rounded" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+
+                                <div class="carousel-inner">
+                                    <% data.forEach((proj, index) => { %>
+                                        <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                                            <img src="/<%= proj.imgsrc %>" class="d-block w-100" alt="Imagem do projeto '<%= proj.title %>'" onError="this.onerror=null; this.src='/imgs/uploads/no_img.png';">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h3 class="carousel-title"><%= proj.title %></h3>
+                                            </div>
                                         </div>
-                                    </div>
-                                <% }) %>
-                            </div>
+                                    <% }) %>
+                                </div>
 
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <!---------------------- End Carrosel ---------------------->
+                        <!---------------------- End Carrosel ---------------------->
 
                 </div>        
             </div>

@@ -143,3 +143,16 @@ li{
   font-weight: 300;
   font-size: 20px;
 }
+
+/* Arredondamento personalizado no carrossel */
+#carouselExampleCaptions {
+  border-radius: 55px;
+  overflow: hidden;
+}
+
+#carouselExampleCaptions .carousel-item img {
+  border-radius: 55px;
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+}
