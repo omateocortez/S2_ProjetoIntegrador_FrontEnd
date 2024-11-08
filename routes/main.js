@@ -36,5 +36,9 @@ router.get('/FAQ', (req, res) => {
     res.render('FAQ')
 })
 
+router.get('/Cadastro', (req, res) => {
+    res.render('Cadastro')
+})
+
 
 module.exports = router
