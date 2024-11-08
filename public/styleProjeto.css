@@ -137,6 +137,18 @@
     outline: none !important;
   }
 
+  .box-calendar{
+    background-color: #25384771 !important;
+    padding: 18px !important;
+    border-radius: 20px !important;
+    color: white !important;
+    border: none !important;
+    font-size: 18px;
+  }
+
+
+  
+
   .custom-modal-footer {
     border-top: 2px solid rgb(81, 81, 81)!important;
   }

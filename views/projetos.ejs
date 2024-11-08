@@ -54,9 +54,10 @@
                                     <label for="file" class="form-label label-file text-light">Imagens:</label> <!-- Cor da label ajustada -->
                                     <input type="file" id="file" name="files[]" class="form-control w-100 input-file bg-dark text-light" <%= proj_edit ? '' : 'required'%> multiple> <!-- Input de arquivo escuro -->
                                 </div>
+                                
                                 <div class="mb-3 form-group-date">
                                     <label for="date" class="form-label label-date text-light">Data:</label><br>
-                                    <input type="date" id="date" name="date" value="<%= proj_edit ? proj_edit.date.toISOString().split('T')[0] : '' %>">
+                                    <input class="box-calendar" type="date" id="date" name="date" value="<%= proj_edit ? proj_edit.date.toISOString().split('T')[0] : '' %>">
                                 </div>
                             </form>
                         </div>
@@ -91,8 +92,9 @@
                                 <div class="row me-0 pe-0 justify-content-end text-end">
                                 <p class="data-projeto"><%= 
                                     // Formatando a string de data, o mês precisa do +1 pq começa no 0 (por algum motivo)
-                                    `${proj.date.getDate()}/${proj.date.getMonth() + 1}/${proj.date.getFullYear()}` 
+                                    `${proj.date.getDate() + 1}/${proj.date.getMonth() + 1}/${proj.date.getFullYear()}` 
                                     %></p>
+
                                 </div>
                                 <p class="descricao-projeto"><%= proj.desc %></p>
 

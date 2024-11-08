@@ -69,8 +69,8 @@
     margin-bottom: 50px;
   }
   
-  .nome-form{
-    margin-right: 25px;
+  .input_nome, .input_sobrenome{
+    width: 50% !important;
   }
   
 
@@ -118,27 +118,28 @@
   }
   
   
-  .visibility-icon{
-    font-size: 35px !important;
-    padding: none !important;
-  }
-  /* Estilização do botão de visibilidade */
-  .btn-visibility {
-    background-color: #57677A !important;
-    padding: 8px 12px;
-    transition: all 0.3s ease;
-    border-radius: 4px;
-    color: white !important;
-  }
-  
-  
-  .btn-visibility.visibility-inactive {
-    background-color: #D6ED4B !important;
-    color: #234B79 !important;
-  }
-  
-  /* Estado padrão (quando visibilidade está desligada) */
-  .btn-visibility.visibility-active {
-    background-color: #57677A !important;
-    color: white !important;
-  }
+
+.visibility-icon{
+  font-size: 35px !important;
+  padding: none !important;
+}
+/* Estilização do botão de visibilidade */
+.btn-visibility {
+  background-color: #57677A !important;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  color: white !important;
+}
+
+
+.btn-visibility.visibility-inactive {
+  background-color: #D6ED4B !important;
+  color: #234B79 !important;
+}
+
+/* Estado padrão (quando visibilidade está desligada) */
+.btn-visibility.visibility-active {
+  background-color: #57677A !important;
+  color: white !important;
+}

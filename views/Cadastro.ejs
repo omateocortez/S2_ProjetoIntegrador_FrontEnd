@@ -7,32 +7,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="imgs/MnaMBranco.png">
     <title>Home - Mãos Na Massa</title>
 </head>
 <body>
-<!------------------------ Header ------------------------->
-<%- include('partials/Header') %>    
-<!------------------------ Header ------------------------->
+        <!------------------------ Header ------------------------->
+        <%- include('partials/Header') %>    
+        <!------------------------ Header ------------------------->
 
     <section id="login">
-        <div class="container mx-auto my-5">
-            <div class="row">
-                <div class="col-11 col-md-10 col-lg-8 mx-auto glass">
-                    <h1 class="text-center mb-4 cadastro-membro">Cadastro de Voluntário</h1>
-                    <form class="d-flex justify-content-center">
-                        <div class="col-5 mb-2 nome-form">
+        <div class="container">
+            <div class="col-11 col-md-10 col-lg-8 mx-auto glass">
+                <h1 class="text-center mb-4 cadastro-membro">Cadastro de Voluntário</h1>
+
+                <div class="row mx-4 mb-3 justify-content-center">
+                    <form class="d-flex mb-2 px-4">
+                        <div class="flex-fill me-2 input_nome">
                             <label for="nome1" class="form-label">Nome</label>
-                            <input type="text" id="nome1" class="form-control p-3 fs-5" placeholder="Ex.: João">
+                            <input type="text" id="nome1" placeholder="Ex.: João" class="form-control p-3 fs-5">
                         </div>
-                        <div class="col-5 mb-2">
+                        <div class="flex-fill input_sobrenome">
                             <label for="nome2" class="form-label">Sobrenome</label>
-                            <input type="text" id="nome2" class="form-control p-3 fs-5" placeholder="Ex.: Silva">
+                            <input type="text" id="nome2" placeholder="Ex.: Silva" class="form-control p-3 fs-5">
                         </div>
                     </form>
-                    
-                    <form>
+                </div>
+                
+                <form>
+                    <div class="col">
                         <div class="mx-5 mb-2">
                             <label for="email" class="form-label fs-4">Endereço de E-mail</label>
                             <input type="email" id="email" class="form-control p-3 fs-5" placeholder="Digite seu e-mail">
@@ -42,34 +45,116 @@
                             <label for="Senha" class="form-label fs-4">Senha</label>
                             <div class="input-group input-group-background">
                                 <input type="password" id="Senha" class="form-control p-3 fs-5" placeholder="Digite sua senha">
-                                <button class="btn btn-visibility" type="button" id="togglePassword">
+                                <button class="btn btn-visibility visibility-active" type="button" id="togglePassword1">
                                     <span class="material-symbols-rounded visibility-icon">visibility_off</span>
                                 </button>
                             </div>
-                        </div>                        
-
-                        <div class="row justify-content-center">
-                            <div class="justify-content-center botoes">
-                                <div class="col justify-content-center">
-                                    <div type="button" class="text-center confirmar">Confirmar</div>
-                                </div>
+                        </div> 
+                        
+                        <!-- Campo de Confirmação de Senha -->
+                        <div class="mx-5 my-4">
+                            <label for="confirmaSenha" class="form-label fs-4">Confirme sua Senha</label>
+                            <div class="input-group input-group-background">
+                                <input type="password" id="confirmaSenha" class="form-control p-3 fs-5" placeholder="Digite sua senha">
+                                <button class="btn btn-visibility visibility-active" type="button" id="togglePassword2">
+                                    <span class="material-symbols-rounded visibility-icon">visibility_off</span>
+                                </button>
                             </div>
+                        </div>                           
+
+                    </div>
+                </form>
+
+                <div class="row justify-content-center">
+                    <div class="justify-content-center botoes">
+                        <div class="col justify-content-center">
+                            <div type="button" class="text-center confirmar" onclick="verificarSenhas()">Confirmar</div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+<script>
+    // Toggle de visibilidade para o campo "Senha"
+document.getElementById('togglePassword1').addEventListener('click', function () {
+    const passwordInput = document.getElementById('Senha');
+    const icon = this.querySelector('.material-symbols-rounded');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.textContent = 'visibility';
+        this.classList.add('visibility-inactive');
+        this.classList.remove('visibility-active');
+    } else {
+        passwordInput.type = 'password';
+        icon.textContent = 'visibility_off';
+        this.classList.add('visibility-active');
+        this.classList.remove('visibility-inactive');
+    }
+});
+
+// Toggle de visibilidade para o campo "Confirme sua Senha"
+document.getElementById('togglePassword2').addEventListener('click', function () {
+    const passwordInput = document.getElementById('confirmaSenha');
+    const icon = this.querySelector('.material-symbols-rounded');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.textContent = 'visibility';
+        this.classList.add('visibility-inactive');
+        this.classList.remove('visibility-active');
+    } else {
+        passwordInput.type = 'password';
+        icon.textContent = 'visibility_off';
+        this.classList.add('visibility-active');
+        this.classList.remove('visibility-inactive');
+    }
+});
+
+function verificarSenhas() {
+    const senha = document.getElementById('Senha');
+    const confirmaSenha = document.getElementById('confirmaSenha');
+
+    if (senha.value === confirmaSenha.value && senha.value !== "") {
+        // Adiciona o estilo de validação verde em ambos os campos
+        senha.classList.add('is-valid');
+        senha.classList.remove('is-invalid');
+        confirmaSenha.classList.add('is-valid');
+        confirmaSenha.classList.remove('is-invalid');
+    } else {
+        // Mostra o estilo de erro apenas no campo de confirmação
+        senha.classList.remove('is-valid');
+        confirmaSenha.classList.add('is-invalid');
+        confirmaSenha.classList.remove('is-valid');
+    }
+}
 
 
+    // Adiciona o evento de input para verificar em tempo real
+    document.getElementById('confirmaSenha').addEventListener('input', verificarSenhas);
 
+    // Adiciona o evento de clique no botão Confirmar para a verificação final
+    document.querySelector('.confirmar').addEventListener('click', function () {
+        verificarSenhas();
 
+        const senha = document.getElementById('Senha').value;
+        const confirmaSenha = document.getElementById('confirmaSenha').value;
 
+        if (senha === confirmaSenha) {
+            alert("Senhas conferem! Formulário pronto para envio.");
+            // Aqui você pode adicionar a lógica para enviar o formulário
+        } else {
+            alert("As senhas não conferem. Verifique e tente novamente.");
+        }
+    });
+
+</script>
 
 <!------------------------ Footer --------------------------->
 <%- include('partials/Footer') %>    
 <!------------------------ Footer --------------------------->
  
- </body>
- </html>
+</body>
+</html>
