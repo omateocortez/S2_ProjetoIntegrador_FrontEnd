@@ -5,6 +5,9 @@ const Proj = require('../schemas/Projeto')
 
 const upload = require('../config/multer')
 
+const fs = require('fs')
+const path = require('path')
+
 router.get('/', async (req, res) => {
     try{
         const data = await Proj.aggregate([{ $sort: {date: -1 }}])
@@ -32,6 +35,23 @@ router.post('/delete/:id', async (req, res)=>{
     
     const projectId = req.params.id;
 
+    const projeto = await Proj.findById(projectId)
+
+    console.log(projeto.images)
+
+    projeto.images.forEach(imgPath => {
+
+        const filePath = path.resolve(__dirname, '..', 'public', imgPath)
+
+        fs.unlink(filePath, (err) => {
+            if(err){
+                console.error(`erro ao deletar imagem!\nfile path: ${filePath}`, err)
+            }else{
+                console.log(`imagem deltada com sucesso.\nfile path: ${filePath}`)
+            }
+        })
+    })
+
     await Proj.findByIdAndDelete(projectId)
     
     res.redirect(req.baseUrl)
@@ -46,7 +66,8 @@ router.post('/update/:id', upload, async (req, res)=>{
     let proj_date
 
     if(req.body.date){
-        proj_date = req.body.date
+        proj_date = new Date(req.body.date)
+        proj_date.setDate(proj_date.getDate() + 1)
     }else{
         proj_date = Proj.findById(projectId).date
     }
@@ -76,7 +97,8 @@ router.post('/upload', upload, async (req, res)=>{
     let proj_date = Date.now()
 
     if(req.body.date){
-        proj_date = req.body.date
+        proj_date = new Date(req.body.date)
+        proj_date.setDate(proj_date.getDate() + 1)
     }
 
     const projeto = new Proj({title: titulo, desc: descr, images: imgs, date: proj_date}) 
