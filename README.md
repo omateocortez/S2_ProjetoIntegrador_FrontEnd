@@ -6,7 +6,7 @@ https://nodejs.org/
 
 Depois, baixe/clone o repositório no seu computador.
 
-Após baixar/clonar o repositório, abra o terminal<sub>(no diretório do projeto)</sub> e cole o seguinte texto:<br/>
+Após baixar/clonar o repositório, abra o terminal<sub>(no diretório do projeto)</sub> e cole o seguinte código:<br/>
 ######
     npm i nodemon mongoose express dotenv multer cors;
     npm i bcrypt --legacy-peer-deps mongoose-unique-validator --legacy-peer-deps jsonwebtoken --legacy-peer-deps;
