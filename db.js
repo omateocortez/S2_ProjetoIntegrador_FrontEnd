@@ -8,7 +8,6 @@ const connectDB = async () => {
             socketTimeoutMS: 45000
         })
         console.log(`Conectado ao Mongodb: ${conn.connection.host}`)
-        console.log(`URI: ${process.env.MONGODB_URI}`)
     }catch(error){
         console.error(`Erro na conexão com MongoDB: ${error.message}`);
     }

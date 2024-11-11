@@ -8,13 +8,42 @@ const upload = require('../config/multer')
 const fs = require('fs')
 const path = require('path')
 
+const jwt = require('jsonwebtoken')
+/*
+const checkPerm = (req, res, next) => {
+    console.log("Request Body:", req.body);  // Log the entire body
+    console.log("Authorization Header:", req.headers['authorization']); // Log the header to see if the token is here
+    console.log("Token from body:", req.body.token); // Log token from body
+    const token = req.headers['authorization']?.split(' ')[1] || req.body.token;
+    console.log("Token extracted:", token);  // Log the final token used for verification
+
+    console.log("Token received:", token)
+
+    if (!token) {
+        return res.status(403).json({ message: 'Erro ao receber token' })
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            return res.status(403).json({ message: 'Token inválido ou expirado' })
+        }
+
+        if (decoded.isFunc !== true) {
+            return res.status(403).json({ message: 'Usuário não é funcionário.' })
+        }
+
+        req.user = decoded
+        next()
+    })
+}
+*/
 router.get('/', async (req, res) => {
     try{
         const data = await Proj.aggregate([{ $sort: {date: -1 }}])
 
-        const proj_edit = req.query.proj_edit ? await Proj.findById(req.query.proj_edit) : undefined;
+        const proj_edit = req.query.proj_edit ? await Proj.findById(req.query.proj_edit) : undefined
 
-        res.render('projetos', { data, proj_edit });
+        res.render('projetos', { data, proj_edit})
     }catch(error){
         console.log(`erro: ${error}`)
     }
@@ -26,14 +55,14 @@ router.get('/Home', async (req, res) => {
 })
 
 
-router.get('/edit/:id', async(req, res) => {
+router.get('/edit/:id', /*checkPerm,*/ async(req, res) => {
     let slug = req.params.id
-    res.redirect(`/projetos/?proj_edit=${slug}`)
+    res.redirect(`/projetos/?proj_edit=${slug}`/*, {token: req.body.token}*/)
 })
 
-router.post('/delete/:id', async (req, res)=>{
+router.post('/delete/:id', /*checkPerm,*/ async (req, res)=>{
     
-    const projectId = req.params.id;
+    const projectId = req.params.id
 
     const projeto = await Proj.findById(projectId)
 
@@ -57,9 +86,9 @@ router.post('/delete/:id', async (req, res)=>{
     res.redirect(req.baseUrl)
 })
 
-router.post('/update/:id', upload, async (req, res)=>{
+router.post('/update/:id', /*checkPerm,*/ upload, async (req, res)=>{
 
-    const projectId = req.params.id;
+    const projectId = req.params.id
     const titulo = req.body.title
     const descr = req.body.desc
 
@@ -88,7 +117,7 @@ router.post('/update/:id', upload, async (req, res)=>{
     res.redirect(req.baseUrl)
 })
 
-router.post('/upload', upload, async (req, res)=>{
+router.post('/upload', /*checkPerm,*/ upload, async (req, res)=>{
 
     const titulo = req.body.title
     const descr = req.body.desc
@@ -104,6 +133,7 @@ router.post('/upload', upload, async (req, res)=>{
     const projeto = new Proj({title: titulo, desc: descr, images: imgs, date: proj_date}) 
 
     await projeto.save()
+
     res.redirect(req.baseUrl)
 })
 

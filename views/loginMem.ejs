@@ -21,16 +21,16 @@
             <div class="row">
                 <div class="col-11 col-md-10 col-lg-8 mx-auto glass">
                     <h1 class="text-center mb-4 login-admin">Login Voluntário</h1>
-                    <form>
+                        <form id="loginForm" action="/users/login" method="POST">
                         <div class="mx-5 mb-2">
                             <label for="email" class="form-label fs-4">Endereço de E-mail</label>
-                            <input type="email" id="email" class="form-control p-3 fs-5" placeholder="Digite seu e-mail">
+                            <input type="email" id="email" name="email" class="form-control p-3 fs-5" placeholder="Digite seu e-mail">
                         </div>
                         
                         <div class="mx-5 my-4">
                             <label for="Senha" class="form-label fs-4">Senha</label>
                             <div class="input-group input-group-background">
-                                <input type="password" id="Senha" class="form-control p-3 fs-5" placeholder="Digite sua senha">
+                                <input type="password" id="Senha" name="senha" class="form-control p-3 fs-5" placeholder="Digite sua senha">
                                 <button class="btn btn-visibility" type="button" id="togglePassword">
                                     <span class="material-symbols-rounded visibility-icon">visibility_off</span>
                                 </button>
@@ -40,7 +40,7 @@
                         <div class="row justify-content-center">
                             <div class="justify-content-center botoes">
                                 <div class="col justify-content-center">
-                                    <div type="button" class="text-center confirmar">Confirmar</div>
+                                    <input type="submit" value="Confirmar" class="text-center confirmar">
                                 </div>
                             </div>
                         </div>
@@ -78,5 +78,7 @@
     <!------------------------ Footer ------------------------->
     <%- include('partials/Footer') %>    
     <!------------------------ Footer ------------------------->
+    
+    <script src="/js/paginaLogin.js"></script>
 </body>
 </html>

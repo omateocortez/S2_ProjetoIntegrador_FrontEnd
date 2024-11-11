@@ -20,14 +20,6 @@ router.get('/pick', (req, res) => {
     res.render('pick')
 })
 
-router.get('/loginFunc', (req, res) => {
-    res.render('loginFunc')
-})
-
-router.get('/loginMem', (req, res) => {
-    res.render('loginMem')
-})
-
 router.get('/ImpacTransp', (req, res) => {
     res.render('ImpacTransp')
 })
@@ -36,9 +28,16 @@ router.get('/FAQ', (req, res) => {
     res.render('FAQ')
 })
 
+router.get('/loginFunc', (req, res) => {
+    res.render('loginFunc')
+})
+
+router.get('/loginMem', (req, res) => {
+    res.render('loginMem')
+})
+
 router.get('/Cadastro', (req, res) => {
     res.render('Cadastro')
 })
-
 
 module.exports = router
