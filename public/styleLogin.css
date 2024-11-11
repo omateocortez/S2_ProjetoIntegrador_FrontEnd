@@ -100,7 +100,7 @@ body::before {
   transition: all 0.2s ease;
   margin-right: 43px !important;
   margin-left: 43px !important;
-
+  width: 86% !important;
 }
 .confirmar:hover{
   font-size: xx-large;  
@@ -115,6 +115,7 @@ body::before {
   padding-top: 10px;
   padding-bottom: 10px;
   transition: all 0.2s ease;
+  width: 86% !important;
 }
 
 
