@@ -71,7 +71,7 @@ padding-top: 0%;
 
 .descricao{
   margin-left: 5px;
-  font-size: 25px;
+  font-size: 26px;
 }
 
 .bricks{
@@ -142,6 +142,7 @@ li{
 .texto{
   font-weight: 300;
   font-size: 20px;
+  text-align: justify !important;
 }
 
 /* Arredondamento personalizado no carrossel */

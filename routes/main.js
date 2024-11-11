@@ -40,4 +40,8 @@ router.get('/Cadastro', (req, res) => {
     res.render('Cadastro')
 })
 
+router.get('/doacao_pix', (req, res) => {
+    res.render('doacao_pix')
+})
+
 module.exports = router

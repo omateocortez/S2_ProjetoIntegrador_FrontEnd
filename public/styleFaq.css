@@ -52,11 +52,13 @@
     overflow: hidden;
     border: 1px solid #234a793b !important;
     margin-bottom: 20px;
-    transition: all 0.3s ease !important;
+    transition: all 0.4s ease !important;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25) !important;
   }
   .accordion-item:hover{
     border: 1px solid transparent;
-    transition: all 0.3s ease !important;
+    transition: all 0.4s ease !important;
+    box-shadow: none !important;
   }
   .accordion-button:not(.collapsed) {
     background-color: #234A79 !important; /* Mantém azul quando ativo */
@@ -70,28 +72,23 @@
     color: #234A79;
   }
 
+
   .pergunta{
-    background-color: rgba(194, 194, 194, 0.25) !important;
+    background-color: rgba(194, 194, 194, 0.30) !important;
     transition: all 0.3s ease !important;
     color: #1a3f6c !important;
-  }
-  .pergunta:hover{
-    background-color: #234A79 !important;
-    color: white !important;
-    border: 0px transparent solid !important;
-    transition: all 0.3s ease !important;
-
   }  
   button{
     font-size: 18px !important;
   }
+
+
   .resposta_faq{
     font-weight: 400;
     font-size: 18px;
     padding-top: 6px;
     color: #234A79;
   }
-
 
 
   .ainda_tem_duvidas{
