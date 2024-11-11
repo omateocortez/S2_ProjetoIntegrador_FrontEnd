@@ -94,13 +94,13 @@ body::before {
   justify-content: center;
   background-color: #D6ED4B;
   border-radius: 15px;
-  border: #253847 solid 3px;
+  border: transparent solid 3px;
   padding-top: 5px;
   padding-bottom: 5px;
   transition: all 0.2s ease;
   margin-right: 43px !important;
   margin-left: 43px !important;
-  width: 86% !important;
+  margin-top: 15px !important;
 }
 .confirmar:hover{
   font-size: xx-large;  
@@ -115,7 +115,6 @@ body::before {
   padding-top: 10px;
   padding-bottom: 10px;
   transition: all 0.2s ease;
-  width: 86% !important;
 }
 
 
