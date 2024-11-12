@@ -1,19 +1,96 @@
 
-document.addEventListener("DOMContentLoaded", function() {
-    const token = localStorage.getItem('token')
-    
-    if (token) {
-        const tokenInputs = document.querySelectorAll('input[name="token"]')
+let isEditing = false
+let token = undefined
 
-        tokenInputs.forEach(input => {
-            input.value = token
-        })
-    }
+document.addEventListener("DOMContentLoaded", function() {
+    token = localStorage.getItem('token')
+    isEditing = new URLSearchParams(window.location.search).has('proj_edit')
 })
 
 document.getElementById('DeleteProject').addEventListener('show.bs.modal', function(event) {
     const projId = event.relatedTarget.getAttribute('data-bs-proj-id')
-    this.querySelector('form').action = '/projetos/delete/' + projId
+    const deleteButton = this.querySelector('#delete_absolute_button')
+
+    deleteButton.onclick = function() {
+        const token = localStorage.getItem('token')
+
+        if(!token){
+            alert('Erro de autenticação.')
+            return
+        }
+
+        fetch(`projetos/delete/${projId}`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.ok){
+                window.location.reload()
+            }else{
+                alert(data.mensagem)
+            }
+        })
+        .catch(err => {
+            console.error(err)
+            alert('Erro ao deletar projeto.')
+        })
+    }
+})
+
+document.getElementById('form-id').addEventListener('submit', function(event) {
+    event.preventDefault()
+
+    const formData = new FormData(this)
+
+    if(isEditing){
+        const projId = new URLSearchParams(window.location.search).get('proj_edit')
+
+        fetch(`/projetos/update/${projId}`, {
+            method: 'POST',
+            headers: {
+                'Authorization' : `Bearer ${token}`,
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.ok){
+                window.location = window.location.pathname
+            }else{
+                alert(data.mensagem)
+            }
+        })
+        .catch(err => {
+            console.error(err)
+            alert('Erro ao atualizar projeto.')
+        })
+    }
+    else{ // se NÃO FOR EDIÇÃO, então CRIAR PROJETO NOVO!
+        fetch(`/projetos/upload`,{
+            method: 'POST',
+            headers: {
+                'Authorization' : `Bearer ${token}`,
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                window.location.reload()
+            } else {
+                alert(data.mensagem)
+            }
+        })
+        .catch(err => {
+            console.error(err)
+            alert('Erro ao criar o projeto.')
+        })
+    }
+
 })
 
 function isFuncionario(){
@@ -49,13 +126,13 @@ window.onload = function() {
     
     const botaoAddProj = document.getElementById('botaoAdicionarProjeto')
 
-    if (!isFuncionario()) {
-        botaoAddProj.style.display = 'none'
+    if (isFuncionario()) {
+        botaoAddProj.style.display = 'block'
         document.querySelectorAll('.botaoEditar').forEach(bot => {
-            bot.style.display = 'none'
+            bot.style.display = 'block'
         })
         document.querySelectorAll('.botaoDeletar').forEach(bot => {
-            bot.style.display = 'none'
+            bot.style.display = 'block'
         })
     }
 }

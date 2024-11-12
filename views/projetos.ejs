@@ -23,7 +23,7 @@
         
         <section>
             <!------------------------ Modal Form -------------------------->
-            <div class="container" id="botaoAdicionarProjeto">
+            <div class="container" id="botaoAdicionarProjeto" style="display: none;">
                 <div class="row justify-content-end">
                     <button type="button" class="btn w-auto btn-open-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <%= proj_edit ? 'Continuar editando...' : '+ Adicionar Projeto' %>
@@ -42,8 +42,7 @@
                         </div>
                         <div class="modal-body custom-modal-body">
                             <!-- Formulário temporário dentro do modal -->
-                            <form action="<%= proj_edit ? '/projetos/update/' + proj_edit._id : '/projetos/upload/' %>" method="POST" enctype="multipart/form-data" id="form-id" class="modal-form">
-                                <input type="hidden" name="token" value="">
+                            <form id="form-id" class="modal-form">
                                 <div class="mb-3 form-group-title">
                                     <label for="title" class="form-label label-title text-light">Título:</label> <!-- Cor da label ajustada -->
                                     <input type="text" id="title" value="<%= proj_edit ? proj_edit.title : '' %>" name="title" class="form-control w-100 input-title bg-dark text-light" required> <!-- Inputs com fundo escuro -->
@@ -60,6 +59,13 @@
                                 <div class="mb-3 form-group-date">
                                     <label for="date" class="form-label label-date text-light">Data:</label><br>
                                     <input class="box-calendar" type="date" id="date" name="date" value="<%= proj_edit ? proj_edit.date.toISOString().split('T')[0] : '' %>">
+                                </div>
+
+                                <div>
+                                    <%- proj_edit ? `
+                                    <div>Criado por: ${ proj_edit.creator_email }</div>
+                                    <div>Última edição: ${ proj_edit.last_editor_email }</div>
+                                    ` : '' %>
                                 </div>
                             </form>
                         </div>
@@ -92,10 +98,9 @@
                                 </div>
                                 <p class="descricao-projeto"><%= proj.desc %></p>
 
-                                <div class="row align-items-center mt-4 botaoEditar">
+                                <div class="row align-items-center mt-4 botaoEditar" style="display: none;">
                                     <div class="row justify-content-start text-start align-items-center">
                                         <form action="/projetos/edit/<%= proj._id %>" enctype="multipart/form-data" method="get">
-                                            <input type="hidden" name="token" value="">
                                             <button type="submit" class="p-2 edit_button">
                                                 <span class="material-symbols-rounded icone">
                                                     border_color
@@ -106,7 +111,7 @@
                                 </div>           
                                 
                                 <!-- Button trigger modal -->
-                        <div class="row justify-content-end text-end align-items-center botaoDeletar">
+                        <div class="row justify-content-end text-end align-items-center botaoDeletar" style="display: none;">
                             <button type="button" class="justify-content-end text-end delete_button" data-bs-toggle="modal" data-bs-target="#DeleteProject" data-bs-proj-id="<%= proj._id %>">
                                 <span class="material-symbols-rounded icone">
                                     delete_forever
@@ -129,12 +134,9 @@
 
                         <div class="modal-body">
                             <div class="row justify-content-center text-center align-items-center">
-                            <form action="/projetos/delete/" method="POST" enctype="multipart/form-data" class="mt-1">
-                                <input type="hidden" name="token" value="">
-                                <button type="submit" class="p-4 m-5 delete_absolute">
+                                <button type="submit" class="mt-1 p-4 m-5 delete_absolute" id="delete_absolute_button">
                                     Excluir Projeto <strong class="d-block">permanentemente</strong>
                                 </button>                                            
-                            </form>
                             </div>
                         </div>
                     </div>

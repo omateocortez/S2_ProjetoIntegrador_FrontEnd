@@ -40,8 +40,9 @@
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end rounded-4 menu">
-                    <li><a class="dropdown-item text-end menu-item" href="/loginMem">Login</a></li>
-                    <li><a class="dropdown-item text-end menu-item" href="/Cadastro">Cadastro</a></li>
+                    <li><a class="dropdown-item text-end menu-item" id="drop-md-login" href="/loginMem">Login</a></li>
+                    <li><a class="dropdown-item text-end menu-item" id="drop-md-cadastro" href="/Cadastro">Cadastro</a></li>
+                    <li><a class="dropdown-item text-end menu-item" id="drop-md-logout" style="display: none;">Logout</a></li>
                   </ul>
                 </li>
               </ul>
@@ -86,12 +87,13 @@
                         <a class="nav-link" aria-current="page" href="FAQ">FAQ</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="nav-xs-login-button">
                           Login
                         </a>
                         <ul class="dropdown-menu sidebar">
-                            <li><a class="dropdown-item item-sidebar" href="loginMem">Login de Voluntário</a></li>
-                            <li><a class="dropdown-item item-sidebar" href="loginFunc">Login de Funcionário</a></li>
+                            <li><a class="dropdown-item item-sidebar" id="drop-xs-login" href="loginMem">Login</a></li>
+                            <li><a class="dropdown-item item-sidebar" id="drop-xs-cadastro" href="Cadastro">Cadastro</a></li>
+                            <li><a class="dropdown-item item-sidebar" id="drop-xs-logout" style="display: none;">Logout</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -102,5 +104,5 @@
         </div>
     </div>
 </nav>
-
+<script src="/js/scriptHeader.js"></script>
 <!------------------------------------------- NAVBAR  ----------------------------------->

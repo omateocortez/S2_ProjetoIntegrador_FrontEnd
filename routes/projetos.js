@@ -9,15 +9,11 @@ const fs = require('fs')
 const path = require('path')
 
 const jwt = require('jsonwebtoken')
-/*
-const checkPerm = (req, res, next) => {
-    console.log("Request Body:", req.body);  // Log the entire body
-    console.log("Authorization Header:", req.headers['authorization']); // Log the header to see if the token is here
-    console.log("Token from body:", req.body.token); // Log token from body
-    const token = req.headers['authorization']?.split(' ')[1] || req.body.token;
-    console.log("Token extracted:", token);  // Log the final token used for verification
 
-    console.log("Token received:", token)
+const checkPerm = (req, res, next) => {
+    const token = req.headers['authorization']?.split(' ')[1] || req.body.token
+
+    console.log("Token recebido!")
 
     if (!token) {
         return res.status(403).json({ message: 'Erro ao receber token' })
@@ -36,7 +32,7 @@ const checkPerm = (req, res, next) => {
         next()
     })
 }
-*/
+
 router.get('/', async (req, res) => {
     try{
         const data = await Proj.aggregate([{ $sort: {date: -1 }}])
@@ -55,86 +51,102 @@ router.get('/Home', async (req, res) => {
 })
 
 
-router.get('/edit/:id', /*checkPerm,*/ async(req, res) => {
+router.get('/edit/:id', async(req, res) => {
     let slug = req.params.id
-    res.redirect(`/projetos/?proj_edit=${slug}`/*, {token: req.body.token}*/)
+    res.redirect(`/projetos/?proj_edit=${slug}`)
 })
 
-router.post('/delete/:id', /*checkPerm,*/ async (req, res)=>{
-    
+router.post('/delete/:id', checkPerm, async (req, res)=>{
     const projectId = req.params.id
+    try{
+        const projeto = await Proj.findById(projectId)
 
-    const projeto = await Proj.findById(projectId)
+        console.log(projeto.images)
 
-    console.log(projeto.images)
+        projeto.images.forEach(imgPath => {
 
-    projeto.images.forEach(imgPath => {
+            const filePath = path.resolve(__dirname, '..', 'public', imgPath)
 
-        const filePath = path.resolve(__dirname, '..', 'public', imgPath)
-
-        fs.unlink(filePath, (err) => {
-            if(err){
-                console.error(`erro ao deletar imagem!\nfile path: ${filePath}`, err)
-            }else{
-                console.log(`imagem deltada com sucesso.\nfile path: ${filePath}`)
-            }
+            fs.unlink(filePath, (err) => {
+                if(err){
+                    console.error(`Erro ao deletar imagem!\nfile path: ${filePath}`, err)
+                }else{
+                    console.log(`Imagem deltada com sucesso.\nfile path: ${filePath}`)
+                }
+            })
         })
-    })
 
-    await Proj.findByIdAndDelete(projectId)
-    
-    res.redirect(req.baseUrl)
+        await Proj.findByIdAndDelete(projectId)
+        
+        res.status(200).json({ok: true, mensagem: 'Projeto deletado com sucesso.'})
+    }catch(err){
+        console.error(err)
+        res.status(500).json({ok: false, mensagem: 'Erro ao deletar projeto.'})
+    }
 })
 
-router.post('/update/:id', /*checkPerm,*/ upload, async (req, res)=>{
-
+router.post('/update/:id', checkPerm, upload, async (req, res)=>{
     const projectId = req.params.id
     const titulo = req.body.title
     const descr = req.body.desc
 
-    let proj_date
+    const editor_email = req.user.email
+    
+    try{
+        let creator_email =  Proj.findById(projectId).creator_email
 
-    if(req.body.date){
-        proj_date = new Date(req.body.date)
-        proj_date.setDate(proj_date.getDate() + 1)
-    }else{
-        proj_date = Proj.findById(projectId).date
+        let proj_date
+
+        if(req.body.date){
+            proj_date = new Date(req.body.date)
+            proj_date.setDate(proj_date.getDate() + 1)
+        }else{
+            proj_date = Proj.findById(projectId).date
+        }
+
+        let imgs = []
+
+        if(req.files && req.files.length > 0){
+            imgs = req.files.map(file => `imgs/uploads/${file.filename}`)
+        }else{
+            imgs = Proj.findById(projectId).images
+        }
+
+        await Proj.findByIdAndUpdate(projectId, {title: titulo, desc: descr, images: imgs, date: proj_date, creator_email: creator_email, last_editor_email: editor_email}, {
+            new: true,
+            runValidators: true
+        }) 
+
+        res.status(200).json({ok: true, mensagem: 'Projeto atualizado com sucesso.'})
+
+    }catch(err){
+        console.log(err)
+        res.status(500).json({ok: false, mensagem: 'Erro ao atualizar projeto.'})
     }
-
-    let imgs = []
-
-    if(req.files && req.files.length > 0){
-        imgs = req.files.map(file => `imgs/uploads/${file.filename}`)
-    }else{
-        imgs = Proj.findById(projectId).images
-    }
-
-    await Proj.findByIdAndUpdate(projectId, {title: titulo, desc: descr, images: imgs, date: proj_date}, {
-        new: true,
-        runValidators: true
-    }) 
-
-    res.redirect(req.baseUrl)
 })
 
-router.post('/upload', /*checkPerm,*/ upload, async (req, res)=>{
+router.post('/upload', checkPerm, upload, async (req, res)=>{
+    try{
+        const titulo = req.body.title
+        const descr = req.body.desc
+        const imgs = req.files.map(file => `imgs/uploads/${file.filename}`)
+        const creator = req.user.email
 
-    const titulo = req.body.title
-    const descr = req.body.desc
-    const imgs = req.files.map(file => `imgs/uploads/${file.filename}`)
+        let proj_date = Date.now()
 
-    let proj_date = Date.now()
+        if(req.body.date){
+            proj_date = new Date(req.body.date)
+            proj_date.setDate(proj_date.getDate() + 1)
+        }
 
-    if(req.body.date){
-        proj_date = new Date(req.body.date)
-        proj_date.setDate(proj_date.getDate() + 1)
+        const projeto = new Proj({title: titulo, desc: descr, images: imgs, date: proj_date, creator_email: creator, last_editor_email: creator}) 
+
+        await projeto.save()
+
+        res.status(201).json({ok: true, mensagem:'Projeto criado com sucesso.'})
+    }catch{
+        res.status(500).json({ok: false, mensagem: 'Erro ao criar projeto.'})
     }
-
-    const projeto = new Proj({title: titulo, desc: descr, images: imgs, date: proj_date}) 
-
-    await projeto.save()
-
-    res.redirect(req.baseUrl)
 })
 
 module.exports = router

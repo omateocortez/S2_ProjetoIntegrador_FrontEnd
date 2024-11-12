@@ -19,6 +19,14 @@ const ProjSchema = new Schema({
         type: Date,
         default:Date.now(),
         required: true
+    },
+    creator_email:{
+        type: String,
+        required: true
+    },
+    last_editor_email:{
+        type: String,
+        required: true
     }
 })
 
