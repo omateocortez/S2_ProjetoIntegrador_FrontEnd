@@ -29,7 +29,7 @@ Caso tenha feito tudo acima de maneira correta, basta digitar `npm start` no ter
 ## Possíveis erros:
 
 ### 1. Erro de execução restrita:
-> O arquivo não pode ser carregado porque a execução de scripts foi desabilitada neste sistema
+> "O arquivo não pode ser carregado porque a execução de scripts foi desabilitada neste sistema".
 
 O erro acontece porque o sistema bloqueia a execução de scripts por segurança, para evitar que códigos maliciosos sejam rodados sem permissão.
 
