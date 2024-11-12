@@ -1,7 +1,7 @@
 /* ---------------------------- NAVBAR ------------------------------- */
 .navbar{
     margin-top: 50px;
-    background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
+    background-image: linear-gradient(to right,  #23272a, #1D385A);
   }
   
   .titulo{
@@ -14,7 +14,7 @@
   }
   
   .offcanvas-header{
-    background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
+    background-image: linear-gradient(to right,  #23272a, #1D385A);
   }
   .offcanvas-title{
     color: white;
@@ -22,7 +22,7 @@
     font-weight: 800;
   }
   .offcanvas-body{
-    background-image: linear-gradient(to right,  #2B2F33, #29374C, #234B79);
+    background-image: linear-gradient(to right,  #23272a, #1D385A);
   }
   
   .navbar-toggler{
@@ -47,7 +47,7 @@
     font-size: 21px; 
     font-weight: 500;
     color: white;
-    margin-top: 5px;
+    margin-top: 8px;
     transition: all 0.3s ease;
   }
   .navbar-expand-sm .nav-link:hover{
@@ -59,14 +59,13 @@
     outline: none !important;
   }
   .menu{
-    background-image: linear-gradient(to right, #29374C, #234B79);
+    background-image: linear-gradient(to right, #23272a, #1D385A);
     transition: all 0.3s ease;
   }
   .menu-item{
     color: white !important;
     background-color: transparent !important;
     transition: all 0.3s ease;
-    font-size: 20px;
   
   }
   .menu-item:hover{
@@ -77,7 +76,11 @@
   
   .avatar{
     width: 55px;
-    margin-top: 2px !important;
+    margin-top: 5px !important;
+    margin-bottom: none !important;
+    color: #eeeeee;
+    font-size: 60px;
+    font-weight: 400 !important;
   }
   
   /* Estilo apenas para o link "AJUDE AGORA" */

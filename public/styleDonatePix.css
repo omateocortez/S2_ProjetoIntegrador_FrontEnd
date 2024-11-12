@@ -46,12 +46,16 @@
     }
   }
  
+  .formas_doacao, .doacao, .desc_doacao, .pay_box{
+    color: #253847;
+  }
+
+
 
 .pay_box{
     background-color: #c5c5c561 !important;
     outline: none !important;
     border: none !important;
-    color: #253847 !important;
 }
 
 .payment-option{
@@ -72,4 +76,16 @@
     color: #D6ED4B !important;
     background-color: #253847 !important;
     border: solid 5px #D6ED4B !important;
+}
+
+
+.card{
+  border: 5px solid #253847 !important;
+  background-color: #eeeeee !important;
+  box-shadow: 4px 4px 15px #a3a3a3 !important;
+  transition: all 0.3s ease;
+}
+.card:hover{
+  box-shadow: none !important;
+  transition: all 0.3s ease;
 }
