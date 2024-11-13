@@ -1,9 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
-    token = localStorage.getItem('token')
-    
-    if (token) {
-        console.log('A')
+import { getUserAccessInfo } from '/utils/utils.js'
+let userAccessInfo = null
 
+document.addEventListener("DOMContentLoaded", async function() {
+    userAccessInfo = await getUserAccessInfo()
+
+    if (userAccessInfo.isAuthenticated) {
         document.getElementById('drop-xs-login').style.display = 'none'
         document.getElementById('drop-md-login').style.display = 'none'
         
@@ -20,6 +21,24 @@ document.getElementById('drop-md-logout').addEventListener('click', logout)
 
 
 function logout() {
-    localStorage.removeItem('token')
-    window.location.reload()
+    fetch('/users/logout', {
+        method: 'POST',
+        credentials: 'include',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: 'Log-out completo.' })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.ok){
+            window.location.reload()
+        }else{
+            alert(data.mensagem)
+        }
+    })
+    .catch(err => {
+        console.log(err)
+        alert('Erro ao realizar log-out.')
+    })
 }

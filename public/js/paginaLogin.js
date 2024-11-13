@@ -10,14 +10,13 @@ document.querySelector('#loginForm').addEventListener('submit', function(event){
     fetch(form.action, {
         method: form.method,
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(formDataObject)
     })
     .then(response => response.json())
     .then(data => {
-        if (data.token) {
-            localStorage.setItem('token', data.token)
+        if (data.ok) {
             window.location.href = '/Home'
         } else {
             console.log('Erro:', data.mensagem)

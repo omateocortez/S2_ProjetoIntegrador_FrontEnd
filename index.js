@@ -2,19 +2,22 @@ require('dotenv').config()
 
 const express = require('express')
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 const app = express()
 const PORT = process.env.PORT || 3000
-const connectDB = require('./db')
+const connectDB = require('./config/db')
 
 connectDB()
 
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
+app.use('/utils', express.static(__dirname + '/src/utils'))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use(cors());
+app.use(cors())
+app.use(cookieParser())
 
 // ROTAS
 const mainRoute = require('./routes/main')

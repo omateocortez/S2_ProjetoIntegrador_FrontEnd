@@ -5,33 +5,10 @@ const Proj = require('../schemas/Projeto')
 
 const upload = require('../config/multer')
 
+const checkTokens = require('../src/middleware/auth')
+
 const fs = require('fs')
 const path = require('path')
-
-const jwt = require('jsonwebtoken')
-
-const checkPerm = (req, res, next) => {
-    const token = req.headers['authorization']?.split(' ')[1] || req.body.token
-
-    console.log("Token recebido!")
-
-    if (!token) {
-        return res.status(403).json({ message: 'Erro ao receber token' })
-    }
-
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-        if (err) {
-            return res.status(403).json({ message: 'Token inválido ou expirado' })
-        }
-
-        if (decoded.isFunc !== true) {
-            return res.status(403).json({ message: 'Usuário não é funcionário.' })
-        }
-
-        req.user = decoded
-        next()
-    })
-}
 
 router.get('/', async (req, res) => {
     try{
@@ -56,7 +33,11 @@ router.get('/edit/:id', async(req, res) => {
     res.redirect(`/projetos/?proj_edit=${slug}`)
 })
 
-router.post('/delete/:id', checkPerm, async (req, res)=>{
+router.post('/delete/:id', checkTokens, async (req, res)=>{
+    if(!req.user.isFunc){
+        return res.status(403).json({ok: false, mensagem: 'Usuário não autorizado'})
+    }
+
     const projectId = req.params.id
     try{
         const projeto = await Proj.findById(projectId)
@@ -81,11 +62,15 @@ router.post('/delete/:id', checkPerm, async (req, res)=>{
         res.status(200).json({ok: true, mensagem: 'Projeto deletado com sucesso.'})
     }catch(err){
         console.error(err)
-        res.status(500).json({ok: false, mensagem: 'Erro ao deletar projeto.'})
+        res.status(403).json({ok: false, mensagem: 'Erro ao deletar projeto.'})
     }
 })
 
-router.post('/update/:id', checkPerm, upload, async (req, res)=>{
+router.post('/update/:id', checkTokens, upload, async (req, res)=>{
+    if(!req.user.isFunc){
+        return res.status(403).json({ok: false, mensagem: 'Usuário não autorizado'})
+    }
+
     const projectId = req.params.id
     const titulo = req.body.title
     const descr = req.body.desc
@@ -121,11 +106,16 @@ router.post('/update/:id', checkPerm, upload, async (req, res)=>{
 
     }catch(err){
         console.log(err)
-        res.status(500).json({ok: false, mensagem: 'Erro ao atualizar projeto.'})
+        res.status(403).json({ok: false, mensagem: 'Erro ao atualizar projeto.'})
     }
 })
 
-router.post('/upload', checkPerm, upload, async (req, res)=>{
+router.post('/upload', checkTokens, upload, async (req, res)=>{
+    if(!req.user.isFunc){
+        console.log('fuck')
+        return res.status(403).json({ok: false, mensagem: 'Usuário não autorizado'})
+    }
+
     try{
         const titulo = req.body.title
         const descr = req.body.desc
@@ -141,11 +131,13 @@ router.post('/upload', checkPerm, upload, async (req, res)=>{
 
         const projeto = new Proj({title: titulo, desc: descr, images: imgs, date: proj_date, creator_email: creator, last_editor_email: creator}) 
 
+        console.log(projeto)
+
         await projeto.save()
 
         res.status(201).json({ok: true, mensagem:'Projeto criado com sucesso.'})
     }catch{
-        res.status(500).json({ok: false, mensagem: 'Erro ao criar projeto.'})
+        res.status(403).json({ok: false, mensagem: 'Erro ao criar projeto.'})
     }
 })
 

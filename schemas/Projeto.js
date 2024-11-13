@@ -12,7 +12,7 @@ const ProjSchema = new Schema({
     },
     images:{
         type: [String],
-        default: ["imgs/uploads/no_img.png"],
+        default: ["imgs/no_img.png"],
         required: true
     },
     date:{

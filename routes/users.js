@@ -4,7 +4,8 @@ const router = express.Router()
 const User = require('../schemas/Usuario')
 
 const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+
+const { generateAcessToken, generateRefreshToken } = require('../src/middleware/genTokens')
 
 router.post('/signup', async (req, res) =>{
 
@@ -58,16 +59,29 @@ router.post('/login', async(req, res) =>{
         return res.status(401).json({mensagem: "Senha incorreta."})
     }
 
-    const token = jwt.sign(
-        {
-            email: email,
-            isFunc: user.funcionario
-        },
-        process.env.JWT_SECRET,
-        {expiresIn:"1h"}
-    )
+    const accessToken = generateAcessToken(user)
+    const refreshToken = generateRefreshToken(user)
 
-    res.status(200).json({ token, mensagem: "Log-in OK" })
+    res.cookie('refreshToken', refreshToken, {
+        httpOnly: true,
+        secure: true,
+        maxAge: 7 * 24 * 60 * 60 * 100, //7 dias
+        sameSite: 'Strict'
+    })
+    res.cookie('accessToken', accessToken, {
+        httpOnly: true,
+        secure: true,
+        maxAge: 15 * 60 * 1000, //15 min
+        sameSite: 'Lax'
+    })
+
+    res.status(200).json({ ok: true, mensagem: "Log-in OK" })
+})
+
+router.post('/logout', async(req, res) => {
+    res.clearCookie('accessToken')
+    res.clearCookie('refreshToken')
+    res.status(200).json({ ok:true, mensagem: 'Log-out realizado com sucesso.'})
 })
 
 module.exports = router
