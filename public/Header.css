@@ -104,7 +104,7 @@
   
   /* Estilo da Navbar para telas pequenas */
   .d-xl-none .nav-link {
-    font-size: 25px;
+    font-size: 26px;
     font-weight: 600;
     color: white; 
     transition: all 0.3s ease;
