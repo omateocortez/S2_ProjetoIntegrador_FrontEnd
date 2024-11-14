@@ -75,3 +75,8 @@
     font-weight: 300;
     font-size: 25px;
   }
+
+
+.icon {
+  height: 57px; /* Mantém a proporção da imagem */
+}
