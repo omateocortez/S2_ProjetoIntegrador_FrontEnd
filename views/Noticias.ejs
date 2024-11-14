@@ -49,23 +49,32 @@
                                 </div>
                                 <div class="mb-3 form-group-desc">
                                     <label for="desc" class="form-label label-desc text-light">Descrição:</label> <!-- Cor da label ajustada -->
-                                    <textarea id="desc" name="desc" class="form-control w-100 textarea-desc bg-dark text-light" rows="13"></textarea> <!-- Área de texto escura -->
+                                    <textarea id="desc" name="noticia_text" class="form-control w-100 textarea-desc bg-dark text-light" rows="13"></textarea> <!-- Área de texto escura -->
                                 </div>
                                 <div class="mb-3 form-group-file">
                                     <label for="file" class="form-label label-file text-light">Imagens:</label> <!-- Cor da label ajustada -->
                                     <input type="file" id="file" name="files[]" class="form-control w-100 input-file bg-dark text-light"> <!-- Input de arquivo escuro -->
                                 </div>
-                                
+                                                            
+                                <div>
+                                    <%- noticia_edit ? `
+                                    <div>Criado por: ${ noticia_edit.creator_email } em ${noticia_edit.upload_date}</div>
+                                    <div>Última edição: ${ noticia_edit.last_editor_email } em ${noticia_edit.last_update_date}</div>
+                                    ` : '' %>
+                                </div>
+                            
+                            <!--                                
                                 <div class="mb-3 form-group-date">
                                     <label for="date" class="form-label label-date text-light">Data:</label><br>
                                     <input class="box-calendar" type="date" id="date" name="date">
                                 </div>
+                            -->
 
                             </form>
                         </div>
-                        <div class="modal-footer custom-modal-footer"> <!--Aqui iria a parte de editar o projeto-->
+                        <div class="modal-footer custom-modal-footer"> <!--Aqui iria a parte de editar a notícia-->
                             <button type="button" class="btn btn-close-footer" data-bs-dismiss="modal">Fechar</button>
-                            <button type="submit" form="form-id" value="Publicar" class="btn btn-submit-footer">Publicar</button>
+                            <button type="submit" form="form-id" value="Publicar" class="btn btn-submit-footer"><%= noticia_edit ? 'Salvar' : 'Publicar' %></button>
                         </div>                        
                     </div>
                 </div>
@@ -73,51 +82,42 @@
             <!------------------------ Modal Form -------------------------->
 
             <ul style="list-style-type: none;" class="row g-4">
-                <li class="col-12 col-lg-6 col-xl-4">
-                    <div class="col d-flex justify-content-center caixa">
-                        <div class="row d-flex flex-column">
+                <% data.forEach(noticia => { %>
+                    <li class="col-12 col-lg-6 col-xl-4">
+                        <div class="col d-flex justify-content-center caixa">
+                            <div class="row d-flex flex-column">
                             <div class="text-center">
-                                <img src="imgs/tiozinho.png" class="img-fluid imagem_noticia"> 
-                                <!-- onError="this.onerror=null; this.src='/imgs/no_img.png';" -->
+                                <img src="/<%= noticia.images[noticia.images.length - 1] %>" class="img-fluid imagem_noticia" onError="this.onerror=null; this.src='/imgs/no_img.png';"> 
                             </div>
-                            <h1 class="titulo-noticia">Notícia</h1>
+                            <h1 class="titulo-noticia"><%= noticia.title %></h1>
                             <div class="row me-0 pe-0 justify-content-end text-end">
-                            <p class="data-noticia">
-
-                            </p>
-
-                            </div>
-                            <p class="descricao-noticia">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Saepe dolores cum inventore eius incidunt. Provident eius 
-                                animi perspiciatis voluptates, magni ducimus. Dolor iste aut, 
-                                placeat magnam incidunt nam nostrum laborum doloremque repellendus 
-                                fugit, perferendis mollitia omnis odit dolores suscipit deserunt 
-                                delectus ullam libero dicta a eos, voluptas illo. Iure, voluptatem.
-                            </p>
-
-                            <div class="row align-items-center mt-4 botaoEditar" >
-                                <div class="row justify-content-start text-start align-items-center">
-                                    <form>
-                                        <button type="submit" class="p-2 edit_button">
-                                            <span class="material-symbols-rounded icone">
-                                                border_color
-                                            </span>
-                                        </button>
+                            <p class="data-noticia">Publicado: <%= `${noticia.upload_date.getDate()}/${noticia.upload_date.getMonth() + 1}/${noticia.upload_date.getFullYear()}` %></br>Última Edição: <%= `${noticia.last_update_date.getDate()}/${noticia.last_update_date.getMonth() + 1}/${noticia.last_update_date.getFullYear()}` %></p>
+                        </div>
+                        <p class="descricao-noticia"><%= noticia.noticia_text %></p>
+                        
+                        <div class="row align-items-center mt-4 botaoEditar" >
+                            <div class="row justify-content-start text-start align-items-center">
+                                <form action="/Noticias/edit/<%= noticia._id %>" enctype="multipart/form-data" method="get">
+                                    <button type="submit" class="p-2 edit_button">
+                                        <span class="material-symbols-rounded icone">
+                                            border_color
+                                        </span>
+                                    </button>
                                     </form>
                                 </div>
                             </div>           
                             
                             <!-- Button trigger modal -->
-                    <div class="row justify-content-end text-end align-items-center botaoDeletar">
-                        <button type="button" class="justify-content-end text-end delete_button" data-bs-toggle="modal" data-bs-target="#DeleteNews">
-                            <span class="material-symbols-rounded icone">
-                                delete_forever
-                            </span>
-                        </button>
-                    </div>
-                    
-                </li>
+                            <div class="row justify-content-end text-end align-items-center botaoDeletar">
+                                <button type="button" class="justify-content-end text-end delete_button" data-bs-toggle="modal" data-bs-target="#DeleteNews" data-bs-noticia-id="<%= noticia._id %>">
+                                    <span class="material-symbols-rounded icone">
+                                        delete_forever
+                                    </span>
+                                </button>
+                            </div>
+                            
+                        </li>
+                <% }) %>
             </ul>   
           
             <!------------------------------------ Modal ------------------------------------>
@@ -156,6 +156,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <!-- <script type="module" src="/js/paginaprojetos.js"></script> -->
+    <script type="module" src="/js/paginaNoticias.js"></script>
 </body>
 </html>

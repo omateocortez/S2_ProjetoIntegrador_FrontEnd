@@ -25,8 +25,8 @@
             <!------------------------ Modal Form -------------------------->
             <div class="container" id="botaoAdicionarProjeto" style="display: none;">
                 <div class="row justify-content-end">
-                    <button type="button" class="btn w-auto btn-open-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <%= proj_edit ? 'Continuar editando...' : '+ Adicionar Projeto' %>
+                    <button type="button" id="addProjetoButton" class="btn w-auto btn-open-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        + Adicionar Projeto
                     </button>
                 </div>
 
@@ -34,7 +34,7 @@
             
             <!-- Modal com o formulário -->
             <div class="modal fade custom-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg custom-modal-dialog modal-dialog-centered modal-dialog-scrollable"> <!-- Modal maior -->
+                <div class="modal-dialog modal-lg custom-modal-dialog modal-dialog-centered"> <!-- Modal maior -->
                     <div class="modal-content bg-dark text-light p-3 caixa_modal"> <!-- Modal com fundo escuro e texto claro -->
                         <div class="modal-header custom-modal-header">
                             <h1 class="modal-title fs-5 modal-title-custom" id="exampleModalLabel"><%= proj_edit ? 'Edição de' : 'Novo' %> <strong>Projeto</strong></h1>
@@ -61,17 +61,17 @@
                                     <input class="box-calendar" type="date" id="date" name="date" value="<%= proj_edit ? proj_edit.date.toISOString().split('T')[0] : '' %>">
                                 </div>
 
-                                <div>
-                                    <%- proj_edit ? `
-                                    <div>Criado por: ${ proj_edit.creator_email }</div>
-                                    <div>Última edição: ${ proj_edit.last_editor_email }</div>
-                                    ` : '' %>
-                                </div>
                             </form>
                         </div>
                         <div class="modal-footer custom-modal-footer">
+                            <div>
+                                <%- proj_edit ? `
+                                <div>Criado por: ${ proj_edit.creator_email }</div>
+                                <div>Última edição: ${ proj_edit.last_editor_email }</div>
+                                ` : '' %>
+                            </div>
                             <a href="<%= proj_edit ? '/projetos/' : '#' %>">
-                                <button type="button" class="btn btn-close-footer" data-bs-dismiss="modal"><%= proj_edit ? 'Cancelar Edição' : 'Fechar' %></button>
+                                <button type="button" class="btn btn-close-footer" data-bs-dismiss="modal"> Cancelar </button>
                             </a>
                             <button type="submit" form="form-id" value="Publicar" class="btn btn-submit-footer"><%= proj_edit ? 'Salvar' : 'Publicar' %></button>
                         </div>                        

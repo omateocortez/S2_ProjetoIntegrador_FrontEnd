@@ -23,10 +23,12 @@ app.use(cookieParser())
 const mainRoute = require('./routes/main')
 const projRoute = require('./routes/projetos')
 const usersRoute = require('./routes/users')
+const noticiasRoute = require('./routes/noticias')
 
 app.use('/', mainRoute)
 app.use('/projetos', projRoute)
 app.use('/users', usersRoute)
+app.use('/Noticias', noticiasRoute)
 
 app.listen(PORT, ()=>{
     console.log(`Server ligado na porta ${PORT}`)

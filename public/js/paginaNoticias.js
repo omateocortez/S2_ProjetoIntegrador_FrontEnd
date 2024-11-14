@@ -4,11 +4,11 @@ let userAccessInfo = null
 let isEditing = false
 
 document.addEventListener("DOMContentLoaded",  async function() {
-    isEditing = new URLSearchParams(window.location.search).has('proj_edit')
+    isEditing = new URLSearchParams(window.location.search).has('noticia_edit')
     userAccessInfo = await getUserAccessInfo()
 
     if(userAccessInfo.isFunc){
-        document.getElementById('botaoAdicionarProjeto').style.display = 'block'
+        document.getElementById('botaoAdicionarNoticia').style.display = 'block'
         document.querySelectorAll('.botaoEditar').forEach(botao => {
             botao.style.display = 'block'
         })
@@ -23,20 +23,8 @@ document.addEventListener("DOMContentLoaded",  async function() {
 
 })
 
-document.getElementById("addProjetoButton").addEventListener("click", function() {
-    if (isEditing){
-        const form = document.getElementById('form-id')
-        form.reset()
-
-        const url = new URL(window.location.href)
-        url.searchParams.delete('proj_edit')
-        window.history.pushState({}, '', url.toString())
-    }
-
-})
-
-document.getElementById('DeleteProject').addEventListener('show.bs.modal', function(event) {
-    const projId = event.relatedTarget.getAttribute('data-bs-proj-id')
+document.getElementById('DeleteNews').addEventListener('show.bs.modal', function(event) {
+    const noticiaId = event.relatedTarget.getAttribute('data-bs-noticia-id')
     const deleteButton = this.querySelector('#delete_absolute_button')
 
     deleteButton.onclick = function() {
@@ -45,7 +33,7 @@ document.getElementById('DeleteProject').addEventListener('show.bs.modal', funct
             return
         }
 
-        fetch(`/projetos/delete/${projId}`, {
+        fetch(`/Noticias/delete/${noticiaId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -70,7 +58,7 @@ document.getElementById('DeleteProject').addEventListener('show.bs.modal', funct
         })
         .catch(err => {
             console.error(err)
-            alert('Erro ao deletar projeto.')
+            alert('Erro ao deletar notícia.')
         })
     }
 })
@@ -81,9 +69,9 @@ document.getElementById('form-id').addEventListener('submit', function(event) {
     const formData = new FormData(this)
 
     if(isEditing){
-        const projId = new URLSearchParams(window.location.search).get('proj_edit')
+        const noticiaId = new URLSearchParams(window.location.search).get('noticia_edit')
 
-        fetch(`/projetos/update/${projId}`, {
+        fetch(`/Noticias/update/${noticiaId}`, {
             method: 'POST',
             credentials: 'include',
             body: formData
@@ -98,11 +86,11 @@ document.getElementById('form-id').addEventListener('submit', function(event) {
         })
         .catch(err => {
             console.error(err)
-            alert('Erro ao atualizar projeto.')
+            alert('Erro ao atualizar notícia.')
         })
     }
-    else{ // se NÃO FOR EDIÇÃO, então CRIAR PROJETO NOVO!
-        fetch(`/projetos/upload`,{
+    else{ // se NÃO FOR EDIÇÃO, então CRIAR NOTÍCIA NOVA!
+        fetch(`/Noticias/upload`,{
             method: 'POST',
             credentials: 'include',
             body: formData
@@ -117,7 +105,7 @@ document.getElementById('form-id').addEventListener('submit', function(event) {
         })
         .catch(err => {
             console.error(err)
-            alert('Erro ao criar o projeto.')
+            alert('Erro ao criar notícia.')
         })
     }
 

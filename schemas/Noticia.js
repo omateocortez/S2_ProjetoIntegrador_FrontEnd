@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
-const ProjSchema = new Schema({
+const NoticiaSchema = new Schema({
     title:{
         type: String,
         required: true
     },
-    desc:{
+    noticia_text:{
         type: String,
         required: true
     },
@@ -15,7 +15,12 @@ const ProjSchema = new Schema({
         default: ["imgs/no_img.png"],
         required: true
     },
-    date:{
+    upload_date:{
+        type: Date,
+        default:Date.now,
+        required: true
+    },
+    last_update_date:{
         type: Date,
         default:Date.now,
         required: true
@@ -30,4 +35,4 @@ const ProjSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model('Projeto', ProjSchema)
+module.exports = mongoose.model('Noticia', NoticiaSchema)

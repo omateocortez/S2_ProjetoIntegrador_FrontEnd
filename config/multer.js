@@ -11,10 +11,10 @@ const storage = multer.diskStorage({
             req.fileIndex = 0
         }
 
-        let projname = req.body.title.toLowerCase()
-        projname = projname.replace(/\s+/g, '-')
-        projname = projname.replace(/[^a-z0-9\-]/g, '');
-        const name = `${projname}-${req.fileIndex}-${Date.now()}${path.extname(file.originalname)}`
+        let title = req.body.title.toLowerCase()
+        title = title.replace(/\s+/g, '-')
+        title = title.replace(/[^a-z0-9\-]/g, '');
+        const name = `${title}-${req.fileIndex}-${Date.now()}${path.extname(file.originalname)}`
 
         req.fileIndex++
         

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const Proj = require('../schemas/Projeto')
+const Noticia = require('../schemas/Noticia')
 
 const upload = require('../config/multer')
 
@@ -12,11 +12,11 @@ const path = require('path')
 
 router.get('/', async (req, res) => {
     try{
-        const data = await Proj.aggregate([{ $sort: {date: -1 }}])
+        const data = await Noticia.aggregate([{ $sort: {last_update_date: -1 }}])
 
-        const proj_edit = req.query.proj_edit ? await Proj.findById(req.query.proj_edit) : undefined
+        const noticia_edit = req.query.noticia_edit ? await Noticia.findById(req.query.noticia_edit) : undefined
 
-        res.render('projetos', { data, proj_edit})
+        res.render('Noticias', { data, noticia_edit})
     }catch(error){
         console.log(`erro: ${error}`)
     }
@@ -30,7 +30,7 @@ router.get('/Home', async (req, res) => {
 
 router.get('/edit/:id', async(req, res) => {
     let slug = req.params.id
-    res.redirect(`/projetos/?proj_edit=${slug}`)
+    res.redirect(`/noticias/?noticia_edit=${slug}`)
 })
 
 router.post('/delete/:id', checkTokens, async (req, res)=>{
@@ -38,13 +38,13 @@ router.post('/delete/:id', checkTokens, async (req, res)=>{
         return res.status(403).json({ok: false, mensagem: 'Usuário não autorizado'})
     }
 
-    const projectId = req.params.id
+    const noticiaId = req.params.id
     try{
-        const projeto = await Proj.findById(projectId)
+        const noticia = await Noticia.findById(noticiaId)
 
-        console.log(projeto.images)
+        console.log(noticia.images)
 
-        projeto.images.forEach(imgPath => {
+        noticia.images.forEach(imgPath => {
 
             const filePath = path.resolve(__dirname, '..', 'public', imgPath)
 
@@ -57,12 +57,12 @@ router.post('/delete/:id', checkTokens, async (req, res)=>{
             })
         })
 
-        await Proj.findByIdAndDelete(projectId)
+        await Noticia.findByIdAndDelete(noticiaId)
         
-        res.status(200).json({ok: true, mensagem: 'Projeto deletado com sucesso.'})
+        res.status(200).json({ok: true, mensagem: 'Notícia deletada com sucesso.'})
     }catch(err){
         console.error(err)
-        res.status(403).json({ok: false, mensagem: 'Erro ao deletar projeto.'})
+        res.status(403).json({ok: false, mensagem: 'Erro ao deletar notícia.'})
     }
 })
 
@@ -71,39 +71,33 @@ router.post('/update/:id', checkTokens, upload, async (req, res)=>{
         return res.status(403).json({ok: false, mensagem: 'Usuário não autorizado'})
     }
 
-    const projectId = req.params.id
+    const noticiaId = req.params.id
     const titulo = req.body.title
-    const descr = req.body.desc
+    const noticia_text = req.body.noticia_text
 
     const editor_email = req.user.email
     
     try{
-        const projeto = await Proj.findById(projectId)
-        let creator_email = projeto.creator_email
+        const noticia = await Noticia.findById(noticiaId)
+
+        let creator_email =  noticia.creator_email
+
+        let upload_date = noticia.upload_date
+        let last_update_date = Date.now()
 
         let delete_old_imgs = false
-        let old_images = projeto.images
-
-        let proj_date
-
-        if(req.body.date){
-            proj_date = new Date(req.body.date)
-            proj_date.setDate(proj_date.getDate() + 1)
-        }else{
-            proj_date = projeto.date
-        }
-
+        let old_images = noticia.images
+        
         let imgs = []
-
+        
         if(req.files && req.files.length > 0){
             delete_old_imgs = true
             imgs = req.files.map(file => `imgs/uploads/${file.filename}`)
-
         }else{
             imgs = old_images
         }
 
-        await Proj.findByIdAndUpdate(projectId, {title: titulo, desc: descr, images: imgs, date: proj_date, creator_email: creator_email, last_editor_email: editor_email}, {
+        await Noticia.findByIdAndUpdate(noticiaId, {title: titulo, noticia_text: noticia_text, images: imgs, upload_date: upload_date, last_update_date: last_update_date, creator_email: creator_email, last_editor_email: editor_email}, {
             new: true,
             runValidators: true
         }) 
@@ -123,11 +117,11 @@ router.post('/update/:id', checkTokens, upload, async (req, res)=>{
             })
         }
 
-        res.status(200).json({ok: true, mensagem: 'Projeto atualizado com sucesso.'})
+        res.status(200).json({ok: true, mensagem: 'Notícia atualizada com sucesso.'})
 
     }catch(err){
         console.log(err)
-        res.status(403).json({ok: false, mensagem: 'Erro ao atualizar projeto.'})
+        res.status(403).json({ok: false, mensagem: 'Erro ao atualizar noticia.'})
     }
 })
 
@@ -138,26 +132,27 @@ router.post('/upload', checkTokens, upload, async (req, res)=>{
 
     try{
         const titulo = req.body.title
-        const descr = req.body.desc
+        const noticia_text = req.body.noticia_text
         const imgs = req.files.map(file => `imgs/uploads/${file.filename}`)
         const creator = req.user.email
 
-        let proj_date = Date.now()
+        let upload_date = Date.now()
 
-        if(req.body.date){
-            proj_date = new Date(req.body.date)
-            proj_date.setDate(proj_date.getDate() + 1)
+        if(req.body.upload_date){
+            upload_date = new Date(req.body.date)
+            upload_date.setDate(upload_date.getDate() + 1)
         }
 
-        const projeto = new Proj({title: titulo, desc: descr, images: imgs, date: proj_date, creator_email: creator, last_editor_email: creator}) 
+        const noticia = new Noticia({title: titulo, noticia_text: noticia_text, images: imgs, upload_date: upload_date, last_update_date: upload_date, creator_email: creator, last_editor_email: creator}) 
 
-        console.log(projeto)
+        console.log(noticia)
 
-        await projeto.save()
+        await noticia.save()
 
-        res.status(201).json({ok: true, mensagem:'Projeto criado com sucesso.'})
-    }catch{
-        res.status(403).json({ok: false, mensagem: 'Erro ao criar projeto.'})
+        res.status(201).json({ok: true, mensagem:'Noticia criada com sucesso.'})
+    }catch(err){
+        console.log(err)
+        res.status(403).json({ok: false, mensagem: 'Erro ao criar noticia.'})
     }
 })
 
