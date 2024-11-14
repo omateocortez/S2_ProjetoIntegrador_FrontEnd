@@ -15,8 +15,11 @@ document.addEventListener("DOMContentLoaded",  async function() {
         document.querySelectorAll('.botaoDeletar').forEach(botao => {
             botao.style.display = 'block'
         })
-        if(isEditing){
-            new bootstrap.Modal(document.getElementById("exampleModal")).show()
+
+        if(isEditing || sessionStorage.getItem('mostrarModalAposReload') === 'true'){
+            let modal = new bootstrap.Modal(document.getElementById("exampleModal"))
+            modal.show()
+            sessionStorage.removeItem('mostrarModalAposReload')   
         }
     }
     
@@ -25,12 +28,15 @@ document.addEventListener("DOMContentLoaded",  async function() {
 
 document.getElementById("addProjetoButton").addEventListener("click", function() {
     if (isEditing){
-        const form = document.getElementById('form-id')
-        form.reset()
+
+        isEditing = false
 
         const url = new URL(window.location.href)
         url.searchParams.delete('proj_edit')
         window.history.pushState({}, '', url.toString())
+
+        sessionStorage.setItem('mostrarModalAposReload', 'true')
+        window.location.reload();   
     }
 
 })

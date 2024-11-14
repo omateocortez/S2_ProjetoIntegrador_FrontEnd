@@ -20,11 +20,6 @@ const NoticiaSchema = new Schema({
         default:Date.now,
         required: true
     },
-    last_update_date:{
-        type: Date,
-        default:Date.now,
-        required: true
-    },
     creator_email:{
         type: String,
         required: true

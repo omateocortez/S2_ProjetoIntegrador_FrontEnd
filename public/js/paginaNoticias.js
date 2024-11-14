@@ -15,11 +15,29 @@ document.addEventListener("DOMContentLoaded",  async function() {
         document.querySelectorAll('.botaoDeletar').forEach(botao => {
             botao.style.display = 'block'
         })
-        if(isEditing){
-            new bootstrap.Modal(document.getElementById("exampleModal")).show()
+
+        if(isEditing || sessionStorage.getItem('mostrarModalAposReload') === 'true'){
+            let modal = new bootstrap.Modal(document.getElementById("exampleModal"))
+            modal.show()
+            sessionStorage.removeItem('mostrarModalAposReload')   
         }
     }
     
+
+})
+
+document.getElementById("addNoticiaButton").addEventListener("click", function() {
+    if (isEditing){
+
+        isEditing = false
+
+        const url = new URL(window.location.href)
+        url.searchParams.delete('noticia_edit')
+        window.history.pushState({}, '', url.toString())
+
+        sessionStorage.setItem('mostrarModalAposReload', 'true')
+        window.location.reload();   
+    }
 
 })
 
@@ -58,7 +76,7 @@ document.getElementById('DeleteNews').addEventListener('show.bs.modal', function
         })
         .catch(err => {
             console.error(err)
-            alert('Erro ao deletar notícia.')
+            alert('Erro ao deletar noticia.')
         })
     }
 })
@@ -86,7 +104,7 @@ document.getElementById('form-id').addEventListener('submit', function(event) {
         })
         .catch(err => {
             console.error(err)
-            alert('Erro ao atualizar notícia.')
+            alert('Erro ao atualizar noticia.')
         })
     }
     else{ // se NÃO FOR EDIÇÃO, então CRIAR NOTÍCIA NOVA!
@@ -105,7 +123,7 @@ document.getElementById('form-id').addEventListener('submit', function(event) {
         })
         .catch(err => {
             console.error(err)
-            alert('Erro ao criar notícia.')
+            alert('Erro ao criar o noticia.')
         })
     }
 
