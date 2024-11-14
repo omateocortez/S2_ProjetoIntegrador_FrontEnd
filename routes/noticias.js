@@ -82,8 +82,15 @@ router.post('/update/:id', checkTokens, upload, async (req, res)=>{
 
         let creator_email =  noticia.creator_email
 
-        let upload_date = noticia.upload_date
-        let last_update_date = Date.now()
+
+        let upload_date
+
+        if(req.body.upload_date){
+            upload_date = new Date(req.body.upload_date)
+            upload_date.setDate(upload_date.getDate() + 1)
+        }else{
+            upload_date = noticia.upload_date
+        }
 
         let delete_old_imgs = false
         let old_images = noticia.images
@@ -97,7 +104,7 @@ router.post('/update/:id', checkTokens, upload, async (req, res)=>{
             imgs = old_images
         }
 
-        await Noticia.findByIdAndUpdate(noticiaId, {title: titulo, noticia_text: noticia_text, images: imgs, upload_date: upload_date, last_update_date: last_update_date, creator_email: creator_email, last_editor_email: editor_email}, {
+        await Noticia.findByIdAndUpdate(noticiaId, {title: titulo, noticia_text: noticia_text, images: imgs, upload_date: upload_date, creator_email: creator_email, last_editor_email: editor_email}, {
             new: true,
             runValidators: true
         }) 
@@ -139,11 +146,11 @@ router.post('/upload', checkTokens, upload, async (req, res)=>{
         let upload_date = Date.now()
 
         if(req.body.upload_date){
-            upload_date = new Date(req.body.date)
+            upload_date = new Date(req.body.upload_date)
             upload_date.setDate(upload_date.getDate() + 1)
         }
 
-        const noticia = new Noticia({title: titulo, noticia_text: noticia_text, images: imgs, upload_date: upload_date, last_update_date: upload_date, creator_email: creator, last_editor_email: creator}) 
+        const noticia = new Noticia({title: titulo, noticia_text: noticia_text, images: imgs, upload_date: upload_date, creator_email: creator, last_editor_email: creator}) 
 
         console.log(noticia)
 

@@ -23,9 +23,9 @@
         
         <section>
             <!------------------------ Modal Form -------------------------->
-            <div class="container" id="botaoAdicionarNoticia">
+            <div class="container" id="botaoAdicionarNoticia" style="display: none;">
                 <div class="row justify-content-end">
-                    <button type="button" class="btn w-auto btn-open-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" id="addNoticiaButton" class="btn w-auto btn-open-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         + Adicionar Noticia
                     </button>
                 </div>
@@ -34,10 +34,10 @@
             
             <!-- Modal com o formulário -->
             <div class="modal fade custom-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg custom-modal-dialog modal-dialog-centered modal-dialog-scrollable"> <!-- Modal maior -->
+                <div class="modal-dialog modal-lg custom-modal-dialog modal-dialog-centered"> <!-- Modal maior -->
                     <div class="modal-content bg-dark text-light p-3 caixa_modal"> <!-- Modal com fundo escuro e texto claro -->
                         <div class="modal-header custom-modal-header">
-                            <h1 class="modal-title fs-5 modal-title-custom" id="exampleModalLabel">Nova<strong>Notícia</strong></h1>
+                            <h1 class="modal-title fs-5 modal-title-custom" id="exampleModalLabel"><%= noticia_edit ? 'Edição de' : 'Nova' %> <strong>Notícia</strong></h1>
                             <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>    
                         </div>
                         <div class="modal-body custom-modal-body">
@@ -45,34 +45,32 @@
                             <form id="form-id" class="modal-form">
                                 <div class="mb-3 form-group-title">
                                     <label for="title" class="form-label label-title text-light">Título:</label> <!-- Cor da label ajustada -->
-                                    <input type="text" id="title" name="title" class="form-control w-100 input-title bg-dark text-light"> <!-- Inputs com fundo escuro -->
+                                    <input type="text" id="title" name="title" class="form-control w-100 input-title bg-dark text-light" value="<%= noticia_edit ? noticia_edit.title : '' %>"> <!-- Inputs com fundo escuro -->
                                 </div>
                                 <div class="mb-3 form-group-desc">
                                     <label for="desc" class="form-label label-desc text-light">Descrição:</label> <!-- Cor da label ajustada -->
-                                    <textarea id="desc" name="noticia_text" class="form-control w-100 textarea-desc bg-dark text-light" rows="13"></textarea> <!-- Área de texto escura -->
+                                    <textarea id="desc" name="noticia_text" class="form-control w-100 textarea-desc bg-dark text-light" rows="13" required><%- noticia_edit ? noticia_edit.noticia_text : '' %></textarea> <!-- Área de texto escura -->
                                 </div>
                                 <div class="mb-3 form-group-file">
                                     <label for="file" class="form-label label-file text-light">Imagens:</label> <!-- Cor da label ajustada -->
-                                    <input type="file" id="file" name="files[]" class="form-control w-100 input-file bg-dark text-light"> <!-- Input de arquivo escuro -->
+                                    <input type="file" id="file" name="files[]" class="form-control w-100 input-file bg-dark text-light" <%= noticia_edit ? '' : 'required'%> multiple> <!-- Input de arquivo escuro -->
                                 </div>
                                                             
-                                <div>
-                                    <%- noticia_edit ? `
-                                    <div>Criado por: ${ noticia_edit.creator_email } em ${noticia_edit.upload_date}</div>
-                                    <div>Última edição: ${ noticia_edit.last_editor_email } em ${noticia_edit.last_update_date}</div>
-                                    ` : '' %>
-                                </div>
-                            
-                            <!--                                
                                 <div class="mb-3 form-group-date">
                                     <label for="date" class="form-label label-date text-light">Data:</label><br>
-                                    <input class="box-calendar" type="date" id="date" name="date">
+                                    <input class="box-calendar" type="date" id="date" name="upload_date" value="<%= noticia_edit ? noticia_edit.upload_date.toISOString().split('T')[0] : '' %>">
                                 </div>
-                            -->
+                            
 
                             </form>
                         </div>
                         <div class="modal-footer custom-modal-footer"> <!--Aqui iria a parte de editar a notícia-->
+                            <div>
+                                <%- noticia_edit ? `
+                                <div>Criado por: ${ noticia_edit.creator_email }</div>
+                                <div>Última edição: ${ noticia_edit.last_editor_email }</div>
+                                ` : '' %>
+                            </div>  
                             <button type="button" class="btn btn-close-footer" data-bs-dismiss="modal">Fechar</button>
                             <button type="submit" form="form-id" value="Publicar" class="btn btn-submit-footer"><%= noticia_edit ? 'Salvar' : 'Publicar' %></button>
                         </div>                        
@@ -91,11 +89,11 @@
                             </div>
                             <h1 class="titulo-noticia"><%= noticia.title %></h1>
                             <div class="row me-0 pe-0 justify-content-end text-end">
-                            <p class="data-noticia">Publicado: <%= `${noticia.upload_date.getDate()}/${noticia.upload_date.getMonth() + 1}/${noticia.upload_date.getFullYear()}` %></br>Última Edição: <%= `${noticia.last_update_date.getDate()}/${noticia.last_update_date.getMonth() + 1}/${noticia.last_update_date.getFullYear()}` %></p>
+                            <p class="data-noticia">Publicado: <%= `${noticia.upload_date.getDate()}/${noticia.upload_date.getMonth() + 1}/${noticia.upload_date.getFullYear()}` %></p>
                         </div>
                         <p class="descricao-noticia"><%= noticia.noticia_text %></p>
                         
-                        <div class="row align-items-center mt-4 botaoEditar" >
+                        <div class="row align-items-center mt-4 botaoEditar" style="display: none;">
                             <div class="row justify-content-start text-start align-items-center">
                                 <form action="/Noticias/edit/<%= noticia._id %>" enctype="multipart/form-data" method="get">
                                     <button type="submit" class="p-2 edit_button">
@@ -108,7 +106,7 @@
                             </div>           
                             
                             <!-- Button trigger modal -->
-                            <div class="row justify-content-end text-end align-items-center botaoDeletar">
+                            <div class="row justify-content-end text-end align-items-center botaoDeletar" style="display: none;">
                                 <button type="button" class="justify-content-end text-end delete_button" data-bs-toggle="modal" data-bs-target="#DeleteNews" data-bs-noticia-id="<%= noticia._id %>">
                                     <span class="material-symbols-rounded icone">
                                         delete_forever
