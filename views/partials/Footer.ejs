@@ -84,24 +84,34 @@
             <div class="container-fluid">
                 <div class="row justify-content-center align-items-center">
                     <!-- Coluna 1: Termos e Políticas -->
-                    <div class="col-3 d-flex flex-column">
-                        <h1 type="button" class="ms-5 ps-4 info">Termos de Uso</h1>
-                        <h1 type="button" class="ms-5 ps-4 mt-2 info">Políticas de Privacidade</h1>
+                    <div class="col-md-4 d-flex flex-column text-center mb-3 mb-md-0">
+                        <h1 type="button" class="info">Termos de Uso</h1>
+                        <h1 type="button" class="info">Políticas de Privacidade</h1>
+                        <!-- Email visível somente em telas pequenas -->
+                        <h1 class="d-block d-md-none info mt-3">Email:</h1>
+                        <a class="fw-medium text-light info email-link d-block d-md-none" href="mailto:contato@maosnamassa.org">
+                            contato@maosnamassa.org
+                        </a>
                     </div>
-    
+        
                     <!-- Coluna 2: Imagem Central -->
-                    <div class="col-4 text-center">
+                    <div class="col-md-3 text-center mb-3 mb-md-0">
                         <img src="/imgs/LOGOPRETO.png" class="logo_footer">
                     </div>
-    
+        
                     <!-- Coluna 3: Contatos -->
-                    <div class="col-3 d-flex flex-column">
-                        <h1 class="ms-5 info">Email:</h1>
-                        <a class="ms-5 mt-2 fw-medium text-light info" href="mailto:contato@maosnamassa.org">contato@maosnamassa.org</a>
+                    <div class="col-md-4 d-flex flex-column text-center">
+                        <!-- Email visível somente em telas médias ou maiores -->
+                        <h1 class="d-none d-md-block info mt-md-0">Email:</h1>
+                        <a class="fw-medium text-light info email-link d-none d-md-block mt-md-0" href="mailto:contato@maosnamassa.org">
+                            contato@maosnamassa.org
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+        
+             
     </section>    
     
     
