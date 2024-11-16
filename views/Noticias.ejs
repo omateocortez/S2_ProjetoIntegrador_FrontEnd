@@ -85,7 +85,7 @@
                         <div class="col d-flex justify-content-center caixa">
                             <div class="row d-flex flex-column">
                             <div class="text-center">
-                                <img src="/<%= noticia.images[noticia.images.length - 1] %>" class="img-fluid imagem_noticia" onError="this.onerror=null; this.src='/imgs/no_img.png';"> 
+                                <img src="/<%= noticia.images[noticia.images.length - 1] %>" class="img-fluid imagem_noticia" onError="this.onerror=null; this.src='/imgs/no_img.png';" alt="Imagem relacionada a notícia '<%=noticia.title%>'"> 
                             </div>
                             <h1 class="titulo-noticia"><%= noticia.title %></h1>
                             <div class="row me-0 pe-0 justify-content-end text-end">

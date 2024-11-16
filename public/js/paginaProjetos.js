@@ -8,6 +8,17 @@ document.addEventListener("DOMContentLoaded",  async function() {
     userAccessInfo = await getUserAccessInfo()
 
     if(userAccessInfo.isFunc){
+        const dateInput = document.getElementById('date')
+        if (dateInput) {
+            const dateValue = dateInput.value
+            if (dateValue) {
+                const date = new Date(dateValue)
+                date.setDate(date.getDate() - 1)
+                const formattedDate = date.toISOString().split('T')[0]
+                dateInput.value = formattedDate
+            }
+        }
+        
         document.getElementById('botaoAdicionarProjeto').style.display = 'block'
         document.querySelectorAll('.botaoEditar').forEach(botao => {
             botao.style.display = 'block'
@@ -19,7 +30,7 @@ document.addEventListener("DOMContentLoaded",  async function() {
         if(isEditing || sessionStorage.getItem('mostrarModalAposReload') === 'true'){
             let modal = new bootstrap.Modal(document.getElementById("exampleModal"))
             modal.show()
-            sessionStorage.removeItem('mostrarModalAposReload')   
+            sessionStorage.removeItem('mostrarModalAposReload')
         }
     }
     
