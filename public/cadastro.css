@@ -143,3 +143,20 @@
   background-color: #57677A !important;
   color: white !important;
 }
+
+
+
+
+/* Alterando as cores do toggle */
+.custom-switch {
+  background-color: #6c757d !important; /* Cor padrão do fundo */
+  border-color: #6c757d !important; /* Cor da borda */
+  outline: none !important;
+}
+
+.custom-switch:checked {
+  background-color: #D6ED4B !important; /* Cor quando ativado */
+  border-color: #253847 !important; /* Cor da borda quando ativado */
+  outline: none !important;
+}
+

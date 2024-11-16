@@ -7,6 +7,7 @@
   .footer-wave{
     width: 100%;
     margin-top: -5px !important;
+    filter: brightness(1000000);
   }
   
   .footer-title{
@@ -73,7 +74,7 @@
 
   .info{
     font-weight: 300;
-    font-size: 25px;
+    font-size: 15px;
   }
 
 
