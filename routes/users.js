@@ -5,7 +5,7 @@ const User = require('../schemas/Usuario')
 
 const bcrypt = require('bcrypt')
 
-const { generateAcessToken, generateRefreshToken } = require('../src/middleware/genTokens')
+const { generateAcessToken, generateRefreshToken } = require('../helpers/middleware/genTokens')
 
 router.post('/signup', async (req, res) =>{
 

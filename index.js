@@ -11,7 +11,7 @@ connectDB()
 
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
-app.use('/utils', express.static(__dirname + '/src/utils'))
+app.use('/utils', express.static(__dirname + '/helpers/utils'))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))

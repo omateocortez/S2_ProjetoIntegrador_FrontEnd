@@ -3,9 +3,9 @@ const router = express.Router()
 
 const Noticia = require('../schemas/Noticia')
 
-const upload = require('../src/middleware/multer')
+const upload = require('../helpers/middleware/multer')
 
-const checkTokens = require('../src/middleware/auth')
+const checkTokens = require('../helpers/middleware/auth')
 
 const fs = require('fs')
 const path = require('path')

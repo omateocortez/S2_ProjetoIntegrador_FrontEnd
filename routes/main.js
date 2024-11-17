@@ -3,7 +3,7 @@ const router = express.Router()
 
 const Proj = require('../schemas/Projeto')
 
-const checkTokens = require('../src/middleware/auth')
+const checkTokens = require('../helpers/middleware/auth')
 
 router.get('/', async (req, res) => {
     const data = await Proj.aggregate([{ $sort: {date: -1 }}, { $limit: 3 }])
