@@ -32,7 +32,10 @@ router.get('/Home', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try{
         const proj = await Proj.findById(req.params.id)
-        res.render('projetoGenerico', { proj })
+
+        var paragrafos = proj.desc.split('\n')
+
+        res.render('projetoGenerico', { proj, paragrafos })
     }catch(err){
         console.log(`Erro: ${err}`)
     }
