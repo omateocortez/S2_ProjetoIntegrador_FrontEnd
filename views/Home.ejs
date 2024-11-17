@@ -89,7 +89,9 @@
                                 <div class="carousel-inner">
                                     <% data.forEach((proj, index) => { %>
                                         <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
-                                            <img src="/<%= proj.images[proj.images.length - 1] %>" class="d-block w-100" alt="Imagem do projeto '<%= proj.title %>'" onError="this.onerror=null; this.src='/imgs/no_img.png';">
+                                            <a href="/projetos/<%= proj._id %>">
+                                                <img src="/<%= proj.images[proj.images.length - 1] %>" class="d-block w-100" alt="Imagem do projeto '<%= proj.title %>'" onError="this.onerror=null; this.src='/imgs/no_img.png';">
+                                            </a>
                                             <div class="carousel-caption d-none d-md-block">
                                                 <h3 class="carousel-title"><%= proj.title %></h3>
                                             </div>
