@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 
 const Proj = require('../schemas/Projeto')
 
-const upload = require('../config/multer')
+const upload = require('../src/middleware/multer')
 
 const checkTokens = require('../src/middleware/auth')
 
