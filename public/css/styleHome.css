@@ -53,7 +53,7 @@ body::before {
 /* --------------------- banner section ------------------- */
 
 #banner{
-background-image: url(imgs/cimentao.jpeg);
+background-image: url(/imgs/cimentao.jpeg);
 background-size: cover;
 background-position: 50% 50%;
 color: #fff;
@@ -189,24 +189,24 @@ li{
   }
 }
 
-.item1 { animation-delay: calc(100s / 18 * (18 - 1) * -1); background-image: url(imgs/Patrocinadores/natural-one.png); mix-blend-mode: multiply;}
-.item2 { animation-delay: calc(100s / 18 * (18 - 2) * -1); background-image: url(imgs/Patrocinadores/alta-logo.png); mix-blend-mode: multiply;}
-.item3 { animation-delay: calc(100s / 18 * (18 - 3) * -1); background-image: url(imgs/Patrocinadores/bolsa-de-imoveis.png); mix-blend-mode: multiply;}
-.item4 { animation-delay: calc(100s / 18 * (18 - 4) * -1); background-image: url(imgs/Patrocinadores/eB-Capital.png); mix-blend-mode: multiply;}
-.item5 { animation-delay: calc(100s / 18 * (18 - 5) * -1); background-image: url(imgs/Patrocinadores/ev-citi.jpg); mix-blend-mode: multiply;}
-.item6 { animation-delay: calc(100s / 18 * (18 - 6) * -1); background-image: url(imgs/Patrocinadores/Genial.png); mix-blend-mode: multiply;}
-.item7 { animation-delay: calc(100s / 18 * (18 - 7) * -1); background-image: url(imgs/Patrocinadores/HUG_StFrancis.jpg); mix-blend-mode: multiply;}
-.item8 { animation-delay: calc(100s / 18 * (18 - 8) * -1); background-image: url(imgs/Patrocinadores/ib-logo.jpg); mix-blend-mode: multiply;}
-.item9 { animation-delay: calc(100s / 18 * (18 - 9) * -1); background-image: url(imgs/Patrocinadores/LOGO\ GOL.JPG); mix-blend-mode: multiply;}
-.item10 { animation-delay: calc(100s / 18 * (18 - 10) * -1); background-image: url(imgs/Patrocinadores/Logo_REUD.jpg); mix-blend-mode: multiply;}
-.item11 { animation-delay: calc(100s / 18 * (18 - 11) * -1); background-image: url(imgs/Patrocinadores/logo-sodexo-2048.png); mix-blend-mode: multiply;}
-.item12 { animation-delay: calc(100s / 18 * (18 - 12) * -1); background-image: url(imgs/Patrocinadores/MARINA.JPG); mix-blend-mode: multiply;}
-.item13 { animation-delay: calc(100s / 18 * (18 - 13) * -1); background-image: url(imgs/Patrocinadores/one-goal.png); mix-blend-mode: multiply;}
-.item14 { animation-delay: calc(100s / 18 * (18 - 14) * -1); background-image: url(imgs/Patrocinadores/orizon.jpg); mix-blend-mode: multiply;}
-.item15 { animation-delay: calc(100s / 18 * (18 - 15) * -1); background-image: url(imgs/Patrocinadores/Patria.jpg); mix-blend-mode: multiply;}
-.item16 { animation-delay: calc(100s / 18 * (18 - 16) * -1); background-image: url(imgs/Patrocinadores/Techcorp.jpg); mix-blend-mode: multiply;}
-.item17 { animation-delay: calc(100s / 18 * (18 - 17) * -1); background-image: url(imgs/Patrocinadores/track-and-field.png); mix-blend-mode: multiply;}
-.item18 { animation-delay: calc(100s / 18 * (18 - 18) * -1); background-image: url(imgs/Patrocinadores/viacao-gato-preto.png); mix-blend-mode: multiply;}
+.item1 { animation-delay: calc(100s / 18 * (18 - 1) * -1); background-image: url(/imgs/Patrocinadores/natural-one.png); mix-blend-mode: multiply;}
+.item2 { animation-delay: calc(100s / 18 * (18 - 2) * -1); background-image: url(/imgs/Patrocinadores/alta-logo.png); mix-blend-mode: multiply;}
+.item3 { animation-delay: calc(100s / 18 * (18 - 3) * -1); background-image: url(/imgs/Patrocinadores/bolsa-de-imoveis.png); mix-blend-mode: multiply;}
+.item4 { animation-delay: calc(100s / 18 * (18 - 4) * -1); background-image: url(/imgs/Patrocinadores/eB-Capital.png); mix-blend-mode: multiply;}
+.item5 { animation-delay: calc(100s / 18 * (18 - 5) * -1); background-image: url(/imgs/Patrocinadores/ev-citi.jpg); mix-blend-mode: multiply;}
+.item6 { animation-delay: calc(100s / 18 * (18 - 6) * -1); background-image: url(/imgs/Patrocinadores/Genial.png); mix-blend-mode: multiply;}
+.item7 { animation-delay: calc(100s / 18 * (18 - 7) * -1); background-image: url(/imgs/Patrocinadores/HUG_StFrancis.jpg); mix-blend-mode: multiply;}
+.item8 { animation-delay: calc(100s / 18 * (18 - 8) * -1); background-image: url(/imgs/Patrocinadores/ib-logo.jpg); mix-blend-mode: multiply;}
+.item9 { animation-delay: calc(100s / 18 * (18 - 9) * -1); background-image: url(/imgs/Patrocinadores/LOGO\ GOL.JPG); mix-blend-mode: multiply;}
+.item10 { animation-delay: calc(100s / 18 * (18 - 10) * -1); background-image: url(/imgs/Patrocinadores/Logo_REUD.jpg); mix-blend-mode: multiply;}
+.item11 { animation-delay: calc(100s / 18 * (18 - 11) * -1); background-image: url(/imgs/Patrocinadores/logo-sodexo-2048.png); mix-blend-mode: multiply;}
+.item12 { animation-delay: calc(100s / 18 * (18 - 12) * -1); background-image: url(/imgs/Patrocinadores/MARINA.JPG); mix-blend-mode: multiply;}
+.item13 { animation-delay: calc(100s / 18 * (18 - 13) * -1); background-image: url(/imgs/Patrocinadores/one-goal.png); mix-blend-mode: multiply;}
+.item14 { animation-delay: calc(100s / 18 * (18 - 14) * -1); background-image: url(/imgs/Patrocinadores/orizon.jpg); mix-blend-mode: multiply;}
+.item15 { animation-delay: calc(100s / 18 * (18 - 15) * -1); background-image: url(/imgs/Patrocinadores/Patria.jpg); mix-blend-mode: multiply;}
+.item16 { animation-delay: calc(100s / 18 * (18 - 16) * -1); background-image: url(/imgs/Patrocinadores/Techcorp.jpg); mix-blend-mode: multiply;}
+.item17 { animation-delay: calc(100s / 18 * (18 - 17) * -1); background-image: url(/imgs/Patrocinadores/track-and-field.png); mix-blend-mode: multiply;}
+.item18 { animation-delay: calc(100s / 18 * (18 - 18) * -1); background-image: url(/imgs/Patrocinadores/viacao-gato-preto.png); mix-blend-mode: multiply;}
 
 .item {
   background-size: contain;
