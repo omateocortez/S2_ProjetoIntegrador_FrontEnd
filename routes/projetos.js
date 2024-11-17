@@ -27,6 +27,16 @@ router.get('/Home', async (req, res) => {
     res.redirect(`${req.protocol}://${req.get('host')}/`)
 })
 
+router.get('/:id', async (req, res) => {
+    try{
+        const proj = await Proj.findById(req.params.id)
+        res.render('projetoGenerico', { proj })
+    }catch(err){
+        console.log(`Erro: ${err}`)
+    }
+
+})
+
 
 router.get('/edit/:id', async(req, res) => {
     let slug = req.params.id
