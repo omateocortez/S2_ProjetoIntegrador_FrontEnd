@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const mongoose = require('mongoose')
+
 const Proj = require('../schemas/Projeto')
 
 const upload = require('../config/multer')
@@ -40,6 +42,9 @@ router.get('/:id', async (req, res) => {
 
 router.get('/edit/:id', async(req, res) => {
     let slug = req.params.id
+    if (!mongoose.Types.ObjectId.isValid(slug)) {
+        return res.status(400).send('ID inválido');
+    }
     res.redirect(`/projetos/?proj_edit=${slug}`)
 })
 
