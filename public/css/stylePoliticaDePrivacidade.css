@@ -48,11 +48,11 @@
   
   
   /* ------------------ Body ------------------- */
-  .Titulo{
-    font-size: 50px;
-    font-weight: 400;
-    padding: 0px;
-    margin-top: 50px;
+.tituloPolitica{
+  font-size: 50px;
+  font-weight: 400;
+  padding: 0px;
+  margin-top: 50px;
 }
 
 .subtitle{
