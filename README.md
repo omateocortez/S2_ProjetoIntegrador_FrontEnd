@@ -1,5 +1,9 @@
 # Site para a ONG Mãos Na Massa
 
+<p align="center">
+  <img src="https://github.com/Grupo-P-I-I-Segundo-Semestre/Imagens-Readme/blob/dad100bc6f5d64f4c9091305cd7c10c601494d3e/logo_mnm_preto.png" alt="Logo da ONG">
+</p>
+
 ## Configurando:
 Começe instalando o Node.js:
 https://nodejs.org/
