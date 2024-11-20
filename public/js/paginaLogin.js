@@ -17,7 +17,13 @@ document.querySelector('#loginForm').addEventListener('submit', function(event){
     .then(response => response.json())
     .then(data => {
         if (data.ok) {
-            window.location.href = '/Home'
+            const referrer = document.referrer
+            console.log(referrer)
+            if(referrer && !referrer.includes('/Cadastro')){
+                window.location.href = referrer   
+            } else{
+                window.location.href = '/Home'
+            }
         } else {
             console.log('Erro:', data.mensagem)
             alert(data.mensagem)

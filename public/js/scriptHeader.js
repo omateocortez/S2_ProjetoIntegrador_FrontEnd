@@ -11,8 +11,16 @@ document.addEventListener("DOMContentLoaded", async function() {
         document.getElementById('drop-xs-cadastro').style.display = 'none'
         document.getElementById('drop-md-cadastro').style.display = 'none'
 
+        document.getElementById("drop-xs-perfil").style.display = "block"
+        document.getElementById("drop-md-perfil").style.display = "block"
+
         document.getElementById("drop-xs-logout").style.display = "block"
         document.getElementById("drop-md-logout").style.display = "block"
+
+        if(userAccessInfo.isFunc){
+            document.getElementById("drop-xs-area-func").style.display = "block"
+            document.getElementById("drop-md-area-func").style.display = "block"
+        }
     }
 })
 

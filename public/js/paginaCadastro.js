@@ -1,4 +1,18 @@
-console.log("cadastroForms.js is loaded!");
+import { getUserAccessInfo } from '/utils/utils.js'
+
+let userAccessInfo = null
+
+
+document.addEventListener("DOMContentLoaded", async function() {
+
+    userAccessInfo = await getUserAccessInfo()
+
+    const funcButton = document.getElementById('cadastrar-como-func')
+
+    if(userAccessInfo.isFunc){
+        funcButton.style.display = 'block'
+    }
+})
 
 // Toggle de visibilidade para o campo "Senha"
 document.getElementById('togglePassword1').addEventListener('click', function () {
@@ -75,29 +89,62 @@ document.querySelector('.confirmar').addEventListener('click', function () {
             senha: form2.querySelector("#Senha").value,
         }
 
-        fetch('/users/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => {
-            if (response.redirected) {
-                console.log('Redirecting...');
-                window.location.href = response.url;
-            }else{
-                return response.json()
+        if(userAccessInfo.isFunc){
+            if(document.querySelector('[name=funcCheck]').checked){
+                formData.funcionario = true
             }
-        })
-        .then(data =>{
-            if(data.error){
-                alert(data.error)
-            }else{
-                console.log('Usuario cadastrado com sucesso.')
-            }
-        })
-        .catch(err => console.log(err))
+
+            fetch('/users/signup-func', { //signup-func checa se é adm
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (response.redirected) {
+                    console.log('Redirecting...');
+                    window.location.href = response.url;
+                }else{
+                    return response.json()
+                }
+            })
+            .then(data =>{
+                if(!data.ok){
+                    alert(data.mensagem)
+                }
+                else{
+                    console.log(data.mensagem)
+                }
+            })
+            .catch(err => console.log(err))
+
+        }else{ // se n for um funcionario cadastrando...
+
+            fetch('/users/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (response.redirected) {
+                    console.log('Redirecting...');
+                    window.location.href = response.url;
+                }else{
+                    return response.json()
+                }
+            })
+            .then(data =>{
+                if(!data.ok){
+                    alert(data.mensagem)
+                }else{
+                    console.log(data.mensagem)
+                }
+            })
+            .catch(err => console.log(err))
+        }
     }else {
         alert("As senhas não conferem. Verifique e tente novamente.");
     }
