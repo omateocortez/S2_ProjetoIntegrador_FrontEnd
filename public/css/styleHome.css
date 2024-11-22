@@ -1,0 +1,216 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: poppins;
+}
+
+body::before {
+  content: "XS";
+  color: red;
+  font-size: 2rem;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+@media (min-width: 576px) {
+  body::before {
+    content: "SM";
+  }
+}
+
+@media (min-width: 768px) {
+  body::before {
+    content: "MD";
+  }
+}
+
+@media (min-width: 992px) {
+  body::before {
+    content: "LG";
+  }
+}
+
+@media (min-width: 1200px) {
+  body::before {
+    content: "XL";
+  }
+}
+
+@media (min-width: 1400px) {
+  body::before {
+    content: "XXL";
+  }
+}
+
+
+
+
+
+/* --------------------- banner section ------------------- */
+
+#banner{
+background-image: url(/imgs/cimentao.jpeg);
+background-size: cover;
+background-position: 50% 50%;
+color: #fff;
+padding-top: 0%;
+}
+
+.action_banner{
+  margin-left: 80px !important;
+}
+.project-title{
+    font-size: 65px;
+    font-weight: 600;
+    margin-top: 150px;
+}
+
+.descricao{
+  margin-left: 5px;
+  font-size: 26px;
+}
+
+.bricks{
+    width: 100%;
+    padding-right: 20px;
+    margin-top: 90px;
+
+}
+
+.wave-img{
+  width: 100%;
+  height: 10%;
+  margin-top: 200px;
+  overflow: hidden;
+}
+
+
+#banner .big-donate{
+  font-size: 20px;
+  font-weight: 600;
+  color: #253847;
+  width: 70%;
+  padding: 5px;
+  margin-top: 5px;
+  border: 0px solid transparent;
+  border-radius: 150px;
+  background-color: #D6ED4B;
+  transition: all 0.3s ease;
+}
+#banner .big-donate:hover{
+  background-color: #253847;
+  color: #D6ED4B;
+  border: 0px solid #D6ED4B;
+  transition: all 0.3s ease;
+}
+
+#donate .big-donate{
+  font-size: 23px;
+  font-weight: 600;
+  color: #253847;
+  width: 80%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 3px solid;
+  border-color: #234B79;
+  border-radius: 18px;
+  background-color: #D6ED4B;
+  cursor: pointer;
+}
+#donate .big-donate:hover{
+background-color: #253847;
+color: #D6ED4B;
+border: 3px solid #D6ED4B;
+}
+
+li{
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.subtitle{
+  font-size: 5vh;
+  color: #253847;
+  margin-top: 30px;
+}
+
+.texto{
+  font-weight: 300;
+  font-size: 20px;
+  text-align: justify !important;
+}
+
+/* Arredondamento personalizado no carrossel */
+#carouselExampleCaptions {
+  border-radius: 55px;
+  overflow: hidden;
+}
+
+#carouselExampleCaptions .carousel-item img {
+  border-radius: 55px;
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+}
+
+
+
+.carrossel {
+  max-width: 100%;
+  margin-inline: auto;
+  position: relative;
+  height: 120px;
+  display: flex !important;
+  align-items: center !important;
+  background-image: linear-gradient(to middle(red, blue, red));
+  overflow: hidden;
+}
+
+.item {
+  width: 12.5rem;
+  height: 6.25rem;
+  border-radius: 0.375rem;
+  position: absolute;
+  left: max(calc(500px * 8), 100%);
+  animation-name: scrollLeft;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scrollLeft {
+  to {
+      left: -12.5rem;
+  }
+}
+
+.item1 { animation-delay: calc(100s / 18 * (18 - 1) * -1); background-image: url(/imgs/Patrocinadores/natural-one.png); mix-blend-mode: multiply;}
+.item2 { animation-delay: calc(100s / 18 * (18 - 2) * -1); background-image: url(/imgs/Patrocinadores/alta-logo.png); mix-blend-mode: multiply;}
+.item3 { animation-delay: calc(100s / 18 * (18 - 3) * -1); background-image: url(/imgs/Patrocinadores/bolsa-de-imoveis.png); mix-blend-mode: multiply;}
+.item4 { animation-delay: calc(100s / 18 * (18 - 4) * -1); background-image: url(/imgs/Patrocinadores/eB-Capital.png); mix-blend-mode: multiply;}
+.item5 { animation-delay: calc(100s / 18 * (18 - 5) * -1); background-image: url(/imgs/Patrocinadores/ev-citi.jpg); mix-blend-mode: multiply;}
+.item6 { animation-delay: calc(100s / 18 * (18 - 6) * -1); background-image: url(/imgs/Patrocinadores/Genial.png); mix-blend-mode: multiply;}
+.item7 { animation-delay: calc(100s / 18 * (18 - 7) * -1); background-image: url(/imgs/Patrocinadores/HUG_StFrancis.jpg); mix-blend-mode: multiply;}
+.item8 { animation-delay: calc(100s / 18 * (18 - 8) * -1); background-image: url(/imgs/Patrocinadores/ib-logo.jpg); mix-blend-mode: multiply;}
+.item9 { animation-delay: calc(100s / 18 * (18 - 9) * -1); background-image: url(/imgs/Patrocinadores/LOGO\ GOL.JPG); mix-blend-mode: multiply;}
+.item10 { animation-delay: calc(100s / 18 * (18 - 10) * -1); background-image: url(/imgs/Patrocinadores/Logo_REUD.jpg); mix-blend-mode: multiply;}
+.item11 { animation-delay: calc(100s / 18 * (18 - 11) * -1); background-image: url(/imgs/Patrocinadores/logo-sodexo-2048.png); mix-blend-mode: multiply;}
+.item12 { animation-delay: calc(100s / 18 * (18 - 12) * -1); background-image: url(/imgs/Patrocinadores/MARINA.JPG); mix-blend-mode: multiply;}
+.item13 { animation-delay: calc(100s / 18 * (18 - 13) * -1); background-image: url(/imgs/Patrocinadores/one-goal.png); mix-blend-mode: multiply;}
+.item14 { animation-delay: calc(100s / 18 * (18 - 14) * -1); background-image: url(/imgs/Patrocinadores/orizon.jpg); mix-blend-mode: multiply;}
+.item15 { animation-delay: calc(100s / 18 * (18 - 15) * -1); background-image: url(/imgs/Patrocinadores/Patria.jpg); mix-blend-mode: multiply;}
+.item16 { animation-delay: calc(100s / 18 * (18 - 16) * -1); background-image: url(/imgs/Patrocinadores/Techcorp.jpg); mix-blend-mode: multiply;}
+.item17 { animation-delay: calc(100s / 18 * (18 - 17) * -1); background-image: url(/imgs/Patrocinadores/track-and-field.png); mix-blend-mode: multiply;}
+.item18 { animation-delay: calc(100s / 18 * (18 - 18) * -1); background-image: url(/imgs/Patrocinadores/viacao-gato-preto.png); mix-blend-mode: multiply;}
+
+.item {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: 1s ease;
+}
