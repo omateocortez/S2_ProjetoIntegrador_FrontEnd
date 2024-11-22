@@ -152,11 +152,17 @@
   background-color: #6c757d !important; /* Cor padrão do fundo */
   border-color: #6c757d !important; /* Cor da borda */
   outline: none !important;
+  transition: all 0.3s ease !important;
 }
 
 .custom-switch:checked {
   background-color: #D6ED4B !important; /* Cor quando ativado */
   border-color: #253847 !important; /* Cor da borda quando ativado */
   outline: none !important;
+  transition: all 0.3s ease !important;
 }
 
+.PdP{
+  color: #3c71ad !important;
+  font-style: italic;
+}

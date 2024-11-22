@@ -1,0 +1,91 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+  }
+  
+  body::before {
+    content: "XS";
+    color: red;
+    font-size: 2rem;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+  }
+  
+  @media (min-width: 576px) {
+    body::before {
+      content: "SM";
+    }
+  }
+  
+  @media (min-width: 768px) {
+    body::before {
+      content: "MD";
+    }
+  }
+  
+  @media (min-width: 992px) {
+    body::before {
+      content: "LG";
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    body::before {
+      content: "XL";
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    body::before {
+      content: "XXL";
+    }
+  }
+
+#link-voltar{
+    text-decoration: none !important;
+    color: #234B79;
+}
+.side-text{
+    font-size: 30px;
+}
+.side-icon{
+    font-size: 30px !important;
+}
+
+.side-text {
+    display: flex;
+    align-items: center; /* Alinha ícones e texto verticalmente */
+    gap: 8px;
+    text-decoration: none; /* Remove o sublinhado (opcional) */
+    color: inherit; /* Mantém a cor atual do texto */
+    font-size: 30px;
+
+}
+
+.side-icon {
+    font-size: 30px !important; /* Ajusta o tamanho do ícone */
+    line-height: 1 !important; /* Garante alinhamento vertical correto */
+}
+
+.btn-open-modal{
+    background-color: #234B79 !important;
+    color: #D6ED4B !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease;
+  }
+  .btn-open-modal:hover{
+    color: #234B79 !important;
+    background-color: #D6ED4B !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .edit-icon {
+    font-size: 1.5rem; /* Ajuste o tamanho do ícone para alinhar melhor com o texto */
+    vertical-align: middle !important; /* Alinha o ícone ao meio */
+}

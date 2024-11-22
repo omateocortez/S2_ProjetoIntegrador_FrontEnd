@@ -62,17 +62,24 @@
   color: #234B79;
   background-color: rgba(117, 139, 166, .55);
   padding: 5px;
+  margin-top: 50px !important;
 }
 
 .texto{
   text-align: justify;
   font-size: 18px;
   font-weight: 400;
+  margin-left: 100px !important;
+  margin-right: 50px !important;
+  margin-block: 15px !important;
 }
 .points{
   padding-top: 5px;
   text-align: justify;
   font-size: 18px;  
   font-weight: 400;
+  margin-left: 100px !important;
+  margin-right: 50px !important;
+  margin-block: 15px !important;
 }
 

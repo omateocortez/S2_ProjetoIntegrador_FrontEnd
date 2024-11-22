@@ -119,11 +119,12 @@ body::before {
 
 
 .cadastro{
-  font-size: medium;
+  font-size: large;
 }
 .cadastre-se{
   color: #D6ED4B;
   font-style: italic;
+  font-size: large;
   font-weight: 300;
 }
 

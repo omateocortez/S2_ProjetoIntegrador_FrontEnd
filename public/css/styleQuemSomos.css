@@ -52,12 +52,14 @@
     font-size: 50px;
     font-weight: 400;
     padding: 0px;
-    margin-top: 50px;
+    margin-top: 20px !important;
+    margin-bottom: 30px !important;
+
 }
 
 .criancas{
-    width: 100%;
-    margin-bottom: 40px;
+    width: 80%;
+    margin-bottom: 80px;
     margin-top: 20px;
 }
 
@@ -74,11 +76,15 @@
   text-align: justify;
   font-size: 18px;
   font-weight: 400;
+  margin-inline: 100px;
+  margin-block: 30px;
 }
 .points{
   padding-top: 5px;
   text-align: justify;
   font-size: 18px;  
   font-weight: 400;
+  margin-inline: 130px;
+  margin-block: 30px;
 }
 
