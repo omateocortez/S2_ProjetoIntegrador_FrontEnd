@@ -185,7 +185,7 @@
 
 .edit_button, .delete_button {
     position: absolute;
-    bottom: 15px;
+    bottom: 16px;
     padding: 10px; /* Padronize padding e margens */
 }
 

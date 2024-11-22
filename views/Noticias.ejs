@@ -80,42 +80,57 @@
 
             <ul style="list-style-type: none;" class="row g-4">
                 <% data.forEach(noticia => { %>
-                    <li class="col-12 col-lg-6 col-xl-4">
-                        <div class="col d-flex justify-content-center caixa">
-                            <div class="row d-flex flex-column">
-                            <div class="text-center">
-                                <img src="/<%= noticia.images[noticia.images.length - 1] %>" class="img-fluid imagem_noticia" onError="this.onerror=null; this.src='/imgs/no_img.png';" alt="Imagem relacionada a notícia '<%=noticia.title%>'"> 
+                    <li class="col-12">
+                        <div class="d-flex flex-column flex-lg-row align-items-center mb-5 caixa">
+                            <!-- Imagem da notícia -->
+                            <div class="col-12 col-lg-4 mb-4 text-center">
+                                <img src="/<%= noticia.images[noticia.images.length - 1] %>" 
+                                     class="img-fluid imagem_noticia rounded-4" 
+                                     onError="this.onerror=null; this.src='/imgs/no_img.png';" 
+                                     alt="Imagem relacionada a notícia '<%=noticia.title%>'">
                             </div>
-                            <h1 class="titulo-noticia"><%= noticia.title %></h1>
-                            <div class="row me-0 pe-0 justify-content-end text-end">
-                            <p class="data-noticia">Publicado: <%= `${noticia.upload_date.getDate()}/${noticia.upload_date.getMonth() + 1}/${noticia.upload_date.getFullYear()}` %></p>
-                        </div>
-                        <p class="descricao-noticia"><%= noticia.noticia_text %></p>
-                        
-                        <div class="row align-items-center mt-4 botaoEditar" style="display: none;">
-                            <div class="row justify-content-start text-start align-items-center">
-                                <form action="/Noticias/edit/<%= noticia._id %>" enctype="multipart/form-data" method="get">
-                                    <button type="submit" class="p-2 edit_button">
+            
+                            <!-- Conteúdo da notícia -->
+                            <div class="col-12 col-lg-8">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h1 class="titulo-noticia mt-3 mt-lg-0 me-3"><%= noticia.title %></h1>
+                                    <p class="data-noticia mb-0">
+                                        Publicado: 
+                                        <%= `${noticia.upload_date.getDate()}/${noticia.upload_date.getMonth() + 1}/${noticia.upload_date.getFullYear()}` %>
+                                    </p>
+                                </div>
+                                <p class="descricao-noticia"><%= noticia.noticia_text %></p>
+            
+                                <!-- Botão Editar -->
+                                <div class="row align-items-center mt-4 botaoEditar" style="display: none;">
+                                    <div class="row justify-content-start text-start align-items-center">
+                                        <form action="/Noticias/edit/<%= noticia._id %>" enctype="multipart/form-data" method="get">
+                                            <button type="submit" class="p-2 edit_button">
+                                                <span class="material-symbols-rounded icone">
+                                                    border_color
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+            
+                                <!-- Botão Deletar -->
+                                <div class="row justify-content-end text-end align-items-center botaoDeletar" style="display: none;">
+                                    <button type="button" class="justify-content-end text-end delete_button" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#DeleteNews" 
+                                            data-bs-noticia-id="<%= noticia._id %>">
                                         <span class="material-symbols-rounded icone">
-                                            border_color
+                                            delete_forever
                                         </span>
                                     </button>
-                                    </form>
                                 </div>
-                            </div>           
-                            
-                            <!-- Button trigger modal -->
-                            <div class="row justify-content-end text-end align-items-center botaoDeletar" style="display: none;">
-                                <button type="button" class="justify-content-end text-end delete_button" data-bs-toggle="modal" data-bs-target="#DeleteNews" data-bs-noticia-id="<%= noticia._id %>">
-                                    <span class="material-symbols-rounded icone">
-                                        delete_forever
-                                    </span>
-                                </button>
                             </div>
-                            
-                        </li>
+                        </div>
+                    </li>
                 <% }) %>
-            </ul>   
+            </ul>
+            
           
             <!------------------------------------ Modal ------------------------------------>
             <div class="modal fade" id="DeleteNews" tabindex="-1" aria-labelledby="DeleteNewsLabel" aria-hidden="true">
