@@ -17,7 +17,7 @@
     <%- include('partials/Header') %>    
     <!------------------------ Header ------------------------->
     <!-- Conteúdo da página principal -->
-    <div class="container">
+    <div class="container-xxl">
         <h1 class="text-center pb-3 pt-5 noticias">Notícias</h1>
         
         <section>
@@ -77,10 +77,10 @@
                 </div>
             </div>
             <!------------------------ Modal Form -------------------------->
-            <ul style="list-style-type: none;" class="row g-3">
+            <ul style="list-style-type: none;" class="row g-4 g-lg-0 gy-lg-4">
                 <% data.forEach(noticia => { %>
-                    <li class="col-fluid">
-                        <div class="d-flex flex-column pe-lg-5 py-3 caixa">
+                    <li class="col-fluid justify-content-center text-center">
+                        <div class="d-flex flex-column pe-lg-5 py-3 justify-content-center text-center caixa">
                             <!-- Row para Imagem e Texto -->
                             <div class="row d-flex align-items-start">
                                 <!-- Imagem da notícia -->
@@ -135,17 +135,6 @@
                     </li>
                 <% }) %>
             </ul>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
           
             <!------------------------------------ Modal ------------------------------------>
             <div class="modal fade" id="DeleteNews" tabindex="-1" aria-labelledby="DeleteNewsLabel" aria-hidden="true">
