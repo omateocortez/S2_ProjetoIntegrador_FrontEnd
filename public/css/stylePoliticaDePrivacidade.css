@@ -63,6 +63,7 @@
   background-color: rgba(117, 139, 166, .55);
   padding: 5px;
   margin-top: 50px !important;
+  border-radius: 10px;
 }
 
 .texto{

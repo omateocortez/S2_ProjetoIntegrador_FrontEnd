@@ -1,4 +1,9 @@
 /* -------------- Footer -------------- */
+.space-prefooter{
+  height: 50px;
+  background-color: white;
+  }
+
 #footer{
   background-image: linear-gradient(to right, #23272a, #1D385A);
   color: #fff;
@@ -6,7 +11,6 @@
   
   .footer-wave{
     width: 100%;
-    margin-top: -5px !important;
     filter: brightness(1000000);
   }
   
@@ -63,6 +67,7 @@
     color: #fff; /* Cor do texto */
     padding: 30px 0; /* Espaçamento interno no topo e embaixo */
   }
+  
 
 
   .logo_footer {
@@ -75,6 +80,8 @@
   .info{
     font-weight: 300;
     font-size: 15px;
+    text-decoration: none;
+    overflow: hidden;
   }
 
 

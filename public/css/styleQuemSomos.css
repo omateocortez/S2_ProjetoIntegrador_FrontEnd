@@ -48,12 +48,15 @@
   
   
   /* ------------------ Body ------------------- */
+
+  
   .NossaHistoria{
     font-size: 50px;
     font-weight: 400;
     padding: 0px;
     margin-top: 20px !important;
     margin-bottom: 30px !important;
+    overflow: hidden !important;
 
 }
 
@@ -70,6 +73,7 @@
   color: #234B79;
   background-color: rgba(117, 139, 166, .55);
   padding: 5px;
+  border-radius: 10px;
 }
 
 .texto{
