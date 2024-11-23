@@ -66,7 +66,8 @@
   
   .descricao-noticia {
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
+    max-width: 95%;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -99,13 +100,10 @@
     height: auto;
     max-width: 100%;
     object-fit: cover;
+    max-height: 300px !important; 
+    object-fit: cover !important; 
+    margin-bottom: 30px !important;
   }
-  
-
-
-
-
-
 
 
 
@@ -244,3 +242,4 @@
 .icone{
   font-size: 25px !important;
 }
+

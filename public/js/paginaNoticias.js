@@ -3,7 +3,7 @@ import { getUserAccessInfo } from '/utils/utils.js'
 let userAccessInfo = null
 let isEditing = false
 
-document.addEventListener("DOMContentLoaded",  async function() {
+document.addEventListener("DOMContentLoaded", async function() {
     isEditing = new URLSearchParams(window.location.search).has('noticia_edit')
     userAccessInfo = await getUserAccessInfo()
 
@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded",  async function() {
             }
         }
 
+        // Mostra os botões para o usuário com permissão 'func'
         document.getElementById('botaoAdicionarNoticia').style.display = 'block'
         document.querySelectorAll('.botaoEditar').forEach(botao => {
             botao.style.display = 'block'
@@ -27,14 +28,25 @@ document.addEventListener("DOMContentLoaded",  async function() {
             botao.style.display = 'block'
         })
 
+        // Exibe a row que contém os botões de edição e exclusão
+        const botaoRow = document.querySelectorAll('.botaoRow');
+        botaoRow.forEach(row => {
+            row.classList.remove('d-none');  // Remove 'd-none' para exibir a row
+        });
+
+        // Exibe o modal se estiver editando ou após um reload
         if(isEditing || sessionStorage.getItem('mostrarModalAposReload') === 'true'){
             let modal = new bootstrap.Modal(document.getElementById("exampleModal"))
             modal.show()
             sessionStorage.removeItem('mostrarModalAposReload')   
         }
+    } else {
+        // Se não for 'func', esconde os botões e a row
+        const botaoRow = document.querySelectorAll('.botaoRow');
+        botaoRow.forEach(row => {
+            row.classList.add('d-none');  // Adiciona 'd-none' para esconder a row
+        });
     }
-    
-
 })
 
 document.getElementById("addNoticiaButton").addEventListener("click", function() {
