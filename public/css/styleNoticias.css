@@ -73,7 +73,7 @@
   .descricao-noticia {
     display: -webkit-box;
     line-clamp: 4;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 4 !important;
     max-width: 95%;
     -webkit-box-orient: vertical;
     overflow: hidden;
