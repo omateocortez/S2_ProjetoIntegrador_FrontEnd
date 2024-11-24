@@ -1,19 +1,24 @@
 /* -------------- Footer -------------- */
-.space-prefooter{
+.space-prefooter {
   height: 60px;
   background-color: white;
-  }
+  z-index: -1 !important; /* Colocando atrás dos outros elementos */
+  position: relative; /* Adicionando o position */
+}
 
-#footer{
+#footer {
   background-image: linear-gradient(to right, #23272a, #1D385A);
   color: #fff;
-  }
-  
-  .footer-wave{
-    width: 100%;
-    margin-top: -5px !important;
-    filter: brightness(1000000);
-  }
+  position: relative; /* Garante que o footer esteja no mesmo contexto de empilhamento */
+  z-index: 1; /* Pode ajustar conforme a necessidade */
+}
+
+.footer-wave {
+  width: 100%;
+  margin-top: -1px !important;
+  filter: brightness(1000000);
+}
+
   
   .footer-title{
     font-weight: 300;
@@ -87,5 +92,5 @@
 
 
 .icon {
-  height: 57px; /* Mantém a proporção da imagem */
+  height: 50px; /* Mantém a proporção da imagem */
 }

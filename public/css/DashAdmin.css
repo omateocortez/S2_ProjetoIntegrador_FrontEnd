@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+}
+
+body::before {
+    content: "XS";
+    color: red;
+    font-size: 2rem;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+@media (min-width: 576px) {
+    body::before {
+        content: "SM";
+    }
+}
+
+@media (min-width: 768px) {
+    body::before {
+        content: "MD";
+    }
+}
+
+@media (min-width: 992px) {
+    body::before {
+        content: "LG";
+    }
+}
+
+@media (min-width: 1200px) {
+    body::before {
+        content: "XL";
+    }
+}
+
+@media (min-width: 1400px) {
+    body::before {
+        content: "XXL";
+    }
+}
+
+
+.nome-user, .sobrenome-user {
+    color: #234B79;
+    font-size: 30px;
+}
+.user{
+    color: #1D385A;
+    font-size: 30px;
+    font-style: italic;
+}
+
+
+.is-funcionario{
+    font-size: 17px;
+}
+
+.caixa {
+    border-radius: 45px;
+    background-color: rgba(108, 108, 108, 0.13);
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding-bottom: 40px;
+    border: transparent 2px solid;
+    min-height: 210px; /* Ajuste a altura mínima da caixa */
+    overflow: hidden; /* Impede que o ícone "vaze" */
+}
+.icone-fixo {
+    position: absolute;
+    bottom: 10px;  /* Distância do fundo da caixa */
+    right: 30px;   /* Distância da direita da caixa */
+    font-size: 30px; /* Ajuste o tamanho do ícone */
+    color: #DC4C64;
+    border: none !important;
+
+}
+.icone{
+    border-radius: 500px;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+.icone:hover{
+    transition: all 0.3s ease;
+    background-color: #DC4C64;
+    color: white;
+}
+
+.caixa:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+/* Estilo básico do container do toggle */
+.custom-toggle {
+    display: inline-block;
+    position: relative;
+}
+
+/* Ocultar o input real */
+.custom-toggle-input {
+    display: none;
+}
+
+/* Estilo da "trilha" do toggle */
+.custom-toggle-label {
+    width: 38px !important; /* Largura da trilha */
+    height: 20px !important; /* Altura da trilha */
+    background-color: #1D385A;
+    border-radius: 10px;
+    border: 1.7px solid rgba(255, 255, 255, 0);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Estilo da bolinha (inicialmente preta) */
+.custom-toggle-label::before {
+    content: '';
+    width: 13px !important; /* Tamanho da bolinha */
+    height: 13px !important; /* Tamanho da bolinha */
+    background-color: #c6e226;
+    border-radius: 50%;
+    position: absolute;
+    top: 1.9px; /* Ajuste para centralizar verticalmente */
+    left: 2px; /* Ajuste para centralizar horizontalmente */
+    transition: all 0.3s ease !important;
+}
+
+/* Quando o toggle está ativado (checkbox marcado) */
+.custom-toggle-input:checked + .custom-toggle-label {
+    background-color: #c6e226; /* Cor da trilha quando ativado */
+    border: 1.7px solid #234B79;
+
+}
+
+/* Quando o toggle está ativado, move a bolinha */
+.custom-toggle-input:checked + .custom-toggle-label::before {
+    left: 20px; /* Bolinha se movendo para a direita */
+    background-color: #234B79; /* Cor da bolinha quando ativado */
+
+}
