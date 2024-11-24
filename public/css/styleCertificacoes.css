@@ -46,3 +46,9 @@
     }
   }
   
+  .img-equal { 
+    height: 400px !important; /* Altura fixa para todas as imagens */
+    width: auto; /* Mantém a proporção */
+    object-fit: contain; /* Ajusta o conteúdo sem cortar */
+  }
+  
