@@ -18,9 +18,9 @@
     <div class="container-fluid px-5 mt-4">
         <ul class="row g-4 list-unstyled justify-content-center">
             <li class="col-fluid mx-0 col-xl-10">
-                <div class="row caixa align-items-center">
+                <div class="row caixa align-items-start">
                     <!-- Comportamento para LG ou menores: Itens empilhados em linhas separadas -->
-                    <div class="row align-items-center justify-content-end text-center px-0 mx-auto">
+                    <div class="row justify-content-end text-center mt-3 px-0 mx-auto">
                         <!-- Primeira linha: Nome e Sobrenome -->
                         <div class="col-12 text-start d-flex">
                             <h1 class="user my-auto py-auto me-3 fw-light">Nome:</h1>
@@ -62,9 +62,11 @@
                             </div>
                             <!-- Coluna para o ícone de editar -->
                             <div class="col-auto align-items-center">
-                                <span class="icone_edit material-symbols-rounded">
-                                    edit_note
-                                </span>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                    <span class="icone_edit material-symbols-rounded">
+                                        edit_note
+                                    </span>
+                                </button>
                             </div>
                         </div>
                     </div>

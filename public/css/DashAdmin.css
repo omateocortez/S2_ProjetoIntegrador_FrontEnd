@@ -63,10 +63,10 @@ body::before {
 
 .caixa {
     border-radius: 45px;
-    background-color: rgba(108, 108, 108, 0.13);
+    background-color: rgba(108, 108, 108, 0.173);
     padding: 20px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 4px 20px rgba(0, 0, 0, 0.3);
     position: relative !important;
     padding-bottom: 40px;
     border: transparent 2px solid;
@@ -78,16 +78,12 @@ body::before {
 }
 
 
-.icone-fixo {
+.icone_delete, .icone_edit {
     font-size: 30px; 
-    color: #DC4C64;
     border: none !important;
-    background: none; /* Remove qualquer fundo */
+    outline: none !important;
     padding: 0;
     cursor: pointer;
-}
-
-.icone_delete, .icone_edit {
     border-radius: 50%; /* Bordas arredondadas */
     padding: 6px;
     transition: all 0.3s ease;
@@ -114,7 +110,7 @@ body::before {
 .row-icones {
     position: absolute;
     bottom: 13px; /* Distância do fundo */
-    right: 5px; /* Distância da direita */
+    right: 10px; /* Distância da direita */
     display: flex;
     align-items: center; /* Alinhamento vertical */
 }
