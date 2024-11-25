@@ -18,46 +18,45 @@
     <!------------------------ Header ------------------------->
     <!-- Conteúdo da página principal -->
     <div class="container-xxl">
-        <h1 class="text-center pb-3 pt-5 projeto">Nossos Trabalhos</h1>
+        <h1 class="text-center pb-3 pt-5 projeto" aria-label="Nossos Trabalhos">Nossos Trabalhos</h1>
         
         <section>
             <!------------------------ Modal Form -------------------------->
             <div class="container" id="botaoAdicionarProjeto" style="display: none;">
                 <div class="row justify-content-end">
-                    <button type="button" id="addProjetoButton" class="btn w-auto btn-open-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" id="addProjetoButton" class="btn w-auto btn-open-modal" data-bs-toggle="modal" data-bs-target="#exampleModal" aria-label="Adicionar Projeto">
                         + Adicionar Projeto
                     </button>
                 </div>
-
             </div>
             
             <!-- Modal com o formulário -->
             <div class="modal fade custom-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg custom-modal-dialog modal-dialog-centered"> <!-- Modal maior -->
-                    <div class="modal-content bg-dark text-light p-3 caixa_modal"> <!-- Modal com fundo escuro e texto claro -->
+                <div class="modal-dialog modal-lg custom-modal-dialog modal-dialog-centered" role="dialog"> <!-- Modal maior -->
+                    <div class="modal-content bg-dark text-light p-3 caixa_modal" role="document"> <!-- Modal com fundo escuro e texto claro -->
                         <div class="modal-header custom-modal-header">
                             <h1 class="modal-title fs-5 modal-title-custom" id="exampleModalLabel"><%= proj_edit ? 'Edição de' : 'Novo' %> <strong>Projeto</strong></h1>
-                            <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>    
+                            <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Fechar" aria-hidden="true"></button>    
                         </div>
                         <div class="modal-body custom-modal-body">
                             <!-- Formulário temporário dentro do modal -->
-                            <form id="form-id" class="modal-form">
+                            <form id="form-id" class="modal-form" aria-labelledby="exampleModalLabel">
                                 <div class="mb-3 form-group-title">
                                     <label for="title" class="form-label label-title text-light">Título:</label> <!-- Cor da label ajustada -->
-                                    <input type="text" id="title" value="<%= proj_edit ? proj_edit.title : '' %>" name="title" class="form-control w-100 input-title bg-dark text-light" required> <!-- Inputs com fundo escuro -->
+                                    <input type="text" id="title" value="<%= proj_edit ? proj_edit.title : '' %>" name="title" class="form-control w-100 input-title bg-dark text-light" required aria-required="true" aria-label="Título do projeto">
                                 </div>
                                 <div class="mb-3 form-group-desc">
                                     <label for="desc" class="form-label label-desc text-light">Descrição:</label> <!-- Cor da label ajustada -->
-                                    <textarea id="desc" name="desc" class="form-control w-100 textarea-desc bg-dark text-light" rows="13" required><%- proj_edit ? proj_edit.desc : '' %></textarea> <!-- Área de texto escura -->
+                                    <textarea id="desc" name="desc" class="form-control w-100 textarea-desc bg-dark text-light" rows="13" required aria-required="true" aria-label="Descrição do projeto"><%- proj_edit ? proj_edit.desc : '' %></textarea> <!-- Área de texto escura -->
                                 </div>
                                 <div class="mb-3 form-group-file">
                                     <label for="file" class="form-label label-file text-light">Imagens:</label> <!-- Cor da label ajustada -->
-                                    <input type="file" id="file" name="files[]" class="form-control w-100 input-file bg-dark text-light" <%= proj_edit ? '' : 'required'%> multiple> <!-- Input de arquivo escuro -->
+                                    <input type="file" id="file" name="files[]" class="form-control w-100 input-file bg-dark text-light" <%= proj_edit ? '' : 'required'%> multiple aria-label="Selecione imagens">
                                 </div>
                                 
                                 <div class="mb-3 form-group-date">
                                     <label for="date" class="form-label label-date text-light">Data:</label><br>
-                                    <input class="box-calendar" type="date" id="date" name="date" value="<%= proj_edit ? proj_edit.date.toISOString().split('T')[0] : '' %>">
+                                    <input class="box-calendar" type="date" id="date" name="date" value="<%= proj_edit ? proj_edit.date.toISOString().split('T')[0] : '' %>" aria-label="Data do projeto">
                                 </div>
 
                             </form>
@@ -70,9 +69,9 @@
                                 ` : '' %>
                             </div>
                             <a href="<%= proj_edit ? '/projetos/' : '#' %>">
-                                <button type="button" class="btn btn-close-footer" data-bs-dismiss="modal"> Cancelar </button>
+                                <button type="button" class="btn btn-close-footer" data-bs-dismiss="modal" aria-label="Cancelar"> Cancelar </button>
                             </a>
-                            <button type="submit" form="form-id" value="Publicar" class="btn btn-submit-footer"><%= proj_edit ? 'Salvar' : 'Publicar' %></button>
+                            <button type="submit" form="form-id" value="Publicar" class="btn btn-submit-footer" aria-label="Salvar ou publicar projeto"><%= proj_edit ? 'Salvar' : 'Publicar' %></button>
                         </div>                        
                     </div>
                 </div>
@@ -81,27 +80,27 @@
 
             <ul style="list-style-type: none;" class="row g-4">
                 <% data.forEach(proj => { %>
-                    <li class="col-12 col-lg-6 col-xl-4">
+                    <li class="col-12 col-lg-6 col-xl-4" role="listitem">
                         <!-- Torne a caixa inteira clicável -->
-                        <a href="/projetos/<%= proj._id %>" class="text-decoration-none text-reset">
+                        <a href="/projetos/<%= proj._id %>" class="text-decoration-none text-reset" aria-label="Ver detalhes do projeto <%= proj.title %>">
                             <div class="col d-flex justify-content-center caixa">
                                 <div class="row d-flex flex-column">
                                     <div class="text-center">
                                         <img src="/<%= proj.images[proj.images.length - 1] %>" class="img-fluid imagem_projeto" 
                                             onError="this.onerror=null; this.src='/imgs/no_img.png';" 
-                                            alt="Imagem do projeto '<%=proj.title%>'">
+                                            alt="Imagem do projeto '<%=proj.title%>'" aria-label="Imagem do projeto <%= proj.title %>">
                                     </div>
-                                    <h1 class="titulo-projeto"><%= proj.title %></h1>
+                                    <h1 class="titulo-projeto" aria-label="Título do projeto"><%= proj.title %></h1>
                                     <div class="row me-0 pe-0 justify-content-end text-end">
-                                        <p class="data-projeto">
+                                        <p class="data-projeto" aria-label="Data de criação do projeto">
                                             <%= `${proj.date.getDate()}/${proj.date.getMonth() + 1}/${proj.date.getFullYear()}` %>
                                         </p>
                                     </div>
-                                    <p class="descricao-projeto"><%= proj.desc %></p>
+                                    <p class="descricao-projeto" aria-label="Descrição do projeto"><%= proj.desc %></p>
                                     <div class="row align-items-center mt-4 botaoEditar" style="display: none;">
                                         <div class="row justify-content-start text-start align-items-center">
                                             <form action="/projetos/edit/<%= proj._id %>" enctype="multipart/form-data" method="get">
-                                                <button type="submit" class="p-2 edit_button">
+                                                <button type="submit" class="p-2 edit_button" aria-label="Editar projeto">
                                                     <span class="material-symbols-rounded icone">
                                                         border_color
                                                     </span>
@@ -112,11 +111,18 @@
                                     
                                     <!-- Button trigger modal -->
                                     <div class="row justify-content-end text-end align-items-center botaoDeletar" style="display: none;">
-                                        <button type="button" class="justify-content-end text-end delete_button" data-bs-toggle="modal" data-bs-target="#DeleteProject" data-bs-proj-id="<%= proj._id %>">
+                                        <button type="button" 
+                                            class="justify-content-end text-end delete_button" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#DeleteProject" 
+                                            data-bs-proj-id="<%= proj._id %>" 
+                                            onclick="handleDeleteClick(event)" aria-label="Excluir projeto">
                                             <span class="material-symbols-rounded icone">
                                                 delete_forever
                                             </span>
                                         </button>
+                                    
+
                                     </div>
                                 </div>
                             </div>
@@ -144,10 +150,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!------------------------------------ Modal ------------------------------------> 
-        </section>
-    </div>       
     
     <!------------------------ Footer ------------------------->
     <%- include('partials/Footer') %>    
@@ -158,5 +160,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script type="module" src="/js/paginaProjetos.js"></script>
+    <script>
+        function handleDeleteClick(event) {
+            // Impede o comportamento padrão do link
+            event.preventDefault();
+            // Impede que o clique se propague para o link pai
+            event.stopPropagation();
+        }
+    </script>
 </body>
 </html>

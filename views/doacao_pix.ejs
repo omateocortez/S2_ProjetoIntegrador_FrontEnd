@@ -18,12 +18,12 @@
     <div class="container">
         <div class="col">
             <div class="row">
-                <h1 class="mt-5 doacao">Doações</h1>
+                <h1 class="mt-5 doacao" aria-label="Título da seção de doações">Doações</h1>
             </div>
         </div>
         <div class="col">
             <div class="row justify-content-center">
-                <h4 class="mt-3 desc_doacao">Sua doação contribuirá para a compra 
+                <h4 class="mt-3 desc_doacao" aria-label="Descrição da doação">Sua doação contribuirá para a compra 
                     de materiais, que utilizaremos para 
                     construir as casas das pessoas com 
                     deficiência.</h4>
@@ -35,14 +35,14 @@
             <!-- Coluna 1 -->
             <div class="col-md-12 col-lg-6 col-xl-5 text-center">
                 <div class="row justify-content-center">
-                    <h2 class="mt-5 formas_doacao">Formas de Doação</h2>
+                    <h2 class="mt-5 formas_doacao" aria-label="Título das formas de doação">Formas de Doação</h2>
                 </div> 
                 <div class="row justify-content-center">
                     <div class="col-10">
                         <div class="accordion mb-3" id="accordion_payment">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button fs-4 rounded-4 pay_box" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="accordion-button fs-4 rounded-4 pay_box" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" aria-label="Escolha como pagar">
                                         Escolha como pagar
                                     </button>
                                 </h2>
@@ -50,15 +50,15 @@
                                     <div class="accordion-body">
                                         <div class="btn-group-toggle d-flex flex-column" data-toggle="buttons">
                                             <!-- Botão 1 - PIX -->
-                                            <label class="btn rounded-5 px-5 py-3 my-2 w-100 text-center fs-5 active payment-option">
+                                            <label class="btn rounded-5 px-5 py-3 my-2 w-100 text-center fs-5 active payment-option" aria-label="Escolher pagamento via PIX">
                                                 <input type="radio" name="options" id="option1" autocomplete="off" checked> PIX
                                             </label>
                                             <!-- Botão 2 - Cartão de Crédito -->
-                                            <label class="btn rounded-5 px-5 py-3 my-2 w-100 text-center fs-5 payment-option">
+                                            <label class="btn rounded-5 px-5 py-3 my-2 w-100 text-center fs-5 payment-option" aria-label="Escolher pagamento via Cartão de Crédito">
                                                 <input type="radio" name="options" id="option2" autocomplete="off"> Cartão de Crédito
                                             </label>
                                             <!-- Botão 3 - Cartão de Débito -->
-                                            <label class="btn rounded-5 px-5 py-3 mt-2 mb-3 w-100 text-center fs-5 payment-option">
+                                            <label class="btn rounded-5 px-5 py-3 mt-2 mb-3 w-100 text-center fs-5 payment-option" aria-label="Escolher pagamento via Cartão de Débito">
                                                 <input type="radio" name="options" id="option3" autocomplete="off"> Cartão de Débito
                                             </label>
                                         </div>
@@ -72,17 +72,17 @@
     
             <!-- Coluna 2 -->
             <div class="col-md-12 col-lg-6 col-xl-7 text-center">
-                <h2 class="mt">QR Code</h2>
-                <p>(meramente ilustrativo)</p>
-                <img src="/imgs/QRCode.png" class="col-6 qrcode">
+                <h2 class="mt" aria-label="Título do QR Code">QR Code</h2>
+                <p aria-label="Informação sobre o QR Code">(meramente ilustrativo)</p>
+                <img src="/imgs/QRCode.png" class="col-6 qrcode" alt="QR Code de pagamento">
                 <h1 class="fw-normal mt-3">OU</h1>
                 <div class="row justify-content-center">
                     <div class="col-8 rounded-5 mb-3 card">
                         <div class="card-body">
-                            <h4 class="fw-normal text-start mt-3">CNPJ 32.951.999/0001-40</h4>
-                            <h4 class="fw-normal text-start mt-3">Bradesco 237</h4>
-                            <h4 class="fw-normal text-start mt-3">Agência 237</h4>
-                            <h4 class="fw-normal text-start mt-3">C/C 0238328-4</h4>
+                            <h4 class="fw-normal text-start mt-3" aria-label="CNPJ da instituição">CNPJ 32.951.999/0001-40</h4>
+                            <h4 class="fw-normal text-start mt-3" aria-label="Banco da instituição">Bradesco 237</h4>
+                            <h4 class="fw-normal text-start mt-3" aria-label="Agência da instituição">Agência 237</h4>
+                            <h4 class="fw-normal text-start mt-3" aria-label="Conta corrente da instituição">C/C 0238328-4</h4>
                         </div>
                     </div>
                 </div>

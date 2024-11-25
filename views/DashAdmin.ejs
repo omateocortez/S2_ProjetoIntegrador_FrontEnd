@@ -49,16 +49,30 @@
                         </div>
                     </div>
     
-                    <!-- Botão que abre o modal dentro de uma row -->
-                    <div class="row justify-content-end">
-                        <div class="col-auto">
-                            <button type="button" class="text-end px-0 mb-2 icone-fixo" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                <span class="icone material-symbols-rounded">
-                                    person_remove
+            
+                        <!-- Conteúdo da caixa -->
+                        <div class="row-icones justify-content-end align-items-center">
+                            <!-- Coluna para o ícone de deletar -->
+                            <div class="col-auto align-items-center">
+                                <button type="button" class="icone-fixo" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <span class="icone_delete material-symbols-rounded">
+                                        person_remove
+                                    </span>
+                                </button>
+                            </div>
+                            <!-- Coluna para o ícone de editar -->
+                            <div class="col-auto align-items-center">
+                                <span class="icone_edit material-symbols-rounded">
+                                    edit_note
                                 </span>
-                            </button>
+                            </div>
                         </div>
                     </div>
+                    
+                    
+                    
+                    
+                    
     
                     <!-- Modal de confirmação -->
                     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -72,8 +86,8 @@
                                     Tem certeza que deseja excluir este usuário?
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary text-light fs-4" data-bs-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-danger text-light fs-4">Deletar</button>
+                                    <button type="button" class="btn btn-secondary text-light fs-5" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-danger text-light fs-5">Deletar</button>
                                 </div>
                             </div>
                         </div>

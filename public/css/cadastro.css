@@ -1,128 +1,133 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    font-family: poppins;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: poppins;
+}
+
+body::before {
+  content: "XS";
+  color: red;
+  font-size: 2rem;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+@media (min-width: 576px) {
   body::before {
-    content: "XS";
-    color: red;
-    font-size: 2rem;
-    font-weight: bold;
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 10px;
+    content: "SM";
   }
-  
-  @media (min-width: 576px) {
-    body::before {
-      content: "SM";
-    }
+}
+
+@media (min-width: 768px) {
+  body::before {
+    content: "MD";
   }
-  
-  @media (min-width: 768px) {
-    body::before {
-      content: "MD";
-    }
+}
+
+@media (min-width: 992px) {
+  body::before {
+    content: "LG";
   }
-  
-  @media (min-width: 992px) {
-    body::before {
-      content: "LG";
-    }
+}
+
+@media (min-width: 1200px) {
+  body::before {
+    content: "XL";
   }
-  
-  @media (min-width: 1200px) {
-    body::before {
-      content: "XL";
-    }
+}
+
+@media (min-width: 1400px) {
+  body::before {
+    content: "XXL";
   }
-  
-  @media (min-width: 1400px) {
-    body::before {
-      content: "XXL";
-    }
-  }
-  
-  
-  
-  /* --------------------Form----------------- */
-  
-  
-  /* Espaço entre a navbar e a caixa de vidro */
-  
-  .cadastro-membro{
-    font-weight: 300;
-  }
-  
-  .glass {
-    background-image: linear-gradient(to top, #292929, #234B79);
-    border-radius: 35px; /* Bordas arredondadas */
-    padding: 35px !important;
-    color: white; /* Texto branco para contraste */
-    border: none !important;
-    outline: none !important;
-    font-size: larger;
-    margin-top: 50px !important;
-    margin-bottom: 50px;
-  }
-  
-  .input_nome, .input_sobrenome{
-    width: 50% !important;
-  }
-  
+}
 
 
-  .confirmar{
-    font-size: larger;  
-    color: #253847;
-    font-weight: 400;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    background-color: #D6ED4B;
-    border-radius: 15px;
-    border: #253847 solid 3px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    transition: all 0.2s ease;
-    margin-right: 43px !important;
-    margin-left: 43px !important;
-  
-  }
-  .confirmar:hover{
-    font-size: xx-large;  
-    color: #D6ED4B;
-    font-weight: 400;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    background-color: #253847;
-    border-radius: 20px;
-    border: #D6ED4B solid 3px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    transition: all 0.2s ease;
-  }
-  
-  
-  .cadastro{
-    font-size: medium;
-  }
-  .cadastre-se{
-    color: #D6ED4B;
-    font-style: italic;
-    font-weight: 300;
-  }
-  
-  
 
-.visibility-icon{
+/* --------------------Form----------------- */
+
+
+/* Espaço entre a navbar e a caixa de vidro */
+
+.cadastro-membro {
+  font-weight: 300;
+}
+
+.glass {
+  background-image: linear-gradient(to top, #292929, #234B79);
+  border-radius: 35px;
+  /* Bordas arredondadas */
+  padding: 35px !important;
+  color: white;
+  /* Texto branco para contraste */
+  border: none !important;
+  outline: none !important;
+  font-size: larger;
+  margin-top: 50px !important;
+  margin-bottom: 50px;
+}
+
+.input_nome,
+.input_sobrenome {
+  width: 50% !important;
+}
+
+
+
+.confirmar {
+  font-size: larger;
+  color: #253847;
+  font-weight: 400;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #D6ED4B;
+  border-radius: 15px;
+  border: #253847 solid 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: all 0.2s ease;
+  margin-right: 43px !important;
+  margin-left: 43px !important;
+
+}
+
+.confirmar:hover {
+  font-size: xx-large;
+  color: #D6ED4B;
+  font-weight: 400;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #253847;
+  border-radius: 20px;
+  border: #D6ED4B solid 3px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+
+.cadastro {
+  font-size: medium;
+}
+
+.cadastre-se {
+  color: #D6ED4B;
+  font-style: italic;
+  font-weight: 300;
+}
+
+
+
+.visibility-icon {
   font-size: 35px !important;
   padding: none !important;
 }
+
 /* Estilização do botão de visibilidade */
 .btn-visibility {
   background-color: #57677A !important;
@@ -145,24 +150,15 @@
 }
 
 
+/* Importando a fonte do Material Symbols */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded');
 
-
-/* Alterando as cores do toggle */
-.custom-switch {
-  background-color: #6c757d !important; /* Cor padrão do fundo */
-  border-color: #6c757d !important; /* Cor da borda */
-  outline: none !important;
-  transition: all 0.3s ease !important;
-}
-
-.custom-switch:checked {
-  background-color: #D6ED4B !important; /* Cor quando ativado */
-  border-color: #253847 !important; /* Cor da borda quando ativado */
-  outline: none !important;
-  transition: all 0.3s ease !important;
-}
-
-.PdP{
-  color: #3c71ad !important;
+.PdP {
+  color: #3592ba;
   font-style: italic;
+  transition: color 0.2s ease;
+}
+
+#termos{
+  font-size: large;
 }

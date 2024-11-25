@@ -67,35 +67,60 @@ body::before {
     padding: 20px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
+    position: relative !important;
     padding-bottom: 40px;
     border: transparent 2px solid;
     min-height: 210px; /* Ajuste a altura mínima da caixa */
     overflow: hidden; /* Impede que o ícone "vaze" */
 }
+.caixa:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+
 .icone-fixo {
-    position: absolute;
-    bottom: 10px;  /* Distância do fundo da caixa */
-    right: 30px;   /* Distância da direita da caixa */
-    font-size: 30px; /* Ajuste o tamanho do ícone */
+    font-size: 30px; 
     color: #DC4C64;
     border: none !important;
+    background: none; /* Remove qualquer fundo */
+    padding: 0;
+    cursor: pointer;
+}
 
-}
-.icone{
-    border-radius: 500px;
-    padding: 8px;
+.icone_delete, .icone_edit {
+    border-radius: 50%; /* Bordas arredondadas */
+    padding: 6px;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px; /* Espaçamento entre os botões */
 }
-.icone:hover{
-    transition: all 0.3s ease;
+
+.icone_delete:hover {
     background-color: #DC4C64;
     color: white;
 }
 
-.caixa:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+.icone_edit {
+    color: #234B79;
 }
+
+.icone_edit:hover {
+    background-color: #234B79;
+    color: white;
+}
+
+.row-icones {
+    position: absolute;
+    bottom: 13px; /* Distância do fundo */
+    right: 5px; /* Distância da direita */
+    display: flex;
+    align-items: center; /* Alinhamento vertical */
+}
+
+
+
 
 
 
@@ -148,4 +173,17 @@ body::before {
     left: 20px; /* Bolinha se movendo para a direita */
     background-color: #234B79; /* Cor da bolinha quando ativado */
 
+}
+
+
+
+.btn-close{
+filter: invert(0.5);    
+}
+
+
+/* Ajustar a borda para ser da mesma cor do fundo */
+.modal-header, 
+.modal-footer {
+    border-color: rgb(59, 59, 59) !important; /* Mesmo que o fundo */
 }
