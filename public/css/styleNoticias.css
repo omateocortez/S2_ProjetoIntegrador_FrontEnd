@@ -85,10 +85,10 @@
   
   .caixa {
     border-radius: 45px; /* Mantém o arredondamento das bordas */
-    background-color: rgba(108, 108, 108, 0.13);
+    background-color: rgba(108, 108, 108, 0.173);
     padding: 20px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Aumenta a sombra e a torna mais visível */
+    box-shadow: 2px 4px 20px #aaaaaa; /* Aumenta a sombra e a torna mais visível */
     height: 100%;
     position: relative;
     height: 100%; /* Certifica que a caixa ocupe toda a altura */
