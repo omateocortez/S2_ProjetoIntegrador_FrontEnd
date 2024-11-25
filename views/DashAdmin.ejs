@@ -50,51 +50,45 @@
                     </div>
     
             
-                        <!-- Conteúdo da caixa -->
-                        <div class="row-icones justify-content-end align-items-center">
-                            <!-- Coluna para o ícone de deletar -->
-                            <div class="col-auto align-items-center">
-                                <button type="button" class="icone-fixo" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                    <span class="icone_delete material-symbols-rounded">
-                                        person_remove
-                                    </span>
-                                </button>
+                    <div class="row-icones justify-content-end align-items-center">
+                        <!-- Coluna para o ícone de deletar -->
+                        <div class="col-auto align-items-center">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                <span class="icone_delete material-symbols-rounded">
+                                    person_remove
+                                </span>
+                            </button>
+                        </div>
+                        <!-- Coluna para o ícone de editar -->
+                        <div class="col-auto align-items-center">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                <span class="icone_edit material-symbols-rounded">
+                                    edit_note
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                    
+                    
+                <!-- Modal de confirmação -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content bg-dark fs-5">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-light fs-4" id="deleteModalLabel">Confirmar Exclusão</h5>
+                                <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <!-- Coluna para o ícone de editar -->
-                            <div class="col-auto align-items-center">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    <span class="icone_edit material-symbols-rounded">
-                                        edit_note
-                                    </span>
-                                </button>
+                            <div class="modal-body text-light">
+                                Tem certeza que deseja excluir este usuário?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary text-light fs-5" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-danger text-light fs-5">Deletar</button>
                             </div>
                         </div>
                     </div>
-                    
-                    
-                    
-                    
-                    
-    
-                    <!-- Modal de confirmação -->
-                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content bg-dark fs-5">
-                                <div class="modal-header">
-                                    <h5 class="modal-title text-light fs-4" id="deleteModalLabel">Confirmar Exclusão</h5>
-                                    <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body text-light">
-                                    Tem certeza que deseja excluir este usuário?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary text-light fs-5" data-bs-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-danger text-light fs-5">Deletar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
                 </div>
             </li>
         </ul>

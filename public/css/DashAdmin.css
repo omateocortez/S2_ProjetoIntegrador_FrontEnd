@@ -77,6 +77,17 @@ body::before {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
+.col-auto {
+    margin: 0 !important; /* Remove margens */
+    padding: 0 !important; /* Remove paddings */
+
+}
+
+button{
+    outline: none !important;
+    border: none !important;
+    background-color: transparent;
+}
 
 .icone_delete, .icone_edit {
     font-size: 30px; 
@@ -90,8 +101,13 @@ body::before {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px; /* Espaçamento entre os botões */
+    margin-left: 0; /* Reduz o espaçamento entre os botões */
 }
+
+.icone_delete{
+    color: #DC4C64;
+}
+
 
 .icone_delete:hover {
     background-color: #DC4C64;
@@ -108,13 +124,13 @@ body::before {
 }
 
 .row-icones {
-    position: absolute;
-    bottom: 13px; /* Distância do fundo */
-    right: 10px; /* Distância da direita */
     display: flex;
-    align-items: center; /* Alinhamento vertical */
-}
-
+    position: absolute;
+    bottom: 13px;
+    right: 10px;
+    gap: 5px; /* Espaçamento direto entre os itens */
+  }
+  
 
 
 
