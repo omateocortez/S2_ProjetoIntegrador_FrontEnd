@@ -113,6 +113,13 @@ li{
   height: 600px; /* Defina a altura desejada */
   overflow: hidden;
 }
+#carouselExampleCaptions:hover{
+  transition: all 0.3s ease;
+}
+
+.carousel-title{
+  text-shadow: 1px 1px 5px #3d3d3d;
+}
 
 #carouselExampleCaptions .carousel-item img {
   border-radius: 55px;
