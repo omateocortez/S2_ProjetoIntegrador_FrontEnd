@@ -94,3 +94,13 @@
 .icon {
   height: 50px; /* Mantém a proporção da imagem */
 }
+
+
+
+div.userway_buttons_wrapper {
+  position: fixed !important;
+  bottom: 48% !important; /* Ajusta a distância do canto inferior */
+  left: 10px !important; /* Ajusta a distância do canto esquerdo */
+  top: auto !important; /* Garante que a propriedade "top" não interfira */
+  z-index: 9999 !important;
+}
