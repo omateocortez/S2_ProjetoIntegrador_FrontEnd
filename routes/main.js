@@ -14,8 +14,8 @@ router.get('/Home', (req, res) => {
     res.redirect('/')
 })
 
-router.get('/NossaHistoria', (req, res) => {
-    res.render('NossaHistoria')
+router.get('/QuemSomos', (req, res) => {
+    res.render('QuemSomos')
 })
 
 router.get('/pick', (req, res) => {

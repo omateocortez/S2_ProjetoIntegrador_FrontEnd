@@ -4,47 +4,6 @@
   font-family: poppins;
 }
 
-body::before {
-  content: "XS";
-  color: red;
-  font-size: 2rem;
-  font-weight: bold;
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding: 10px;
-}
-
-@media (min-width: 576px) {
-  body::before {
-    content: "SM";
-  }
-}
-
-@media (min-width: 768px) {
-  body::before {
-    content: "MD";
-  }
-}
-
-@media (min-width: 992px) {
-  body::before {
-    content: "LG";
-  }
-}
-
-@media (min-width: 1200px) {
-  body::before {
-    content: "XL";
-  }
-}
-
-@media (min-width: 1400px) {
-  body::before {
-    content: "XXL";
-  }
-}
-
 
 
 /* --------------------Form----------------- */
@@ -52,22 +11,24 @@ body::before {
 
 /* Espaço entre a navbar e a caixa de vidro */
 
+.cadastro-title{
+  color: #234B79;
+}
+
 .cadastro-membro {
-  font-weight: 300;
+  font-weight: 200;
+  font-size: 50px;
 }
 
 .glass {
   background-image: linear-gradient(to top, #292929, #234B79);
   border-radius: 35px;
   /* Bordas arredondadas */
-  padding: 35px !important;
   color: white;
   /* Texto branco para contraste */
   border: none !important;
   outline: none !important;
   font-size: larger;
-  margin-top: 50px !important;
-  margin-bottom: 50px;
 }
 
 .input_nome,
