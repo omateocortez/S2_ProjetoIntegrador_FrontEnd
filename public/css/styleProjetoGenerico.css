@@ -40,14 +40,30 @@
     color: #D6ED4B !important;
     font-weight: 600 !important;
     transition: all 0.3s ease;
-  }
-  .btn-open-modal:hover{
-    color: #234B79 !important;
-    background-color: #D6ED4B !important;
-    transition: all 0.3s ease !important;
-  }
-
-  .edit-icon {
-    font-size: 1.5rem; /* Ajuste o tamanho do ícone para alinhar melhor com o texto */
-    vertical-align: middle !important; /* Alinha o ícone ao meio */
 }
+.btn-open-modal:hover{
+color: #234B79 !important;
+background-color: #D6ED4B !important;
+transition: all 0.3s ease !important;
+}
+
+.edit-icon {
+font-size: 1.5rem; /* Ajuste o tamanho do ícone para alinhar melhor com o texto */
+vertical-align: middle !important; /* Alinha o ícone ao meio */
+}
+
+
+#carouselExampleCaptions {
+    border-radius: 35px !important;
+    height: 550px; /* Defina a altura desejada */
+    overflow: hidden;
+  }
+  
+  #carouselExampleCaptions .carousel-item img {
+    border-radius: 35px !important;
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    object-position: center; /* Centraliza a imagem, cortando igualmente entre o topo e o fundo */
+  }
+  

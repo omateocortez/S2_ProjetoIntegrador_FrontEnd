@@ -97,13 +97,13 @@
                                             onError="this.onerror=null; this.src='/imgs/no_img.png';" 
                                             alt="Imagem do projeto '<%=proj.title%>'" aria-label="Imagem do projeto <%= proj.title %>">
                                     </div>
-                                    <h1 class="titulo-projeto" aria-label="Título do projeto"><%= proj.title %></h1>
+                                    <h1 class="titulo-projeto text-start" aria-label="Título do projeto"><%= proj.title %></h1>
                                     <div class="row me-0 pe-0 justify-content-end text-end">
                                         <p class="data-projeto" aria-label="Data de criação do projeto">
                                             <%= `${proj.date.getDate()}/${proj.date.getMonth() + 1}/${proj.date.getFullYear()}` %>
                                         </p>
                                     </div>
-                                    <p class="descricao-projeto" aria-label="Descrição do projeto"><%= proj.desc %></p>
+                                    <p class="descricao-projeto text-start" aria-label="Descrição do projeto"><%= proj.desc %></p>
                                     <div class="row align-items-center mt-4 botaoEditar" style="display: none;">
                                         <div class="row justify-content-start text-start align-items-center">
                                             <form action="/projetos/edit/<%= proj._id %>" enctype="multipart/form-data" method="get">
