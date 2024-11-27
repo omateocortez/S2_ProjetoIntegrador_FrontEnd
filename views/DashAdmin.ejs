@@ -35,6 +35,8 @@
         </select>
     </form>
 
+    <a aria-label="Cadastrar novo usuário" href="/Cadastro">[ Cadastrar novo usuário ]</a>
+
     <div class="container-fluid px-5 mt-4">
         <ul class="row g-4 list-unstyled justify-content-start ms-2">
             <% userList.forEach((user, index) => { %>
@@ -64,7 +66,7 @@
                         <div class="col-12 d-flex align-items-center justify-content-end">
                             <p class="is-funcionario my-auto me-2">Funcionário</p>
                             <div class="custom-toggle">
-                                <input type="checkbox" id="customSwitch-<%= index %>" class="custom-toggle-input">
+                                <input type="checkbox" id="customSwitch-<%= index %>" class="custom-toggle-input" <%= user.funcionario === true ? 'checked' : '' %> data-bs-user-id="<%= user._id %>">
                                 <label for="customSwitch-<%= index %>" class="custom-toggle-label"></label>
                             </div>
                         </div>
@@ -72,7 +74,7 @@
                         <div class="row-icones justify-content-end align-items-center">
                             <!-- Coluna para o ícone de deletar -->
                             <div class="col-auto align-items-center">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-user-id="<%= user._id %>">
                                     <span class="icone_delete material-symbols-rounded">
                                         person_remove
                                     </span>
@@ -108,7 +110,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary text-light fs-5"
                                         data-bs-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-danger text-light fs-5">Deletar</button>
+                                    <button type="button" id="delete_confirm_button" class="btn btn-danger text-light fs-5">Deletar</button>
                                 </div>
                             </div>
                         </div>
@@ -123,6 +125,7 @@
     <%- include('partials/Footer') %>
     <!------------------------ Footer --------------------------->
 
+    <script type="module" src="/js/DashAdmin.js"></script>
 </body>
 
 </html>

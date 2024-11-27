@@ -40,7 +40,11 @@ function logout() {
     .then(response => response.json())
     .then(data => {
         if(data.ok){
-            window.location.reload()
+            if(!window.location.href.includes('/DashAdmin')){
+                window.location.reload()
+            }else{
+                window.location.href = '/Home'
+            }
         }else{
             alert(data.mensagem)
         }
