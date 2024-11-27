@@ -19,113 +19,181 @@
 
 <body>
     <!------------------------ Header ------------------------->
-    <%- include('partials/Header') %>    
-    <!------------------------ Header ------------------------->
+    <%- include('partials/Header') %>
+        <!------------------------ Header ------------------------->
 
-    <form method="POST" action="/DashAdmin">
-        <label for="sortBy">Classificar por:</label>
-        <select name="sortBy" id="sortBy" onchange="this.form.submit()">
-            <option value="nome" <%= sortBy  === 'nome' ? 'selected' : '' %>>Nome</option>
-            <option value="email" <%= sortBy  === 'email' ? 'selected' : '' %>>Email</option>
-        </select>
-        <label for="orderBy">Ordenar por:</label>
-        <select name="orderBy" id="orderBy" onchange="this.form.submit()">
-            <option value="cresc" <%= orderBy  === 'cresc' ? 'selected' : '' %>>A-Z (Crescente)</option>
-            <option value="decresc" <%= orderBy  === 'decresc' ? 'selected' : '' %>>Z-A (Decrescente)</option>
-        </select>
-    </form>
-
-    <a aria-label="Cadastrar novo usuário" href="/Cadastro">[ Cadastrar novo usuário ]</a>
-
-    <div class="container-fluid px-5 mt-4">
-        <ul class="row g-4 list-unstyled justify-content-start ms-2">
-            <% userList.forEach((user, index) => { %>
-            <li class="col-fluid mx-0 col-xl-10">
-                <div class="row caixa align-items-start">
-                    <!-- Comportamento para LG ou menores: Itens empilhados em linhas separadas -->
-                    <div class="row justify-content-end text-center mt-3 px-0 mx-auto">
-                        <!-- Primeira linha: Nome e Sobrenome -->
-                        <div class="col-12 text-start d-flex">
-                            <h1 class="user my-auto py-auto me-3 fw-light">Nome:</h1>
-                            <h1 class="nome-user me-2 my-2"><%= user.nome %></h1>
-                            <h1 class="sobrenome-user my-2"><%= user.sobrenome %></h1>
-                            <div class="col d-flex align-items-center justify-content-end">
-                                <!-- Primeira label e campo de email: Exibe em telas MD ou maiores -->
-                                <p class="me-2 my-auto py-auto text-end d-none d-md-block">Email:</p>
-                                <p class="email-user my-auto py-auto text-end fw-medium d-none d-md-block"><%= user.email %></p>
-                            </div>
-                        </div>
-    
-                        <!-- Segunda label e campo de email: Exibe em telas SM ou menores -->
-                        <div class="col d-flex align-items-center justify-content-end">
-                            <p class="me-2 my-auto py-auto text-end d-md-none">Email:</p>
-                            <p class="email-user my-auto py-auto text-end fw-medium d-md-none"><%= user.email %></p>
-                        </div>
-    
-                        <!-- Terceira linha: Funcionário e toggle -->
-                        <div class="col-12 d-flex align-items-center justify-content-end">
-                            <p class="is-funcionario my-auto me-2">Funcionário</p>
-                            <div class="custom-toggle">
-                                <input type="checkbox" id="customSwitch-<%= index %>" class="custom-toggle-input" <%= user.funcionario === true ? 'checked' : '' %> data-bs-user-id="<%= user._id %>">
-                                <label for="customSwitch-<%= index %>" class="custom-toggle-label"></label>
-                            </div>
-                        </div>
-
-                        <div class="row-icones justify-content-end align-items-center">
-                            <!-- Coluna para o ícone de deletar -->
-                            <div class="col-auto align-items-center">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-user-id="<%= user._id %>">
-                                    <span class="icone_delete material-symbols-rounded">
-                                        person_remove
-                                    </span>
-                                </button>
-                            </div>
-                            <!-- Coluna para o ícone de editar -->
-                            <div class="col-auto align-items-center">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    <span class="icone_edit material-symbols-rounded">
-                                        edit_note
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-
-                    <!-- Modal de confirmação -->
-                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content bg-dark fs-5">
-                                <div class="modal-header">
-                                    <h5 class="modal-title text-light fs-4" id="deleteModalLabel">Confirmar Exclusão
-                                    </h5>
-                                    <button type="button" class="btn-close text-light" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+        <div class="container-fluid px-5 mt-4">
+            <div class="row justify-content-center">
+                <!-- Mega Row -->
+                <div class="col-fluid col-xl-10">
+                    <div class="row align-items-start">
+                        <!-- Primeira Row -->
+                        <div class="col-5 col-md-4 col-lg-3 px-0">
+                            <!-- Accordion -->
+                            <div class="accordion custom-accordion" id="filterAccordion">
+                                <div class="accordion-item rounded-5">
+                                    <h2 class="accordion-header" id="headingFilter">
+                                        <button class="accordion-button collapsed d-flex align-items-center" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFilter"
+                                            aria-expanded="false" aria-controls="panelsStayOpen-collapseFilter">
+                                            <span class="material-symbols-rounded fs-3 me-2">
+                                                filter_list
+                                            </span>
+                                            Filtros
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseFilter" class="accordion-collapse collapse"
+                                        aria-labelledby="headingFilter" data-bs-parent="#filterAccordion">
+                                        <div class="accordion-body rounded-5">
+                                            <form method="POST" action="/DashAdmin">
+                                                <div class="mb-3">
+                                                    <label for="sortBy" class="form-label">Classificar por:</label>
+                                                    <select name="sortBy" id="sortBy" class="form-select"
+                                                        onchange="this.form.submit()">
+                                                        <option value="nome" <%=sortBy==='nome' ? 'selected' : '' %>>Nome
+                                                        </option>
+                                                        <option value="email" <%=sortBy==='email' ? 'selected' : '' %>>Email
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="orderBy" class="form-label">Ordenar de:</label>
+                                                    <select name="orderBy" id="orderBy" class="form-select"
+                                                        onchange="this.form.submit()">
+                                                        <option value="cresc" <%=orderBy==='cresc' ? 'selected' : '' %>>A-Z
+                                                            (Crescente)
+                                                        </option>
+                                                        <option value="decresc" <%=orderBy==='decresc' ? 'selected' : '' %>>
+                                                            Z-A
+                                                            (Decrescente)
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="modal-body text-light">
-                                    Tem certeza que deseja excluir este usuário?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary text-light fs-5"
-                                        data-bs-dismiss="modal">Cancelar</button>
-                                    <button type="button" id="delete_confirm_button" class="btn btn-danger text-light fs-5">Deletar</button>
-                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Segunda Row -->
+                        <div class="col px-0">
+                            <div class="d-flex justify-content-end">
+                                <a aria-label="Cadastrar novo usuário" href="/Cadastro" class="cadastrar-user">
+                                    + Cadastrar Usuário
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </li>
-            <% }) %>
-        </ul>
-    </div>
+            </div>
+        </div>
+        
 
-    <!------------------------ Footer --------------------------->
-    <%- include('partials/Footer') %>
-    <!------------------------ Footer --------------------------->
 
-    <script type="module" src="/js/DashAdmin.js"></script>
+
+        <div class="container-fluid px-5 mt-4">
+            <ul class="row g-4 list-unstyled justify-content-center">
+                <% userList.forEach((user, index)=> { %>
+                    <li class="col-fluid mx-0 col-xl-10">
+                        <div class="row caixa align-items-start">
+                            <!-- Comportamento para LG ou menores: Itens empilhados em linhas separadas -->
+                            <div class="row justify-content-end text-center mt-3 px-0 mx-auto">
+                                <!-- Primeira linha: Nome e Sobrenome -->
+                                <div class="col-12 text-start d-flex">
+                                    <h1 class="user my-auto py-auto me-2 fw-light fs-5">Nome:</h1>
+                                    <h1 class="nome-user me-1 my-2 fs-4">
+                                        <%= user.nome %>
+                                    </h1>
+                                    <h1 class="sobrenome-user my-2 fs-4">
+                                        <%= user.sobrenome %>
+                                    </h1>
+                                    <div class="col d-flex align-items-center justify-content-end">
+                                        <!-- Primeira label e campo de email: Exibe em telas MD ou maiores -->
+                                        <p class="me-2 my-auto py-auto text-end d-none d-md-block">Email:</p>
+                                        <p class="email-user my-auto py-auto text-end fw-medium d-none d-md-block">
+                                            <%= user.email %>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Segunda label e campo de email: Exibe em telas SM ou menores -->
+                                <div class="col d-flex align-items-center justify-content-end">
+                                    <p class="me-2 my-auto py-auto text-end d-md-none">Email:</p>
+                                    <p class="email-user my-auto py-auto text-end fw-medium d-md-none">
+                                        <%= user.email %>
+                                    </p>
+                                </div>
+
+                                <!-- Terceira linha: Funcionário e toggle -->
+                                <div class="col-12 d-flex align-items-center justify-content-end">
+                                    <p class="is-funcionario my-auto me-2">Funcionário</p>
+                                    <div class="custom-toggle">
+                                        <input type="checkbox" id="customSwitch-<%= index %>"
+                                            class="custom-toggle-input">
+                                        <label for="customSwitch-<%= index %>" class="custom-toggle-label"></label>
+                                    </div>
+                                </div>
+
+                                <div class="row-icones justify-content-end align-items-center">
+                                    <!-- Coluna para o ícone de deletar -->
+                                    <div class="col-auto align-items-center">
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                            <span class="icone_delete material-symbols-rounded">
+                                                person_remove
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <!-- Coluna para o ícone de editar -->
+                                    <div class="col-auto align-items-center">
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                                            <span class="icone_edit material-symbols-rounded">
+                                                edit_note
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Modal de confirmação -->
+                            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content bg-dark fs-5">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-light fs-4" id="deleteModalLabel">Confirmar
+                                                Exclusão
+                                            </h5>
+                                            <button type="button" class="btn-close text-light" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-light">
+                                            Tem certeza que deseja excluir este usuário?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary text-light fs-5"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="button"
+                                                class="btn btn-danger text-light fs-5">Deletar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+
+        <!------------------------ Footer --------------------------->
+        <%- include('partials/Footer') %>
+            <!------------------------ Footer --------------------------->
+
+            <script type="module" src="/js/DashAdmin.js"></script>
+            <link rel="stylesheet" href="/css/DashAdmin.css">
+
 </body>
 
 </html>

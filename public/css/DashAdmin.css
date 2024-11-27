@@ -4,18 +4,100 @@
     font-family: poppins;
 }
 
-.nome-user, .sobrenome-user {
+
+
+/* Remove borda e outline do accordion */
+.accordion-item {
+    border: none !important;
+    outline: none !important;
+    border-radius: 10px !important;
+    /* Arredonda a borda */
+}
+
+.accordion-button {
+    border: none !important;
+    outline: none !important;
+    background-color: transparent !important;
+    /* Fundo quase transparente */
+    font-size: 20px !important;
+    /* Ajusta o tamanho do texto */
+    border-radius: 10px !important;
+    /* Arredonda a borda do botão */
+    color: #234B79 !important;
+    transition: all 0.3s ease !important
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+    /* Fundo quase transparente ao expandir */
+    box-shadow: none !important;
+    color: #c6e226 !important;
+    text-shadow: 1px 1px 1.5px #234B79;
+    transition: all 0.3s ease !important
+}
+
+.accordion-button::after {
+    display: none;
+    /* Remove a setinha */
+}
+
+.accordion-button:focus {
+    outline: none !important;
+    border: none !important;
+}
+
+
+.accordion-header {
+    background-color: transparent !important;
+    /* Faz o fundo do header transparente */
+}
+
+.accordion-body {
+    padding: 20px;
+    background-color: rgba(108, 108, 108, 0.173);
+    /* Faz o fundo do corpo do accordion transparente */
+}
+
+
+
+
+
+
+.cadastrar-user {
+    display: inline-block !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+    text-decoration: none !important;
+    background-color: #D6ED4B;
+    font-weight: 600;
+    font-size: 17px;
+    color: #234B79;
+    transition: all 0.3s ease;
+}
+
+.cadastrar-user:hover {
+    color: #D6ED4B;
+    background-color: #234B79;
+    transition: all 0.3s ease;
+}
+
+
+
+
+.nome-user,
+.sobrenome-user {
     color: #234B79;
     font-size: 30px;
 }
-.user{
+
+.user {
     color: #1D385A;
     font-size: 30px;
     font-style: italic;
 }
 
 
-.is-funcionario{
+.is-funcionario {
     font-size: 17px;
 }
 
@@ -28,41 +110,49 @@
     position: relative !important;
     padding-bottom: 40px;
     border: transparent 2px solid;
-    min-height: 210px; /* Ajuste a altura mínima da caixa */
-    overflow: hidden; /* Impede que o ícone "vaze" */
+    min-height: 210px;
+    /* Ajuste a altura mínima da caixa */
+    overflow: hidden;
+    /* Impede que o ícone "vaze" */
 }
+
 .caixa:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .col-auto {
-    margin: 0 !important; /* Remove margens */
-    padding: 0 !important; /* Remove paddings */
+    margin: 0 !important;
+    /* Remove margens */
+    padding: 0 !important;
+    /* Remove paddings */
 
 }
 
-button{
+button {
     outline: none !important;
     border: none !important;
     background-color: transparent;
 }
 
-.icone_delete, .icone_edit {
-    font-size: 30px; 
+.icone_delete,
+.icone_edit {
+    font-size: 30px;
     border: none !important;
     outline: none !important;
     padding: 0;
     cursor: pointer;
-    border-radius: 50%; /* Bordas arredondadas */
+    border-radius: 50%;
+    /* Bordas arredondadas */
     padding: 6px;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-left: 0; /* Reduz o espaçamento entre os botões */
+    margin-left: 0;
+    /* Reduz o espaçamento entre os botões */
 }
 
-.icone_delete{
+.icone_delete {
     color: #DC4C64;
 }
 
@@ -86,9 +176,10 @@ button{
     position: absolute;
     bottom: 13px;
     right: 10px;
-    gap: 5px; /* Espaçamento direto entre os itens */
-  }
-  
+    gap: 5px;
+    /* Espaçamento direto entre os itens */
+}
+
 
 
 
@@ -108,8 +199,10 @@ button{
 
 /* Estilo da "trilha" do toggle */
 .custom-toggle-label {
-    width: 38px !important; /* Largura da trilha */
-    height: 20px !important; /* Altura da trilha */
+    width: 38px !important;
+    /* Largura da trilha */
+    height: 20px !important;
+    /* Altura da trilha */
     background-color: #1D385A;
     border-radius: 10px;
     border: 1.7px solid rgba(255, 255, 255, 0);
@@ -121,39 +214,47 @@ button{
 /* Estilo da bolinha (inicialmente preta) */
 .custom-toggle-label::before {
     content: '';
-    width: 13px !important; /* Tamanho da bolinha */
-    height: 13px !important; /* Tamanho da bolinha */
+    width: 13px !important;
+    /* Tamanho da bolinha */
+    height: 13px !important;
+    /* Tamanho da bolinha */
     background-color: #c6e226;
     border-radius: 50%;
     position: absolute;
-    top: 1.9px; /* Ajuste para centralizar verticalmente */
-    left: 2px; /* Ajuste para centralizar horizontalmente */
+    top: 1.9px;
+    /* Ajuste para centralizar verticalmente */
+    left: 2px;
+    /* Ajuste para centralizar horizontalmente */
     transition: all 0.3s ease !important;
 }
 
 /* Quando o toggle está ativado (checkbox marcado) */
-.custom-toggle-input:checked + .custom-toggle-label {
-    background-color: #c6e226; /* Cor da trilha quando ativado */
+.custom-toggle-input:checked+.custom-toggle-label {
+    background-color: #c6e226;
+    /* Cor da trilha quando ativado */
     border: 1.7px solid #234B79;
 
 }
 
 /* Quando o toggle está ativado, move a bolinha */
-.custom-toggle-input:checked + .custom-toggle-label::before {
-    left: 20px; /* Bolinha se movendo para a direita */
-    background-color: #234B79; /* Cor da bolinha quando ativado */
+.custom-toggle-input:checked+.custom-toggle-label::before {
+    left: 20px;
+    /* Bolinha se movendo para a direita */
+    background-color: #234B79;
+    /* Cor da bolinha quando ativado */
 
 }
 
 
 
-.btn-close{
-filter: invert(0.5);    
+.btn-close {
+    filter: invert(0.5);
 }
 
 
 /* Ajustar a borda para ser da mesma cor do fundo */
-.modal-header, 
+.modal-header,
 .modal-footer {
-    border-color: rgb(59, 59, 59) !important; /* Mesmo que o fundo */
+    border-color: rgb(59, 59, 59) !important;
+    /* Mesmo que o fundo */
 }
