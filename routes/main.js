@@ -22,8 +22,8 @@ router.get('/pick', (req, res) => {
     res.render('pick')
 })
 
-router.get('/ImpacTransp', (req, res) => {
-    res.render('ImpacTransp')
+router.get('/Transp', (req, res) => {
+    res.render('Transp')
 })
 
 router.get('/FAQ', (req, res) => {
@@ -42,8 +42,8 @@ router.get('/Cadastro', (req, res) => {
     res.render('Cadastro')
 })
 
-router.get('/doacao_pix', (req, res) => {
-    res.render('doacao_pix')
+router.get('/DonatePix', (req, res) => {
+    res.render('DonatePix')
 })
 
 router.get('/PoliticaDePrivacidade', (req, res) => {
