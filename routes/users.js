@@ -158,7 +158,7 @@ router.post('/update/:id', checkTokens, async(req, res) =>{
         const funcionario = req.body.funcionario
 
         if(req.body.nova_senha){
-            const criptografada = await bcrypt.hash(nova_senha, 10)
+            const criptografada = await bcrypt.hash(req.body.nova_senha, 10)
 
             await User.findByIdAndUpdate(user_id, {nome: nome, sobrenome: sobrenome, email: email, senha: criptografada, funcionario: funcionario}, {
                 new: true,
