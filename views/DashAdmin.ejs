@@ -33,9 +33,10 @@
                             <div class="accordion custom-accordion" id="filterAccordion">
                                 <div class="accordion-item rounded-5">
                                     <h2 class="accordion-header" id="headingFilter">
-                                        <button class="accordion-button collapsed d-flex align-items-center" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFilter"
-                                            aria-expanded="false" aria-controls="panelsStayOpen-collapseFilter">
+                                        <button class="accordion-button collapsed d-flex align-items-center"
+                                            type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#panelsStayOpen-collapseFilter" aria-expanded="false"
+                                            aria-controls="panelsStayOpen-collapseFilter">
                                             <span class="material-symbols-rounded fs-3 me-2">
                                                 filter_list
                                             </span>
@@ -50,9 +51,11 @@
                                                     <label for="sortBy" class="form-label">Classificar por:</label>
                                                     <select name="sortBy" id="sortBy" class="form-select"
                                                         onchange="this.form.submit()">
-                                                        <option value="nome" <%=sortBy==='nome' ? 'selected' : '' %>>Nome
+                                                        <option value="nome" <%=sortBy==='nome' ? 'selected' : '' %>
+                                                            >Nome
                                                         </option>
-                                                        <option value="email" <%=sortBy==='email' ? 'selected' : '' %>>Email
+                                                        <option value="email" <%=sortBy==='email' ? 'selected' : '' %>
+                                                            >Email
                                                         </option>
                                                     </select>
                                                 </div>
@@ -60,10 +63,12 @@
                                                     <label for="orderBy" class="form-label">Ordenar de:</label>
                                                     <select name="orderBy" id="orderBy" class="form-select"
                                                         onchange="this.form.submit()">
-                                                        <option value="cresc" <%=orderBy==='cresc' ? 'selected' : '' %>>A-Z
+                                                        <option value="cresc" <%=orderBy==='cresc' ? 'selected' : '' %>
+                                                            >A-Z
                                                             (Crescente)
                                                         </option>
-                                                        <option value="decresc" <%=orderBy==='decresc' ? 'selected' : '' %>>
+                                                        <option value="decresc" <%=orderBy==='decresc' ? 'selected' : ''
+                                                            %>>
                                                             Z-A
                                                             (Decrescente)
                                                         </option>
@@ -75,7 +80,7 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <!-- Segunda Row -->
                         <div class="col px-0">
                             <div class="d-flex justify-content-end">
@@ -88,7 +93,7 @@
                 </div>
             </div>
         </div>
-        
+
 
 
 
@@ -130,16 +135,18 @@
                                     <p class="is-funcionario my-auto me-2">Funcionário</p>
                                     <div class="custom-toggle">
                                         <input type="checkbox" id="customSwitch-<%= index %>"
-                                            class="custom-toggle-input">
-                                        <label for="customSwitch-<%= index %>" class="custom-toggle-label"></label>
+                                            class="custom-toggle-input" <%=user.funcionario===true ? 'checked' : '' %>
+                                        data-bs-user-id="<%= user._id %>">
+                                            <label for="customSwitch-<%= index %>" class="custom-toggle-label"></label>
                                     </div>
                                 </div>
 
                                 <div class="row-icones justify-content-end align-items-center">
                                     <!-- Coluna para o ícone de deletar -->
                                     <div class="col-auto align-items-center">
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                            <span class="icone_delete material-symbols-rounded">
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                            data-bs-user-id="<%= user._id %>"> <span
+                                                class="icone_delete material-symbols-rounded">
                                                 person_remove
                                             </span>
                                         </button>
@@ -175,7 +182,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary text-light fs-5"
                                                 data-bs-dismiss="modal">Cancelar</button>
-                                            <button type="button"
+                                            <button type="button" id="delete_confirm_button"
                                                 class="btn btn-danger text-light fs-5">Deletar</button>
                                         </div>
                                     </div>
