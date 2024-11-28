@@ -79,6 +79,7 @@ header {
   .menu-item:hover{
     background-color: transparent !important;
     color: #D6ED4B !important;
+    padding-right: 25px !important;
     transition: all 0.3s ease;
   }
   

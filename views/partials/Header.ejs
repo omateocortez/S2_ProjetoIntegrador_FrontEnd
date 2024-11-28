@@ -26,14 +26,20 @@
                         <a class="nav-link" aria-current="page" href="/Transp"
                             aria-label="Impacto e Transparência">IMPACTO E TRANSPARÊNCIA</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/Noticias" aria-label="Notícias">NOTÍCIAS</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="noticiasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notícias">
+                            NOTÍCIAS
+                        </a>
+                        <ul class="dropdown-menu menu rounded-4 text-end" aria-labelledby="noticiasDropdown">
+                            <li><a class="dropdown-item menu-item" href="/Noticias" aria-label="Ir para Artigos">Artigos</a></li>
+                            <li><a class="dropdown-item menu-item" href="/Eventos" aria-label="Ir para Eventos">Eventos</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/FAQ" aria-label="FAQ">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="pe-4 nav-link" aria-current="page" href="/Inscricao" aria-label="Inscrição">INSRIÇÃO</a>
+                        <a class="pe-4 nav-link" aria-current="page" href="/Inscricao" aria-label="Inscrição">INSCRIÇÃO</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link me-3 doe-gg" aria-current="page" href="/pick"
@@ -66,7 +72,6 @@
             </div>
         </div>
     </nav>
-
     <!-- Navbar para telas pequenas -->
     <nav class="navbar sticky-top d-xl-none" role="navigation">
         <div class="container-fluid">
@@ -104,8 +109,17 @@
                             <a class="nav-link" aria-current="page" href="/Transp"
                                 aria-label="Impacto e Transparência">IMPACTO E TRANSPARÊNCIA</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/Noticias" aria-label="Notícias">NOTÍCIAS</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false" id="nav-xs-noticias" aria-label="Notícias">
+                                NOTÍCIAS
+                            </a>
+                            <ul class="dropdown-menu sidebar">
+                                <li><a class="dropdown-item item-sidebar" href="/Eventos"
+                                        aria-label="Ir para Eventos">Eventos</a></li>
+                                <li><a class="dropdown-item item-sidebar" href="/Noticias"
+                                        aria-label="Ir para Artigos">Artigos</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/FAQ" aria-label="FAQ">FAQ</a>
@@ -142,5 +156,6 @@
         </div>
     </nav>
 </header>
+
 <script type="module" src="/js/scriptHeader.js"></script>
 <!------------------------------------------- NAVBAR  ----------------------------------->

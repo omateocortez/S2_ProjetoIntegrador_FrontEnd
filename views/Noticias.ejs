@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <h1 class="noticias display-4 my-3 mb-4 fw-medium">
-                    Notícias
+                    Artigos
                 </h1>
             </div>
         </div>
@@ -40,7 +40,7 @@
                     <div class="row justify-content-end">
                         <button type="button" id="addNoticiaButton" class="btn w-auto btn-open-modal"
                             data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            + Adicionar Notícia
+                            + Adicionar Artigo
                         </button>
                     </div>
 
@@ -54,7 +54,7 @@
                             <!-- Modal com fundo escuro e texto claro -->
                             <div class="modal-header custom-modal-header">
                                 <h1 class="modal-title fs-5 modal-title-custom" id="exampleModalLabel">
-                                    <%= noticia_edit ? 'Edição de' : 'Nova' %> <strong>Notícia</strong>
+                                    <%= noticia_edit ? 'Edição de' : 'Novo' %> <strong>Artigo</strong>
                                 </h1>
                                 <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
@@ -183,9 +183,9 @@
                     </div>
 
                     <div class="modal-body">
-                        <div class="row justify-content-center text-center align-items-center">
-                            <button type="submit" class="mt-1 p-4 m-5 delete_absolute" id="delete_absolute_button">
-                                Excluir notícia <strong class="d-block">permanentemente</strong>
+                        <div class="row justify-content-center text-center align-items-center mt-5">
+                            <button type="submit" class="mt-1 p-4 delete_absolute w-50 mb-5" id="delete_absolute_button">
+                                Excluir artigo <strong class="d-block">permanentemente</strong>
                             </button>
                         </div>
                     </div>
