@@ -88,7 +88,7 @@ passModal.addEventListener('show.bs.modal', function(event) {
             .then(data => {
                 if (data.ok) {
                     console.log('Usuário atualizado.')
-                    const passModalInstance = bootstrap.Modal.getInstance(passModal);
+                    const passModalInstance = bootstrap.Modal.getInstance(passModal)
                     passModalInstance.hide()
                 } else {
                     alert(data.mensagem)
@@ -150,3 +150,51 @@ deleteModal.addEventListener('show.bs.modal', function(event) {
         })
     }
 })
+
+document.querySelectorAll('.btn-visibility').forEach(button => {
+    button.addEventListener('click', function () {
+        const input = this.previousElementSibling // Campo de entrada correspondente
+        const icon = this.querySelector('.material-symbols-rounded')
+
+        if (input.type === 'password') {
+            input.type = 'text'
+            icon.textContent = 'visibility'
+            this.classList.remove('visibility-inactive')
+            this.classList.add('visibility-active') // Estado ativo
+        } else {
+            input.type = 'password'
+            icon.textContent = 'visibility_off'
+            this.classList.remove('visibility-active')
+            this.classList.add('visibility-inactive') // Estado inativo
+        }
+    })
+})
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const newPassword = document.getElementById("newPassword")
+    const confirmPassword = document.getElementById("confirmPassword")
+
+    // Função de validação
+    function validarSenhas() {
+
+        if (newPassword.value.length >= 8 && newPassword.value === confirmPassword.value) {
+            // Adiciona classes de sucesso
+            newPassword.classList.add("is-valid")
+            newPassword.classList.remove("is-invalid")
+            confirmPassword.classList.add("is-valid")
+            confirmPassword.classList.remove("is-invalid")
+        } else {
+            // Adiciona classes de erro
+            newPassword.classList.add("is-invalid")
+            newPassword.classList.remove("is-valid")
+            confirmPassword.classList.add("is-invalid")
+            confirmPassword.classList.remove("is-valid")
+        }
+    }
+
+    // Eventos para validação em tempo real
+    newPassword.addEventListener("input", validarSenhas)
+    confirmPassword.addEventListener("input", validarSenhas)
+})
+
