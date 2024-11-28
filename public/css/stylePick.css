@@ -23,8 +23,8 @@
     align-items: center; 
     justify-content: center;
     background-color: #29374C;
-    border: 6px solid white;
-    border-radius: 25px;
+    border: 6px solid transparent;
+    border-radius: 35px;
     transition: all 0.5s ease;
     padding-bottom: 10px;
     text-decoration: none !important;
@@ -32,8 +32,7 @@
 .image-container:hover {
   
   background-color: white;
-  border-radius: 25px;
-  border: 6px solid #234B79;
+  border: 6px solid #29374C;
   transition: 0.5s ease;
   color: #253847;
 }
@@ -48,7 +47,7 @@
     transition: all 0s ease; /* Adiciona uma transição suave ao filtro */
 }
 .image-container:hover img {
-  filter: invert(40%) sepia(100%) saturate(2000%) hue-rotate(180deg) brightness(45%);
+  filter: invert(40%) sepia(100%) saturate(2000%) hue-rotate(180deg) brightness(35%);
   transition: all 0s ease;
 }
 
@@ -59,7 +58,7 @@
     color: white;
 }
 .image-container:hover h3{
-  color: #234B79;
+  color: #29374C;
 }
 
 .participacao{

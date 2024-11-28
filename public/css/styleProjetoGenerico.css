@@ -53,6 +53,12 @@ vertical-align: middle !important; /* Alinha o ícone ao meio */
 }
 
 
+.proj_title{
+    color: #234B79;
+}
+
+
+
 #carouselExampleCaptions {
     border-radius: 35px !important;
     height: 550px; /* Defina a altura desejada */

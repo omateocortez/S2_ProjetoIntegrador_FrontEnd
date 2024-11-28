@@ -68,16 +68,16 @@
     padding: 10px !important;
     border-radius: 10px !important;
     text-decoration: none !important;
-    background-color: #D6ED4B;
+    background-color: #234B79;
     font-weight: 600;
     font-size: 17px;
-    color: #234B79;
+    color: #D6ED4B;
     transition: all 0.3s ease;
 }
 
 .cadastrar-user:hover {
-    color: #D6ED4B;
-    background-color: #234B79;
+    color: #234B79;
+    background-color: #D6ED4B;
     transition: all 0.3s ease;
 }
 
