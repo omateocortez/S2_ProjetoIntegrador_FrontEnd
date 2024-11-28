@@ -50,16 +50,16 @@
                     aria-hidden="true">
                     <div class="modal-dialog modal-lg custom-modal-dialog modal-dialog-centered" role="dialog">
                         <!-- Modal maior -->
-                        <div class="modal-content bg-dark text-light p-3 caixa_modal" role="document">
+                        <div class="modal-content bg-dark text-light p-3 caixa_modal text-start" role="document">
                             <!-- Modal com fundo escuro e texto claro -->
-                            <div class="modal-header custom-modal-header">
+                            <div class="modal-header custom-modal-header text-start">
                                 <h1 class="modal-title fs-5 modal-title-custom" id="exampleModalLabel">
                                     <%= proj_edit ? 'Edição de' : 'Novo' %> <strong>Projeto</strong>
                                 </h1>
                                 <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal"
                                     aria-label="Fechar" aria-hidden="true"></button>
                             </div>
-                            <div class="modal-body custom-modal-body">
+                            <div class="modal-body custom-modal-body text-start">
                                 <!-- Formulário temporário dentro do modal -->
                                 <form id="form-id" class="modal-form" aria-labelledby="exampleModalLabel">
                                     <div class="mb-3 form-group-title">
@@ -95,7 +95,7 @@
 
                                 </form>
                             </div>
-                            <div class="modal-footer custom-modal-footer">
+                            <div class="modal-footer custom-modal-footer text-start">
                                 <div>
                                     <%- proj_edit ? ` <div>Criado por: ${ proj_edit.creator_email }
                                 </div>
