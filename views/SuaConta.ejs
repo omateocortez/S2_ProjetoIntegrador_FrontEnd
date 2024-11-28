@@ -23,7 +23,7 @@
     <%- include('partials/Header') %>
         <!------------------------ Header ------------------------->
 
-            
+
         <div class="container">
             <div class="row justify-content-start text-start mt-4">
                 <h1 class="entrar-title display-6 my-4 fw-medium col-12">
@@ -57,19 +57,16 @@
                                 <label for="email" class="form-label fs-4" aria-label="Endereço de E-mail">Endereço de
                                     E-mail</label>
                                 <input type="email" id="email" name="email" class="form-control p-3 fs-5"
-                                    placeholder="Digite seu e-mail" aria-describedby="emailHelp" value="<%= data.email %>">
+                                    placeholder="Digite seu e-mail" aria-describedby="emailHelp"
+                                    value="<%= data.email %>">
                             </div>
 
                             <!-- Campo de Senha com ícone de alterar senha -->
                             <div class="mx-5 my-4">
                                 <label for="Senha" class="form-label fs-4" aria-label="Senha">Senha</label>
                                 <div class="input-group input-group-background">
-                                    <input type="password" id="Senha" name="senha" class="form-control p-3 fs-5"
+                                    <input type="password" id="Senha" name="senha" class="form-control p-3 fs-5 locked_senha"
                                         value="••••••••••••••" aria-describedby="passwordHelp" disabled>
-                                    <button class="btn btn-visibility" type="button" id="togglePassword"
-                                        aria-label="Alternar visibilidade da senha">
-                                        <span class="material-symbols-rounded visibility-icon">visibility_off</span>
-                                    </button>
                                     <!-- Botão de Editar (Alterar Senha) ao lado do campo de senha -->
                                     <button class="btn btn-change-password" type="button" data-bs-toggle="modal"
                                         data-bs-target="#changePasswordModal" aria-label="Alterar senha">
@@ -99,8 +96,7 @@
         </section>
 
         <!-- Modal de Confirmação de Exclusão -->
-        <div class="modal fade" id="DeleteUser" tabindex="-1" aria-labelledby="DeleteUserLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="DeleteUser" tabindex="-1" aria-labelledby="DeleteUserLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg h-100">
                 <div class="modal-content bg-dark text-light p-3 rounded-5">
                     <div class="modal-header custom-modal-header">
@@ -134,28 +130,45 @@
                     </div>
                     <div class="modal-body">
                         <!-- Formulário de alteração de senha -->
-                        <form id="changePasswordForm">
-                            <div class="mb-3">
-                                <label for="newPassword" class="form-label fs-5 text-light">Nova Senha</label>
-                                <input type="password" class="form-control bg-dark text-light fs-5" id="newPassword"
-                                    placeholder="Digite sua nova senha" required>
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label fs-5 text-light">Nova Senha</label>
+                            <div class="input-group">
+                                <input type="password" id="newPassword" name="newPassword"
+                                    class="form-control p-3 fs-5 bg-dark text-light" placeholder="Digite sua nova senha"
+                                    aria-describedby="newPasswordFeedback" required>
+                                <button class="btn btn-visibility" type="button"
+                                    aria-label="Alternar visibilidade da nova senha">
+                                    <span class="material-symbols-rounded visibility-icon">visibility_off</span>
+                                </button>
                             </div>
-                            <div class="mb-3">
-                                <label for="confirmPassword" class="form-label fs-5 text-light">Confirmar Nova
-                                    Senha</label>
-                                <input type="password" class="form-control bg-dark text-light fs-5" id="confirmPassword"
-                                    placeholder="Confirme sua nova senha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label fs-5 text-light">Confirmar Nova Senha</label>
+                            <div class="input-group">
+                                <input type="password" id="confirmPassword" name="confirmPassword"
+                                    class="form-control p-3 fs-5 bg-dark text-light"
+                                    placeholder="Confirme sua nova senha" aria-describedby="confirmPasswordFeedback"
+                                    required>
+                                <button class="btn btn-visibility" type="button"
+                                    aria-label="Alternar visibilidade da confirmação de senha">
+                                    <span class="material-symbols-rounded visibility-icon">visibility_off</span>
+                                </button>
                             </div>
-                        </form>
+                        </div>
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="cancel_button fs-5" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="save_button fs-5" form="changePasswordForm" id="saveNewPass">Salvar
-                            Alterações</button>
+                        <button type="button" class="save_button fs-5" form="changePasswordForm" id="saveNewPass">
+                            Confirmar
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Modal de Alteração de Senha -->
+
 
 
 
@@ -166,6 +179,57 @@
         <!------------------------ Footer ------------------------->
         <%- include('partials/Footer') %>
             <!------------------------ Footer ------------------------->
+
+            <script>
+
+                document.querySelectorAll('.btn-visibility').forEach(button => {
+                    button.addEventListener('click', function () {
+                        const input = this.previousElementSibling; // Campo de entrada correspondente
+                        const icon = this.querySelector('.material-symbols-rounded');
+
+                        if (input.type === 'password') {
+                            input.type = 'text';
+                            icon.textContent = 'visibility';
+                            this.classList.remove('visibility-inactive');
+                            this.classList.add('visibility-active'); // Estado ativo
+                        } else {
+                            input.type = 'password';
+                            icon.textContent = 'visibility_off';
+                            this.classList.remove('visibility-active');
+                            this.classList.add('visibility-inactive'); // Estado inativo
+                        }
+                    });
+                });
+
+
+                document.addEventListener("DOMContentLoaded", () => {
+                    const newPassword = document.getElementById("newPassword");
+                    const confirmPassword = document.getElementById("confirmPassword");
+
+                    // Função de validação
+                    function validarSenhas() {
+                        if (newPassword.value === confirmPassword.value) {
+                            // Adiciona classes de sucesso
+                            newPassword.classList.add("is-valid");
+                            newPassword.classList.remove("is-invalid");
+                            confirmPassword.classList.add("is-valid");
+                            confirmPassword.classList.remove("is-invalid");
+                        } else {
+                            // Adiciona classes de erro
+                            newPassword.classList.add("is-invalid");
+                            newPassword.classList.remove("is-valid");
+                            confirmPassword.classList.add("is-invalid");
+                            confirmPassword.classList.remove("is-valid");
+                        }
+                    }
+
+                    // Eventos para validação em tempo real
+                    newPassword.addEventListener("input", validarSenhas);
+                    confirmPassword.addEventListener("input", validarSenhas);
+                });
+
+
+            </script>
 
 </body>
 

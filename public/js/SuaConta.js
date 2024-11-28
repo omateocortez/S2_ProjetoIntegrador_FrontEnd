@@ -51,23 +51,6 @@ infoForm.addEventListener('submit', function(event){
     })
 })
 
-document.getElementById('togglePassword').addEventListener('click', function () {
-    const passwordInput = document.getElementById('Senha');
-    const icon = this.querySelector('.material-symbols-rounded');
-
-    if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        icon.textContent = 'visibility';
-        this.classList.add('visibility-inactive');
-        this.classList.remove('visibility-active');
-    } else {
-        passwordInput.type = 'password';
-        icon.textContent = 'visibility_off';
-        this.classList.add('visibility-active');
-        this.classList.remove('visibility-inactive');
-    }
-})
-
 passModal.addEventListener('show.bs.modal', function(event) {
     
     const confirmButton = passModal.querySelector('#saveNewPass')

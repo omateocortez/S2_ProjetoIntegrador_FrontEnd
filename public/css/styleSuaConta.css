@@ -31,13 +31,18 @@
     margin-inline: 2.2rem !important;
 }
 
-label{
+label {
     color: #253847;
 }
-input{
-    border-top-left-radius: 10px !important;
-    border-bottom-left-radius: 10px !important;
+
+.glass input {
+    border-radius: 0.8rem !important;
     border: #253847 2px solid !important;
+}
+
+.locked_senha{
+    background-color: lightgray !important;
+    color: dimgray !important;
 }
 
 .row .botoes {
@@ -95,33 +100,35 @@ input{
 }
 
 
-
 .visibility-icon {
     font-size: 30px !important;
     padding: none !important;
 }
 
-/* Estilização do botão de visibilidade */
+/* Botão de visibilidade padrão */
 .btn-visibility {
     background-color: #57677A !important;
     padding: 12px !important;
     transition: all 0.3s ease;
-    border-top-right-radius: 5px !important;
-    border-bottom-right-radius: 5px !important;
     color: white !important;
 }
 
-
-.btn-visibility.visibility-inactive {
-    background-color: #D6ED4B !important;
-    color: #234B79 !important;
-}
-
-/* Estado padrão (quando visibilidade está desligada) */
+/* Visibilidade ativa */
 .btn-visibility.visibility-active {
+    background-color: #D6ED4B !important;
+    /* Verde */
+    color: #234B79 !important;
+    /* Azul */
+}
+
+/* Visibilidade inativa */
+.btn-visibility.visibility-inactive {
     background-color: #57677A !important;
+    /* Cinza */
     color: white !important;
 }
+
+
 
 /* Estilizando o botão para mudar a senha (somente o ícone) */
 .btn-change-password {
@@ -145,19 +152,23 @@ input{
     background-color: #234B79 !important;
 }
 
-.modal-header, .modal-footer{
+.modal-header,
+.modal-footer {
     border-color: dimgray !important;
 }
-.btn-close{
+
+.btn-close {
     filter: invert(1);
     transition: 0.3s ease;
 }
-.btn-close:hover{
+
+.btn-close:hover {
     transition: 0.3s ease;
 }
 
 
-.cancel_button, .save_button{
+.cancel_button,
+.save_button {
     border-radius: 8px;
     padding-block: 0.4rem;
     padding-inline: 0.45rem;
@@ -166,7 +177,8 @@ input{
     margin-top: 20px !important;
 }
 
-.cancel_button:hover, .save_button:hover{
+.cancel_button:hover,
+.save_button:hover {
     border-radius: 15px;
     transition: 0.3s ease;
 }
@@ -177,29 +189,30 @@ input{
 }
 
 
-.save_button{
+.save_button {
     background-color: #D6ED4B;
     color: #234B79;
     transition: all 0.3s ease;
 }
 
-.cancel_button{
+.cancel_button {
     background-color: gray;
     color: whitesmoke;
 }
 
 
 
-.modal_title{
+.modal_title {
     font-size: 30px;
     font-weight: 300;
-  }
-  .delete_absolute{
+}
+
+.delete_absolute {
     font-size: 28px;
     background-color: #DC4C64;
     color: white;
     border: none;
     border-radius: 30px;
-  
-  
-  }
+
+
+}
