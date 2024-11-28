@@ -9,6 +9,20 @@ const { generateAcessToken, generateRefreshToken } = require('../helpers/middlew
 
 const checkTokens = require('../helpers/middleware/auth')
 
+router.get('/me', checkTokens, async (req, res) => {
+
+    const user = await User.findOne({email: req.user.email})
+
+    data = {
+        id: user._id,
+        nome: user.nome,
+        sobrenome: user.sobrenome,
+        email: req.user.email
+    }
+
+    res.render('SuaConta', data)
+})
+
 router.post('/signup', async (req, res) =>{
 
     try{
@@ -129,6 +143,10 @@ router.post('/logout', async(req, res) =>{
 router.post('/delete/:id', checkTokens, async (req, res) =>{
     const userId = req.params.id 
 
+    if(!req.user.isFunc && req.params.id != req.user.id){
+        return res.status(403).json({ok: false, mensagem: 'Usuário não autorizado'})
+    }
+
     try{
         await User.findByIdAndDelete(userId)
         res.status(200).json({ok: true, mensagem: 'Usuário deletado com sucesso.'})
@@ -139,11 +157,11 @@ router.post('/delete/:id', checkTokens, async (req, res) =>{
 })
 
 router.post('/update/:id', checkTokens, async(req, res) =>{
-    if(!req.user.isFunc){
+    const user_id = req.params.id
+
+    if(!req.user.isFunc && req.params.id != req.user.id){
         return res.status(403).json({ok: false, mensagem: 'Usuário não autorizado'})
     }
-
-    const user_id = req.params.id
     
     try{
         const user = await User.findById(user_id)

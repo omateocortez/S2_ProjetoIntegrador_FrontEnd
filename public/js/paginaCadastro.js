@@ -54,7 +54,7 @@ function verificarSenhas() {
     const senha = document.getElementById('Senha');
     const confirmaSenha = document.getElementById('confirmaSenha');
 
-    if (senha.value === confirmaSenha.value && senha.value !== "") {
+    if (senha.value === confirmaSenha.value && senha.value.length >= 8) {
         // Adiciona o estilo de validação verde em ambos os campos
         senha.classList.add('is-valid');
         senha.classList.remove('is-invalid');

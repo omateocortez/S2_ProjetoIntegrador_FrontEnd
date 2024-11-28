@@ -2,24 +2,75 @@ import { getUserAccessInfo } from '/utils/utils.js'
 
 let userAccessInfo = null
 
+const infoForm = document.getElementById('infoForm')
+
 const passModal = document.getElementById('changePasswordModal')
 
-const deleteModal = document.getElementById('deleteModal')
+const deleteModal = document.getElementById('DeleteUser')
 
-const toggleInputs = document.querySelectorAll('.custom-toggle-input')
+const userId = document.getElementById('SuaConta').getAttribute('user-id')
 
 document.addEventListener('DOMContentLoaded', async function(){
-
-    history.scrollRestoration = "manual"; //bugzinho com o scroll, melhor só resetar...
-
     userAccessInfo = await getUserAccessInfo()
-       
+})
+
+infoForm.addEventListener('submit', function(event){
+    event.preventDefault()
+
+    const update_data = {
+        nome: document.getElementById('nome').value,
+        sobrenome: document.getElementById('sobrenome').value,
+        email: document.getElementById('email').value
+    }
+
+    if(!userAccessInfo || !userAccessInfo.isAuthenticated){
+        alert('Erro de autenticação.')
+        return
+    }
+
+    fetch(`/users/update/${userId}`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(update_data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            console.log('Usuário atualizado.')
+        } else {
+            alert(data.mensagem)
+            console.log('Erro ao atualizar usuário.')
+        }
+    })
+    .catch(err => {
+        console.error(err)
+        alert('Erro ao atualizar usuário.')
+    })
+})
+
+document.getElementById('togglePassword').addEventListener('click', function () {
+    const passwordInput = document.getElementById('Senha');
+    const icon = this.querySelector('.material-symbols-rounded');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.textContent = 'visibility';
+        this.classList.add('visibility-inactive');
+        this.classList.remove('visibility-active');
+    } else {
+        passwordInput.type = 'password';
+        icon.textContent = 'visibility_off';
+        this.classList.add('visibility-active');
+        this.classList.remove('visibility-inactive');
+    }
 })
 
 passModal.addEventListener('show.bs.modal', function(event) {
-    const userId = event.relatedTarget.getAttribute('data-bs-user-id')
     
-    const confirmButton = passModal.querySelector('#confirmarAlterarSenha')
+    const confirmButton = passModal.querySelector('#saveNewPass')
 
     confirmButton.onclick = function() {
         if(!userAccessInfo || !userAccessInfo.isAuthenticated){
@@ -30,7 +81,6 @@ passModal.addEventListener('show.bs.modal', function(event) {
         const nova_senha = document.getElementById('newPassword').value
         const confirma_nova_senha = document.getElementById('confirmPassword').value
 
-
         if(nova_senha.length < 8 ){
             alert('Senha precisa de no mínimo 8 caractéres.')
             return
@@ -38,7 +88,7 @@ passModal.addEventListener('show.bs.modal', function(event) {
 
         if(nova_senha.length >= 8 && nova_senha === confirma_nova_senha){
 
-            const data = {
+            const update_data = {
                 nova_senha: nova_senha
             }
 
@@ -49,7 +99,7 @@ passModal.addEventListener('show.bs.modal', function(event) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(update_data)
             })
             .then(response => response.json())
             .then(data => {
@@ -59,10 +109,10 @@ passModal.addEventListener('show.bs.modal', function(event) {
                     passModalInstance.hide()
                 } else {
                     alert(data.mensagem)
-                    console.log('Erro ao atualizar usuário..')
+                    console.log('Erro ao atualizar usuário.')
                 }
             })
-            .catch(err => {
+            .catch(err => { 
                 console.error(err)
                 alert('Erro ao atualizar usuário.')
             })
@@ -73,9 +123,7 @@ passModal.addEventListener('show.bs.modal', function(event) {
 
 deleteModal.addEventListener('show.bs.modal', function(event) {
 
-    const userId = event.relatedTarget.getAttribute('data-bs-user-id')
-
-    const deleteButton = deleteModal.querySelector('#delete_confirm_button')
+    const deleteButton = deleteModal.querySelector('#delete_absolute_button')
 
     deleteButton.onclick = function() {
         if(!userAccessInfo || !userAccessInfo.isAuthenticated){
@@ -101,7 +149,14 @@ deleteModal.addEventListener('show.bs.modal', function(event) {
         })
         .then(data => {
             if(data.ok){
-                window.location.reload()
+                fetch(`/users/logout/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include'
+                })
+                window.location.href = '/Home'
             }else{
                 alert(data.mensagem)
             }
@@ -112,38 +167,3 @@ deleteModal.addEventListener('show.bs.modal', function(event) {
         })
     }
 })
-
-toggleInputs.forEach(function (checkbox) {
-    checkbox.addEventListener('change', function () {
-        const userId = checkbox.getAttribute('data-bs-user-id')
-        const isFuncionario = checkbox.checked
-        
-        const data = {
-            funcionario: isFuncionario
-        }
-
-        fetch(`/users/update/${userId}`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                console.log('Usuário atualizado.')
-            } else {
-                alert(data.mensagem)
-                checkbox.checked = !isFuncionario //reverte a checkbox
-                console.log('Erro ao atualizar usuário..')
-            }
-        })
-        .catch(err => {
-            checkbox.checked = !isFuncionario //reverte a checkbox
-            console.error(err)
-            alert('Erro ao atualizar usuário.')
-        })
-    })
-}) 

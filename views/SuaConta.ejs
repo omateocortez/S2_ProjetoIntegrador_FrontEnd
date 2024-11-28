@@ -32,23 +32,23 @@
             </div>
         </div>
 
-        <section id="SuaConta">
+        <section id="SuaConta" user-id="<%= data.id %>">
             <div class="container">
                 <div class="row justify-content-start">
                     <div class="col-lg-8 col-md-10 col-sm-12 px-2 py-4 glass">
-                        <form id="loginForm" action="/users/login" method="POST" aria-labelledby="login-heading">
+                        <form id="infoForm" aria-labelledby="info-heading">
                             <!-- Campos Nome e Sobrenome -->
                             <div class="row mb-4 nome_sobrenome_row">
                                 <div class="col-6">
                                     <label for="nome" class="form-label fs-4" aria-label="Nome">Nome</label>
                                     <input type="text" id="nome" name="nome" class="form-control p-3 fs-5"
-                                        placeholder="Digite seu nome">
+                                        placeholder="Digite seu nome" value="<%= data.nome %>">
                                 </div>
                                 <div class="col-6">
                                     <label for="sobrenome" class="form-label fs-4"
                                         aria-label="Sobrenome">Sobrenome</label>
                                     <input type="text" id="sobrenome" name="sobrenome" class="form-control p-3 fs-5"
-                                        placeholder="Digite seu sobrenome">
+                                        placeholder="Digite seu sobrenome" value="<%= data.sobrenome %>">
                                 </div>
                             </div>
 
@@ -57,7 +57,7 @@
                                 <label for="email" class="form-label fs-4" aria-label="Endereço de E-mail">Endereço de
                                     E-mail</label>
                                 <input type="email" id="email" name="email" class="form-control p-3 fs-5"
-                                    placeholder="Digite seu e-mail" aria-describedby="emailHelp">
+                                    placeholder="Digite seu e-mail" aria-describedby="emailHelp" value="<%= data.email %>">
                             </div>
 
                             <!-- Campo de Senha com ícone de alterar senha -->
@@ -65,7 +65,7 @@
                                 <label for="Senha" class="form-label fs-4" aria-label="Senha">Senha</label>
                                 <div class="input-group input-group-background">
                                     <input type="password" id="Senha" name="senha" class="form-control p-3 fs-5"
-                                        placeholder="Digite sua senha" aria-describedby="passwordHelp">
+                                        value="••••••••••••••" aria-describedby="passwordHelp" disabled>
                                     <button class="btn btn-visibility" type="button" id="togglePassword"
                                         aria-label="Alternar visibilidade da senha">
                                         <span class="material-symbols-rounded visibility-icon">visibility_off</span>
@@ -80,7 +80,7 @@
 
                             <!-- Botão de Salvar Alterações -->
                             <div class="row mx-5 mb-4 text-center justify-content-center">
-                                <button class="confirmar" aria-label="Confirmar login">
+                                <button class="confirmar" aria-label="Salvar alterações" id="salvarAlteracoes">
                                     Salvar Alterações
                                 </button>
                             </div>
@@ -88,7 +88,7 @@
                             <!-- Botão de Deletar Conta -->
                             <div class="row mx-5 mb-4 text-center justify-content-center">
                                 <button class="deletar" aria-label="Apagar conta" data-bs-toggle="modal"
-                                    data-bs-target="#DeleteProject">
+                                    data-bs-target="#DeleteUser">
                                     Deletar Conta
                                 </button>
                             </div>
@@ -99,12 +99,12 @@
         </section>
 
         <!-- Modal de Confirmação de Exclusão -->
-        <div class="modal fade" id="DeleteProject" tabindex="-1" aria-labelledby="DeleteProjectLabel"
+        <div class="modal fade" id="DeleteUser" tabindex="-1" aria-labelledby="DeleteUserLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg h-100">
                 <div class="modal-content bg-dark text-light p-3 rounded-5">
                     <div class="modal-header custom-modal-header">
-                        <h1 class="modal-title ms-3 modal_title" id="DeleteProjectLabel">Tem certeza que deseja <span
+                        <h1 class="modal-title ms-3 modal_title" id="DeleteUserLabel">Tem certeza que deseja <span
                                 class="fw-bold">excluir</span> a conta?</h1>
                         <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal"
                             aria-label="Close"></button>
@@ -150,7 +150,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="cancel_button fs-5" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="save_button fs-5" form="changePasswordForm">Salvar
+                        <button type="button" class="save_button fs-5" form="changePasswordForm" id="saveNewPass">Salvar
                             Alterações</button>
                     </div>
                 </div>
@@ -161,24 +161,7 @@
 
 
 
-        <script>
-            document.getElementById('togglePassword').addEventListener('click', function () {
-                const passwordInput = document.getElementById('Senha');
-                const icon = this.querySelector('.material-symbols-rounded');
-
-                if (passwordInput.type === 'password') {
-                    passwordInput.type = 'text';
-                    icon.textContent = 'visibility';
-                    this.classList.add('visibility-inactive');
-                    this.classList.remove('visibility-active');
-                } else {
-                    passwordInput.type = 'password';
-                    icon.textContent = 'visibility_off';
-                    this.classList.add('visibility-active');
-                    this.classList.remove('visibility-inactive');
-                }
-            });
-        </script>
+        <script type="module" src="/js/SuaConta.js"></script>
 
         <!------------------------ Footer ------------------------->
         <%- include('partials/Footer') %>

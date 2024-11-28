@@ -66,10 +66,6 @@ router.get('/Inscricao', (req, res) => {
     res.render('Inscricao')
 })
 
-router.get('/SuaConta', (req, res) => {
-    res.render('SuaConta')
-})
-
 router.get('/auth-info', checkTokens, (req, res) => {
     if (req.user.isFunc){
         return res.status(200).json({ok: true, isFunc: true, mensagem: 'Usuário logado e tem permissão.'})
