@@ -36,10 +36,11 @@
         <div class="container-fluid justify-content-center text-center mt-0 pt-0">
             <section>
                 <!------------------------ Modal Form -------------------------->
-                <div class="container" id="botaoAdicionarEvento">
+                <div class="container" id="botaoAdicionarEvento" style="display: none;">
                     <div class="row justify-content-end">
                         <button type="button" id="addeventoButton" class="btn w-auto btn-open-modal"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal" aria-label="Adicionar evento">
+                            data-bs-toggle="modal" data-bs-target="#exampleModal" aria-label="Adicionar evento"
+                            >
                             + Adicionar Evento
                         </button>
                     </div>
@@ -79,7 +80,7 @@
                                     </div>
                                     <div class="mb-3 form-group-file">
                                         <label for="file"
-                                            class="form-label label-file text-light text-start">Imagens:</label>
+                                            class="form-label label-file text-light text-start">Imagem:</label>
                                         <input type="file" id="file" name="file"
                                             class="form-control w-100 input-file bg-dark text-light"
                                             aria-label="Selecionar imagem" <%= evento_edit
@@ -137,7 +138,7 @@
                                 <div class="row me-0 pe-0 justify-content-end text-end">
                                     <p class="data-evento" aria-label="Data do evento">
                                         Data:
-                                        <%= `${event.evento_date.getDate()}/${event.evento_date.getMonth() +
+                                        <%= `${event.evento_date.getDate() - 1}/${event.evento_date.getMonth() +
                                         1}/${event.evento_date.getFullYear()}` %>
                                     </p>
                                     <p class="hora-evento" aria-label="Horário do evento">
@@ -148,12 +149,13 @@
                                 <p class="evento_textricao-evento text-start" aria-label="Descrição do evento">
                                     <%= event.evento_text %>
                                 </p>
-                                <div class="row align-items-center mt-4 botaoEditar" >
+                                <div class="row align-items-center mt-4 botaoEditar" style="display: none;">
                                     <div class="row justify-content-start text-start align-items-center">
                                         <form action="/Eventos/edit/<%= event._id %>" enctype="multipart/form-data"
                                             method="get">
                                             <button type="submit" class="p-2 edit_button" aria-label="Editar evento">
-                                                <span class="material-symbols-rounded icone">
+                                                <span class="material-symbols-rounded icone"
+                                                >
                                                     border_color
                                                 </span>
                                             </button>
@@ -163,7 +165,7 @@
 
                                 <!-- Button trigger modal -->
                                 <div class="row justify-content-end text-end align-items-center botaoDeletar"
-                                    >
+                                style="display: none;">
                                     <button type="button" class="justify-content-end text-end delete_button"
                                         data-bs-toggle="modal" data-bs-target="#DeleteEvent"
                                         data-bs-evento-id="<%= event._id %>"

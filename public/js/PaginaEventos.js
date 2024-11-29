@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             if (dateValue) {
                 const date = new Date(dateValue)
                 date.setHours(date.getHours() - 6) //converte para BRT, porque? n sei, era pra ser -3 só mas fodase ta funcionando
+                date.setDate(date.getDate() - 1)
                 const formattedDate = date.toISOString().slice(0, 16)
                 dateInput.value = formattedDate
                 console.log(formattedDate.toLocaleString())
