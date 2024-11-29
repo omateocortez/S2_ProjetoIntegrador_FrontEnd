@@ -23,6 +23,11 @@
     color: #234B79;
     font-size: medium;
   }
+
+  .hora-evento {
+    color: #234B79;
+    font-size: medium;
+  }
   
   .descricao-evento {
     display: -webkit-box;
