@@ -58,10 +58,6 @@ router.get('/TermosUso', (req, res) => {
     res.render('TermosUso')
 })
 
-router.get('/Eventos', (req, res) => {
-    res.render('Eventos')
-})
-
 router.get('/Inscricao', (req, res) => {
     res.render('Inscricao')
 })

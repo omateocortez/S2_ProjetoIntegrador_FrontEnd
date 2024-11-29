@@ -24,12 +24,14 @@ const mainRoute = require('./routes/main')
 const projRoute = require('./routes/projetos')
 const usersRoute = require('./routes/users')
 const noticiasRoute = require('./routes/noticias')
+const eventosRoute = require('./routes/eventos')
 const adminRoute = require('./routes/admin')
 
 app.use('/', mainRoute)
 app.use('/projetos', projRoute)
 app.use('/users', usersRoute)
 app.use('/Noticias', noticiasRoute)
+app.use('/Eventos', eventosRoute)
 app.use('/DashAdmin', adminRoute)
 
 app.listen(PORT, ()=>{
