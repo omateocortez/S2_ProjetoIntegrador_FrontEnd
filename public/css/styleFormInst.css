@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+}
+
+.title_inscrição{
+    color: #234B79;
+}
+
+hr {
+    border: 1.2px solid #29374C !important;
+    opacity: 1000000 !important; /* 1 é totalmente opaco */
+}
+
+
+input{
+    border: 3px red solid !important
+}
