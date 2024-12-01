@@ -21,7 +21,7 @@
 }
 
 .glass {
-  background-image: linear-gradient(to top, #292929, #234B79);
+  background-image: linear-gradient(to top, #292929, #29374C);
   border-radius: 35px; /* Bordas arredondadas */
   color: white; /* Texto branco para contraste */
   border: none !important;

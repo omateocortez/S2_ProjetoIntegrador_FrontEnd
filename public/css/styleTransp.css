@@ -20,7 +20,7 @@
 
 
 .pick{
-  background-color: #273C58;
+  background-color: #29374C;
   color: white;
   font-weight: 500;
   font-size: 30px;
@@ -34,10 +34,10 @@
 }
 .pick:hover{
   transition: all 0.3s ease-in-out;
-  color: #234B79;
+  color: #29374C;
   background-color: transparent;
   background-image: none !important;
-  border: 4px #234B79 solid;
+  border: 4px #29374C solid;
 
 }
 

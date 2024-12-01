@@ -13,28 +13,22 @@
 }
 
 .icone {
-    font-size: 250px !important;
+    font-size: 6rem !important;
+    margin-bottom: 20px; /* Espaçamento fixo em relação ao texto */
 }
 
 
 .caixa {
     background-color: #29374C;
     /* Começa com fundo azul */
-    height: 380px;
+    height: 260px; /* Garante uma altura mínima para evitar deslocamentos */
+    position: relative; /* Para alinhar os elementos internamente */
     border-radius: 50px;
     border: 8px solid transparent;
-    /* Bordas azuis */
     transition: all 0.3s ease;
     text-decoration: none !important;
 }
 
-.caixa:hover {
-    background-color: transparent;
-    /* Fundo fica transparente no hover */
-    border: 8px solid #29374C;
-    /* A borda desaparece no hover */
-    transition: all 0.4s ease;
-}
 
 /* Novo código para garantir que o ícone e o título fiquem azuis inicialmente e brancos no hover */
 .caixa .icone {
@@ -44,6 +38,10 @@
     /* Cor branca para o ícone inicialmente */
 }
 
+.participacao{
+    font-size: 1.2rem;
+}
+
 .caixa .participacao {
     color: whitesmoke;
     transition: all 0.4s ease;
@@ -51,15 +49,17 @@
     /* Cor branca para o título inicialmente */
 }
 
-/* No hover, o ícone e o título ficam com cor azul */
-.caixa:hover .icone {
-    color: #29374C;
-    transition: all 0.4s ease;
-    /* Cor azul para o ícone */
-}
 
-.caixa:hover .participacao {
-    color: #29374C;
-    transition: all 0.4s ease;
-    /* Cor azul para o título */
+
+.acessar_forms{
+    background-color: #D6ED4B;
+    color: #253847;
+    border: #253847 3px solid;
+    transition: all 0.3s ease;
+}
+.acessar_forms:hover{
+    background-color: #253847;
+    color: #D6ED4B;
+    border: #D6ED4B 3px solid;
+    transition: all 0.3s ease;
 }
