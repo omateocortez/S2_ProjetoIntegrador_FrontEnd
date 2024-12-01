@@ -25,12 +25,12 @@
 
         <div class="container-fluid">
             <div class="row me-5">
-                <h1 class="title_inscrição display-5 my-3 mb-4 fw-medium">
+                <h1 class="title_inscrição display-5 my-3 mb-4 ms-5 fw-medium">
                     Inscrição e pesquisa inicial
                 </h1>
             </div>
             <div class="row me-5">
-                <p class="fs-5">
+                <p class="fs-5 ms-5">
                     Formulário de Inscrição - Beneficiários Mãos Na Massa
                 </p>
             </div>
@@ -40,58 +40,390 @@
 
         <div class="container-fluid">
             <div class="row me-5">
-                <h1 class="title_inscrição fs-2 my-3 mb-4 fw-medium">
+                <h1 class="title_inscrição fs-2 my-3 mb-4 ms-5 fw-medium">
                     Bem-vindo(a)!
                 </h1>
             </div>
-            <div class="row me-5">
-                <p class="fs-5">
+            <div class="row mx-5">
+                <p class="fs-6">
                     Este formulário de inscrição é destinado a instituições que desejam se beneficiar dos projetos de
                     construção e/ou reformas em espaços comunitários e espaços comunitários realizados pela ONG Mãos na
                     Massa. As informações fornecidas nos ajudarão a entender suas necessidades específicas e a planejar
                     as melhores soluções. Por favor, preencha o formulário com o máximo de detalhes possível.
                     Agradecemos por confiar em nós! </p>
             </div>
-        </div>
 
-
-        <div class="container">
-            <form>
-                <div class="mb-3">
-                    <label for="nome" class="form-label">Nome Completo</label>
-                    <input type="text" class="form-control" id="nome" required>
+            <form class="col-10 ms-5 ps-3">
+                <!-- Nome da instituição -->
+                <div class="mb-5">
+                    <label for="nome" class="form-label">Nome da instituição</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Campo de resposta curta" required>
                 </div>
 
-                <div class="mb-3">
+                <!-- Responsável legal -->
+                <div class="mb-5">
+                    <label for="responsavel" class="form-label">Responsável legal</label>
+                    <input type="text" class="form-control" id="responsavel" placeholder="Campo de resposta curta"
+                        required>
+                </div>
+
+                <!-- CNPJ -->
+                <div class="mb-5">
+                    <label for="cnpj" class="form-label">CNPJ</label>
+                    <input type="text" class="form-control" id="cnpj" placeholder="Campo de resposta curta" required>
+                </div>
+
+                <!-- Endereço -->
+                <div class="mb-5">
+                    <label for="endereco" class="form-label">Endereço completo</label>
+                    <textarea class="form-control" id="endereco" rows="3"
+                        placeholder="Campo de resposta longa"></textarea>
+                </div>
+
+                <!-- Telefone -->
+                <div class="mb-5">
+                    <label for="telefone" class="form-label">Telefone de contato</label>
+                    <input type="text" class="form-control" id="telefone" placeholder="Campo de resposta curta"
+                        required>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-5">
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="email" required>
+                    <input type="text" class="form-control" id="email" placeholder="Campo de resposta curta" required>
                 </div>
 
-                <!-- Checkboxes -->
-                <div class="mb-3">
-                    <label class="form-label">Escolha suas preferências:</label>
-                    <div>
-                        <input type="checkbox" class="form-check-input" id="preferencia1" onclick="toggleTextInput()">
-                        <label class="form-check-label" for="preferencia1">Receber atualizações por e-mail</label>
+                <fieldset class="mb-5">
+                    <!-- Checks -->
+                    <legend for="tipo_inst" class="form-label">Tipo de instituição</legend>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipo_inst" id="tipo_inst">
+                        <label class="form-check-label" for="tipo_inst">
+                            ONG
+                        </label>
                     </div>
-                    <div>
-                        <input type="checkbox" class="form-check-input" id="preferencia2" onclick="toggleTextInput()">
-                        <label class="form-check-label" for="preferencia2">Participar de eventos presenciais</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipo_inst" id="tipo_inst">
+                        <label class="form-check-label" for="tipo_inst">
+                            Escola
+                        </label>
                     </div>
+                    <div class="input-group ms-0 ps-0 outro">
+                        <div class="input-group-text ms-0 ps-0 outro">
+                            <input class="form-check-input m-0 me-2" type="radio" value=""
+                                aria-label="Radio button for following text input">Outro:
+                        </div>
+                        <input type="text" class="form-control rounded-4" aria-label="Text input with radio button">
+                    </div>
+
+                </fieldset>
+
+                <!-- Descriçao Projeto -->
+                <div class="mb-5">
+                    <label for="desc_proj" class="form-label">Descrição do Projeto</label>
+                    <textarea class="form-control" id="desc_proj" rows="3"
+                        placeholder="Campo de resposta longa"></textarea>
                 </div>
 
-                <!-- Campo de texto que é liberado se a checkbox for marcada -->
-                <div class="mb-3" id="campo-texto" style="display: none;">
-                    <label for="comentarios" class="form-label">Comentário adicional</label>
-                    <input type="text" class="form-control" id="comentarios">
+                <!-- Quantidade de pessoas -->
+                <div class="mb-5">
+                    <label for="telefone" class="form-label">Quantas pessoas a instituição/fundação atende?</label>
+                    <input type="text" class="form-control" id="telefone" placeholder="Campo de resposta curta"
+                        required>
                 </div>
 
+                <fieldset class="mb-5">
+                    <!-- Checks -->
+                    <label for="inst_person" class="form-label">A instituição atende pessoas com deficiência?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="inst_person" id="inst_person">
+                        <label class="form-check-label" for="inst_person">
+                            Sim
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="inst_person" id="inst_person">
+                        <label class="form-check-label" for="inst_person">
+                            Não
+                        </label>
+                    </div>
+                </fieldset>
+
+
+                <fieldset class="mb-5">
+                    <!-- Checks -->
+                    <label for="tipo_def" class="form-label">Se sim, qual é o tipo de deficiência mais comum entre os
+                        atendidos?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipo_def" id="tipo_def">
+                        <label class="form-check-label" for="tipo_def">
+                            Deficiência física(cadeirante, mobilidade reduzida)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipo_def" id="tipo_def">
+                        <label class="form-check-label" for="tipo_def">
+                            Deficiência visual
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipo_def" id="tipo_def">
+                        <label class="form-check-label" for="tipo_def">
+                            Deficiência auditiva
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipo_def" id="tipo_def">
+                        <label class="form-check-label" for="tipo_def">
+                            Deficiência intelectual ou mental
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipo_def" id="tipo_def">
+                        <label class="form-check-label" for="tipo_def">
+                            Prefiro não responder
+                        </label>
+                    </div>
+                    <div class="input-group ms-0 ps-0 outro">
+                        <div class="input-group-text ms-0 ps-0 outro">
+                            <input class="form-check-input m-0 me-2" type="radio" value=""
+                                aria-label="Radio button for following text input">Outro:
+                        </div>
+                        <input type="text" class="form-control rounded-4" aria-label="Text input with radio button">
+                    </div>
+                </fieldset>
+
+                <fieldset class="mb-5">
+                    <!-- Checks -->
+                    <label for="necessidade_accesso" class="form-label">Qual é a principal necessidade em relação à
+                        acessibilidade nos espaços da instituição?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="necessidade_accesso"
+                            id="necessidade_accesso">
+                        <label class="form-check-label" for="necessidade_accesso">
+                            Rampas de acesso
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="necessidade_accesso"
+                            id="necessidade_accesso">
+                        <label class="form-check-label" for="necessidade_accesso">
+                            Banheiro adaptado
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="necessidade_accesso"
+                            id="necessidade_accesso">
+                        <label class="form-check-label" for="necessidade_accesso">
+                            Portas e corredores mais largos
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="necessidade_accesso"
+                            id="necessidade_accesso">
+                        <label class="form-check-label" for="necessidade_accesso">
+                            Barras de apoio e corrimãos
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="necessidade_accesso"
+                            id="necessidade_accesso">
+                        <label class="form-check-label" for="necessidade_accesso">
+                            Adaptações de pisos
+                        </label>
+                    </div>
+                    <div class="input-group ms-0 ps-0 outro">
+                        <div class="input-group-text ms-0 ps-0 outro">
+                            <input class="form-check-input m-0 me-2" type="radio" value=""
+                                aria-label="Radio button for following text input">Outro:
+                        </div>
+                        <input type="text" class="form-control rounded-4" aria-label="Text input with radio button">
+                    </div>
+                </fieldset>
+
+                <fieldset class="mb-5">
+                    <!-- Checks -->
+                    <label for="dificuldades" class="form-label">Se sim, quais foram as principais dificuldades
+                        enfrentadas?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="dificuldades" id="dificuldades">
+                        <label class="form-check-label" for="dificuldades">
+                            Falta de recursos financeiros
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="dificuldades" id="dificuldades">
+                        <label class="form-check-label" for="dificuldades">
+                            Falta de conhecimento sobre como adaptar o espaços
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="dificuldades" id="dificuldades">
+                        <label class="form-check-label" for="dificuldades">
+                            Difificuldade em encontrar profissionais qualificados
+                        </label>
+                    </div>
+                    <div class="input-group ms-0 ps-0 outro">
+                        <div class="input-group-text ms-0 ps-0 outro">
+                            <input class="form-check-input m-0 me-2" type="radio" value=""
+                                aria-label="Radio button for following text input">Outro:
+                        </div>
+                        <input type="text" class="form-control rounded-4" aria-label="Text input with radio button">
+                    </div>
+                </fieldset>
+
+                <fieldset class="mb-5">
+                    <!-- Checks -->
+                    <label for="feedback_acesso" class="form-label">Como você avalia a segurança e acessibilidade dos
+                        espaços da instituição atualmente?:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="feedback_acesso" id="feedback_acesso">
+                        <label class="form-check-label" for="feedback_acesso">
+                            Muito segura e acessível
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="feedback_acesso" id="feedback_acesso">
+                        <label class="form-check-label" for="feedback_acesso">
+                            Moderadamente segura, mas precisa de melhorias
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="feedback_acesso" id="feedback_acesso">
+                        <label class="form-check-label" for="feedback_acesso">
+                            Pouca segura, mas apresenta dificuldades
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="feedback_acesso" id="feedback_acesso">
+                        <label class="form-check-label" for="feedback_acesso">
+                            Nada segra, oferece muitos riscos
+                        </label>
+                    </div>
+                </fieldset>
+
+
+                <fieldset class="mb-5">
+                    <!-- Checks -->
+                    <label for="melhorias" class="form-label">Como você acredita que uma reforma ou adaptação nos
+                        espaços da instituição pode melhorar a qualidade de vida dos atendidos?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="melhorias" id="melhorias">
+                        <label class="form-check-label" for="melhorias">
+                            Melhoraria significativamente a autonomia e segurança
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="melhorias" id="melhorias">
+                        <label class="form-check-label" for="melhorias">
+                            Melhoraria moderadamente a doncidação de vida
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="melhorias" id="melhorias">
+                        <label class="form-check-label" for="melhorias">
+                            Teria pouco inpacto, mas seria positivo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="melhorias" id="melhorias">
+                        <label class="form-check-label" for="melhorias">
+                            Não faria diferença significativa
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Ajuda -->
+                <div class="mb-5">
+                    <label for="ajuda" class="form-label">Descreva as principais dificuldades
+                        que a instituição enfrenta no dia a dia devido à falta de acessibilidade.:</label>
+                    <textarea class="form-control" id="endereço" rows="3"
+                        placeholder="Campo de resposta longa"></textarea>
+                </div>
+
+                <!-- Ajuda -->
+                <div class="mb-5">
+                    <label for="ajudar_melhoria" class="form-label">De que forma você acredita que a ONG
+                        Mãos na Massa pode ajudar a melhorar a qualidade de vida dos atendidos pela sua
+                        instituição?:</label>
+                    <textarea class="form-control" id="endereço" rows="3"
+                        placeholder="Campo de resposta longa"></textarea>
+                </div>
+
+
+                <fieldset class="mb-5">
+                    <!-- Checks -->
+                    <label for="receber_info" class="form-label">Você gostaria de receber mais informações sobre nossos
+                        projetos e eventos?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="receber_info" id="receber_info">
+                        <label class="form-check-label" for="receber_info">
+                            Sim, por e-mail
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="receber_info" id="receber_info">
+                        <label class="form-check-label" for="receber_info">
+                            Sim, por telefone
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="receber_info" id="receber_info">
+                        <label class="form-check-label" for="receber_info">
+                            Não, obrigado(a)
+                        </label>
+                    </div>
+                </fieldset>
+
+
+                <fieldset class="mb-5">
+                    <!-- Checks -->
+                    <label for="saber_MNM" class="form-label">Como você ficou sabendo da ONG Mãos na Massa?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="saber_MNM" id="saber_MNM">
+                        <label class="form-check-label" for="saber_MNM">
+                            Redes sociais
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="saber_MNM" id="saber_MNM">
+                        <label class="form-check-label" for="saber_MNM">
+                            Indicação de amigos ou familiares
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="saber_MNM" id="saber_MNM">
+                        <label class="form-check-label" for="saber_MNM">
+                            Mídia (TV, rádio, jornal)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="saber_MNM" id="saber_MNM">
+                        <label class="form-check-label" for="saber_MNM">
+                            Eventos comunitários
+                        </label>
+                    </div>
+                    <div class="input-group ms-0 ps-0 outro">
+                        <div class="input-group-text ms-0 ps-0 outro">
+                            <input class="form-check-input m-0 me-2" type="radio" value=""
+                                aria-label="Radio button for following text input">Outro:
+                        </div>
+                        <input type="text" class="form-control rounded-4" aria-label="Text input with radio button">
+                    </div>
+                </fieldset>
+
+
+
+
+
+                <!-- Botão de envio -->
                 <div class="d-flex justify-content-end">
-                    <!-- Botão de envio -->
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" class="enviar_button py-3 px-4 fs-5 rounded-5 fw-medium">ENVIAR
+                        RESPOSTAS</button>
                 </div>
-
             </form>
+
+
         </div>
 
 
