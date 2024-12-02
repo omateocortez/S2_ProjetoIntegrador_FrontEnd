@@ -102,8 +102,6 @@ router.post('/login', async(req, res) =>{
 
     const email = req.body.email
     const senha = req.body.senha
-
-    console.log(req.body)
     
     const user = await User.findOne({email: email})
 
