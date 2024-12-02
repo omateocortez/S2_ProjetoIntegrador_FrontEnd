@@ -74,6 +74,10 @@ router.get('/FormInst', (req, res) => {
     res.render('FormInst')
 })
 
+router.get('/FormRes', (req, res) => {
+    res.render('FormRes')
+})
+
 router.get('/auth-info', checkTokens, (req, res) => {
     if (req.user.isFunc){
         return res.status(200).json({ok: true, isFunc: true, mensagem: 'Usuário logado e tem permissão.'})

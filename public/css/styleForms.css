@@ -35,7 +35,7 @@ hr {
 .col-10 label {
     color: #234B79;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 /* Estilos para o texto dentro do textarea */
@@ -61,7 +61,7 @@ textarea {
     color: #29374C;
 }
 
-.col-10 .outro{
+.col-10 .outro {
     border: none !important;
     outline: none !important;
 }
