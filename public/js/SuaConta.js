@@ -20,8 +20,11 @@ infoForm.addEventListener('submit', function(event){
     const update_data = {
         nome: document.getElementById('nome').value,
         sobrenome: document.getElementById('sobrenome').value,
-        email: document.getElementById('email').value
+        email: document.getElementById('email').value,
+        recebeForms: document.getElementById('mail-toggle').checked
     }
+    console.log(document.getElementById('mail-toggle').checked)
+    console.log(update_data)
 
     if(!userAccessInfo || !userAccessInfo.isAuthenticated){
         alert('Erro de autenticação.')
@@ -36,7 +39,12 @@ infoForm.addEventListener('submit', function(event){
         },
         body: JSON.stringify(update_data)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json()
+    })
     .then(data => {
         if (data.ok) {
             console.log('Usuário atualizado.')
@@ -46,8 +54,9 @@ infoForm.addEventListener('submit', function(event){
         }
     })
     .catch(err => {
-        console.error(err)
         alert('Erro ao atualizar usuário.')
+        console.warn('Erro ao atualizar usuário.')
+        console.error(err)
     })
 })
 
@@ -92,12 +101,13 @@ passModal.addEventListener('show.bs.modal', function(event) {
                     passModalInstance.hide()
                 } else {
                     alert(data.mensagem)
-                    console.log('Erro ao atualizar usuário.')
+                    console.warn('Erro ao atualizar usuário.')
                 }
             })
             .catch(err => { 
-                console.error(err)
                 alert('Erro ao atualizar usuário.')
+                console.warn('Erro ao atualizar usuário.')
+                console.error(err)
             })
         }
     }

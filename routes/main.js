@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const mailer = require('../helpers/middleware/mailer')
+
 const Proj = require('../schemas/Projeto')
 
 const checkTokens = require('../helpers/middleware/auth')
@@ -84,6 +86,16 @@ router.get('/auth-info', checkTokens, (req, res) => {
     }else{
         return res.status(200).json({ok: true, isFunc: false, mensagem: "Usuário logado, mas sem permissão."})
     }   
+})
+
+router.post('/sendforms', async (req, res) => {
+    try{
+        await mailer.enviarEmailFuncionarios(req.body.html, req.body.assunto)
+        return res.status(200).json({ ok:true, mensagem: 'Formulário enviado com sucesso.' })
+    } catch(err){
+        console.log(err)
+        return res.status(500).json({ ok:false, mensagem: 'Erro ao enviar Formulário. Tente novamente mais tarde.'})
+    }
 })
 
 module.exports = router
