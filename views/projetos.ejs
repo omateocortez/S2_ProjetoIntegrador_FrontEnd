@@ -26,7 +26,7 @@
 
         <div class="container">
             <div class="row justify-content-center text-center">
-                <h1 class="Projeto display-4 my-3 fw-medium">
+                <h1 class="Projeto display-4 my-4 mb-5 fw-medium">
                     Projetos
                 </h1>
             </div>
@@ -36,8 +36,8 @@
         <div class="container-fluid justify-content-center text-center mt-0 pt-0">
             <section>
                 <!------------------------ Modal Form -------------------------->
-                <div class="container" id="botaoAdicionarProjeto" style="display: none;">
-                    <div class="row justify-content-end">
+                <div class="container-fluid" id="botaoAdicionarProjeto" style="display: none;">
+                    <div class="row justify-content-end mb-3">
                         <button type="button" id="addProjetoButton" class="btn w-auto btn-open-modal"
                             data-bs-toggle="modal" data-bs-target="#exampleModal" aria-label="Adicionar Projeto">
                             + Adicionar Projeto
@@ -115,67 +115,69 @@
                 </div>
         </div>
         <!------------------------ Modal Form -------------------------->
-
-        <ul style="list-style-type: none;" class="row px-0 g-4">
-            <% data.forEach(proj=> { %>
-                <li class="col-12 col-lg-6 col-xl-4" role="listitem">
-                    <!-- Torne a caixa inteira clicável -->
-                    <a href="/projetos/<%= proj._id %>" class="text-decoration-none text-reset"
-                        aria-label="Ver detalhes do projeto <%= proj.title %>">
-                        <div class="col d-flex justify-content-center caixa">
-                            <div class="row d-flex flex-column">
-                                <div class="text-center">
-                                    <img src="/<%= proj.images[proj.images.length - 1] %>"
-                                        class="img-fluid imagem_projeto"
-                                        onError="this.onerror=null; this.src='/imgs/no_img.png';"
-                                        alt="Imagem do projeto '<%=proj.title%>'"
-                                        aria-label="Imagem do projeto <%= proj.title %>">
-                                </div>
-                                <h1 class="titulo-projeto text-start" aria-label="Título do projeto">
-                                    <%= proj.title %>
-                                </h1>
-                                <div class="row me-0 pe-0 justify-content-end text-end">
-                                    <p class="data-projeto" aria-label="Data de criação do projeto">
-                                        <%= `${proj.date.getDate()}/${proj.date.getMonth() +
-                                            1}/${proj.date.getFullYear()}` %>
+        <div class="container-fluid">
+            <ul style="list-style-type: none;" class="row px-0 g-4 mx-4">
+                <% data.forEach(proj=> { %>
+                    <li class="col-12 col-lg-6 col-xl-4" role="listitem">
+                        <!-- Torne a caixa inteira clicável -->
+                        <a href="/projetos/<%= proj._id %>" class="text-decoration-none text-reset"
+                            aria-label="Ver detalhes do projeto <%= proj.title %>">
+                            <div class="col d-flex justify-content-center caixa">
+                                <div class="row d-flex flex-column">
+                                    <div class="text-center">
+                                        <img src="/<%= proj.images[proj.images.length - 1] %>"
+                                            class="img-fluid imagem_projeto"
+                                            onError="this.onerror=null; this.src='/imgs/no_img.png';"
+                                            alt="Imagem do projeto '<%=proj.title%>'"
+                                            aria-label="Imagem do projeto <%= proj.title %>">
+                                    </div>
+                                    <h1 class="titulo-projeto text-start" aria-label="Título do projeto">
+                                        <%= proj.title %>
+                                    </h1>
+                                    <div class="row me-0 pe-0 justify-content-end text-end">
+                                        <p class="data-projeto" aria-label="Data de criação do projeto">
+                                            <%= `${proj.date.getDate()}/${proj.date.getMonth() +
+                                                1}/${proj.date.getFullYear()}` %>
+                                        </p>
+                                    </div>
+                                    <p class="descricao-projeto text-start" aria-label="Descrição do projeto">
+                                        <%= proj.desc %>
                                     </p>
-                                </div>
-                                <p class="descricao-projeto text-start" aria-label="Descrição do projeto">
-                                    <%= proj.desc %>
-                                </p>
-                                <div class="row align-items-center mt-4 botaoEditar" style="display: none;">
-                                    <div class="row justify-content-start text-start align-items-center">
-                                        <form action="/projetos/edit/<%= proj._id %>" enctype="multipart/form-data"
-                                            method="get">
-                                            <button type="submit" class="p-2 edit_button" aria-label="Editar projeto">
-                                                <span class="material-symbols-rounded icone">
-                                                    border_color
-                                                </span>
-                                            </button>
-                                        </form>
+                                    <div class="row align-items-center mt-4 botaoEditar" style="display: none;">
+                                        <div class="row justify-content-start text-start align-items-center">
+                                            <form action="/projetos/edit/<%= proj._id %>" enctype="multipart/form-data"
+                                                method="get">
+                                                <button type="submit" class="p-2 edit_button"
+                                                    aria-label="Editar projeto">
+                                                    <span class="material-symbols-rounded icone">
+                                                        border_color
+                                                    </span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <!-- Button trigger modal -->
+                                    <div class="row justify-content-end text-end align-items-center botaoDeletar"
+                                        style="display: none;">
+                                        <button type="button" class="justify-content-end text-end delete_button"
+                                            data-bs-toggle="modal" data-bs-target="#DeleteProject"
+                                            data-bs-proj-id="<%= proj._id %>" onclick="handleDeleteClick(event)"
+                                            aria-label="Excluir projeto">
+                                            <span class="material-symbols-rounded icone">
+                                                delete_forever
+                                            </span>
+                                        </button>
+
+
                                     </div>
                                 </div>
-
-                                <!-- Button trigger modal -->
-                                <div class="row justify-content-end text-end align-items-center botaoDeletar"
-                                    style="display: none;">
-                                    <button type="button" class="justify-content-end text-end delete_button"
-                                        data-bs-toggle="modal" data-bs-target="#DeleteProject"
-                                        data-bs-proj-id="<%= proj._id %>" onclick="handleDeleteClick(event)"
-                                        aria-label="Excluir projeto">
-                                        <span class="material-symbols-rounded icone">
-                                            delete_forever
-                                        </span>
-                                    </button>
-
-
-                                </div>
                             </div>
-                        </div>
-                    </a>
-                </li>
-                <% }) %>
-        </ul>
+                        </a>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
 
 
         <!------------------------------------ Modal ------------------------------------>
@@ -184,7 +186,8 @@
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content bg-dark text-light p-2 caixa_modal">
                     <div class="modal-header custom-modal-header">
-                        <h1 class="modal-title ms-3 modal_title" id="DeleteProjectLabel">Tem certeza que deseja excluir
+                        <h1 class="modal-title ms-3 modal_title" id="DeleteProjectLabel">Tem certeza que deseja
+                            excluir
                             o projeto?</h1>
                         <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal"
                             aria-label="Close"></button>

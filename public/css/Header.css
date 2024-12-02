@@ -52,7 +52,7 @@ header {
   
   /* Estilo da Navbar para telas grandes */
   .navbar-expand-sm .nav-link {
-    font-size: 17px; 
+    font-size: 16px; 
     font-weight: 500;
     color: white;
     margin-top: 7px;
