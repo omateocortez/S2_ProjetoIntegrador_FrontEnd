@@ -75,6 +75,10 @@ document.getElementById('confirmaSenha').addEventListener('input', verificarSenh
 // Adiciona o evento de clique no botão Confirmar para a verificação final
 document.querySelector('.confirmar').addEventListener('click', function () {
 
+    if(!document.getElementById('CheckTermos').checked){
+        alert('Para cadastrar uma conta, é necessário concordar com nossos Termos de Uso e nossa Política de Privacidade.')
+        return
+    }
     verificarSenhas();
 
     const senha = document.getElementById('Senha').value;

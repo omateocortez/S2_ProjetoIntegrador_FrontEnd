@@ -152,8 +152,6 @@ router.post('/upload', checkTokens, upload, async (req, res)=>{
 
         const noticia = new Noticia({title: titulo, noticia_text: noticia_text, images: imgs, upload_date: upload_date, creator_email: creator, last_editor_email: creator}) 
 
-        console.log(noticia)
-
         await noticia.save()
 
         res.status(201).json({ok: true, mensagem:'Noticia criada com sucesso.'})

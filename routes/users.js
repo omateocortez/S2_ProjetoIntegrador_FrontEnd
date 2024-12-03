@@ -49,7 +49,7 @@ router.post('/signup', async (req, res) =>{
 
         const respMongo = await usuario.save()
 
-        console.log(respMongo)
+        //console.log(respMongo)
         
         res.redirect(302, '/LoginMem').json({ok:true, mensagem:'Funcionário cadastrado com sucesso!'})
     }catch(err){
@@ -89,7 +89,7 @@ router.post('/signup-func', checkTokens, async (req, res) =>{
 
         const respMongo = await usuario.save()
 
-        console.log(respMongo)
+        //console.log(respMongo)
         
         res.redirect(302, '/DashAdmin')
     }catch(err){

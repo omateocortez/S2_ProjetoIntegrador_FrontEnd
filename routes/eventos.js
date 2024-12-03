@@ -152,8 +152,6 @@ router.post('/upload', checkTokens, upload, async (req, res)=>{
 
         const evento = new Evento({title: titulo, evento_text: evento_text, images: imgs, evento_date: evento_date, creator_email: creator, last_editor_email: creator}) 
 
-        console.log(evento)
-
         await evento.save()
 
         res.status(201).json({ok: true, mensagem:'Evento criada com sucesso.'})
