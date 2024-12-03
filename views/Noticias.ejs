@@ -61,7 +61,7 @@
                             </div>
                             <div class="modal-body custom-modal-body">
                                 <!-- Formulário temporário dentro do modal -->
-                                <form id="form-id" class="modal-form">
+                                <form id="form-id" class="modal-form" enctype="multipart/form-data">
                                     <div class="mb-3 form-group-title">
                                         <label for="title" class="form-label label-title text-light">Título:</label>
                                         <!-- Cor da label ajustada -->
@@ -81,7 +81,7 @@
                                     <div class="mb-3 form-group-file">
                                         <label for="file" class="form-label label-file text-light">Imagem:</label>
                                         <!-- Cor da label ajustada -->
-                                        <input type="file" id="file" name="file"
+                                        <input type="file" id="file" name="files[]"
                                             class="form-control w-100 input-file bg-dark text-light" <%=noticia_edit
                                             ? '' : 'required' %>> <!-- Input de arquivo escuro -->
                                     </div>

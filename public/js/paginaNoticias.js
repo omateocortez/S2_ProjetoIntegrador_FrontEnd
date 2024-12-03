@@ -117,7 +117,15 @@ document.getElementById('form-id').addEventListener('submit', function(event) {
             credentials: 'include',
             body: formData
         })
-        .then(response => response.json())
+        .then(response => {
+            if(response.ok){
+                return response.json()
+            }else{
+                return response.text().then(text => {
+                    throw new Error(`Request failed: ${response.status}, Response: ${text}`)
+                })
+            }
+        })
         .then(data => {
             if(data.ok){
                 window.location = window.location.pathname
@@ -136,7 +144,15 @@ document.getElementById('form-id').addEventListener('submit', function(event) {
             credentials: 'include',
             body: formData
         })
-        .then(response => response.json())
+        .then(response => {
+            if(response.ok){
+                return response.json()
+            }else{
+                return response.text().then(text => {
+                    throw new Error(`Request failed: ${response.status}, Response: ${text}`)
+                })
+            }
+        })
         .then(data => {
             if (data.ok) {
                 window.location.reload()

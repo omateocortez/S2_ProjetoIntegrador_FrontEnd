@@ -61,7 +61,7 @@
                             </div>
                             <div class="modal-body custom-modal-body">
                                 <!-- Formulário dentro do modal -->
-                                <form id="form-id" class="modal-form" aria-labelledby="exampleModalLabel">
+                                <form id="form-id" class="modal-form" aria-labelledby="exampleModalLabel" enctype="multipart/form-data">
                                     <div class="mb-3 form-group-title">
                                         <label for="title"
                                             class="form-label label-title text-light text-start">Título:</label>
@@ -81,7 +81,7 @@
                                     <div class="mb-3 form-group-file">
                                         <label for="file"
                                             class="form-label label-file text-light text-start">Imagem:</label>
-                                        <input type="file" id="file" name="file"
+                                        <input type="file" id="file" name="files[]"
                                             class="form-control w-100 input-file bg-dark text-light"
                                             aria-label="Selecionar imagem" <%= evento_edit
                                             ? '' : 'required' %>>
