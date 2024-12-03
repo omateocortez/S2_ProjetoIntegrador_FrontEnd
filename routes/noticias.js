@@ -22,6 +22,19 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/:id', async (req, res) => {
+    try{
+        const noticia = await Noticia.findById(req.params.id)
+
+        var paragrafos = noticia.noticia_text.split('\n')
+
+        res.render('noticiaGenerica', { noticia, paragrafos })
+    }catch(err){
+        console.log(`Erro: ${err}`)
+    }
+
+})
+
 // BAND-AID OOOPSSSSSS...
 router.get('/Home', async (req, res) => {
     res.redirect(`${req.protocol}://${req.get('host')}/`)

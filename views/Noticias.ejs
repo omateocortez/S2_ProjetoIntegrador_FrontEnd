@@ -114,59 +114,61 @@
         <ul style="list-style-type: none;" class="row g-4 g-lg-0 gy-lg-4">
             <% data.forEach(noticia=> { %>
                 <li class="col-fluid justify-content-center text-center">
-                    <div class="d-flex flex-column pe-lg-5 py-3 justify-content-center text-center caixa">
-                        <!-- Row para Imagem e Texto -->
-                        <div class="row d-flex align-items-start">
-                            <!-- Imagem da notícia -->
-                            <div class="col-12 col-lg-4 mb-4 mb-lg-0 text-center text-lg-start">
-                                <img src="/<%= noticia.images[noticia.images.length - 1] %>"
-                                    class="img-fluid rounded-5 imagem-noticia"
-                                    onError="this.onerror=null; this.src='/imgs/no_img.png';"
-                                    alt="Imagem da notícia '<%=noticia.title%>'">
+                    <a href="/Noticias/<%= noticia._id %>" class="text-decoration-none text-reset" aria-label="Ler mais sobre a notícia.">
+                        <div class="d-flex flex-column pe-lg-5 py-3 justify-content-center text-center caixa">
+                            <!-- Row para Imagem e Texto -->
+                            <div class="row d-flex align-items-start">
+                                <!-- Imagem da notícia -->
+                                <div class="col-12 col-lg-4 mb-4 mb-lg-0 text-center text-lg-start">
+                                    <img src="/<%= noticia.images[noticia.images.length - 1] %>"
+                                        class="img-fluid rounded-5 imagem-noticia"
+                                        onError="this.onerror=null; this.src='/imgs/no_img.png';"
+                                        alt="Imagem da notícia '<%=noticia.title%>'">
+                                </div>
+
+                                <!-- Conteúdo da notícia -->
+                                <div
+                                    class="col-12 col-lg-8 d-flex flex-column justify-content-start align-items-start text-start h-100 corpo-noticia">
+                                    <h1 class="titulo-noticia">
+                                        <%= noticia.title %>
+                                    </h1>
+                                    <p class="data-noticia">
+                                        Publicado:
+                                        <%= `${noticia.upload_date.getDate()}/${noticia.upload_date.getMonth() +
+                                            1}/${noticia.upload_date.getFullYear()}` %>
+                                    </p>
+                                    <p class="descricao-noticia">
+                                        <%= noticia.noticia_text %>
+                                    </p>
+                                </div>
                             </div>
 
-                            <!-- Conteúdo da notícia -->
-                            <div
-                                class="col-12 col-lg-8 d-flex flex-column justify-content-start align-items-start text-start h-100 corpo-noticia">
-                                <h1 class="titulo-noticia">
-                                    <%= noticia.title %>
-                                </h1>
-                                <p class="data-noticia">
-                                    Publicado:
-                                    <%= `${noticia.upload_date.getDate()}/${noticia.upload_date.getMonth() +
-                                        1}/${noticia.upload_date.getFullYear()}` %>
-                                </p>
-                                <p class="descricao-noticia">
-                                    <%= noticia.noticia_text %>
-                                </p>
-                            </div>
-                        </div>
+                            <!-- Row para os Botões Editar e Deletar -->
+                            <div class="row mt-5 botaoRow">
+                                <!-- Botão Editar -->
+                                <div class="col-6 mt-2 botaoEditar text-start" style="display: none;">
+                                    <form action="/Noticias/edit/<%= noticia._id %>" enctype="multipart/form-data"
+                                        method="get">
+                                        <button type="submit" class="p-2 edit_button">
+                                            <span class="material-symbols-rounded icone">
+                                                border_color
+                                            </span>
+                                        </button>
+                                    </form>
+                                </div>
 
-                        <!-- Row para os Botões Editar e Deletar -->
-                        <div class="row mt-5 botaoRow">
-                            <!-- Botão Editar -->
-                            <div class="col-6 mt-2 botaoEditar text-start" style="display: none;">
-                                <form action="/Noticias/edit/<%= noticia._id %>" enctype="multipart/form-data"
-                                    method="get">
-                                    <button type="submit" class="p-2 edit_button">
+                                <!-- Botão Deletar -->
+                                <div class="col-6 mt-2 botaoDeletar text-end" style="display: none;">
+                                    <button type="button" class="delete_button" data-bs-toggle="modal"
+                                        data-bs-target="#DeleteNews" data-bs-noticia-id="<%= noticia._id %>">
                                         <span class="material-symbols-rounded icone">
-                                            border_color
+                                            delete_forever
                                         </span>
                                     </button>
-                                </form>
-                            </div>
-
-                            <!-- Botão Deletar -->
-                            <div class="col-6 mt-2 botaoDeletar text-end" style="display: none;">
-                                <button type="button" class="delete_button" data-bs-toggle="modal"
-                                    data-bs-target="#DeleteNews" data-bs-noticia-id="<%= noticia._id %>">
-                                    <span class="material-symbols-rounded icone">
-                                        delete_forever
-                                    </span>
-                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </li>
                 <% }) %>
         </ul>

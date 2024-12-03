@@ -27,6 +27,18 @@ router.get('/Home', async (req, res) => {
     res.redirect(`${req.protocol}://${req.get('host')}/`)
 })
 
+router.get('/:id', async (req, res) => {
+    try{
+        const evento = await Evento.findById(req.params.id)
+
+        var paragrafos = evento.evento_text.split('\n')
+
+        res.render('eventoGenerico', { evento, paragrafos })
+    }catch(err){
+        console.log(`Erro: ${err}`)
+    }
+
+})
 
 router.get('/edit/:id', async(req, res) => {
     let slug = req.params.id

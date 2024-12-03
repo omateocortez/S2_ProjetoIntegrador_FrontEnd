@@ -4,7 +4,7 @@ let userAccessInfo = null
 
 document.addEventListener("DOMContentLoaded",  async function() {
 
-    //Faz com que o botão 'voltar' volte pra página na qual o projeto foi aberto.(ex: se abrir pela home volta pra home)
+    //Faz com que o botão 'voltar' volte pra página na qual foi aberto.(ex: se abrir pela home volta pra home)
     
     let voltar = document.getElementById('link-voltar')
 
