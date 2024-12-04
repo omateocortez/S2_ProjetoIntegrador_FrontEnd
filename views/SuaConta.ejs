@@ -108,6 +108,34 @@
             </div>
         </section>
 
+        <!-- Confirm Animation -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-dark rounded-5 p-3">
+
+                    <!-- Body -->
+                    <div class="modal-body">
+                        <div class="row justify-content-center">
+                            <div class="col-auto d-flex justify-content-center align-items-center flex-column">
+                                <script
+                                    src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+                                    type="module"></script>
+                                <dotlottie-player id="check-animation"
+                                    src="https://lottie.host/8fedeb1c-879e-423b-ad06-bba4565c31fb/DJvHf1vkx7.lottie"
+                                    background="transparent" speed="0.7"
+                                    style="width: auto; height: 400px"></dotlottie-player>
+                                <!-- Texto abaixo da animação -->
+                                <p class="mt-3 text-center fs-4 text-light">Alterações <strong>salvas</strong> com
+                                    sucesso!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Confirm Animation -->
+
         <!-- Modal de Confirmação de Exclusão -->
         <div class="modal fade" id="DeleteUser" tabindex="-1" aria-labelledby="DeleteUserLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg h-100">
@@ -185,11 +213,37 @@
 
 
 
+
+
         <!------------------------ Footer ------------------------->
         <%- include('partials/Footer') %>
             <!------------------------ Footer ------------------------->
 
             <script type="module" src="/js/SuaConta.js"></script>
+
+
+            <script>
+                const salvarAlteracoesBtn = document.getElementById('salvarAlteracoes'); // Botão de salvar alterações
+                const lottiePlayer = document.getElementById('check-animation'); // Referência à animação
+                const modalElement = document.getElementById('exampleModal'); // Referência ao modal
+
+                // Listener no botão "Salvar Alterações"
+                salvarAlteracoesBtn.addEventListener('click', () => {
+                    // Abre o modal manualmente
+                    const modalInstance = new bootstrap.Modal(modalElement);
+                    modalInstance.show();
+
+                    // Delay para iniciar a animação
+                    setTimeout(() => {
+                        lottiePlayer.play(); // Inicia a animação
+                    }, 600);
+
+                    // Fecha o modal automaticamente após 5 segundos
+                    setTimeout(() => {
+                        modalInstance.hide(); // Fecha o modal
+                    }, 5000);
+                });
+            </script>
 </body>
 
 </html>
