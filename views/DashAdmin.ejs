@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600&display=swap"
         rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="imgs/MnaMBranco.png">
+    <link rel="icon" type="image/x-icon" href="imgs/MNMBASE.png" class="x_icon">
     <title>Dashboard - Mãos Na Massa</title>
 </head>
 
@@ -81,11 +81,11 @@
                                                         <option value="ambos" <%=filterBy==='ambos' ? 'selected' : '' %>
                                                             >Ambos
                                                         </option>
-                                                        <option value="apenas-func" <%=filterBy==='apenas-func' ? 'selected' : ''
-                                                            %>>Funcionários
+                                                        <option value="apenas-func" <%=filterBy==='apenas-func'
+                                                            ? 'selected' : '' %>>Funcionários
                                                         </option>
-                                                        <option value="apenas-membro" <%=filterBy==='apenas-membro' ? 'selected' : ''
-                                                            %>>Membro
+                                                        <option value="apenas-membro" <%=filterBy==='apenas-membro'
+                                                            ? 'selected' : '' %>>Membro
                                                         </option>
                                                     </select>
                                                 </div>
@@ -176,7 +176,8 @@
                                             <!-- Botão para abrir o modal -->
                                             <div class="col-auto align-items-center ms-2">
                                                 <button type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#changePasswordModal" data-bs-user-id="<%= user._id %>">
+                                                    data-bs-target="#changePasswordModal"
+                                                    data-bs-user-id="<%= user._id %>">
                                                     <span class="icone_edit material-symbols-rounded">
                                                         edit_note
                                                     </span>
@@ -229,8 +230,10 @@
                                                     <button type="button" class="btn btn-close-footer fs-5"
                                                         data-bs-dismiss="modal" aria-label="Cancelar">Cancelar</button>
                                                 </a>
-                                                <button type="submit" id="confirmarAlterarSenha" form="changePasswordForm" value="Alterar Senha"
-                                                    class="btn btn-submit-footer fs-5 fw-medium" aria-label="Alterar senha do usuário">
+                                                <button type="submit" id="confirmarAlterarSenha"
+                                                    form="changePasswordForm" value="Alterar Senha"
+                                                    class="btn btn-submit-footer fs-5 fw-medium"
+                                                    aria-label="Alterar senha do usuário">
                                                     Alterar Senha
                                                 </button>
                                             </div>

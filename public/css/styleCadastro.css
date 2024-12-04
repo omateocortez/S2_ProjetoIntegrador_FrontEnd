@@ -4,6 +4,9 @@
   font-family: poppins;
 }
 
+.x_icon{
+  filter: invert(1) saturate(0) brightness(10000000) !important;
+}
 
 
 /* --------------------Form----------------- */

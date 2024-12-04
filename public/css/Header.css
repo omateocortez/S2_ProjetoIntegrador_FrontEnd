@@ -17,8 +17,9 @@ header {
   }
   
   .brand{
-    height: 80px;
+    height: 70px;
     width: 100%;
+    padding-left: 10px;
   }
   
   .offcanvas-header{

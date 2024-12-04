@@ -14,7 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap"
         rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="imgs/MnaMBranco.png">
+    <link rel="icon" type="image/x-icon" href="imgs/MNMBASE.png" class="x_icon">
     <title>Eventos - Mãos Na Massa</title>
 </head>
 
@@ -39,8 +39,7 @@
                 <div class="container" id="botaoAdicionarEvento" style="display: none;">
                     <div class="row justify-content-end">
                         <button type="button" id="addeventoButton" class="btn w-auto btn-open-modal"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal" aria-label="Adicionar evento"
-                            >
+                            data-bs-toggle="modal" data-bs-target="#exampleModal" aria-label="Adicionar evento">
                             + Adicionar Evento
                         </button>
                     </div>
@@ -61,7 +60,8 @@
                             </div>
                             <div class="modal-body custom-modal-body">
                                 <!-- Formulário dentro do modal -->
-                                <form id="form-id" class="modal-form" aria-labelledby="exampleModalLabel" enctype="multipart/form-data">
+                                <form id="form-id" class="modal-form" aria-labelledby="exampleModalLabel"
+                                    enctype="multipart/form-data">
                                     <div class="mb-3 form-group-title">
                                         <label for="title"
                                             class="form-label label-title text-light text-start">Título:</label>
@@ -83,14 +83,14 @@
                                             class="form-label label-file text-light text-start">Imagens:</label>
                                         <input type="file" id="file" name="files[]"
                                             class="form-control w-100 input-file bg-dark text-light"
-                                            aria-label="Selecionar imagem" <%= evento_edit
-                                            ? '' : 'required' %> multiple>
+                                            aria-label="Selecionar imagem" <%=evento_edit ? '' : 'required' %> multiple>
                                     </div>
                                     <div class="mb-3 form-group-date">
                                         <label for="evento_date"
-                                            class="form-label label-date text-light text-start">Data e Horário:</label><br>
-                                        <input class="box-calendar" type="datetime-local" id="evento_date" name="evento_date"
-                                            aria-label="Data e Horário do evento"
+                                            class="form-label label-date text-light text-start">Data e
+                                            Horário:</label><br>
+                                        <input class="box-calendar" type="datetime-local" id="evento_date"
+                                            name="evento_date" aria-label="Data e Horário do evento"
                                             value="<%= evento_edit ? evento_edit.evento_date.toISOString().slice(0, 16) : '' %>">
                                     </div>
                                 </form>
@@ -102,24 +102,24 @@
                                 <div>Última edição: ${ evento_edit.last_editor_email }</div>
                                 ` : '' %>
                             </div>
-                                <a href="#">
-                                    <button type="button" class="btn btn-close-footer" data-bs-dismiss="modal"
-                                        aria-label="Cancelar">
-                                        Cancelar
-                                    </button>
-                                </a>
-                                <button type="submit" form="form-id" value="Publicar" class="btn btn-submit-footer fw-medium"
-                                    aria-label="Salvar ou publicar evento">
-                                    <%= evento_edit ? 'Salvar' : 'Publicar' %>
+                            <a href="#">
+                                <button type="button" class="btn btn-close-footer" data-bs-dismiss="modal"
+                                    aria-label="Cancelar">
+                                    Cancelar
                                 </button>
-                            </div>
+                            </a>
+                            <button type="submit" form="form-id" value="Publicar"
+                                class="btn btn-submit-footer fw-medium" aria-label="Salvar ou publicar evento">
+                                <%= evento_edit ? 'Salvar' : 'Publicar' %>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <!------------------------ Modal Form -------------------------->
+        </div>
+        <!------------------------ Modal Form -------------------------->
 
         <ul style="list-style-type: none;" class="row px-0 g-4">
-            <% data.forEach(event => { %>
+            <% data.forEach(event=> { %>
                 <li class="col-12 col-lg-6 col-xl-4" role="listitem">
                     <!-- Torne a caixa inteira clicável -->
                     <a href="/Eventos/<%= event._id %>" class="text-decoration-none text-reset"
@@ -128,8 +128,7 @@
                             <div class="row d-flex flex-column">
                                 <div class="text-center">
                                     <img src="/<%= event.images[event.images.length - 1] %>"
-                                        class="img-fluid imagem_evento"
-                                        alt="Imagem do evento"
+                                        class="img-fluid imagem_evento" alt="Imagem do evento"
                                         aria-label="Imagem do evento">
                                 </div>
                                 <h1 class="titulo-evento text-start" aria-label="Título do evento">
@@ -139,11 +138,12 @@
                                     <p class="data-evento" aria-label="Data do evento">
                                         Data:
                                         <%= `${event.evento_date.getDate() - 1}/${event.evento_date.getMonth() +
-                                        1}/${event.evento_date.getFullYear()}` %>
+                                            1}/${event.evento_date.getFullYear()}` %>
                                     </p>
                                     <p class="hora-evento" aria-label="Horário do evento">
                                         Horário:
-                                        <%= `${event.evento_date.getHours().toString().padStart(2, '0')}:${event.evento_date.getMinutes().toString().padStart(2, '0')}` %>
+                                        <%= `${event.evento_date.getHours().toString().padStart(2, '0'
+                                            )}:${event.evento_date.getMinutes().toString().padStart(2, '0' )}` %>
                                     </p>
                                 </div>
                                 <p class="evento_textricao-evento text-start" aria-label="Descrição do evento">
@@ -154,8 +154,7 @@
                                         <form action="/Eventos/edit/<%= event._id %>" enctype="multipart/form-data"
                                             method="get">
                                             <button type="submit" class="p-2 edit_button" aria-label="Editar evento">
-                                                <span class="material-symbols-rounded icone"
-                                                >
+                                                <span class="material-symbols-rounded icone">
                                                     border_color
                                                 </span>
                                             </button>
@@ -165,11 +164,10 @@
 
                                 <!-- Button trigger modal -->
                                 <div class="row justify-content-end text-end align-items-center botaoDeletar"
-                                style="display: none;">
+                                    style="display: none;">
                                     <button type="button" class="justify-content-end text-end delete_button"
                                         data-bs-toggle="modal" data-bs-target="#DeleteEvent"
-                                        data-bs-evento-id="<%= event._id %>"
-                                        aria-label="Excluir evento">
+                                        data-bs-evento-id="<%= event._id %>" aria-label="Excluir evento">
                                         <span class="material-symbols-rounded icone">
                                             delete_forever
                                         </span>
@@ -186,12 +184,12 @@
 
 
         <!------------------------------------ Modal ------------------------------------>
-        <div class="modal fade" id="DeleteEvent" tabindex="-1" aria-labelledby="DeleteEventLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="DeleteEvent" tabindex="-1" aria-labelledby="DeleteEventLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg h-80">
                 <div class="modal-content bg-dark text-light p-2 caixa_modal">
                     <div class="modal-header custom-modal-header">
-                        <h1 class="modal-title ms-3 modal_title" id="DeleteEventLabel">Tem certeza que deseja <span class="fw-bold">excluir</span>
+                        <h1 class="modal-title ms-3 modal_title" id="DeleteEventLabel">Tem certeza que deseja <span
+                                class="fw-bold">excluir</span>
                             o evento?</h1>
                         <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal"
                             aria-label="Close"></button>

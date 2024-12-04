@@ -14,7 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap"
         rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="imgs/MnaMBranco.png">
+    <link rel="icon" type="image/x-icon" href="imgs/MNMBASE.png" class="x_icon">
     <title>Inscrição Residência - Mãos Na Massa</title>
 </head>
 
@@ -69,8 +69,8 @@
                 <!-- Endereço -->
                 <div class="mb-5">
                     <label for="endereco" class="form-label">Endereço completo</label>
-                    <textarea class="form-control" id="endereco" rows="3"
-                        placeholder="Campo de resposta longa" required></textarea>
+                    <textarea class="form-control" id="endereco" rows="3" placeholder="Campo de resposta longa"
+                        required></textarea>
                 </div>
 
                 <!-- Telefone -->
@@ -90,19 +90,22 @@
                     <!-- Checks -->
                     <legend for="cond_moradia" class="form-label">Qual sua condição atual de moradia?</legend>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="cond_moradia" id="cond_moradia_casa" required>
+                        <input class="form-check-input" type="radio" name="cond_moradia" id="cond_moradia_casa"
+                            required>
                         <label class="form-check-label" for="cond_moradia_casa">
                             Casa Própria
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="cond_moradia" id="cond_moradia_alugada" required>
+                        <input class="form-check-input" type="radio" name="cond_moradia" id="cond_moradia_alugada"
+                            required>
                         <label class="form-check-label" for="cond_moradia_alugada">
                             Alugada
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="cond_moradia" id="cond_moradia_cedida" required>
+                        <input class="form-check-input" type="radio" name="cond_moradia" id="cond_moradia_cedida"
+                            required>
                         <label class="form-check-label" for="cond_moradia_cedida">
                             Moradia Cedida
                         </label>
@@ -110,8 +113,8 @@
 
                     <div class="input-group ms-0 ps-0 outro">
                         <div class="input-group-text ms-0 ps-0 outro">
-                            <input class="form-check-input m-0 me-2" type="radio" name="cond_moradia" id="cond_moradia_outro"
-                                aria-label="Radio button for following text input" required>
+                            <input class="form-check-input m-0 me-2" type="radio" name="cond_moradia"
+                                id="cond_moradia_outro" aria-label="Radio button for following text input" required>
                             <label class="form-check-label">Outro:</label>
                         </div>
                         <input name="cond_moradia" id="cond_moradia_outro_texto" for="cond_moradia_outro" type="text"
@@ -198,7 +201,8 @@
 
                 <!-- qtd_pessoas -->
                 <div class="mb-5">
-                    <label for="qtd_pessoas" class="form-label">Quantas pessoas moram em sua residência? (incluindo filhos, irmãos, parentes e amigos)</label>
+                    <label for="qtd_pessoas" class="form-label">Quantas pessoas moram em sua residência? (incluindo
+                        filhos, irmãos, parentes e amigos)</label>
                     <input type="text" class="form-control" id="qtd_pessoas" placeholder="Campo de resposta curta"
                         required>
                 </div>
@@ -263,8 +267,8 @@
                             <label class="form-check-label">Outro:</label>
 
                         </div>
-                        <input name="tipo_def" id="tipo_def_outro_texto" for="tipo_def" type="text" class="form-control rounded-4"
-                            aria-label="Text input with radio button">
+                        <input name="tipo_def" id="tipo_def_outro_texto" for="tipo_def" type="text"
+                            class="form-control rounded-4" aria-label="Text input with radio button">
                     </div>
                 </fieldset>
 
@@ -315,31 +319,29 @@
                             <label class="form-check-label">Outro:</label>
 
                         </div>
-                        <input name="necessidade_accesso" id="necessidade_accesso_outro_texto" for="necessidade_accesso" type="text"
-                            class="form-control rounded-4" aria-label="Text input with radio button">
+                        <input name="necessidade_accesso" id="necessidade_accesso_outro_texto" for="necessidade_accesso"
+                            type="text" class="form-control rounded-4" aria-label="Text input with radio button">
                     </div>
                 </fieldset>
 
                 <fieldset class="mb-5">
                     <!-- Checks -->
-                    <label for="necessidade_accesso" class="form-label">Você já tentou realizar adaptações na sua residência?</label>
+                    <label for="necessidade_accesso" class="form-label">Você já tentou realizar adaptações na sua
+                        residência?</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="tentou_reforma"
-                            id="tentou_reforma1">
+                        <input class="form-check-input" type="radio" name="tentou_reforma" id="tentou_reforma1">
                         <label class="form-check-label" for="tentou_reforma1">
                             Sim, com sucesso
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="tentou_reforma"
-                            id="tentou_reforma2">
+                        <input class="form-check-input" type="radio" name="tentou_reforma" id="tentou_reforma2">
                         <label class="form-check-label" for="tentou_reforma2">
                             Sim, mas enfrentei dificuldades
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="tentou_reforma"
-                            id="tentou_reforma3">
+                        <input class="form-check-input" type="radio" name="tentou_reforma" id="tentou_reforma3">
                         <label class="form-check-label" for="tentou_reforma3">
                             Não, nunca tentei
                         </label>
@@ -370,8 +372,9 @@
                     </div>
                     <div class="input-group ms-0 ps-0 outro">
                         <div class="input-group-text ms-0 ps-0 outro">
-                            <input class="form-check-input m-0 me-2" type="radio" name="dificuldades" id="dificuldades_outro"
-                                for="dificuldades" aria-label="Radio button for following text input">
+                            <input class="form-check-input m-0 me-2" type="radio" name="dificuldades"
+                                id="dificuldades_outro" for="dificuldades"
+                                aria-label="Radio button for following text input">
                             <label class="form-check-label">Outro:</label>
 
                         </div>
@@ -385,25 +388,29 @@
                     <label for="feedback_acesso" class="form-label">Como você avalia a segurança e acessibilidade dos
                         espaços da sua residência atualmente?:</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="feedback_acesso" id="feedback_acesso_1" required>
+                        <input class="form-check-input" type="radio" name="feedback_acesso" id="feedback_acesso_1"
+                            required>
                         <label class="form-check-label" for="feedback_acesso_1">
                             Muito segura e acessível
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="feedback_acesso" id="feedback_acesso_2" required>
+                        <input class="form-check-input" type="radio" name="feedback_acesso" id="feedback_acesso_2"
+                            required>
                         <label class="form-check-label" for="feedback_acesso_2">
                             Moderadamente segura, mas precisa de melhorias
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="feedback_acesso" id="feedback_acesso_3" required>
+                        <input class="form-check-input" type="radio" name="feedback_acesso" id="feedback_acesso_3"
+                            required>
                         <label class="form-check-label" for="feedback_acesso_3">
                             Pouco segura, mas apresenta dificuldades
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="feedback_acesso" id="feedback_acesso_4" required>
+                        <input class="form-check-input" type="radio" name="feedback_acesso" id="feedback_acesso_4"
+                            required>
                         <label class="form-check-label" for="feedback_acesso_4">
                             Nada segura, oferece muitos riscos
                         </label>
@@ -444,8 +451,7 @@
                 <div class="mb-5">
                     <label for="ajuda" class="form-label">Descreva as principais dificuldades que você enfrenta no
                         dia a dia devido à falta de acessibilidade na sua moradia.</label>
-                    <textarea class="form-control" id="ajuda" rows="3"
-                        placeholder="Campo de resposta longa"></textarea>
+                    <textarea class="form-control" id="ajuda" rows="3" placeholder="Campo de resposta longa"></textarea>
                 </div>
 
                 <!-- Ajuda -->
@@ -461,7 +467,8 @@
                     <label for="receber_info" class="form-label">Você gostaria de receber mais informações sobre nossos
                         projetos e eventos?</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="receber_info" id="receber_info_email" required>
+                        <input class="form-check-input" type="radio" name="receber_info" id="receber_info_email"
+                            required>
                         <label class="form-check-label" for="receber_info_email">
                             Sim, por e-mail
                         </label>
@@ -515,8 +522,8 @@
                             <label class="form-check-label">Outro:</label>
 
                         </div>
-                        <input name="saber_MNM" id="saber_MNM_outro_texto" for="saber_MNM" type="text" class="form-control rounded-4"
-                            aria-label="Text input with radio button">
+                        <input name="saber_MNM" id="saber_MNM_outro_texto" for="saber_MNM" type="text"
+                            class="form-control rounded-4" aria-label="Text input with radio button">
                     </div>
                 </fieldset>
 
@@ -537,7 +544,7 @@
         <%- include('partials/Footer') %>
             <!------------------------ Footer ------------------------->
 
-    <script src="/js/FormRes.js"></script>
+            <script src="/js/FormRes.js"></script>
 </body>
 
 </html>
