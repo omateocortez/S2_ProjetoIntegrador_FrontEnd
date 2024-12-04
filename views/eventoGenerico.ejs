@@ -68,57 +68,60 @@
 
         <!---------------------- Carrossel ---------------------->
         <div class="container-fluid">
-            <div class="col-fluid">
-                <div class="row justify-content-center text-center">
-
-                    <div id="carouselExampleCaptions" class="carousel col-7 slide mb-5 px-0" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <% evento.images.forEach((img, index)=> { %>
-                                <button type="button" data-bs-target="#carouselExampleCaptions"
-                                    data-bs-slide-to="<%= index %>" <%- index===0 ? 'class="active" aria-current="true"'
-                                    : '' %> aria-label="Slide <%= index + 1 %>"></button>
-                                <% }) %>
-                        </div>
-
-                        <div class="carousel-inner">
-                            <% evento.images.forEach((img, index)=> { %>
-                                <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
-                                    <img src="/<%= img %>" class="d-block w-100 rounded-5"
-                                        alt="Imagem do evento '<%= evento.title %>'"
-                                        onError="this.onerror=null; this.src='/imgs/no_img.png';">
-                                </div>
-                                <% }) %>
-                        </div>
-
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+            <div class="row d-flex align-items-start mx-5 justify-content-between">
+                <!-- Carousel -->
+                <div class="carousel col-xl-8 col-12 slide mb-5 px-0" id="carouselExampleCaptions" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <% evento.images.forEach((img, index)=> { %>
+                            <button type="button" data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide-to="<%= index %>" <%- index===0 ? 'class="active" aria-current="true"'
+                                : '' %>
+                                aria-label="Slide <%= index + 1 %>"></button>
+                            <% }) %>
                     </div>
+
+                    <div class="carousel-inner">
+                        <% evento.images.forEach((img, index)=> { %>
+                            <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                                <img src="/<%= img %>" class="d-block w-100 rounded-5"
+                                    alt="Imagem do evento '<%= evento.title %>'"
+                                    onError="this.onerror=null; this.src='/imgs/no_img.png';">
+                            </div>
+                            <% }) %>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <!-- End Carousel -->
+
+                <!-- Date and Time -->
+                <div class="col-xl-4 col-12 text-end fs-4 mb-2 pb-3">
+                    <p aria-label="Data do evento">
+                        Data:
+                        <%= `${evento.evento_date.getDate() - 1}/${evento.evento_date.getMonth() +
+                            1}/${evento.evento_date.getFullYear()}` %>
+                    </p>
+                    <p aria-label="Horário do evento">
+                        Horário:
+                        <%= `${evento.evento_date.getHours().toString().padStart(2, '0'
+                            )}:${evento.evento_date.getMinutes().toString().padStart(2, '0' )}` %>
+                    </p>
                 </div>
             </div>
         </div>
+
         <!---------------------- End Carrosel ---------------------->
 
-        <div class="row justify-content-center text-center ms-5 me-4 fs-5 mb-5 pb-3"> 
-            <p aria-label="Data do evento">
-                Data:
-                <%= `${evento.evento_date.getDate() - 1}/${evento.evento_date.getMonth() +
-                1}/${evento.evento_date.getFullYear()}` %>
-            </p>
-            <p aria-label="Horário do evento">
-                Horário:
-                <%= `${evento.evento_date.getHours().toString().padStart(2, '0')}:${evento.evento_date.getMinutes().toString().padStart(2, '0')}` %>
-            </p>
-        </div>
-
-        <div class="row justify-content-center text-start ms-5 me-4 fs-5 mb-5 pb-3">
+        <div class="row justify-content-center text-start ms-5 me-4 fs-2 mb-5 pb-3">
             <% paragrafos.forEach(paragrafo=> { %>
                 <p>
                     <%= paragrafo %>

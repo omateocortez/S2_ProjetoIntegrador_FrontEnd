@@ -16,8 +16,8 @@
 
 .criancas{
     width: 80%;
-    margin-bottom: 80px;
-    margin-top: 20px;
+    margin-bottom: 100px;
+    margin-top: 10px;
     border-radius: 40px;
 }
 
@@ -26,23 +26,23 @@
   font-size: 33px;
   font-weight: 300;
   color: #234B79;
-  background-color: rgba(117, 139, 166, .55);
   padding: 5px;
   border-radius: 10px;
+  margin-top: 2rem;
+  margin-inline: 80px;
 }
 
 .texto{
   text-align: justify;
   font-size: 18px;
   font-weight: 400;
-  margin-inline: 100px;
-  margin-block: 30px;
+  margin-inline: 80px;
+  margin-bottom: 40px;
 }
 .points{
-  padding-top: 5px;
   text-align: justify;
   font-size: 18px;  
   font-weight: 400;
-  margin-inline: 130px;
-  margin-block: 30px;
+  margin-inline: 80px;
+  margin-bottom: 20px;
 }
