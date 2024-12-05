@@ -30,6 +30,10 @@ const UserSchema = new Schema({
         type:Boolean,
         required:true,
         default: true
+    },
+    temp_code:{
+        type:Number,
+        default:null
     }
 })
 UserSchema.plugin(uniqueValidator)

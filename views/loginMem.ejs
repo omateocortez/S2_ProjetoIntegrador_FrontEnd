@@ -54,7 +54,9 @@
                                         <span class="material-symbols-rounded visibility-icon">visibility_off</span>
                                     </button>
                                 </div>
+                                <a href="#" class="text-reset" style="font-size: 15px;" id="esqueceuSenhaButton">esqueceu sua senha?</a>
                             </div>
+
 
                             <div class="row mx-5 mb-4 text-center justify-content-center">
                                 <input type="submit" value="Confirmar" class="confirmar" aria-label="Confirmar login">
@@ -73,24 +75,33 @@
             </div>
         </section>
 
-        <script>
-            document.getElementById('togglePassword').addEventListener('click', function () {
-                const passwordInput = document.getElementById('Senha');
-                const icon = this.querySelector('.material-symbols-rounded');
+        <div class="modal fade" id="accessCodeModal" tabindex="-1" aria-labelledby="accessCodeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content bg-dark p-4 rounded-5">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-3 text-light" id="accessCodeModalLabel">Enviamos um código de acesso no seu e-mail!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="codeInput" class="form-label fs-5 text-light">Digite o código para realizar log-in:</label>
+                            <input type="text" id="codeInput" name="code"
+                                class="form-control p-3 fs-5 bg-dark text-light"
+                                placeholder="Digite aqui o código enviado por e-mail."
+                                required>
+                        </div>
 
-                if (passwordInput.type === 'password') {
-                    passwordInput.type = 'text';
-                    icon.textContent = 'visibility';
-                    this.classList.add('visibility-inactive');
-                    this.classList.remove('visibility-active');
-                } else {
-                    passwordInput.type = 'password';
-                    icon.textContent = 'visibility_off';
-                    this.classList.add('visibility-active');
-                    this.classList.remove('visibility-inactive');
-                }
-            });
-        </script>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="code_button fs-5" id="checkCodeButton">
+                            Confirmar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!------------------------ Footer ------------------------->
         <%- include('partials/Footer') %>

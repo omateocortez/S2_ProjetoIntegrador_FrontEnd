@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function(){
     formulario.addEventListener('submit', async function(event){
         event.preventDefault()
     
-        console.log(event)
-    
         let assunto = 'Novo Formulário Residencial'
     
         let html = `

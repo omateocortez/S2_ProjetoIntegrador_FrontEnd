@@ -9,6 +9,9 @@ const { generateAcessToken, generateRefreshToken } = require('../helpers/middlew
 
 const checkTokens = require('../helpers/middleware/auth')
 
+const mailer = require('../helpers/middleware/mailer')
+const Usuario = require('../schemas/Usuario')
+
 router.get('/me', checkTokens, async (req, res) => {
 
     const user = await User.findById(req.user.id)
@@ -199,4 +202,74 @@ router.post('/update/:id', checkTokens, async(req, res) =>{
     }
 })
 
+router.post('/sendcode', async (req, res) =>{
+
+    code = Math.floor(Math.random() * 900000000) + 100000000 //numero aleatorio com 9 digitos
+    
+    email = req.body.email
+    
+    const user = await User.findOneAndUpdate({ email }, {temp_code: code})
+    
+    if(!user){
+        return res.status(401).json({ok:false, mensagem: "E-mail não encontrado."})
+    }
+    
+    console.log(`Gerando código de acesso único para ${email}...`)
+
+    let html = `
+        <html>
+            <body>
+                <h1>Código de Acesso:</h1>
+                <p>Aqui está o código de acesso único: <strong>${code}</strong></p>
+                <p>Recomendamos que você altere sua senha ao fazer log-in.</p>
+            </body>
+        </html>
+        `
+
+    try{
+        await mailer.enviarEmail(email, html, 'Código de Acesso')
+        return res.status(200).json({ ok:true, mensagem: 'Código enviado com sucesso.' })
+    } catch(err){
+        console.log(err)
+        return res.status(500).json({ ok:false, mensagem: 'Erro ao enviar Código. Tente novamente mais tarde.'})
+    }
+})
+
+router.post('/checkcode', async (req, res) =>{
+    email = req.body.email
+    const user = await User.findOne({ email })
+
+    if(!user){
+        return res.status(401).json({ok:false, mensagem: "E-mail não encontrado."})
+    }
+
+    code = user.temp_code.toString()
+
+    if(code === req.body.code && code !== null){
+        try{
+            const accessToken = generateAcessToken(user)
+            const refreshToken = generateRefreshToken(user)
+
+            res.cookie('refreshToken', refreshToken, {
+                httpOnly: true,
+                secure: true,
+                maxAge: 7 * 24 * 60 * 60 * 100, //7 dias
+                sameSite: 'Strict'
+            })
+            res.cookie('accessToken', accessToken, {
+                httpOnly: true,
+                secure: true,
+                maxAge: 15 * 60 * 1000, //15 min
+                sameSite: 'Lax'
+            })
+
+            await User.findOneAndUpdate({ email }, {temp_code: null})        
+        }catch(err){
+            console.log('Erro:' + err)
+        }
+        res.status(200).json({ ok: true, mensagem: "Log-in via code OK" })
+    } else{
+        res.status(401).json({ ok: false, mensagem: "Código incorreto." })
+    }
+})
 module.exports = router

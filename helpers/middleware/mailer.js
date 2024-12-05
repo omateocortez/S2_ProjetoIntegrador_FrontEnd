@@ -54,6 +54,25 @@ async function enviarEmailFuncionarios(texto_html, assunto){
     }
 }
 
+async function enviarEmail(destinatario, texto_html, assunto){
+        try{
+
+            const info = await transporter.sendMail({
+                from: `Mãos Na Massa <${process.env.MAILER_USER}>`,
+                to: destinatario,
+                subject: assunto,
+                html: texto_html
+            })
+            
+            console.log(`Email enviado!\nID:${info.messageId}`)
+
+        }catch(err){
+            console.warn("Falha ao enviar email")
+            console.error(err)
+        }
+}
+
 module.exports = {
-    enviarEmailFuncionarios
+    enviarEmailFuncionarios,
+    enviarEmail
 }
