@@ -113,3 +113,17 @@
   background-color: #57677A !important;
   color: white !important;
 }
+
+
+.code_button{
+  color: #29374C;
+  background-color: #D6ED4B;
+  border: 2px solid #29374C;
+  transition: all 0.3s ease;
+}
+.code_button:hover{
+  color: #D6ED4B;
+  background-color: #29374C;
+  border: 2px solid #29374C;
+  transition: all 0.3s ease;
+}

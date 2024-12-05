@@ -44,7 +44,7 @@
                                     placeholder="Digite seu e-mail" aria-describedby="emailHelp">
                             </div>
 
-                            <div class="mx-5 my-4">
+                            <div class="mx-5 mt-4">
                                 <label for="Senha" class="form-label fs-4" aria-label="Senha">Senha</label>
                                 <div class="input-group input-group-background">
                                     <input type="password" id="Senha" name="senha" class="form-control p-3 fs-5"
@@ -54,11 +54,16 @@
                                         <span class="material-symbols-rounded visibility-icon">visibility_off</span>
                                     </button>
                                 </div>
-                                <a href="#" class="text-reset" style="font-size: 15px;" id="esqueceuSenhaButton">esqueceu sua senha?</a>
+                                <div class="col align-items-center">
+                                    <div class="row mb-4 mt-3 justify-content-center text-center">
+                                        <a href="#" class="text-reset" style="color: #D6ED4B !important;"
+                                            id="esqueceuSenhaButton">Esqueci minha senha</a>
+                                    </div>
+                                </div>
                             </div>
 
 
-                            <div class="row mx-5 mb-4 text-center justify-content-center">
+                            <div class="row mx-5 my-2 text-center justify-content-center">
                                 <input type="submit" value="Confirmar" class="confirmar" aria-label="Confirmar login">
                             </div>
 
@@ -77,26 +82,28 @@
 
         <div class="modal fade" id="accessCodeModal" tabindex="-1" aria-labelledby="accessCodeModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content bg-dark p-4 rounded-5">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-3 text-light" id="accessCodeModalLabel">Enviamos um código de acesso no seu e-mail!</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content bg-dark p-3 rounded-5">
+                    <div class="modal-header border border-0 justify-content-center text-center">
+                        <h1 class="modal-title fs-3 text-light" id="accessCodeModalLabel">Verifique seu Email!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" style="filter: invert(1);"
+                            aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="codeInput" class="form-label fs-5 text-light">Digite o código para realizar log-in:</label>
+                    <div class="modal-body justify-content-center text-center">
+                        <div class="mb-3 justify-content-center text-center">
+                            <label for="codeInput"
+                                class="form-label fs-5 text-light justify-content-center text-center">Digite o código de
+                                acesso para entrar:</label>
                             <input type="text" id="codeInput" name="code"
-                                class="form-control p-3 fs-5 bg-dark text-light"
-                                placeholder="Digite aqui o código enviado por e-mail."
-                                required>
+                                class="form-control mt-2 p-3 rounded-4 fs-4 bg-dark text-light text-center border border-secondary-subtle"
+                                placeholder="Digite aqui o código enviado por e-mail." required>
                         </div>
 
 
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="code_button fs-5" id="checkCodeButton">
-                            Confirmar
+                    <div class="modal-footer border border-0">
+                        <button type="button" class="code_button rounded-4 fs-5 p-2" id="checkCodeButton">
+                            Validar
                         </button>
                     </div>
                 </div>
