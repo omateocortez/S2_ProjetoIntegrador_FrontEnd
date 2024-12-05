@@ -1,0 +1,232 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styleEventos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="imgs/MNMBASE.png" class="x_icon">
+    <title>Eventos - Mãos Na Massa</title>
+</head>
+
+<body>
+
+    <!------------------------ Header ------------------------->
+    <%- include('partials/Header') %>
+        <!------------------------ Header ------------------------->
+
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <h1 class="evento display-4 my-3 fw-medium">
+                    Eventos
+                </h1>
+            </div>
+        </div>
+
+        <!-- Conteúdo da página principal -->
+        <div class="container-fluid justify-content-center text-center mt-0 pt-0">
+            <section>
+                <!------------------------ Modal Form -------------------------->
+                <div class="container" id="botaoAdicionarEvento" style="display: none;">
+                    <div class="row justify-content-end">
+                        <button type="button" id="addeventoButton" class="btn w-auto btn-open-modal"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal" aria-label="Adicionar evento">
+                            + Adicionar Evento
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Modal com o formulário -->
+                <div class="modal fade custom-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg custom-modal-dialog modal-dialog-centered" role="dialog">
+                        <div class="modal-content bg-dark text-light p-3 caixa_modal text-start" role="document">
+                            <!-- Modal com fundo escuro e texto claro -->
+                            <div class="modal-header custom-modal-header">
+                                <h1 class="modal-title fs-3 modal-title-custom" id="exampleModalLabel">
+                                    <%= evento_edit ? 'Edição de' : 'Novo' %> <strong>Evento</strong>
+                                </h1>
+                                <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal"
+                                    aria-label="Fechar" aria-hidden="true"></button>
+                            </div>
+                            <div class="modal-body custom-modal-body">
+                                <!-- Formulário dentro do modal -->
+                                <form id="form-id" class="modal-form" aria-labelledby="exampleModalLabel"
+                                    enctype="multipart/form-data">
+                                    <div class="mb-3 form-group-title">
+                                        <label for="title"
+                                            class="form-label label-title text-light text-start">Título:</label>
+                                        <input type="text" id="title" name="title"
+                                            class="form-control w-100 input-title bg-dark text-light text-start fs-5"
+                                            required aria-required="true" aria-label="Título do evento"
+                                            value="<%= evento_edit ? evento_edit.title : '' %>">
+                                    </div>
+                                    <div class="mb-3 form-group-evento_text">
+                                        <label for="evento_text"
+                                            class="form-label label-evento_text text-light text-start">Descrição:</label>
+                                        <textarea id="evento_text" name="evento_text"
+                                            class="form-control w-100 textarea-evento_text bg-dark text-light text-start"
+                                            rows="7" required aria-required="true"
+                                            aria-label="Descrição do evento"><%- evento_edit ? evento_edit.evento_text : '' %></textarea>
+                                    </div>
+                                    <div class="mb-3 form-group-file">
+                                        <label for="file"
+                                            class="form-label label-file text-light text-start">Imagens:</label>
+                                        <input type="file" id="file" name="files[]"
+                                            class="form-control w-100 input-file bg-dark text-light"
+                                            aria-label="Selecionar imagem" <%=evento_edit ? '' : 'required' %> multiple>
+                                    </div>
+                                    <div class="mb-3 form-group-date">
+                                        <label for="evento_date"
+                                            class="form-label label-date text-light text-start">Data e
+                                            Horário:</label><br>
+                                        <input class="box-calendar" type="datetime-local" id="evento_date"
+                                            name="evento_date" aria-label="Data e Horário do evento"
+                                            value="<%= evento_edit ? evento_edit.evento_date.toISOString().slice(0, 16) : '' %>">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer custom-modal-footer">
+                                <div>
+                                    <%- evento_edit ? ` <div>Criado por: ${ evento_edit.creator_email }
+                                </div>
+                                <div>Última edição: ${ evento_edit.last_editor_email }</div>
+                                ` : '' %>
+                            </div>
+                            <a href="#">
+                                <button type="button" class="btn btn-close-footer" data-bs-dismiss="modal"
+                                    aria-label="Cancelar">
+                                    Cancelar
+                                </button>
+                            </a>
+                            <button type="submit" form="form-id" value="Publicar"
+                                class="btn btn-submit-footer fw-medium" aria-label="Salvar ou publicar evento">
+                                <%= evento_edit ? 'Salvar' : 'Publicar' %>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!------------------------ Modal Form -------------------------->
+
+        <ul style="list-style-type: none;" class="row px-0 g-4">
+            <% data.forEach(event=> { %>
+                <li class="col-12 col-lg-6 col-xl-4" role="listitem">
+                    <!-- Torne a caixa inteira clicável -->
+                    <a href="/Eventos/<%= event._id %>" class="text-decoration-none text-reset"
+                        aria-label="Ver detalhes do evento">
+                        <div class="col d-flex justify-content-center caixa">
+                            <div class="row d-flex flex-column">
+                                <div class="text-center">
+                                    <img src="/<%= event.images[event.images.length - 1] %>"
+                                        class="img-fluid imagem_evento" alt="Imagem do evento"
+                                        aria-label="Imagem do evento">
+                                </div>
+                                <h1 class="titulo-evento text-start" aria-label="Título do evento">
+                                    <%= event.title %>
+                                </h1>
+                                <div class="row me-0 pe-0 justify-content-end text-end">
+                                    <p class="data-evento" aria-label="Data do evento">
+                                        Data:
+                                        <%= `${event.evento_date.getDate() - 1}/${event.evento_date.getMonth() +
+                                            1}/${event.evento_date.getFullYear()}` %>
+                                    </p>
+                                    <p class="hora-evento" aria-label="Horário do evento">
+                                        Horário:
+                                        <%= `${event.evento_date.getHours().toString().padStart(2, '0'
+                                            )}:${event.evento_date.getMinutes().toString().padStart(2, '0' )}` %>
+                                    </p>
+                                </div>
+                                <p class="evento_textricao-evento text-start" aria-label="Descrição do evento">
+                                    <%= event.evento_text %>
+                                </p>
+                                <div class="row align-items-center mt-4 botaoEditar" style="display: none;">
+                                    <div class="row justify-content-start text-start align-items-center">
+                                        <form action="/Eventos/edit/<%= event._id %>" enctype="multipart/form-data"
+                                            method="get">
+                                            <button type="submit" class="p-2 edit_button" aria-label="Editar evento">
+                                                <span class="material-symbols-rounded icone">
+                                                    border_color
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <!-- Button trigger modal -->
+                                <div class="row justify-content-end text-end align-items-center botaoDeletar"
+                                    style="display: none;">
+                                    <button type="button" class="justify-content-end text-end delete_button"
+                                        data-bs-toggle="modal" data-bs-target="#DeleteEvent"
+                                        data-bs-evento-id="<%= event._id %>" aria-label="Excluir evento">
+                                        <span class="material-symbols-rounded icone">
+                                            delete_forever
+                                        </span>
+                                    </button>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <% }) %>
+        </ul>
+
+
+        <!------------------------------------ Modal ------------------------------------>
+        <div class="modal fade" id="DeleteEvent" tabindex="-1" aria-labelledby="DeleteEventLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg h-80">
+                <div class="modal-content bg-dark text-light p-2 caixa_modal">
+                    <div class="modal-header custom-modal-header">
+                        <h1 class="modal-title ms-3 modal_title" id="DeleteEventLabel">Tem certeza que deseja <span
+                                class="fw-bold">excluir</span>
+                            o evento?</h1>
+                        <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body align-items-center">
+                        <div class="row justify-content-center text-center ">
+                            <button type="submit" class="mt-5 p-4 m-5 col-9 col-lg-6 delete_absolute"
+                                id="delete_absolute_button">
+                                Excluir evento <strong class="d-block">permanentemente</strong>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        </div>
+
+        <!------------------------ Footer ------------------------->
+        <%- include('partials/Footer') %>
+            <!------------------------ Footer ------------------------->
+
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+                crossorigin="anonymous"></script>
+
+            <script type="module" src="/js/paginaeventos.js"></script>
+            <script>
+                function handleDeleteClick(event) {
+                    // Impede o comportamento padrão do link
+                    event.preventDefault();
+                    // Impede que o clique se propague para o link pai
+                    event.stopPropagation();
+                }
+            </script>
+</body>
+
+</html>

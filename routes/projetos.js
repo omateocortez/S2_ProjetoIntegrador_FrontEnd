@@ -169,8 +169,6 @@ router.post('/upload', checkTokens, upload, async (req, res)=>{
 
         const projeto = new Proj({title: titulo, desc: descr, images: imgs, date: proj_date, creator_email: creator, last_editor_email: creator}) 
 
-        console.log(projeto)
-
         await projeto.save()
 
         res.status(201).json({ok: true, mensagem:'Projeto criado com sucesso.'})

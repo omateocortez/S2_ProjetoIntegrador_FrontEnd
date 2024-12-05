@@ -4,61 +4,21 @@
     padding: 0;
     font-family: poppins;
   }
-  
-  body::before {
-    content: "XS";
-    color: red;
-    font-size: 2rem;
-    font-weight: bold;
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 10px;
-  }
-  
-  @media (min-width: 576px) {
-    body::before {
-      content: "SM";
-    }
-  }
-  
-  @media (min-width: 768px) {
-    body::before {
-      content: "MD";
-    }
-  }
-  
-  @media (min-width: 992px) {
-    body::before {
-      content: "LG";
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    body::before {
-      content: "XL";
-    }
-  }
-  
-  @media (min-width: 1400px) {
-    body::before {
-      content: "XXL";
-    }
-  }
+
   
   
   /* ------------------ Body ------------------- */
-  .NossaHistoria{
-    font-size: 50px;
-    font-weight: 400;
-    padding: 0px;
-    margin-top: 50px;
+
+  
+  .QuemSomos{
+    color: #234B79;
 }
 
 .criancas{
-    width: 100%;
-    margin-bottom: 40px;
-    margin-top: 20px;
+    width: 80%;
+    margin-bottom: 100px;
+    margin-top: 10px;
+    border-radius: 40px;
 }
 
 .subtitle{
@@ -66,19 +26,23 @@
   font-size: 33px;
   font-weight: 300;
   color: #234B79;
-  background-color: rgba(117, 139, 166, .55);
   padding: 5px;
+  border-radius: 10px;
+  margin-top: 2rem;
+  margin-inline: 80px;
 }
 
 .texto{
   text-align: justify;
   font-size: 18px;
   font-weight: 400;
+  margin-inline: 80px;
+  margin-bottom: 40px;
 }
 .points{
-  padding-top: 5px;
   text-align: justify;
   font-size: 18px;  
   font-weight: 400;
+  margin-inline: 80px;
+  margin-bottom: 20px;
 }
-

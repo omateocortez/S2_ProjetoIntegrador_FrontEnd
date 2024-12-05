@@ -1,0 +1,216 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+  }
+
+  
+  
+
+  .evento {
+    color: #234B79;
+  }
+  
+  .titulo-evento {
+    color: #234B79;
+    font-size: 25px;
+    padding-top: 10px;
+  }
+  
+  .data-evento {
+    color: #234B79;
+    font-size: medium;
+  }
+
+  .hora-evento {
+    color: #234B79;
+    font-size: medium;
+  }
+  
+  .descricao-evento {
+    display: -webkit-box;
+    line-clamp: 5;
+    -webkit-line-clamp: 5 !important;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #253847;
+    font-size: large;
+    margin-top: 15px;
+  }
+  
+  .caixa {
+    border-radius: 45px; /* Mantém o arredondamento das bordas */
+    background-color: rgba(108, 108, 108, 0.173);
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px #aaaaaa; /* Aumenta a sombra e a torna mais visível */
+    height: 100%;
+    position: relative;
+    height: 100%; /* Certifica que a caixa ocupe toda a altura */
+    padding-bottom: 40px; /* Espaço para os botões */
+    border: transparent 2px solid;
+
+}
+
+  .caixa:hover {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Aumenta a sombra e a torna mais visível */
+  }
+  
+  .imagem_evento {
+    border-radius: 28px !important;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+  
+
+
+
+
+
+
+
+
+
+  .btn-open-modal{
+    background-color: #234B79 !important;
+    color: #D6ED4B !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+  }
+  .btn-open-modal:hover{
+    color: #234B79 !important;
+    background-color: #D6ED4B !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .btn-close-modal{
+    filter: invert(1) !important;
+  }
+
+  .custom-modal-header {
+    border-bottom: 2px solid rgb(81, 81, 81)!important;
+  }
+
+
+  .input-title, .textarea-desc, .input-file{
+    border: 1.5px solid rgb(81, 81, 81)!important;
+    outline: none !important;
+  }
+
+  .box-calendar{
+    background-color: #25384771 !important;
+    padding: 18px !important;
+    border-radius: 20px !important;
+    color: white !important;
+    border: none !important;
+    font-size: 18px;
+  }
+
+
+  
+
+  .custom-modal-footer {
+    border-top: 2px solid rgb(81, 81, 81)!important;
+  }
+
+  .btn-submit-footer{
+    color: #234B79 !important;
+    background-color: #D6ED4B !important;
+    border: 3px solid transparent !important;
+    border-radius: 5px !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+  .btn-submit-footer:hover{
+    background-color: #D6ED4B !important;
+    color: #234B79 !important;
+    border-radius: 15px !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+
+
+  .btn-close-footer{
+    color: white !important;
+    background-color: rgb(81, 81, 81) !important;
+    border: 3px solid transparent !important;
+    border-radius: 5px !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+  .btn-close-footer:hover{
+    border-radius: 15px !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+
+
+
+
+.edit_button, .delete_button {
+    position: absolute;
+    bottom: 15px;
+    padding: 10px; /* Padronize padding e margens */
+}
+
+.edit_button {
+    left: 15px;
+    background-color: transparent;
+    color: #234B79;
+    border: none;
+    border-radius: 78px;
+    transition: all 0.5s ease;
+}
+.edit_button:hover{
+  transition: all 0.5s ease;
+  color: white;
+  background-color: #234B79;
+}
+
+.delete_button {
+    right: 15px;
+    background-color: transparent ;
+    color: #DC4C64;
+    border: none;
+    border-radius: 78px;
+    margin-top: 5px !important;
+    transition: all 0.5s ease;
+    width: min-content !important;
+    padding: 10px !important;
+}
+.delete_button:hover{
+  transition: all 0.5s ease;
+  color: white;
+  background-color: #DC4C64;
+}
+
+.caixa_modal{
+  border-radius: 30px !important;
+  
+}
+
+
+
+
+.modal_title{
+  font-size: 25px;
+  font-weight: 300;
+}
+.delete_absolute{
+  font-size: 30px;
+  background-color: #DC4C64;
+  color: white;
+  border: none;
+  border-radius: 30px;
+
+
+}
+
+.icone{
+  font-size: 25px !important;
+}
+
+
+

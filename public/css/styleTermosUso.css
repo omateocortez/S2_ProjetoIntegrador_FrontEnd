@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+}
+
+
+
+/* ------------------ Body ------------------- */
+
+
+.termos_title{
+    color: #234B79;
+}
+
+.subtitle {
+    margin-left: 100px;
+    margin-top: 30px;
+    text-align: left;
+    font-size: 20px;
+    color: #1D385A;
+}
+
+.texto {
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 400;
+    margin-inline: 100px;
+}
+.update {
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 400;
+    margin-inline: 100px;
+    margin-block: 30px;
+    color: gray;
+}
+
+.points {
+    padding-top: 5px;
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 400;
+    margin-inline: 100px;
+}

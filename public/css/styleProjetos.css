@@ -1,106 +1,70 @@
-
-
 * {
-    margin: 0;
-    padding: 0;
-    font-family: poppins;
-  }
-  
-  body::before {
-    content: "XS";
-    color: red;
-    font-size: 2rem;
-    font-weight: bold;
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 10px;
-  }
-  
-  @media (min-width: 576px) {
-    body::before {
-      content: "SM";
-    }
-  }
-  
-  @media (min-width: 768px) {
-    body::before {
-      content: "MD";
-    }
-  }
-  
-  @media (min-width: 992px) {
-    body::before {
-      content: "LG";
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    body::before {
-      content: "XL";
-    }
-  }
-  
-  @media (min-width: 1400px) {
-    body::before {
-      content: "XXL";
-    }
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: poppins;
+}
 
-  .projeto {
-    color: #253847;
-    font-size: 50px;
-  }
-  
-  .titulo-projeto {
-    color: #234B79;
-    font-size: 25px;
-    padding-top: 10px;
-  }
-  
-  .data-projeto {
-    color: #234B79;
-    font-size: medium;
-  }
-  
-  .descricao-projeto {
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #253847;
-    font-size: large;
-    margin-top: 15px;
-  }
-  
-  .caixa {
-    border-radius: 45px; /* Mantém o arredondamento das bordas */
-    background-color: rgba(108, 108, 108, 0.13);
-    padding: 20px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Aumenta a sombra e a torna mais visível */
-    height: 100%;
-    position: relative;
-    height: 100%; /* Certifica que a caixa ocupe toda a altura */
-    padding-bottom: 40px; /* Espaço para os botões */
-    border: transparent 2px solid;
+
+
+
+.Projeto {
+  color: #234B79;
+}
+
+.titulo-projeto {
+  color: #234B79;
+  font-size: 25px;
+  padding-top: 10px;
+}
+
+.data-projeto {
+  color: #234B79;
+  font-size: medium;
+}
+
+.descricao-projeto {
+  display: -webkit-box;
+  line-clamp: 5;
+  -webkit-line-clamp: 5 !important;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #253847;
+  font-size: large;
+  margin-top: 15px;
+}
+
+.caixa {
+  border-radius: 45px;
+  /* Mantém o arredondamento das bordas */
+  background-color: rgba(108, 108, 108, 0.173);
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px #aaaaaa;
+  /* Aumenta a sombra e a torna mais visível */
+  height: 100%;
+  position: relative;
+  height: 100%;
+  /* Certifica que a caixa ocupe toda a altura */
+  padding-bottom: 40px;
+  /* Espaço para os botões */
+  border: transparent 2px solid;
 
 }
 
-  .caixa:hover {
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Aumenta a sombra e a torna mais visível */
-  }
-  
-  .imagem_projeto {
-    border-radius: 28px !important;
-    height: auto;
-    max-width: 100%;
-    object-fit: cover;
-  }
-  
+.caixa:hover {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  /* Aumenta a sombra e a torna mais visível */
+}
+
+.imagem_projeto {
+  border-radius: 28px !important;
+  height: 300px !important;
+  width: 100% !important;
+  object-fit: cover;
+  object-position: center;
+}
 
 
 
@@ -110,129 +74,139 @@
 
 
 
-  .btn-open-modal{
-    background-color: #234B79 !important;
-    color: #D6ED4B !important;
-    font-weight: 600 !important;
-    transition: all 0.3s ease;
-    margin-bottom: 30px;
-  }
-  .btn-open-modal:hover{
-    color: #234B79 !important;
-    background-color: #D6ED4B !important;
-    transition: all 0.3s ease !important;
-  }
+.btn-open-modal {
+  background-color: #234B79 !important;
+  color: #D6ED4B !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+}
 
-  .btn-close-modal{
-    filter: invert(1) !important;
-  }
+.btn-open-modal:hover {
+  color: #234B79 !important;
+  background-color: #D6ED4B !important;
+  transition: all 0.3s ease !important;
+}
 
-  .custom-modal-header {
-    border-bottom: 2px solid rgb(81, 81, 81)!important;
-  }
+.btn-close-modal {
+  filter: invert(1) !important;
+}
 
-
-  .input-title, .textarea-desc, .input-file{
-    border: 1.5px solid rgb(81, 81, 81)!important;
-    outline: none !important;
-  }
-
-  .box-calendar{
-    background-color: #25384771 !important;
-    padding: 18px !important;
-    border-radius: 20px !important;
-    color: white !important;
-    border: none !important;
-    font-size: 18px;
-  }
+.custom-modal-header {
+  border-bottom: 2px solid rgb(81, 81, 81) !important;
+}
 
 
-  
+.input-title,
+.textarea-desc,
+.input-file {
+  border: 1.5px solid rgb(81, 81, 81) !important;
+  outline: none !important;
+}
 
-  .custom-modal-footer {
-    border-top: 2px solid rgb(81, 81, 81)!important;
-  }
-
-  .btn-submit-footer{
-    color: #234B79 !important;
-    background-color: #D6ED4B !important;
-    border: 3px solid transparent !important;
-    border-radius: 5px !important;
-    transition: all 0.3s ease-in-out !important;
-  }
-  .btn-submit-footer:hover{
-    background-color: #D6ED4B !important;
-    color: #234B79 !important;
-    border-radius: 15px !important;
-    transition: all 0.3s ease-in-out !important;
-  }
-
-
-  .btn-close-footer{
-    color: white !important;
-    background-color: rgb(81, 81, 81) !important;
-    border: 3px solid transparent !important;
-    border-radius: 5px !important;
-    transition: all 0.3s ease-in-out !important;
-  }
-  .btn-close-footer:hover{
-    border-radius: 15px !important;
-    transition: all 0.3s ease-in-out !important;
-  }
+.box-calendar {
+  background-color: #25384771 !important;
+  padding: 18px !important;
+  border-radius: 20px !important;
+  color: white !important;
+  border: none !important;
+  font-size: 18px;
+}
 
 
 
 
-.edit_button, .delete_button {
-    position: absolute;
-    bottom: 15px;
-    padding: 10px; /* Padronize padding e margens */
+.custom-modal-footer {
+  border-top: 2px solid rgb(81, 81, 81) !important;
+}
+
+.btn-submit-footer {
+  color: #234B79 !important;
+  background-color: #D6ED4B !important;
+  border: 3px solid transparent !important;
+  border-radius: 5px !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+.btn-submit-footer:hover {
+  background-color: #D6ED4B !important;
+  color: #234B79 !important;
+  border-radius: 15px !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+
+.btn-close-footer {
+  color: white !important;
+  background-color: rgb(81, 81, 81) !important;
+  border: 3px solid transparent !important;
+  border-radius: 5px !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+.btn-close-footer:hover {
+  border-radius: 15px !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+
+
+
+.edit_button,
+.delete_button {
+  position: absolute;
+  bottom: 15px;
+  padding: 10px;
+  /* Padronize padding e margens */
 }
 
 .edit_button {
-    left: 15px;
-    background-color: transparent;
-    color: #234B79;
-    border: none;
-    border-radius: 78px;
-    transition: all 0.5s ease;
+  left: 15px;
+  background-color: transparent;
+  color: #234B79;
+  border: none;
+  border-radius: 78px;
+  transition: all 0.5s ease;
 }
-.edit_button:hover{
+
+.edit_button:hover {
   transition: all 0.5s ease;
   color: white;
   background-color: #234B79;
 }
 
 .delete_button {
-    right: 15px;
-    background-color: transparent ;
-    color: #DC4C64;
-    border: none;
-    border-radius: 78px;
-    margin-top: 5px !important;
-    transition: all 0.5s ease;
-    width: min-content !important;
-    padding: 10px !important;
+  right: 15px;
+  background-color: transparent;
+  color: #DC4C64;
+  border: none;
+  border-radius: 78px;
+  margin-top: 5px !important;
+  transition: all 0.5s ease;
+  width: min-content !important;
+  padding: 10px !important;
 }
-.delete_button:hover{
+
+.delete_button:hover {
   transition: all 0.5s ease;
   color: white;
   background-color: #DC4C64;
 }
 
-.caixa_modal{
+.caixa_modal {
   border-radius: 30px !important;
-  
+
 }
 
 
 
 
-.modal_title{
+.modal_title {
   font-size: 25px;
   font-weight: 300;
 }
-.delete_absolute{
+
+.delete_absolute {
   font-size: 30px;
   background-color: #DC4C64;
   color: white;
@@ -242,6 +216,6 @@
 
 }
 
-.icone{
+.icone {
   font-size: 25px !important;
 }

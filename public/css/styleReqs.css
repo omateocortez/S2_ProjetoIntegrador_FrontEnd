@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+}
+
+
+
+/* -------------------- Corpo --------------------- */
+
+.get_help_title {
+    color: #234B79;
+}
+
+.icone {
+    font-size: 6rem !important;
+    margin-bottom: 20px; /* Espaçamento fixo em relação ao texto */
+}
+
+
+.caixa {
+    background-color: #29374C;
+    /* Começa com fundo azul */
+    height: 260px; /* Garante uma altura mínima para evitar deslocamentos */
+    position: relative; /* Para alinhar os elementos internamente */
+    border-radius: 50px;
+    border: 8px solid transparent;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+}
+
+
+/* Novo código para garantir que o ícone e o título fiquem azuis inicialmente e brancos no hover */
+.caixa .icone {
+    color: whitesmoke;
+    transition: all 0.4s ease;
+    text-decoration: none !important;
+    /* Cor branca para o ícone inicialmente */
+}
+
+.participacao{
+    font-size: 1.2rem;
+}
+
+.caixa .participacao {
+    color: whitesmoke;
+    transition: all 0.4s ease;
+    text-decoration: none !important;
+    /* Cor branca para o título inicialmente */
+}
+
+
+
+.acessar_forms{
+    background-color: #D6ED4B;
+    color: #253847;
+    border: #253847 3px solid;
+    transition: all 0.3s ease;
+}
+.acessar_forms:hover{
+    background-color: #253847;
+    color: #D6ED4B;
+    border: #D6ED4B 3px solid;
+    transition: all 0.3s ease;
+}

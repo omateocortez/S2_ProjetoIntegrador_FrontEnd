@@ -20,7 +20,7 @@ Depois, baixe/clone o repositório no seu computador.
 
 Após baixar/clonar o repositório, abra o terminal<sub>(no diretório do projeto)</sub> e cole o seguinte código:
 ```
-npm i nodemon mongoose express dotenv multer cors cookie-parser;
+npm i nodemon mongoose express dotenv multer cors cookie-parser nodemailer;
 npm i bcrypt mongoose-unique-validator jsonwebtoken --legacy-peer-deps;
 ```
 Isso serve para instalar as dependências do projeto. <sub>[\[clique aqui em caso de erro\]](https://github.com/omateocortez/S2_ProjetoIntegrador_FrontEnd/tree/experimental_backend?tab=readme-ov-file#poss%C3%ADveis-erros)</sub>

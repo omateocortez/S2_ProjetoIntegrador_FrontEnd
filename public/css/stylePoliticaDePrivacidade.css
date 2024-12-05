@@ -1,78 +1,45 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    font-family: poppins;
-  }
-  
-  body::before {
-    content: "XS";
-    color: red;
-    font-size: 2rem;
-    font-weight: bold;
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 10px;
-  }
-  
-  @media (min-width: 576px) {
-    body::before {
-      content: "SM";
-    }
-  }
-  
-  @media (min-width: 768px) {
-    body::before {
-      content: "MD";
-    }
-  }
-  
-  @media (min-width: 992px) {
-    body::before {
-      content: "LG";
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    body::before {
-      content: "XL";
-    }
-  }
-  
-  @media (min-width: 1400px) {
-    body::before {
-      content: "XXL";
-    }
-  }
-  
-  
-  /* ------------------ Body ------------------- */
+  margin: 0;
+  padding: 0;
+  font-family: poppins;
+}
+
+
+
+/* ------------------ Body ------------------- */
+
+
 .tituloPolitica{
-  font-size: 50px;
-  font-weight: 400;
-  padding: 0px;
-  margin-top: 50px;
+  color: #234B79 !important;
 }
 
-.subtitle{
-    
-  font-size: 33px;
-  font-weight: 300;
-  color: #234B79;
-  background-color: rgba(117, 139, 166, .55);
-  padding: 5px;
+.subtitle {
+  margin-left: 100px;
+  margin-top: 30px;
+  text-align: left;
+  font-size: 20px;
+  color: #1D385A;
 }
 
-.texto{
+.texto {
   text-align: justify;
   font-size: 18px;
   font-weight: 400;
+  margin-inline: 100px;
 }
-.points{
-  padding-top: 5px;
+.update {
   text-align: justify;
-  font-size: 18px;  
+  font-size: 18px;
   font-weight: 400;
+  margin-inline: 100px;
+  margin-block: 30px;
+  color: gray;
 }
 
+.points {
+  padding-top: 5px;
+  text-align: justify;
+  font-size: 18px;
+  font-weight: 400;
+  margin-inline: 100px;
+}

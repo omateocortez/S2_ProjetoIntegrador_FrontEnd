@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: poppins;
+}
+
+.x_icon{
+  filter: invert(1) saturate(0) brightness(10000000) !important;
+}
+
+
+/* --------------------Form----------------- */
+
+
+/* Espaço entre a navbar e a caixa de vidro */
+
+.cadastro-title{
+  color: #234B79;
+}
+
+.cadastro-membro {
+  font-weight: 200;
+  font-size: 50px;
+}
+
+.glass {
+  background-image: linear-gradient(to top, #292929, #29374C);
+  border-radius: 35px;
+  /* Bordas arredondadas */
+  color: white;
+  /* Texto branco para contraste */
+  border: none !important;
+  outline: none !important;
+  font-size: larger;
+}
+
+.input_nome,
+.input_sobrenome {
+  width: 50% !important;
+}
+
+
+
+.confirmar {
+  font-size: larger;
+  color: #253847;
+  font-weight: 400;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #D6ED4B;
+  border-radius: 15px;
+  border: #253847 solid 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: all 0.2s ease;
+  margin-right: 43px !important;
+  margin-left: 43px !important;
+
+}
+
+.confirmar:hover {
+  font-size: xx-large;
+  color: #D6ED4B;
+  font-weight: 400;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #253847;
+  border-radius: 20px;
+  border: #D6ED4B solid 3px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+
+.cadastro {
+  font-size: medium;
+}
+
+.cadastre-se {
+  color: #D6ED4B;
+  font-style: italic;
+  font-weight: 300;
+}
+
+
+
+.visibility-icon {
+  font-size: 35px !important;
+  padding: none !important;
+}
+
+/* Estilização do botão de visibilidade */
+.btn-visibility {
+  background-color: #57677A !important;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  color: white !important;
+}
+
+
+.btn-visibility.visibility-inactive {
+  background-color: #D6ED4B !important;
+  color: #234B79 !important;
+}
+
+/* Estado padrão (quando visibilidade está desligada) */
+.btn-visibility.visibility-active {
+  background-color: #57677A !important;
+  color: white !important;
+}
+
+
+/* Importando a fonte do Material Symbols */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded');
+
+.PdP {
+  color: #3592ba;
+  font-style: italic;
+  transition: color 0.2s ease;
+}
+
+#termos{
+  font-size: large;
+}

@@ -5,52 +5,16 @@
     padding: 0;
     font-family: poppins;
   }
-  
-  body::before {
-    content: "XS";
-    color: red;
-    font-size: 2rem;
-    font-weight: bold;
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 10px;
-  }
-  
-  @media (min-width: 576px) {
-    body::before {
-      content: "SM";
-    }
-  }
-  
-  @media (min-width: 768px) {
-    body::before {
-      content: "MD";
-    }
-  }
-  
-  @media (min-width: 992px) {
-    body::before {
-      content: "LG";
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    body::before {
-      content: "XL";
-    }
-  }
-  
-  @media (min-width: 1400px) {
-    body::before {
-      content: "XXL";
-    }
-  }
-  
+
+  .container-xxl {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+}
+
 
   .noticias {
-    color: #253847;
-    font-size: 50px;
+    color: #234B79;
   }
   
   .titulo-noticia {
@@ -66,7 +30,9 @@
   
   .descricao-noticia {
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    line-clamp: 4;
+    -webkit-line-clamp: 4 !important;
+    max-width: 95%;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -77,10 +43,10 @@
   
   .caixa {
     border-radius: 45px; /* Mantém o arredondamento das bordas */
-    background-color: rgba(108, 108, 108, 0.13);
+    background-color: rgba(108, 108, 108, 0.173);
     padding: 20px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Aumenta a sombra e a torna mais visível */
+    box-shadow: 2px 4px 20px #aaaaaa; /* Aumenta a sombra e a torna mais visível */
     height: 100%;
     position: relative;
     height: 100%; /* Certifica que a caixa ocupe toda a altura */
@@ -99,13 +65,10 @@
     height: auto;
     max-width: 100%;
     object-fit: cover;
+    max-height: 300px !important; 
+    object-fit: cover !important; 
+    margin-bottom: 30px !important;
   }
-  
-
-
-
-
-
 
 
 
@@ -185,7 +148,7 @@
 
 .edit_button, .delete_button {
     position: absolute;
-    bottom: 15px;
+    bottom: 16px;
     padding: 10px; /* Padronize padding e margens */
 }
 
@@ -244,3 +207,4 @@
 .icone{
   font-size: 25px !important;
 }
+

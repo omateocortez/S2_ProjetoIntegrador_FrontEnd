@@ -1,0 +1,289 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styleDashAdmin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="imgs/MNMBASE.png" class="x_icon">
+    <title>Dashboard - Mãos Na Massa</title>
+</head>
+
+<body>
+    <!------------------------ Header ------------------------->
+    <%- include('partials/Header') %>
+        <!------------------------ Header ------------------------->
+
+        <div class="container-fluid px-5 mt-4">
+            <div class="row justify-content-center">
+                <!-- Mega Row -->
+                <div class="col-fluid col-xl-9">
+                    <div class="row align-items-start">
+                        <!-- Primeira Row -->
+                        <div class="col-5 col-md-4 col-lg-3 px-0">
+                            <!-- Accordion -->
+                            <div class="accordion custom-accordion" id="filterAccordion">
+                                <div class="accordion-item rounded-5">
+                                    <h2 class="accordion-header" id="headingFilter">
+                                        <button class="accordion-button collapsed d-flex align-items-center"
+                                            type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#panelsStayOpen-collapseFilter" aria-expanded="false"
+                                            aria-controls="panelsStayOpen-collapseFilter">
+                                            <span class="material-symbols-rounded fs-3 me-2">
+                                                filter_list
+                                            </span>
+                                            Filtros
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseFilter" class="accordion-collapse collapse"
+                                        aria-labelledby="headingFilter" data-bs-parent="#filterAccordion">
+                                        <div class="accordion-body rounded-5">
+                                            <form method="POST" action="/DashAdmin">
+                                                <div class="mb-3">
+                                                    <label for="sortBy" class="form-label">Classificar por:</label>
+                                                    <select name="sortBy" id="sortBy" class="form-select"
+                                                        onchange="this.form.submit()">
+                                                        <option value="nome" <%=sortBy==='nome' ? 'selected' : '' %>
+                                                            >Nome
+                                                        </option>
+                                                        <option value="email" <%=sortBy==='email' ? 'selected' : '' %>
+                                                            >Email
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="orderBy" class="form-label">Ordenar de:</label>
+                                                    <select name="orderBy" id="orderBy" class="form-select"
+                                                        onchange="this.form.submit()">
+                                                        <option value="cresc" <%=orderBy==='cresc' ? 'selected' : '' %>
+                                                            >A-Z
+                                                            (Crescente)
+                                                        </option>
+                                                        <option value="decresc" <%=orderBy==='decresc' ? 'selected' : ''
+                                                            %>>
+                                                            Z-A
+                                                            (Decrescente)
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="filterBy" class="form-label">Tipo de usuário:</label>
+                                                    <select name="filterBy" id="filterBy" class="form-select"
+                                                        onchange="this.form.submit()">
+                                                        <option value="ambos" <%=filterBy==='ambos' ? 'selected' : '' %>
+                                                            >Ambos
+                                                        </option>
+                                                        <option value="apenas-func" <%=filterBy==='apenas-func'
+                                                            ? 'selected' : '' %>>Funcionários
+                                                        </option>
+                                                        <option value="apenas-membro" <%=filterBy==='apenas-membro'
+                                                            ? 'selected' : '' %>>Membro
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Segunda Row -->
+                        <div class="col px-0">
+                            <div class="d-flex justify-content-end">
+                                <a aria-label="Cadastrar novo usuário" href="/Cadastro" class="cadastrar-user">
+                                    + Cadastrar Usuário
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="container-fluid px-5 mt-4">
+            <ul class="row g-4 list-unstyled justify-content-center">
+                <% userList.forEach((user, index)=> { %>
+                    <li class="col-fluid mx-0 col-xl-9">
+                        <div class="row caixa align-items-start">
+                            <!-- Comportamento para LG ou menores: Itens empilhados em linhas separadas -->
+                            <div class="row justify-content-end text-center mt-3 px-0 mx-auto">
+                                <!-- Primeira linha: Nome e Sobrenome -->
+                                <div class="col-12 text-start d-flex">
+                                    <h1 class="user my-auto py-auto me-2 fw-light fs-5">Nome:</h1>
+                                    <h1 class="nome-user me-1 my-2 fs-4">
+                                        <%= user.nome %>
+                                    </h1>
+                                    <h1 class="sobrenome-user my-2 fs-4">
+                                        <%= user.sobrenome %>
+                                    </h1>
+                                    <div class="col d-flex align-items-center justify-content-end">
+                                        <!-- Primeira label e campo de email: Exibe em telas MD ou maiores -->
+                                        <p class="me-2 my-auto py-auto text-end d-none d-md-block fs-5">Email:</p>
+                                        <p class="email-user my-auto py-auto text-end fw-medium d-none d-md-block fs-5">
+                                            <%= user.email %>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Segunda label e campo de email: Exibe em telas SM ou menores -->
+                                <div class="col d-flex align-items-center justify-content-start">
+                                    <p class="me-2 my-auto py-auto text-end d-md-none fs-5">Email:</p>
+                                    <p class="email-user my-auto py-auto text-end fw-medium d-md-none fs-5">
+                                        <%= user.email %>
+                                    </p>
+                                </div>
+
+
+                                <div class="row-icones d-flex align-items-center">
+                                    <!-- Coluna para o ícone à esquerda -->
+                                    <div class="col-fluid d-flex align-items-center col_is_funcionario">
+                                        <p class="is-funcionario my-auto me-2">Funcionário</p>
+                                        <div class="custom-toggle">
+                                            <input type="checkbox" id="customSwitch-<%= index %>"
+                                                class="custom-toggle-input" <%=user.funcionario===true ? 'checked' : ''
+                                                %>
+                                            data-bs-user-id="<%= user._id %>">
+                                                <label for="customSwitch-<%= index %>"
+                                                    class="custom-toggle-label"></label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Coluna vazia que empurra os outros ícones para a direita -->
+                                    <div class="ms-auto">
+                                        <div class="row">
+                                            <!-- Coluna para o ícone de deletar -->
+                                            <div class="col-auto align-items-center">
+                                                <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal" data-bs-user-id="<%= user._id %>">
+                                                    <span class="icone_delete material-symbols-rounded">
+                                                        person_remove
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <!-- Coluna para o ícone de editar -->
+                                            <!-- Botão para abrir o modal -->
+                                            <div class="col-auto align-items-center ms-2">
+                                                <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#changePasswordModal"
+                                                    data-bs-user-id="<%= user._id %>">
+                                                    <span class="icone_edit material-symbols-rounded">
+                                                        edit_note
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal para alterar a senha -->
+                                <div class="modal fade custom-modal" id="changePasswordModal" tabindex="-1"
+                                    aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg custom-modal-dialog modal-dialog-centered"
+                                        role="dialog">
+                                        <div class="modal-content bg-dark text-light p-3 caixa_modal" role="document">
+                                            <!-- Modal com fundo escuro e texto claro -->
+                                            <div class="modal-header custom-modal-header">
+                                                <h1 class="modal-title fs-5 modal-title-custom"
+                                                    id="changePasswordModalLabel">
+                                                    Alteração de <strong>Senha</strong>
+                                                </h1>
+                                                <button type="button" class="btn-close btn-close-modal"
+                                                    data-bs-dismiss="modal" aria-label="Fechar"
+                                                    aria-hidden="true"></button>
+                                            </div>
+                                            <div class="modal-body custom-modal-body">
+                                                <!-- Formulário para alterar senha -->
+                                                <form id="changePasswordForm" class="modal-form"
+                                                    aria-labelledby="changePasswordModalLabel">
+                                                    <div class="mb-3 form-group-desc">
+                                                        <label for="newPassword"
+                                                            class="form-label label-desc text-light fs-4">Nova
+                                                            Senha:</label>
+                                                        <input type="text" id="newPassword" name="newPassword"
+                                                            class="form-control w-100 textarea-desc bg-dark text-light fs-4"
+                                                            required aria-label="Nova senha do usuário">
+                                                    </div>
+                                                    <div class="mb-3 form-group-desc">
+                                                        <label for="confirmPassword"
+                                                            class="form-label label-desc text-light fs-4">Confirmar Nova
+                                                            Senha:</label>
+                                                        <input type="text" id="confirmPassword" name="confirmPassword"
+                                                            class="form-control w-100 textarea-desc bg-dark text-light fs-4"
+                                                            required aria-label="Confirmar nova senha do usuário">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer custom-modal-footer">
+                                                <a href="#">
+                                                    <button type="button" class="btn btn-close-footer fs-5"
+                                                        data-bs-dismiss="modal" aria-label="Cancelar">Cancelar</button>
+                                                </a>
+                                                <button type="submit" id="confirmarAlterarSenha"
+                                                    form="changePasswordForm" value="Alterar Senha"
+                                                    class="btn btn-submit-footer fs-5 fw-medium"
+                                                    aria-label="Alterar senha do usuário">
+                                                    Alterar Senha
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+
+
+                            <!-- Modal de confirmação -->
+                            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content bg-dark fs-5 p-3">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-light fs-4" id="deleteModalLabel">Confirmar
+                                                Exclusão
+                                            </h5>
+                                            <button type="button" class="btn-close text-light" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-light">
+                                            Tem certeza que deseja excluir este usuário?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary text-light fs-5"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="button" id="delete_confirm_button"
+                                                class="btn btn-danger text-light fs-5">Deletar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+
+        <!------------------------ Footer --------------------------->
+        <%- include('partials/Footer') %>
+            <!------------------------ Footer --------------------------->
+
+            <script type="module" src="/js/DashAdmin.js"></script>
+            <link rel="stylesheet" href="/css/DashAdmin.css">
+
+</body>
+
+</html>

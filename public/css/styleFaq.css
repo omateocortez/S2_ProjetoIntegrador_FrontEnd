@@ -4,48 +4,6 @@
     padding: 0;
     font-family: poppins;
   }
-  
-  body::before {
-    content: "XS";
-    color: red;
-    font-size: 2rem;
-    font-weight: bold;
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 10px;
-  }
-  
-  @media (min-width: 576px) {
-    body::before {
-      content: "SM";
-    }
-  }
-  
-  @media (min-width: 768px) {
-    body::before {
-      content: "MD";
-    }
-  }
-  
-  @media (min-width: 992px) {
-    body::before {
-      content: "LG";
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    body::before {
-      content: "XL";
-    }
-  }
-  
-  @media (min-width: 1400px) {
-    body::before {
-      content: "XXL";
-    }
-  }
- 
 
   .accordion-item{
     border-radius: 25px !important;
@@ -61,9 +19,9 @@
     box-shadow: none !important;
   }
   .accordion-button:not(.collapsed) {
-    background-color: #234A79 !important; /* Mantém azul quando ativo */
+    background-color: #29374C !important; /* Mantém azul quando ativo */
     color: white !important; /* Mantém o texto branco quando ativo */
-    border: 1px solid #234A79 !important;
+    border: 1px solid #29374C !important;
 }
 
   
@@ -87,17 +45,17 @@
     font-weight: 400;
     font-size: 18px;
     padding-top: 6px;
-    color: #234A79;
+    color: #29374C;
   }
 
 
   .ainda_tem_duvidas{
-    color: #1a3f6c;
+    color: #29374C;
     font-size: 30px;
   }
 
   .contatos{
-    color: #234A79;
+    color: #29374C;
     font-size: 20px;
   }
 
@@ -113,7 +71,7 @@
     background-color: #D6ED4B;
     border-radius: 40px !important;
     border: 3px solid;
-    color: #253847 !important;
+    color: #29374C !important;
     font-size: 25px !important;
     transition: all 0.2s ease;
     font-weight: 600;
@@ -121,7 +79,7 @@
     }
 
   .contato:hover{
-    background-color: #253847 !important;
+    background-color: #29374C !important;
     color: #D6ED4B !important;
     border: 3px solid #D6ED4B;
     }

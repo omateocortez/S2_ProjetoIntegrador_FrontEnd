@@ -1,0 +1,18 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+  }
+  
+  
+  .cert-title{
+    color: #234B79;
+  }
+
+  .img-equal { 
+    height: 400px !important; /* Altura fixa para todas as imagens */
+    width: auto; /* Mantém a proporção */
+    object-fit: contain; /* Ajusta o conteúdo sem cortar */
+  }
+  

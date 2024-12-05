@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+}
+
+.title_inscrição {
+    color: #234B79;
+}
+
+hr {
+    border: 1.2px solid #29374C !important;
+    opacity: 1000000 !important;
+    /* 1 é totalmente opaco */
+}
+
+/* Estilo dos campos de entrada dentro do input group */
+.col-10 .form-control {
+    border: 1.5px #234B79 solid !important;
+    border-radius: 1rem;
+    padding: 15px;
+    font-size: 17px;
+    /* Ajuste o tamanho da fonte para combinar com outros elementos */
+}
+
+.col-10 .input-group-text {
+    background-color: #fff;
+    border: 1.5px solid #234B79 !important;
+    /* Mesma borda dos outros inputs */
+    border-radius: 1rem;
+    /* Ajuste para arredondar os cantos corretamente */
+    color: #234B79;
+}
+
+.col-10 label {
+    color: #234B79;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+/* Estilos para o texto dentro do textarea */
+textarea {
+    border: 1.5px #234B79 solid !important;
+    border-radius: 1rem;
+    font-size: 17px;
+}
+
+::placeholder {
+    font-style: italic !important;
+    color: gray !important;
+}
+
+/* Estilos para os radio buttons */
+.form-check-input {
+    transform: scale(1.2);
+    border: 1.5px solid #234B79 !important;
+}
+
+.form-check-label {
+    font-weight: 400 !important;
+    color: #29374C;
+}
+
+.col-10 .outro {
+    border: none !important;
+    outline: none !important;
+}
+
+.enviar_button {
+    color: #29374C;
+    background-color: #D6ED4B;
+    border: 3px solid #29374C;
+    transition: all 0.3s ease;
+    font-weight: 600 !important;
+}
+
+.enviar_button:hover {
+    padding-inline: 1.7rem !important;
+    padding-block: 1.2rem !important;
+    font-size: 1.5rem !important;
+    transition: all 0.3s ease;
+}
