@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function(){
         .then(data => {
             if (data.ok) {
                 console.log('Formulário enviado.')
-                location.reload()
+                formulario.reset()
+                PlayAnim()
             } else {
                 alert(data.mensagem)
                 console.warn('Erro ao enviar formulário!')
@@ -47,3 +48,20 @@ document.addEventListener('DOMContentLoaded', function(){
 
     })
 })
+
+function PlayAnim(){
+    const lottiePlayer = document.getElementById('check-animation'); // Referência à animação
+    const modalElement = document.getElementById('exampleModal'); // Referência ao modal
+    const modalInstance = new bootstrap.Modal(modalElement); 
+    modalInstance.show();
+
+    // Delay para iniciar a animação
+    setTimeout(() => {
+        lottiePlayer.play(); // Inicia a animação
+    }, 600);
+
+    // Fecha o modal automaticamente após 5 segundos
+    setTimeout(() => {
+        modalInstance.hide(); // Fecha o modal
+    }, 5000);
+}
