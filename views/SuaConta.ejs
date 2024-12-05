@@ -221,29 +221,6 @@
 
             <script type="module" src="/js/SuaConta.js"></script>
 
-
-            <script>
-                const salvarAlteracoesBtn = document.getElementById('salvarAlteracoes'); // Botão de salvar alterações
-                const lottiePlayer = document.getElementById('check-animation'); // Referência à animação
-                const modalElement = document.getElementById('exampleModal'); // Referência ao modal
-
-                // Listener no botão "Salvar Alterações"
-                salvarAlteracoesBtn.addEventListener('click', () => {
-                    // Abre o modal manualmente
-                    const modalInstance = new bootstrap.Modal(modalElement);
-                    modalInstance.show();
-
-                    // Delay para iniciar a animação
-                    setTimeout(() => {
-                        lottiePlayer.play(); // Inicia a animação
-                    }, 600);
-
-                    // Fecha o modal automaticamente após 5 segundos
-                    setTimeout(() => {
-                        modalInstance.hide(); // Fecha o modal
-                    }, 5000);
-                });
-            </script>
 </body>
 
 </html>
